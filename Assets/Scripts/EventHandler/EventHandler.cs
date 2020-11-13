@@ -10,9 +10,7 @@ public class EventHandler : MonoBehaviour
 
     public UnityEvent onGameStarted;
     public UnityEvent onGameLoaded;
-    
-    
-    
+
     private void Awake()
     {
         onGameStarted = new UnityEvent();
