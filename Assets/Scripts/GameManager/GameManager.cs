@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    // Start is called before the first frame update
+
+    [SerializeField] private EventHandler eventHandler;
+    
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -15,5 +17,10 @@ public class GameManager : MonoBehaviour
     public static GameManager GetGameManager()
     {
         return _instance;
+    }
+
+    public static EventHandler GetEventHandler()
+    {
+        return _instance.eventHandler;
     }
 }
