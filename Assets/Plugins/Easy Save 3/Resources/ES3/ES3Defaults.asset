@@ -29,9 +29,9 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
+    - Assembly-CSharp-firstpass
     - Cinemachine
     - Assembly-CSharp
-    - Assembly-CSharp-firstpass
     - PsdPlugin
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
