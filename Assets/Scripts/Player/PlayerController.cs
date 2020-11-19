@@ -7,23 +7,31 @@ namespace Player
     {
         [SerializeField] private float playerSpeed;
         private Vector3 move;
-        private CharacterController characterController;
+        private Rigidbody2D rigidbody;
+        private Collider2D collider;
 
         // Start is called before the first frame update
         private void Start()
         {
-            characterController = gameObject.GetComponent<CharacterController>();
+            rigidbody = GetComponent<Rigidbody2D>();
+            collider = GetComponent<CircleCollider2D>();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized;
+            move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         }
 
         private void FixedUpdate()
         {
-            characterController.Move(move * (Time.fixedDeltaTime * playerSpeed));
+            Vector3 pos = gameObject.transform.position;
+            rigidbody.MovePosition(pos + move * (Time.fixedDeltaTime * playerSpeed));
+
+            if (move == Vector3.zero)
+            {
+                rigidbody.velocity = Vector2.zero;
+            }
         }
     }
 }
