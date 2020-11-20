@@ -6,32 +6,28 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float playerSpeed;
-        private Vector3 move;
-        private Rigidbody2D rigidbody;
-        private Collider2D collider;
+        private Vector2 _move;
+        private Rigidbody2D _rigidbody;
+        private Collider2D _collider;
 
         // Start is called before the first frame update
         private void Start()
         {
-            rigidbody = GetComponent<Rigidbody2D>();
-            collider = GetComponent<CircleCollider2D>();
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<CircleCollider2D>();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+            _move.x = Input.GetAxisRaw("Horizontal");
+            _move.y = Input.GetAxisRaw("Vertical");
+            _move.Normalize();
         }
 
         private void FixedUpdate()
         {
-            Vector3 pos = gameObject.transform.position;
-            rigidbody.MovePosition(pos + move * (Time.fixedDeltaTime * playerSpeed));
-
-            if (move == Vector3.zero)
-            {
-                rigidbody.velocity = Vector2.zero;
-            }
+            _rigidbody.MovePosition(_rigidbody.position + _move * (playerSpeed * Time.fixedDeltaTime));
         }
     }
 }
