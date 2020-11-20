@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: All
+  m_Name: Tile Palettes
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -42,7 +42,7 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: c70af50fbd4034343b8db778a38e6a2b, type: 3}
+    - {fileID: 102900000, guid: 6a2579615795a80469d3eefbbea46872, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -4379,5 +4379,5 @@ SpriteAtlas:
   - roguelikeIndoor_transparent_75
   - roguelikeIndoor_transparent_69
   - roguelikeIndoor_transparent_21
-  m_Tag: All
+  m_Tag: Tile Palettes
   m_IsVariant: 0
