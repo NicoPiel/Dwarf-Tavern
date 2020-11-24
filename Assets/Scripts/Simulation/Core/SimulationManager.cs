@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Simulation.Modules;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ namespace Simulation.Core
     public class SimulationManager : MonoBehaviour
     {
         private static SimulationManager _instance;
+        [SerializeField] private CustomerSimulation customerSimulation;
 
         private UnityEvent onSimulationStart;
         private UnityEvent onSimulationPause;
@@ -19,20 +21,19 @@ namespace Simulation.Core
         {
             // Reference static instance
             _instance = this;
-            
+
             // Setup Events
             onSimulationStart = new UnityEvent();
             onSimulationPause = new UnityEvent();
             onSimulationTick  = new UnityEvent();
-            
-            onSimulationStart.AddListener(OnSimulationStart);
-            onSimulationPause.AddListener(OnSimulationPause);
-            onSimulationTick.AddListener(OnSimulationTick);
         }
     
         private void Start()
         {
-            
+            // Subscribe to own events for debugging
+            onSimulationStart.AddListener(OnSimulationStart);
+            onSimulationPause.AddListener(OnSimulationPause);
+            onSimulationTick.AddListener(OnSimulationTick);
         }
 
         public void StartSimulation()
@@ -79,6 +80,11 @@ namespace Simulation.Core
         public static SimulationManager GetInstance()
         {
             return _instance;
+        }
+
+        public CustomerSimulation CustomerSimulation()
+        {
+            return customerSimulation;
         }
     }
 }

@@ -30,4 +30,9 @@ public class GameManager : MonoBehaviour
     {
         return _instance.eventHandler;
     }
+
+    public static SimulationManager GetSimulationManager()
+    {
+        return _instance.simulationManager;
+    }
 }
