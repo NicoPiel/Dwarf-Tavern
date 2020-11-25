@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Simulation.Modules;
+using Simulation.Modules.CustomerSimulation;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,9 +11,9 @@ namespace Simulation.Core
         private static SimulationManager _instance;
         [SerializeField] private CustomerSimulation customerSimulation;
 
-        private UnityEvent onSimulationStart;
-        private UnityEvent onSimulationPause;
-        private UnityEvent onSimulationTick;
+        public UnityEvent onSimulationStart;
+        public UnityEvent onSimulationPause;
+        public UnityEvent onSimulationTick;
 
         private bool _paused;
 
@@ -48,6 +49,12 @@ namespace Simulation.Core
             StopCoroutine(SimulationTick());
         }
 
+        // TODO
+        private IEnumerator SimulationPreTick()
+        {
+            yield return null;
+        }
+
         private IEnumerator SimulationTick()
         {
             for (;;)
@@ -58,6 +65,12 @@ namespace Simulation.Core
                 yield return new WaitForSeconds(1f);
                 yield return new WaitForEndOfFrame();
             }
+        }
+
+        // TODO
+        private IEnumerator SimulationPostTick()
+        {
+            yield return null;
         }
 
         private void OnSimulationStart()
