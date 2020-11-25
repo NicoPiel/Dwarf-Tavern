@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Simulation.Modules;
 using Simulation.Modules.CustomerSimulation;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,9 +7,14 @@ namespace Simulation.Core
 {
     public class SimulationManager : MonoBehaviour
     {
+        // Public
+        public int CustomerLimit { get; set; }
+
+        // Private
         private static SimulationManager _instance;
         [SerializeField] private CustomerSimulation customerSimulation;
 
+        // Events
         public UnityEvent onSimulationStart;
         public UnityEvent onSimulationPause;
         public UnityEvent onSimulationTick;
@@ -95,9 +99,9 @@ namespace Simulation.Core
             return _instance;
         }
 
-        public CustomerSimulation CustomerSimulation()
+        public static CustomerSimulation CustomerSimulation()
         {
-            return customerSimulation;
+            return _instance.customerSimulation;
         }
     }
 }

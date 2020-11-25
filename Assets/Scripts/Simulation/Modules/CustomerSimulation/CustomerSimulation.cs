@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Simulation.Core;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
+using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -11,10 +14,13 @@ namespace Simulation.Modules.CustomerSimulation
         public static Dictionary<string, string[]> Names { get; set; }
 
         private static readonly string PathToNameJson = Application.streamingAssetsPath + "/JSON/names.json";
+        
         private SimulationManager simulationManager;
         [SerializeField] private GameObject customerPrefab;
-        [SerializeField] private List<Customer> customers; 
+        [SerializeField] private List<Customer> customers;
 
+        private int time;
+        
         private void Awake()
         {
             Names = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToNameJson));
@@ -34,15 +40,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void OnSimulationStart()
         {
-            // DEBUG: Add customers
-            for (var i = 0; i < 20; i++)
-            {
-                GameObject newCustomer = Instantiate(customerPrefab, transform);
-                var customerScript = newCustomer.GetComponent<Customer>();
-                newCustomer.name = customerScript.Name;
-                
-                customers.Add(customerScript);
-            }
+            time = 0;
         }
         
         private void OnSimulationPause()
@@ -52,9 +50,35 @@ namespace Simulation.Modules.CustomerSimulation
         
         private void OnSimulationTick()
         {
-            
+            if (Random.value <= CustomerProbability(time))
+            {
+                time = 0;
+                AddCustomer();
+            }
+            else
+            {
+                time++;
+            }
         }
 
+        private Customer AddCustomer()
+        {
+            GameObject newCustomer = Instantiate(customerPrefab, transform);
+            var customerScript = newCustomer.GetComponent<Customer>();
+            newCustomer.name = customerScript.Name;
+                
+            customers.Add(customerScript);
+
+            return customerScript;
+        }
+
+        private float CustomerProbability(int t)
+        {
+            var p = Mathf.Pow(1.6f, t) / 100;
+            
+            return p <= 1f ? p : 1f;
+        }
+        
         public static string GetRandomName()
         {
             var firstNameList = Names["dwarf_firstname"];

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -40,6 +41,11 @@ namespace Simulation.Modules.CustomerSimulation
             Name = CustomerSimulation.GetRandomName();
 
             Debug.Log(Name + " klopft an.");
+        }
+
+        private IEnumerator MoveToTable()
+        {
+            yield return new WaitForSeconds(4f);
         }
     }
 }
