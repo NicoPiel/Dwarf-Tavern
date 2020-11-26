@@ -63,7 +63,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private Customer AddCustomer()
         {
-            GameObject newCustomer = Instantiate(customerPrefab, transform);
+            var newCustomer = Instantiate(customerPrefab, transform);
             var customerScript = newCustomer.GetComponent<Customer>();
             newCustomer.name = customerScript.Name;
                 
