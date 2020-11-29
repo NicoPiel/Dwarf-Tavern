@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Simulation.Core;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
