@@ -32,7 +32,13 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - Cinemachine
     - Assembly-CSharp
+    - ALINE
+    - AstarPathfindingProject
     - PsdPlugin
+    - ALINEPackageToolsEditor
+    - ALINEEditor
+    - AstarPathfindingProjectEditor
+    - PackageToolsEditor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
