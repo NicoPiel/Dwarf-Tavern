@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - Furniture
+  - CustomerPlace
+  - Spawner
   layers:
   - Default
   - TransparentFX

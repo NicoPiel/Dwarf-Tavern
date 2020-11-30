@@ -8,7 +8,6 @@ namespace Simulation.Core
     public class SimulationManager : MonoBehaviour
     {
         // Public
-        public int CustomerLimit { get; set; }
 
         // Private
         private static SimulationManager _instance;
