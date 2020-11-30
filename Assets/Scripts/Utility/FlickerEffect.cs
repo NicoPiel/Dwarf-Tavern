@@ -15,7 +15,7 @@ namespace Utility
     ///
     /// Just activate / deactivate this component as usual to pause / resume flicker
     /// </summary>
-    public class LightFlickerEffect : MonoBehaviour {
+    public class FlickerEffect : MonoBehaviour {
         [Tooltip("External light to flicker; you can leave this null if you attach script to a light")]
         public new Light2D light;
         [Tooltip("Minimum random light intensity")]
@@ -63,7 +63,7 @@ namespace Utility
             }
 
             // Generate random new item, calculate new average
-            float newVal = Random.Range(minIntensity, maxIntensity);
+            var newVal = Random.Range(minIntensity, maxIntensity);
             smoothQueue.Enqueue(newVal);
             lastSum += newVal;
 
