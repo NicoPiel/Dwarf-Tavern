@@ -15,9 +15,10 @@ namespace Simulation.Core
         [SerializeField] private CustomerSimulation customerSimulation;
 
         // Events
-        public UnityEvent onSimulationStart;
-        public UnityEvent onSimulationPause;
-        public UnityEvent onSimulationTick;
+        public static UnityEvent onSimulationStart;
+        public static UnityEvent onSimulationPause;
+        public static UnityEvent onSimulationUnpause;
+        public static UnityEvent onSimulationTick;
 
         private bool _paused;
 
@@ -30,6 +31,7 @@ namespace Simulation.Core
             // Setup Events
             onSimulationStart = new UnityEvent();
             onSimulationPause = new UnityEvent();
+            onSimulationUnpause = new UnityEvent();
             onSimulationTick  = new UnityEvent();
         }
     
@@ -38,6 +40,7 @@ namespace Simulation.Core
             // Subscribe to own events for debugging
             onSimulationStart.AddListener(OnSimulationStart);
             onSimulationPause.AddListener(OnSimulationPause);
+            onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
         }
 
@@ -52,6 +55,12 @@ namespace Simulation.Core
             onSimulationPause.Invoke();
             StopCoroutine(SimulationTick());
         }
+        
+        public void UnpauseSimulation()
+        {
+            onSimulationUnpause.Invoke();
+            StartCoroutine(SimulationTick());
+        }
 
         // TODO
         private IEnumerator SimulationPreTick()
@@ -65,6 +74,7 @@ namespace Simulation.Core
             {
                 if (_paused) break;
                 
+                yield return new WaitForEndOfFrame();
                 onSimulationTick.Invoke();
                 yield return new WaitForSeconds(1f);
                 yield return new WaitForEndOfFrame();
@@ -87,6 +97,12 @@ namespace Simulation.Core
         {
             _paused = true;
             Debug.Log("Simulation paused.");
+        }
+        
+        private void OnSimulationUnpause()
+        {
+            _paused = false;
+            Debug.Log("Simulation unpaused.");
         }
 
         private void OnSimulationTick()

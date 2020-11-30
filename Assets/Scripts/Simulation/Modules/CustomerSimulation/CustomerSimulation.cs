@@ -28,9 +28,9 @@ namespace Simulation.Modules.CustomerSimulation
         {
             simulationManager = GameManager.GetSimulationManager();
             
-            simulationManager.onSimulationStart.AddListener(OnSimulationStart);
-            simulationManager.onSimulationPause.AddListener(OnSimulationPause);
-            simulationManager.onSimulationTick.AddListener(OnSimulationTick);
+            SimulationManager.onSimulationStart.AddListener(OnSimulationStart);
+            SimulationManager.onSimulationPause.AddListener(OnSimulationPause);
+            SimulationManager.onSimulationTick.AddListener(OnSimulationTick);
             
             customers = new List<Customer>();
         }

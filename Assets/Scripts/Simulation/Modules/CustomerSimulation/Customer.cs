@@ -95,12 +95,12 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void Block()
         {
-            _blocked = true;
+            this._blocked = true;
         }
 
         private void Unblock()
         {
-            _blocked = false;
+            this._blocked = false;
         }
     }
 }

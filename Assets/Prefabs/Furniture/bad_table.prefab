@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4925254656613392606}
   m_Layer: 0
   m_Name: bad_table
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +93,10 @@ PrefabInstance:
     - target: {fileID: 2973844427930601446, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_Name
       value: Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973844427930601446, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6530493364639459940, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_RootOrder
