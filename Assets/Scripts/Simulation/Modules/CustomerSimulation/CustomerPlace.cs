@@ -6,6 +6,7 @@ namespace Simulation.Modules.CustomerSimulation
     public class CustomerPlace : MonoBehaviour
     {
         public bool occupied = false;
+        public Customer occupiedBy;
         
         // Start is called before the first frame update
         private void Start()
@@ -16,6 +17,7 @@ namespace Simulation.Modules.CustomerSimulation
         private void OnSimulationStart()
         {
             occupied = false;
+            occupiedBy = null;
         }
     }
 }

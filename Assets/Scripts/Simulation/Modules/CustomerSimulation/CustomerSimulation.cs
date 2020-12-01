@@ -67,6 +67,7 @@ namespace Simulation.Modules.CustomerSimulation
             var newCustomer = Instantiate(customerPrefab, transform);
             var customerScript = newCustomer.GetComponent<Customer>();
             newCustomer.name = customerScript.Name;
+            newCustomer.ass
 
             customers.Add(customerScript);
 

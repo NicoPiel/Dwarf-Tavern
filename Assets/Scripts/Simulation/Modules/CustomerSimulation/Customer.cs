@@ -153,5 +153,15 @@ namespace Simulation.Modules.CustomerSimulation
             this._blocked = false;
             Debug.Log($"{Name} has arrived at their table.");
         }
+
+        private void Assign(CustomerPlace place)
+        {
+            assignedPlace = place;
+        }
+
+        private void Unassign()
+        {
+            assignedPlace = null;
+        }
     }
 }
