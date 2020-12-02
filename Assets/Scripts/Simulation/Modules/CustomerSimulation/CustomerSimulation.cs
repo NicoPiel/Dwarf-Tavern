@@ -16,6 +16,8 @@ namespace Simulation.Modules.CustomerSimulation
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private List<Customer> customers;
         [SerializeField] private List<CustomerPlace> customerPlaces;
+        [SerializeField] private List<CustomerPlace> unassignedCustomerPlaces;
+        [SerializeField] private List<CustomerPlace> assignedCustomerPlaces;
 
         private int time;
 
@@ -34,10 +36,13 @@ namespace Simulation.Modules.CustomerSimulation
             customers = new List<Customer>();
             
             customerPlaces = new List<CustomerPlace>();
-            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("CustomerPlace"))
+            foreach (var obj in GameObject.FindGameObjectsWithTag("CustomerPlace"))
             {
                 customerPlaces.Add(obj.GetComponent<CustomerPlace>());
             }
+
+            unassignedCustomerPlaces = customerPlaces;
+            assignedCustomerPlaces = new List<CustomerPlace>();
         }
 
         private void OnSimulationStart()
@@ -51,14 +56,23 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void OnSimulationTick()
         {
-            if (Random.value <= CustomerProbability(time))
+            if (customers.Count <= CustomerLimit)
             {
-                time = 0;
-                AddCustomer();
+                // Add a new customer based on time passed since the last time one was added.
+                if (Random.value <= CustomerProbability(time))
+                {
+                    time = 0;
+                    AddCustomer();
+                }
+                else
+                {
+                    time++;
+                }
             }
-            else
+
+            foreach (var customer in customers)
             {
-                time++;
+                customer.UpdateState();
             }
         }
 
@@ -67,7 +81,7 @@ namespace Simulation.Modules.CustomerSimulation
             var newCustomer = Instantiate(customerPrefab, transform);
             var customerScript = newCustomer.GetComponent<Customer>();
             newCustomer.name = customerScript.Name;
-            newCustomer.ass
+            AssignCustomerToRandomPlace(customerScript);
 
             customers.Add(customerScript);
 
@@ -90,6 +104,23 @@ namespace Simulation.Modules.CustomerSimulation
             var lastname = lastNameList[Random.Range(0, lastNameList.Length)];
 
             return $"{firstname} {lastname}";
+        }
+
+        /**
+         * Assigns a random unassigned place to a specific customer.
+         */
+        public CustomerPlace AssignCustomerToRandomPlace(Customer customer)
+        {
+            // Get random unassigned place.
+            var customerPlace = unassignedCustomerPlaces[Random.Range(0, unassignedCustomerPlaces.Count)];
+            // Remove it from the original list
+            unassignedCustomerPlaces.Remove(customerPlace);
+            // Add it to a different list
+            assignedCustomerPlaces.Add(customerPlace);
+            // Assign it to the customer
+            customer.Assign(customerPlace);
+
+            return customerPlace;
         }
     }
 }

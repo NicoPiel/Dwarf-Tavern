@@ -23,7 +23,7 @@ public class TransitionTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("enter");
+            //Debug.Log("enter");
             UpdateAll(0, 1, 0.34f);
         }
     }
@@ -32,7 +32,7 @@ public class TransitionTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("exit");
+            //Debug.Log("exit");
             UpdateAll(1, 0, 0.34f);
         }
     }
@@ -42,7 +42,7 @@ public class TransitionTrigger : MonoBehaviour
         var objects = room.GetComponentsInChildren<Transform>().Select(tf => tf.gameObject);
         foreach(var obj in objects)
         {
-            Debug.Log(obj.name);
+            //Debug.Log(obj.name);
             var tilemap = obj.GetComponent<Tilemap>();
             if(tilemap != null)
             {

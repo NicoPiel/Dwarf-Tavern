@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3982167288702690482}
   - component: {fileID: 767715048581585644}
   - component: {fileID: 307892756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -84,6 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  smoothMovement: 0
+  smoothness: 5
 --- !u!212 &307892756
 SpriteRenderer:
   m_ObjectHideFlags: 0
