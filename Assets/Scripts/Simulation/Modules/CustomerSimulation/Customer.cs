@@ -110,19 +110,10 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (assignedPlace == null) yield return null;
 
-            var target = assignedPlace.transform.position;
+            Vector3 target = assignedPlace.transform.position;
 
-            var p = seeker.StartPath(transform.position, target);
-            
             pathfinder.destination = target;
-            // pathfinder.SearchPath();
-
-            while (pathfinder.pathPending)
-            {
-                yield return null;
-            }
-            
-            // pathfinder.SetPath(p);
+            pathfinder.SearchPath();
 
             while (!pathfinder.reachedDestination)
             {

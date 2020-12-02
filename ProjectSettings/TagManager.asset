@@ -8,6 +8,7 @@ TagManager:
   - Furniture
   - CustomerPlace
   - Spawner
+  - Customer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Floor
   - Walls
   - Player
-  - 
+  - Customers
   - 
   - 
   - 
