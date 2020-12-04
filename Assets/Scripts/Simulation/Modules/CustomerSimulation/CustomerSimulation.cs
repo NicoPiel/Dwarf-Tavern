@@ -55,6 +55,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void OnSimulationPause()
         {
+            
         }
 
         private void OnSimulationTick()
