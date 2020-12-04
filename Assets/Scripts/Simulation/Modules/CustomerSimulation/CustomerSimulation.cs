@@ -9,9 +9,11 @@ namespace Simulation.Modules.CustomerSimulation
     public class CustomerSimulation : MonoBehaviour
     {
         public static Dictionary<string, string[]> Names { get; set; }
+        public static Dictionary<string, string[]> Orders { get; set; }
         public int CustomerLimit = 20;
 
         private static readonly string PathToNameJson = Application.streamingAssetsPath + "/JSON/names.json";
+        private static readonly string PathToOrdersJson = Application.streamingAssetsPath + "/JSON/orders.json";
 
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private List<Customer> customers;
@@ -24,6 +26,7 @@ namespace Simulation.Modules.CustomerSimulation
         private void Awake()
         {
             Names = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToNameJson));
+            Orders = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToOrdersJson));
         }
 
         // Start is called before the first frame update
@@ -78,7 +81,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private Customer AddCustomer()
         {
-            var newCustomer = Instantiate(customerPrefab, transform);
+            var newCustomer = Instantiate(customerPrefab, GameObject.FindWithTag("Spawner").transform);
             var customerScript = newCustomer.GetComponent<Customer>();
             newCustomer.name = customerScript.Name;
             AssignCustomerToRandomPlace(customerScript);
@@ -86,6 +89,16 @@ namespace Simulation.Modules.CustomerSimulation
             customers.Add(customerScript);
 
             return customerScript;
+        }
+
+        private void RemoveCustomer(Customer customer)
+        {
+            if (customers.Remove(customer))
+            {
+                Destroy(customer.gameObject);
+            }
+            
+            Debug.Log($"{customer.Name} hat die Taverne verlassen.");
         }
 
         private float CustomerProbability(int t)

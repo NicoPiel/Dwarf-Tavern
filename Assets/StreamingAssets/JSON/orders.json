@@ -1,0 +1,19 @@
+{
+  "beverages": [
+    "Bier",
+    "Schnaps",
+    "Brand",
+    "Whiskey",
+    "Wein"
+  ],
+  "tastes": [
+    "bitter",
+    "süß",
+    "herb",
+    "sauer",
+    "scharf",
+    "herzhaft",
+    "salzig",
+    "fettig"
+  ]
+}

@@ -2,6 +2,7 @@
 using Simulation.Exceptions;
 using UnityEngine;
 using Pathfinding;
+using Utility.Tooltip;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -15,8 +16,10 @@ namespace Simulation.Modules.CustomerSimulation
 
         private Seeker seeker;
         private AIPath pathfinder;
-        private bool _blocked;
-        private State _currentState;
+        [SerializeField] private bool _blocked;
+        [SerializeField] private State _currentState;
+        [SerializeField] private bool _isInteractedWith;
+        [SerializeField] private string _currentOrder;
 
         /**
          * State enum
@@ -78,10 +81,14 @@ namespace Simulation.Modules.CustomerSimulation
                     StartCoroutine(MoveToTable());
                     break;
                 case State.ArrivedAtTable:
+                    StartCoroutine(Idle());
+                    _currentState = State.Ordering;
                     break;
                 case State.Ordering:
+                    StartCoroutine(Order());
                     break;
                 case State.Waiting:
+                    StartCoroutine(Wait());
                     break;
                 case State.Consuming:
                     break;
@@ -98,7 +105,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private IEnumerator Arrive()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(Random.Range(0.5f, 4f));
             _currentState = State.MovingToTable;
             Unblock();
         }
@@ -131,7 +138,6 @@ namespace Simulation.Modules.CustomerSimulation
         private void ArriveAtTable()
         {
             _currentState = State.ArrivedAtTable;
-            StartCoroutine(Idle());
         }
 
         /**
@@ -141,16 +147,31 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (_currentState != State.ArrivedAtTable) _currentState = State.Idle;
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(Random.Range(0.5f, 4f));
             Unblock();
+        }
+
+        private IEnumerator Order()
+        {
+            _currentState = State.Waiting;
+            
+            _currentOrder = RandomOrder();
+            Tooltip.ShowTooltip_Static(_currentOrder);
+            yield return null;
+        }
+
+        private IEnumerator Wait()
+        {
+            yield return new WaitUntil(() => _isInteractedWith);
+            Tooltip.HideTooltip_Static();
         }
 
         /**
          * Blocks the state machine from changing states.
          */
-        private void Block()
+        private void Block(bool blocked = true)
         {
-            this._blocked = true;
+            this._blocked = blocked;
         }
 
         /**
@@ -178,6 +199,37 @@ namespace Simulation.Modules.CustomerSimulation
         public void Unassign()
         {
             assignedPlace = null;
+        }
+
+        // TODO: Create actual orders
+        private string RandomOrder()
+        {
+            var beverages = CustomerSimulation.Orders["beverages"];
+            var tastes = CustomerSimulation.Orders["tastes"];
+
+            var beverage = beverages[Random.Range(0, beverages.Length)];
+            var taste = tastes[Random.Range(0, tastes.Length)];
+
+            switch (beverage)
+            {
+                case "Bier":
+                    taste += "es";
+                    break;
+                case "Schnaps":
+                    taste += "er";
+                    break;
+                case "Brand":
+                    taste += "er";
+                    break;
+                case "Whiskey":
+                    taste += "er";
+                    break;
+                case "Wein":
+                    taste += "er";
+                    break;
+            }
+
+            return $"{taste} {beverage}";
         }
     }
 }

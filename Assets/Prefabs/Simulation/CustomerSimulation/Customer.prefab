@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7413459058823863964}
   - component: {fileID: -6277858951488376030}
   - component: {fileID: -987663552856587322}
-  - component: {fileID: 514016832467436757}
+  - component: {fileID: 7965171183345613398}
   m_Layer: 11
   m_Name: Customer
   m_TagString: Customer
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
 --- !u!114 &9150954971451154107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +140,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   assignedPlace: {fileID: 0}
+  _blocked: 0
+  _currentState: 0
+  _isInteractedWith: 0
+  _currentOrder: 
 --- !u!114 &-7413459058823863964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,18 +157,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 4
-  radius: 3
-  height: 3
+  radius: 1
+  height: 1
   canMove: 1
   maxSpeed: 2
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.1
-  whenCloseToDestination: 1
+  endReachedDistance: 0.2
+  whenCloseToDestination: 0
   rvoDensityBehavior:
-    enabled: 1
+    enabled: 0
     densityThreshold: 0.5
     returnAfterBeingPushedAway: 0
     progressAverage: 0
@@ -184,7 +188,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 1
+  pickNextWaypointDist: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   preventMovingBackwards: 0
@@ -207,7 +211,7 @@ MonoBehaviour:
   centerBackingField: 1
   locked: 0
   lockWhenNotMoving: 0
-  agentTimeHorizon: 0
+  agentTimeHorizon: 0.5
   obstacleTimeHorizon: 3
   maxNeighbours: 10
   layer: 1
@@ -232,9 +236,9 @@ MonoBehaviour:
   drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
-    addPoints: 0
-    exactStartPoint: 0
-    exactEndPoint: 0
+    addPoints: 1
+    exactStartPoint: 3
+    exactEndPoint: 3
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -244,7 +248,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: 1
---- !u!114 &514016832467436757
+--- !u!114 &7965171183345613398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,7 +266,7 @@ MonoBehaviour:
   iterations: 4
   strength: 0.5
   uniformLength: 1
-  maxSegmentLength: 0.5
-  bezierTangentLength: 0.4
+  maxSegmentLength: 1
+  bezierTangentLength: 0.6
   offset: 0.2
   factor: 0.1

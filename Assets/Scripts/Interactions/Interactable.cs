@@ -1,20 +1,21 @@
-﻿using UnityEngine;
-
-public abstract class Interactable : MonoBehaviour
+﻿namespace Interactions
 {
-    private bool _cancelInteraction;
-    protected abstract void OnInteract();
-
-    public void SetCancelled(bool cancelled)
+    public abstract class Interactable
     {
-        _cancelInteraction = cancelled;
-    }
+        private bool _cancelInteraction;
+        protected abstract void OnInteract();
 
-    public void Interact()
-    {
-        SetCancelled(false);
-        GameManager.GetEventHandler().onPlayerInteract.Invoke(this);
-        if(!_cancelInteraction)
-            OnInteract();
+        public void SetCancelled(bool cancelled)
+        {
+            _cancelInteraction = cancelled;
+        }
+
+        public void Interact()
+        {
+            SetCancelled(false);
+            GameManager.GetEventHandler().onPlayerInteract.Invoke(this);
+            if(!_cancelInteraction)
+                OnInteract();
+        }
     }
 }
