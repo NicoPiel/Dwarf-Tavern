@@ -11,12 +11,12 @@ public class EventHandler : MonoBehaviour
 
     public UnityEvent onGameStarted;
     public UnityEvent onGameLoaded;
-    public UnityEvent<Interactable> onPlayerInteract;
+    public UnityEvent<Interactable.InteractionEventPayload> onInteraction;
     
     private void Awake()
     {
         onGameStarted = new UnityEvent();
         onGameLoaded = new UnityEvent();
-        onPlayerInteract = new UnityEvent<Interactable>();
+        onInteraction = new UnityEvent<Interactable.InteractionEventPayload>();
     }
 }

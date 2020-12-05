@@ -1,21 +1,40 @@
-﻿namespace Interactions
+﻿using UnityEngine;
+
+namespace Interactions
 {
-    public abstract class Interactable
+    public abstract class Interactable : MonoBehaviour
     {
-        private bool _cancelInteraction;
-        protected abstract void OnInteract();
-
-        public void SetCancelled(bool cancelled)
+        protected abstract void OnInteract(GameObject source);
+        
+        public void Interact(GameObject source)
         {
-            _cancelInteraction = cancelled;
+            InteractionEventPayload payload = new InteractionEventPayload(source, this);
+            GameManager.GetEventHandler().onInteraction.Invoke(payload);
+            Debug.Log(payload.ToString());
+            if(!payload.Cancelled)
+                OnInteract(source);
         }
-
-        public void Interact()
+        
+        public class InteractionEventPayload
         {
-            SetCancelled(false);
-            GameManager.GetEventHandler().onPlayerInteract.Invoke(this);
-            if(!_cancelInteraction)
-                OnInteract();
+
+            public InteractionEventPayload(GameObject source, Interactable target)
+            {
+                Source = source;
+                Target = target;
+                Cancelled = false;
+            }
+        
+            public GameObject Source { get; }
+            public Interactable Target { get; }
+            public bool Cancelled { get; set; }
+
+            public override string ToString()
+            {
+                return "Source: " + (Source != null ? Source.ToString() : "null") + " Target: " +
+                       (Target != null ? Target.ToString() : "null") + " Cancelled: " + Cancelled;
+            }
+            
         }
     }
 }
