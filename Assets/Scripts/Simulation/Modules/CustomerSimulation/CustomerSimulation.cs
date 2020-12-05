@@ -60,6 +60,12 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void OnSimulationTick()
         {
+            foreach (Customer customer in customers)
+            {
+                // Debug.Log($"Updating state for {customer.Name}");
+                customer.UpdateState();
+            }
+            
             if (customers.Count <= CustomerLimit)
             {
                 // Add a new customer based on time passed since the last time one was added.
@@ -73,16 +79,11 @@ namespace Simulation.Modules.CustomerSimulation
                     time++;
                 }
             }
-
-            foreach (var customer in customers)
-            {
-                customer.UpdateState();
-            }
         }
 
         private Customer AddCustomer()
         {
-            var newCustomer = Instantiate(customerPrefab, GameObject.FindWithTag("Spawner").transform);
+            GameObject newCustomer = Instantiate(customerPrefab, GameObject.FindWithTag("Spawner").transform);
             var customerScript = newCustomer.GetComponent<Customer>();
             newCustomer.name = customerScript.Name;
             AssignCustomerToRandomPlace(customerScript);
