@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1536130723858888756
+--- !u!1 &8178790827082372271
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3412814356109507534}
-  - component: {fileID: 6247608178325576990}
+  - component: {fileID: 8178790827082372268}
+  - component: {fileID: 8178790827082372269}
   m_Layer: 0
-  m_Name: EventHandler
+  m_Name: SimulationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &3412814356109507534
+--- !u!4 &8178790827082372268
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536130723858888756}
+  m_GameObject: {fileID: 8178790827082372271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4531738052213407665}
+  m_Children:
+  - {fileID: 8178790827102693589}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6247608178325576990
+--- !u!114 &8178790827082372269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536130723858888756}
+  m_GameObject: {fileID: 8178790827082372271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed988e11533d8a048ae5b604a16996b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e8811296f38909409173719814e2408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGameStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  onGameLoaded:
-    m_PersistentCalls:
-      m_Calls: []
-  onInteraction:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &4531738052213407663
+  customerSimulation: {fileID: 513768606163279196}
+--- !u!1 &8178790827102693588
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,40 +53,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4531738052213407665}
-  - component: {fileID: 4531738052213407664}
+  - component: {fileID: 8178790827102693589}
+  - component: {fileID: 513768606163279196}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: GameManager
+  m_Name: CustomerSimulation
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4531738052213407665
+--- !u!4 &8178790827102693589
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531738052213407663}
+  m_GameObject: {fileID: 8178790827102693588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3412814356109507534}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 8178790827082372268}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4531738052213407664
+--- !u!114 &513768606163279196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531738052213407663}
+  m_GameObject: {fileID: 8178790827102693588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77224dfacdd2284bb9c7b84f2c8823a, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc13ec2a790f98428a820a07dba5ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventHandler: {fileID: 6247608178325576990}
+  CustomerLimit: 20
+  customerPrefab: {fileID: 2845600354703967472, guid: 272191a7f1c419346bd4990dd545aa6d, type: 3}
+  customers: []
+  customerPlaces: []
+  unassignedCustomerPlaces: []
+  assignedCustomerPlaces: []

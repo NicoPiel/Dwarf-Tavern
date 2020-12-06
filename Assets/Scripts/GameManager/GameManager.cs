@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using Simulation.Core;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
     [SerializeField] private EventHandler eventHandler;
-    [SerializeField] private SimulationManager simulationManager;
-    
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SimulationManager.GetInstance().StartSimulation();
+       
+        if (SceneManager.GetActiveScene().name == "Tavern")
+            SimulationManager.GetInstance().StartSimulation();
     }
 
     public static GameManager GetGameManager()
@@ -31,8 +33,5 @@ public class GameManager : MonoBehaviour
         return _instance.eventHandler;
     }
 
-    public static SimulationManager GetSimulationManager()
-    {
-        return _instance.simulationManager;
-    }
+   
 }
