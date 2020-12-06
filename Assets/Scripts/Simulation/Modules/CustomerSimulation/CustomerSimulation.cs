@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Simulation.Modules.CustomerSimulation
 {
-    public class CustomerSimulation : MonoBehaviour
+    public class CustomerSimulation : SimulationModule
     {
         public static Dictionary<string, string[]> Names { get; set; }
         public static Dictionary<string, string[]> Orders { get; set; }
@@ -32,10 +32,6 @@ namespace Simulation.Modules.CustomerSimulation
         // Start is called before the first frame update
         private void Start()
         {
-            SimulationManager.onSimulationStart.AddListener(OnSimulationStart);
-            SimulationManager.onSimulationPause.AddListener(OnSimulationPause);
-            SimulationManager.onSimulationTick.AddListener(OnSimulationTick);
-
             customers = new List<Customer>();
             
             customerPlaces = new List<CustomerPlace>();
@@ -48,17 +44,24 @@ namespace Simulation.Modules.CustomerSimulation
             assignedCustomerPlaces = new List<CustomerPlace>();
         }
 
-        private void OnSimulationStart()
+        protected override void OnSimulationStart()
         {
             time = 0;
         }
 
-        private void OnSimulationPause()
+        protected override void OnSimulationPause()
         {
-            
+            // TODO
+            throw new System.NotImplementedException();
         }
 
-        private void OnSimulationTick()
+        protected override void OnSimulationUnpause()
+        {
+            // TODO
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OnSimulationTick()
         {
             foreach (Customer customer in customers)
             {
