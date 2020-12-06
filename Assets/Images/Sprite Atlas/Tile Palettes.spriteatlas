@@ -40,9 +40,11 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 6a2579615795a80469d3eefbbea46872, type: 3}
+    totalSpriteSurfaceArea: 554240
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -4379,5 +4381,6 @@ SpriteAtlas:
   - roguelikeIndoor_transparent_75
   - roguelikeIndoor_transparent_69
   - roguelikeIndoor_transparent_21
+  m_RenderDataMap: {}
   m_Tag: Tile Palettes
   m_IsVariant: 0
