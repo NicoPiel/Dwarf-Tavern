@@ -9,6 +9,7 @@ TagManager:
   - CustomerPlace
   - Spawner
   - Customer
+  - IconCanvas
   layers:
   - Default
   - TransparentFX
