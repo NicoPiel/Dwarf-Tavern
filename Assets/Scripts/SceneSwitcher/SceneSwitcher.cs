@@ -13,11 +13,6 @@ public class SceneSwitcher : MonoBehaviour
 
     public Scenes sceneToLoad;
 
-    public void Start()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
