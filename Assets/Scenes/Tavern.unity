@@ -613,7 +613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 893891296}
         m_TargetAssemblyTypeName: GameGUI, Assembly-CSharp
         m_MethodName: ToggleWindows0
         m_Mode: 1
