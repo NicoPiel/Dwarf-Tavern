@@ -32,14 +32,14 @@ MonoBehaviour:
     - AstarPathfindingProject
     - Assembly-CSharp-firstpass
     - Cinemachine
-    - Assembly-CSharp
     - PackageTools
+    - Assembly-CSharp
     - Drawing
     - PsdPlugin
     - AstarPathfindingProjectEditor
     - AstarPackageToolsEditor
-    - DrawingEditor
     - DrawingPackageToolsEditor
+    - DrawingEditor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
