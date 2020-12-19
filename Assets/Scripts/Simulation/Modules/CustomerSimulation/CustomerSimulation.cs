@@ -32,6 +32,7 @@ namespace Simulation.Modules.CustomerSimulation
         // Start is called before the first frame update
         private void Start()
         {
+            InitModule();
             customers = new List<Customer>();
             
             customerPlaces = new List<CustomerPlace>();
