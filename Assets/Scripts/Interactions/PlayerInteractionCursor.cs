@@ -55,7 +55,8 @@ namespace Interactions
             {
                 Vector2 offset = new Vector2(move.x, move.y).normalized;
                 offset.Scale(new Vector2(0.5f, 0.5f));
-                _col.offset = offset;
+                if(offset.x != 0 || offset.y != 0)
+                    _col.offset = offset;
             }
 
         }
