@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.ComponentModel;
+using Interactions;
 using Simulation.Exceptions;
 using UnityEngine;
 using Pathfinding;
@@ -10,7 +11,7 @@ namespace Simulation.Modules.CustomerSimulation
     /**
      * Customer class with state-machine-like behaviour
      */
-    public class Customer : MonoBehaviour
+    public class Customer : PlayerInteractable
     {
         public string Name;
         public CustomerPlace assignedPlace;
@@ -162,14 +163,14 @@ namespace Simulation.Modules.CustomerSimulation
             _currentState = State.Waiting;
             
             _currentOrder = RandomOrder();
-            // TODO: Add tooltip
+            Tooltip.ShowTooltip_Static(tooltip, _currentOrder);
             yield return null;
         }
 
         private IEnumerator Wait()
         {
             yield return new WaitUntil(() => _isInteractedWith);
-            // TODO: Remove tooltip
+            Tooltip.HideTooltip_Static(tooltip);
         }
 
         /**
@@ -236,6 +237,11 @@ namespace Simulation.Modules.CustomerSimulation
             }
 
             return $"{taste} {beverage}";
+        }
+
+        protected override void OnInteract(GameObject source)
+        {
+            _isInteractedWith = true;
         }
     }
 }

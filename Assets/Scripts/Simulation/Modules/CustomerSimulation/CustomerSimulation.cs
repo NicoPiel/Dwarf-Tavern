@@ -64,6 +64,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         protected override void OnSimulationTick()
         {
+            // Do stuff for each customer
             foreach (Customer customer in customers)
             {
                 // Debug.Log($"Updating state for {customer.Name}");
