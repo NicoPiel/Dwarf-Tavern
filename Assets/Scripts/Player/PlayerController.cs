@@ -12,6 +12,7 @@ namespace Player
         private Collider2D _collider;
         public bool smoothMovement;
         public int smoothness = 5;
+        public GameObject selectionTrigger;
 
         // Start is called before the first frame update
         private void Start()
@@ -37,6 +38,11 @@ namespace Player
                 _previous = new Vector2(_move.x, _move.y);
             }
             _rigidbody.MovePosition(_rigidbody.position + _move * (playerSpeed * Time.fixedDeltaTime));
+        }
+
+        public Vector2 GetMoveVector2()
+        {
+            return _move;
         }
     }
 }
