@@ -10524,7 +10524,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -10585,6 +10585,7 @@ GameObject:
   - component: {fileID: 5295616486963299491}
   - component: {fileID: 5295616486963299490}
   - component: {fileID: 5295616486963299500}
+  - component: {fileID: 267795975}
   m_Layer: 0
   m_Name: bar
   m_TagString: Untagged
@@ -10691,6 +10692,21 @@ PolygonCollider2D:
       - {x: -1.9085488, y: 0.026263922}
       - {x: -1.9049144, y: -0.8864317}
       - {x: 1.8857641, y: -0.8672812}
+--- !u!114 &267795975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295616486963299489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e058be4c730f6b646a80b6b341658b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5295616486969861762
 GameObject:
   m_ObjectHideFlags: 0
