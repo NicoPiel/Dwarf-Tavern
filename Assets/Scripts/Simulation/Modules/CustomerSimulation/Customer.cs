@@ -14,7 +14,8 @@ namespace Simulation.Modules.CustomerSimulation
     {
         public string Name;
         public CustomerPlace assignedPlace;
-
+        public Tooltip tooltip;
+        
         private Seeker seeker;
         private AIPath pathfinder;
         [SerializeField] private bool _blocked;

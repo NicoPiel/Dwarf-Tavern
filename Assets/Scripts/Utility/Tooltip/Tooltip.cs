@@ -1,6 +1,5 @@
 ﻿using System;
 using TMPro;
-using Unity.Burst;
 using UnityEngine;
 
 namespace Utility.Tooltip
@@ -20,8 +19,6 @@ namespace Utility.Tooltip
         
         private void ShowTooltip(string tooltipString)
         {
-            gameObject.SetActive(true);
-
             tooltipText.text = tooltipString;
             var backgroundSize = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight);
             backgroundRectTransform.sizeDelta = backgroundSize;

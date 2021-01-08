@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Simulation.Core
 {
-    public class SimulationManager : SimulationModule
+    public class SimulationManager : MonoBehaviour
     {
         // Public
 
@@ -34,7 +34,7 @@ namespace Simulation.Core
             onSimulationTick  = new UnityEvent();
         }
     
-        private new void Start()
+        private void Start()
         {
             // Subscribe to own events for debugging
             onSimulationStart.AddListener(OnSimulationStart);
@@ -73,10 +73,8 @@ namespace Simulation.Core
             {
                 if (_paused) break;
                 
-                yield return new WaitForEndOfFrame();
                 onSimulationTick.Invoke();
                 yield return new WaitForSeconds(1f);
-                yield return new WaitForEndOfFrame();
             }
         }
 
@@ -86,25 +84,25 @@ namespace Simulation.Core
             yield return null;
         }
 
-        protected override void OnSimulationStart()
+        private void OnSimulationStart()
         {
             _paused = false;
             Debug.Log("Simulation started.");
         }
 
-        protected override void OnSimulationPause()
+        private void OnSimulationPause()
         {
             _paused = true;
             Debug.Log("Simulation paused.");
         }
         
-        protected override void OnSimulationUnpause()
+        private void OnSimulationUnpause()
         {
             _paused = false;
             Debug.Log("Simulation unpaused.");
         }
 
-        protected override void OnSimulationTick()
+        private void OnSimulationTick()
         {
             Debug.Log("Tick.");
         }
