@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interactions;
+using Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -13,6 +14,7 @@ public class EventHandler : MonoBehaviour
     public UnityEvent onGameLoaded;
     public UnityEvent<Interactable.InteractionEventPayload> onInteraction;
     public UnityEvent onAfterHourSceneLoaded;
+    public UnityEvent<InventoryManager.State> onInventoryManagerInitialized;
     
     private void Awake()
     {
@@ -20,5 +22,6 @@ public class EventHandler : MonoBehaviour
         onGameLoaded = new UnityEvent();
         onAfterHourSceneLoaded = new UnityEvent();
         onInteraction = new UnityEvent<Interactable.InteractionEventPayload>();
+        onInventoryManagerInitialized = new UnityEvent<InventoryManager.State>();
     }
 }
