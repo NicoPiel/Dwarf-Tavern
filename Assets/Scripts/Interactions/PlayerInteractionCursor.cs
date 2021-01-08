@@ -14,7 +14,7 @@ namespace Interactions
         private Collider2D _col;
         private PlayerController _parentPlayer;
         public Material highlight;
-        private GameObject _UICanvas;
+        public GameObject _UICanvas;
         private Camera _MainCamera;
         public GameObject PromptPrefab;
 
@@ -22,7 +22,6 @@ namespace Interactions
         {
             _col = GetComponent<Collider2D>();
             _parentPlayer = GetComponentInParent<PlayerController>();
-            _UICanvas = GameObject.FindWithTag("IconCanvas");
             _MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         }
 

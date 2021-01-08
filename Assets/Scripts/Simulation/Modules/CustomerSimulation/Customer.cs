@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel;
 using Simulation.Exceptions;
 using UnityEngine;
 using Pathfinding;
@@ -66,7 +67,11 @@ namespace Simulation.Modules.CustomerSimulation
 
         private IEnumerator StateMachine()
         {
-            if (_blocked) yield return new WaitUntil(() => !_blocked);
+            if (_blocked)
+            {
+                Debug.LogWarning($"{Name}: Blocked");
+                yield return new WaitUntil(() => !_blocked);
+            }
 
             Block();
 
@@ -122,15 +127,14 @@ namespace Simulation.Modules.CustomerSimulation
             pathfinder.destination = target;
             pathfinder.SearchPath();
 
-            while (!pathfinder.reachedDestination)
+            yield return new WaitUntil(() =>
             {
-                yield return null;
-            }
+                Debug.LogWarning($"{Name}: Hasn't reached destination.");
+                return pathfinder.reachedDestination;
+            });
             
             ArriveAtTable();
         }
-
-        //TODO: Implement state changing
 
         /**
          * Extra state if the customer has just arrived at their assigned table; call if you need to use delegates.
@@ -138,6 +142,7 @@ namespace Simulation.Modules.CustomerSimulation
         private void ArriveAtTable()
         {
             _currentState = State.ArrivedAtTable;
+            Unblock();
         }
 
         /**
@@ -156,14 +161,14 @@ namespace Simulation.Modules.CustomerSimulation
             _currentState = State.Waiting;
             
             _currentOrder = RandomOrder();
-            Tooltip.ShowTooltip_Static(_currentOrder);
+            // TODO: Add tooltip
             yield return null;
         }
 
         private IEnumerator Wait()
         {
             yield return new WaitUntil(() => _isInteractedWith);
-            Tooltip.HideTooltip_Static();
+            // TODO: Remove tooltip
         }
 
         /**

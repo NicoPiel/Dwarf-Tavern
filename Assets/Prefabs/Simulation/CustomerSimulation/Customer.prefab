@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1470717807258987732}
   - component: {fileID: -3892288733405686965}
   - component: {fileID: -16689134859410695}
+  - component: {fileID: 2423232816950564898}
   - component: {fileID: 9150954971451154107}
   - component: {fileID: -7413459058823863964}
   - component: {fileID: -6277858951488376030}
@@ -125,7 +126,23 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
+--- !u!58 &2423232816950564898
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845600354703967472}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.1}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!114 &9150954971451154107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +182,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.2
+  endReachedDistance: 0.4
   whenCloseToDestination: 0
   rvoDensityBehavior:
     enabled: 0
@@ -179,7 +196,7 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 0
   autoRepath:
-    mode: 2
+    mode: 1
     interval: 0.5
     sensitivity: 10
     maximumInterval: 2
@@ -187,7 +204,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0.8
   pickNextWaypointDist: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -236,9 +253,9 @@ MonoBehaviour:
   drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
-    addPoints: 1
-    exactStartPoint: 3
-    exactEndPoint: 3
+    addPoints: 0
+    exactStartPoint: 0
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
