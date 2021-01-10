@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Inventory
 {
@@ -40,6 +41,20 @@ namespace Inventory
         {
             return reference.GetSprite();
         }
-        
+
+        public bool IsIngredient()
+        {
+            return reference.IsIngredient();
+        }
+
+        public Dictionary<Item.Slot, Dictionary<string, int>> GetModifiers()
+        {
+            return reference.GetModifiers();
+        }
+
+        public Item.Rarity GetRarity()
+        {
+            return reference.GetRarity();
+        }
     }
 }
