@@ -1,19 +1,19 @@
 {
   "beverages": [
-    "Bier",
-    "Schnaps",
-    "Brand",
-    "Whiskey",
-    "Wein"
+    "das Bier",
+    "der Schnaps",
+    "der Brand",
+    "der Whiskey",
+    "der Wein"
   ],
   "tastes": [
-    "bitter",
-    "süß",
-    "herb",
-    "sauer",
-    "scharf",
-    "herzhaft",
-    "salzig",
-    "fettig"
+    "Bitter",
+    "Süß",
+    "Herb",
+    "Sauer",
+    "Scharf",
+    "Herzhaft",
+    "Salzig",
+    "Fettig"
   ]
 }

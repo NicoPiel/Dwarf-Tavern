@@ -1,20 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.ComponentModel;
+using Interactions;
 using Simulation.Exceptions;
 using UnityEngine;
 using Pathfinding;
 using Utility.Tooltip;
+using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
     /**
      * Customer class with state-machine-like behaviour
      */
-    public class Customer : MonoBehaviour
+    public class Customer : PlayerInteractable
     {
         public string Name;
         public CustomerPlace assignedPlace;
-
+        public Tooltip tooltip;
+        
         private Seeker seeker;
         private AIPath pathfinder;
         [SerializeField] private bool _blocked;
@@ -110,7 +114,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private IEnumerator Arrive()
         {
-            yield return new WaitForSeconds(Random.Range(0.5f, 4f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             _currentState = State.MovingToTable;
             Unblock();
         }
@@ -127,11 +131,7 @@ namespace Simulation.Modules.CustomerSimulation
             pathfinder.destination = target;
             pathfinder.SearchPath();
 
-            yield return new WaitUntil(() =>
-            {
-                Debug.LogWarning($"{Name}: Hasn't reached destination.");
-                return pathfinder.reachedDestination;
-            });
+            yield return new WaitUntil(() => pathfinder.reachedDestination);
             
             ArriveAtTable();
         }
@@ -161,14 +161,14 @@ namespace Simulation.Modules.CustomerSimulation
             _currentState = State.Waiting;
             
             _currentOrder = RandomOrder();
-            // TODO: Add tooltip
+            Tooltip.ShowTooltip_Static(tooltip, _currentOrder);
             yield return null;
         }
 
         private IEnumerator Wait()
         {
             yield return new WaitUntil(() => _isInteractedWith);
-            // TODO: Remove tooltip
+            Tooltip.HideTooltip_Static(tooltip);
         }
 
         /**
@@ -212,29 +212,33 @@ namespace Simulation.Modules.CustomerSimulation
             var beverages = CustomerSimulation.Orders["beverages"];
             var tastes = CustomerSimulation.Orders["tastes"];
 
-            var beverage = beverages[Random.Range(0, beverages.Length)];
+            var beverageString = beverages[Random.Range(0, beverages.Length)].Split(' ');
+            var article = beverageString[0];
+            var beverage = beverageString[1];
+            
             var taste = tastes[Random.Range(0, tastes.Length)];
 
-            switch (beverage)
+            switch (article)
             {
-                case "Bier":
+                case "das":
                     taste += "es";
                     break;
-                case "Schnaps":
+                case "der":
                     taste += "er";
                     break;
-                case "Brand":
-                    taste += "er";
+                case "die":
+                    taste += "e";
                     break;
-                case "Whiskey":
-                    taste += "er";
-                    break;
-                case "Wein":
-                    taste += "er";
-                    break;
+                default:
+                    throw new UnityException($"Wrong format in orders.json with {beverage}");
             }
 
             return $"{taste} {beverage}";
+        }
+
+        protected override void OnInteract(GameObject source)
+        {
+            _isInteractedWith = true;
         }
     }
 }

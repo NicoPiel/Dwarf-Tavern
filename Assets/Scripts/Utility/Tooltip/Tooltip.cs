@@ -1,6 +1,5 @@
 ﻿using System;
 using TMPro;
-using Unity.Burst;
 using UnityEngine;
 
 namespace Utility.Tooltip
@@ -20,16 +19,28 @@ namespace Utility.Tooltip
         
         private void ShowTooltip(string tooltipString)
         {
-            gameObject.SetActive(true);
-
             tooltipText.text = tooltipString;
             var backgroundSize = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight);
             backgroundRectTransform.sizeDelta = backgroundSize;
+        }
+        
+        private void ShowTooltip(Tooltip tooltip, string tooltipString)
+        {
+            tooltip.tooltipText.text = tooltipString;
+            var backgroundSize = new Vector2(tooltip.tooltipText.preferredWidth, tooltip.tooltipText.preferredHeight);
+            tooltip.backgroundRectTransform.sizeDelta = backgroundSize;
+            
+            tooltip.gameObject.SetActive(true);
         }
 
         private void HideTooltip()
         {
             gameObject.SetActive(false);
+        }
+        
+        private void HideTooltip(Tooltip tooltip)
+        {
+            tooltip.gameObject.SetActive(false);
         }
 
         public static void ShowTooltip_Static(string tooltipString)
@@ -37,10 +48,23 @@ namespace Utility.Tooltip
             if (_instance != null) _instance.ShowTooltip(tooltipString);
             else throw new NullReferenceException("Tooltip instance was null.");
         }
+        
+        public static void ShowTooltip_Static(Tooltip tooltip, string tooltipString)
+        {
+            if (tooltip != null) tooltip.ShowTooltip(tooltip, tooltipString);
+            
+            else throw new NullReferenceException("Tooltip instance was null.");
+        }
 
         public static void HideTooltip_Static()
         {
             if (_instance != null) _instance.HideTooltip();
+            else throw new NullReferenceException("Tooltip instance was null.");
+        }
+        
+        public static void HideTooltip_Static(Tooltip tooltip)
+        {
+            if (tooltip != null) tooltip.HideTooltip(tooltip);
             else throw new NullReferenceException("Tooltip instance was null.");
         }
     }
