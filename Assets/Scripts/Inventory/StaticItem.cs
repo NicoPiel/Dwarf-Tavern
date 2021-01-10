@@ -1,32 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Inventory
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/StaticItem", order = 1)]
+    [CreateAssetMenu(fileName = "NewItem", menuName = "ScriptableObjects/StaticItem", order = 1)]
     public class StaticItem : ScriptableObject, Item
     {
         public string id;
         public string displayName;
         public string lore;
         public bool stackable;
+        public Item.Rarity rarity;
         public Sprite baseTexture;
-        
-        public string GetId()
+
+        public virtual string GetId()
         {
             return id;
         }
 
-        public string GetDisplayName()
+        public virtual string GetDisplayName()
         {
             return displayName;
         }
 
-        public string GetLore()
+        public virtual string GetLore()
         {
             return lore;
         }
 
-        public bool CanStackWith(Item other)
+        public virtual bool CanStackWith(Item other)
         {
             switch (other)
             {
@@ -58,14 +60,29 @@ namespace Inventory
             }
         }
 
-        public bool IsComplex()
+        public virtual bool IsComplex()
         {
             return false;
         }
 
-        public Sprite GetSprite()
+        public virtual Sprite GetSprite()
         {
             return baseTexture;
+        }
+
+        public virtual bool IsIngredient()
+        {
+            return false;
+        }
+
+        public virtual Dictionary<Item.Slot, Dictionary<string, int>> GetModifiers()
+        {
+            return new Dictionary<Item.Slot, Dictionary<string, int>>();
+        }
+
+        public virtual Item.Rarity GetRarity()
+        {
+            return rarity;
         }
     }
 }
