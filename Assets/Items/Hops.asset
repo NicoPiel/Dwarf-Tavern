@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
   m_Name: Hops
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: hops
+  displayName: Hopfen
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
+  stackable: 1
+  rarity: 1
+  baseTexture: {fileID: 21300000, guid: 59575a15db767ff488ee94e5e103e77c, type: 3}
   modifiers: []

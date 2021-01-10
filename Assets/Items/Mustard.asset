@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
   m_Name: Mustard
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: mustard
+  displayName: Senf
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  modifiers: []
+  stackable: 1
+  rarity: 2
+  baseTexture: {fileID: 21300000, guid: ba986bbc05f92e14f83b77fc5c952685, type: 3}
+  modifiers:
+  - slot: 1
+    entries: []
+  - slot: 2
+    entries: []

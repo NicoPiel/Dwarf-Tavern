@@ -17,13 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9c1a9f8f9b4eee84ab1f44f668ee698e
   m_SerializeEntries:
-  - m_GUID: 0fa361fea324b0e4bb47e7a70c73b5f2
-    m_Address: Assets/Items/ItemUndef.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - items
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 3fa01b1a2f1de214ba50cfb62268369b
     m_Address: Assets/Items/Lemon.asset
     m_ReadOnly: 0
