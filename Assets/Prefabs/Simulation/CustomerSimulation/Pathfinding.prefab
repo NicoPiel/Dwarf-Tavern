@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9072669218654683402}
   - component: {fileID: 9072669218654683445}
-  - component: {fileID: 9072669218654683444}
   m_Layer: 0
   m_Name: Pathfinding
   m_TagString: Untagged
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIezN56bctQIAAN4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVFtv2jAU/ivIzwMlFEa7tw0o3aS2qNnUh6UPTnxCLIwd+VKgFf99x05CApOQcvjO9TsXfxIuTQW5VXqlOXtUDMi3AfEy+TLolA9woBslE/4Brc0rZ7b0RjTYvFDLFeKxdzNqB1bz/LvcCG8cIegkL5TeLdkG5spYg3BBhQFUaWW9t0Toc0AO+BneeZcjSuOZlz5QuosGJxRzkBZ0ZzodTRvTaWM4jEZxMHUyF3RXAfN1dx6TuI09DmYSGTUWUQiWKyG4aQoi9lgFwklVggbPmHGK/EIR8WiMQAl8U1ofse/9XBQGbENf0+OCa2xUHZb8UHX3dtRs69LeqXA+0TS+CWXVQR//0w9rcoVWu4c2bxz5HLbk+faFHnNqbK+9fXjRKz10aE/FlmYCXkuQT2qllZMMlVY77+oMjBfd3zO1eQn5tsPrUq9AV3Utb6fZztJzOAX2h8RCdeYRjSYd+seASYQK3W+5eFUD+VigcXY/kU/YH9Ohvkj0/003/UVrFPdcG4uqpgnSZ8+U096ULEMpnqyzc6UlBLjhVIGkwh7XGMZeT/hK10t7pbmn/qSa5I2uvZQrlwB39lF0pVqr/XmW2gkwYWNb6e/bqZ7hL7er1opLmwDVednLY0q1fwRTPjsruISOqVc8YXPnSsp6a82l0nslThc073lZOFinYUEtDZVgqbhbrJ8Q+xw8pBPCr3EgF6pFcv735ntfUkwrAkyelAxnd/EN1DaOs8vjIDQvxl+L22yWZbMivsmGsxncAstmt/EkZllGSbgeLnEUVKzrXjYTxL3qj03iqbSv4WClaRUOlmm6X/GPneovFpeFSnINIJ8vYxjQmAYfF7ZkHIkmYC2XYSnJZ0qEyrfA0nMD09Da5cFqmnZRUlLxd2U9kpJ5eP9S4uHzPa41vHPY++RtsBM5/QNQSwMEFAAACAgAAAgh7PTUS3VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPWM7bUUVBKL0osyCgGihiCOKWZKSB2tFJicpqRWZpFknlSknmaoXGSrrl5qkVqSpK5haGJYUpSUqJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7M3npty1AgAA3gUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7PTUS3VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAAgMAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAC6AwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIewZhr7CtQIAAN4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VFtv2jAU/ivIzwMltIxubxu0dJPaomZTH5Y+OPEJsXDsyJcCrfjvO3YSEpgmIeXwnet3Lv4gXJoacqv0SnP2oBiQryPiZfJp1CvvYU83Sib8HTqbF85s6Y1osHmmlivEY+9mVAVW8/yb3AhvHCHoJC+Urm7ZBhbKWINwQYUBVGllvbdE6GNE9vgZf/EuB5Smcy+9o/QlGh1RzEFa0L3pbDJrTWet4TiaxMHUyVzQqgbm6+49ruMu9jSYSWTUWkQhWK6E4KYtiNhDHQgndQkaPGPGKfILRcSTKQIl8E1pfcSh91NRGLAtfU0PS66xUU1Y8l013auo2TalvVHhfKJZfBXKaoI+/KMfN+QKrar7Lm8c+Ry25Pn2mR5yauygvUN4OSg9dGhHxZZmAl5KkI9qpZWTDJVWO+/qDEyX/d8TtUUJ+bbHm1IvQFf3Le+m2c3SczgG9vvEQn3iEU2ue/S3AZMIFbrfcfGqFvKxQOPsfiCfsD+mR32R6P+LboaL1iruuDYWVW0TpM+eKae9KblDwQ8md3ahtAQ9DFCDpMIe1hjGXk74Qvd/rzvqT6pN3uq6S7lwCXBvH0UXqrXanWapnQATNraT/rwemxn+dFW9VlzaBKjOy0EeU6rdA5jyyVnBJfTT84pHbO5CSdlsrTlXeq/E6YLmAy8Le+s0LKmloRIsFXeLDRNie4OHdEL4NQ7kQrVIzv9effNLimlFgMmjkuHszr6B2sZxdn4chObF9HNxk82zbF7EV9l4PocbYNn8Jr6OWZZREq6HSxwFFeuml+0Eca+GY5N4Kt1rOFppWoeDZZruVvy9UsO94LJQSa4B5NN5DAMa0+Djwm4ZR6IJWMtlWErykRKh8i2w9NTANLT2dm81TfsoKan5m7IeSckivH8p8fDpHtca3jjsfPIu2JEc/wJQSwMEFAAACAgAAAgh7PTUS3VtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPWM7bUUVBKL0osyCgGihiCOKWZKSB2tFJicpqRWZpFknlSknmaoXGSrrl5qkVqSpK5haGJYUpSUqJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7BmGvsK1AgAA3gUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7PTUS3VtAAAAeAAAAAkAJAAAAAAAAAAAAAAAAgMAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAC6AwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -108,8 +107,8 @@ MonoBehaviour:
   - 30
   - 31
   heuristic: 0
-  heuristicScale: 1
-  threadCount: 1
+  heuristicScale: 1.3
+  threadCount: 2
   maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
@@ -119,23 +118,3 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
---- !u!114 &9072669218654683444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072669218654683403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1764de1de43cc4d19af52679d3eaae06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  desiredSimulationFPS: 20
-  workerThreads: 2
-  doubleBuffering: 0
-  hardCollisions: 1
-  symmetryBreakingBias: 0.1
-  movementPlane: 1
-  drawObstacles: 0

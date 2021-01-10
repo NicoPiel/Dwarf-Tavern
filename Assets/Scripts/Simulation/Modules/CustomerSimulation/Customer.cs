@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using Interactions;
 using Simulation.Exceptions;
 using UnityEngine;
 using Pathfinding;
 using Utility.Tooltip;
+using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -112,7 +114,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private IEnumerator Arrive()
         {
-            yield return new WaitForSeconds(Random.Range(0.5f, 4f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             _currentState = State.MovingToTable;
             Unblock();
         }
@@ -129,11 +131,7 @@ namespace Simulation.Modules.CustomerSimulation
             pathfinder.destination = target;
             pathfinder.SearchPath();
 
-            yield return new WaitUntil(() =>
-            {
-                Debug.LogWarning($"{Name}: Hasn't reached destination.");
-                return pathfinder.reachedDestination;
-            });
+            yield return new WaitUntil(() => pathfinder.reachedDestination);
             
             ArriveAtTable();
         }
@@ -214,26 +212,25 @@ namespace Simulation.Modules.CustomerSimulation
             var beverages = CustomerSimulation.Orders["beverages"];
             var tastes = CustomerSimulation.Orders["tastes"];
 
-            var beverage = beverages[Random.Range(0, beverages.Length)];
+            var beverageString = beverages[Random.Range(0, beverages.Length)].Split(' ');
+            var article = beverageString[0];
+            var beverage = beverageString[1];
+            
             var taste = tastes[Random.Range(0, tastes.Length)];
 
-            switch (beverage)
+            switch (article)
             {
-                case "Bier":
+                case "das":
                     taste += "es";
                     break;
-                case "Schnaps":
+                case "der":
                     taste += "er";
                     break;
-                case "Brand":
-                    taste += "er";
+                case "die":
+                    taste += "e";
                     break;
-                case "Whiskey":
-                    taste += "er";
-                    break;
-                case "Wein":
-                    taste += "er";
-                    break;
+                default:
+                    throw new UnityException($"Wrong format in orders.json with {beverage}");
             }
 
             return $"{taste} {beverage}";
