@@ -10,6 +10,7 @@ namespace Player
         private Vector2 _previous;
         private Rigidbody2D _rigidbody;
         private Collider2D _collider;
+        private Animator _animator;
         public bool smoothMovement;
         public int smoothness = 5;
         public GameObject selectionTrigger;
@@ -19,6 +20,7 @@ namespace Player
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _collider = GetComponent<CircleCollider2D>();
+            _animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -31,12 +33,16 @@ namespace Player
 
         private void FixedUpdate()
         {
+            _animator.SetFloat("Horizontal", _move.x);
+            _animator.SetFloat("Vertical", _move.y);
+            _animator.SetFloat("Magnitude", _move.magnitude);
             if (smoothMovement)
             { 
                 _move.x = ((_previous.x * (smoothness - 1)) + _move.x) / smoothness;
                 _move.y = ((_previous.y * (smoothness - 1)) + _move.y) / smoothness;
                 _previous = new Vector2(_move.x, _move.y);
             }
+            
             _rigidbody.MovePosition(_rigidbody.position + _move * (playerSpeed * Time.fixedDeltaTime));
         }
 
