@@ -22,8 +22,15 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - items
-    m_MainAsset: {fileID: 11400000, guid: 0fa361fea324b0e4bb47e7a70c73b5f2, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: 0fa361fea324b0e4bb47e7a70c73b5f2, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: eee4f5e415f68b146bcc72270f92e7e8
+    m_Address: Assets/Items/Honey.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a45056f9cfbdd054dac9bb9f53e9c709, type: 2}
   m_SchemaSet:

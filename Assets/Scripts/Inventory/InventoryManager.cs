@@ -31,6 +31,11 @@ namespace Inventory
             _instance = this;
             RegisterItems();
         }
+
+        public static InventoryManager GetInstance()
+        {
+            return _instance;
+        }
         
 
         /**
@@ -114,9 +119,9 @@ namespace Inventory
         public State AssetState
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
-            protected get;
+            get;
             [MethodImpl(MethodImplOptions.Synchronized)]
-            set;
+            protected set;
         } = State.Uninitialized;
 
         public Inventory PlayerInventory { get; private set; }
