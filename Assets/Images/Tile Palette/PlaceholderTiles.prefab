@@ -84,9 +84,9 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: b105edfb8907878419955c275b929d73, type: 2}
+    m_Data: {fileID: 11400000, guid: 68af18e40a841e94c8576451ab972401, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 8c44dbd8d1415fc499a61edd27edb884, type: 2}
+    m_Data: {fileID: 11400000, guid: b61fbe59091345d48a9c754ca13f7544, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: d81c29597e35142408d1e4717debcb8c, type: 2}
   - m_RefCount: 1
@@ -95,7 +95,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 99a39bb6e209b6143ab916f21fb24fbc, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 8c7b886b90093ab4cb5b6ec0330197d4, type: 3}
+    m_Data: {fileID: 21300000, guid: 8b670d3d403f50e418a006a32ba45d91, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: ec5b8b1c1c03127448d3951410363a6e, type: 3}
   - m_RefCount: 1
@@ -156,7 +156,7 @@ TilemapRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -238,7 +238,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &9007822667668639823
+--- !u!114 &7017458830255829438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,3 +251,5 @@ MonoBehaviour:
   m_Name: Palette Settings
   m_EditorClassIdentifier: 
   cellSizing: 0
+  m_TransparencySortMode: 0
+  m_TransparencySortAxis: {x: 0, y: 0, z: 1}
