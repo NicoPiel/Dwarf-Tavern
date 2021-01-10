@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Inventory;
 using TMPro;
 using UnityEngine;
@@ -31,8 +32,6 @@ public class Glossar : MonoBehaviour
                 gameObjectItem.transform.Find("ItemShortDescription").GetComponent<TMP_Text>().text = staticItem.lore;
                 gameObjectItem.transform.Find("ItemIcon").GetComponent<Image>().sprite = staticItem.baseTexture;
             }
-
-            
         }
     }
 }
