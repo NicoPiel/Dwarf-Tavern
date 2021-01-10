@@ -24,13 +24,62 @@ MonoBehaviour:
     - items
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: eee4f5e415f68b146bcc72270f92e7e8
+  - m_GUID: 3fa01b1a2f1de214ba50cfb62268369b
+    m_Address: Assets/Items/Lemon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: 3fa01b1a2f1de214ba50cfb62268369b, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 3fa01b1a2f1de214ba50cfb62268369b, type: 2}
+  - m_GUID: 731b2308f2196ed4c9eb5501a1a32ba1
+    m_Address: Assets/Items/Mustard.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: 731b2308f2196ed4c9eb5501a1a32ba1, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 731b2308f2196ed4c9eb5501a1a32ba1, type: 2}
+  - m_GUID: 39b5f7efc228787489e4b897a84c3f29
+    m_Address: Assets/Items/Herbs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: 39b5f7efc228787489e4b897a84c3f29, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 39b5f7efc228787489e4b897a84c3f29, type: 2}
+  - m_GUID: 11bee14b71043e34ca030dec957a3de1
+    m_Address: Assets/Items/Cheese.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: 11bee14b71043e34ca030dec957a3de1, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 11bee14b71043e34ca030dec957a3de1, type: 2}
+  - m_GUID: fb78a3b5aba958048b9ea4113119e1b7
+    m_Address: Assets/Items/Hops.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: fb78a3b5aba958048b9ea4113119e1b7, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: fb78a3b5aba958048b9ea4113119e1b7, type: 2}
+  - m_GUID: 6b2c87c77775b1a4380271acbe935ff4
     m_Address: Assets/Items/Honey.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - items
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 11400000, guid: 6b2c87c77775b1a4380271acbe935ff4, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 6b2c87c77775b1a4380271acbe935ff4, type: 2}
+  - m_GUID: cb1a2f0aa5ec5bf49a2e677248df8429
+    m_Address: Assets/Items/Peanut.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: cb1a2f0aa5ec5bf49a2e677248df8429, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: cb1a2f0aa5ec5bf49a2e677248df8429, type: 2}
+  - m_GUID: f266edf6fbd3efd468eb4b845157b9ff
+    m_Address: Assets/Items/Banana.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 11400000, guid: f266edf6fbd3efd468eb4b845157b9ff, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f266edf6fbd3efd468eb4b845157b9ff, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a45056f9cfbdd054dac9bb9f53e9c709, type: 2}
   m_SchemaSet:
