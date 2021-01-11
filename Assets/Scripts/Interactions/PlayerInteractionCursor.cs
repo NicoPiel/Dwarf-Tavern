@@ -32,7 +32,7 @@ namespace Interactions
             {
                 GameObject prompt = Instantiate(PromptPrefab, _UICanvas.transform, false);
                 InteractionPrompt promptScript = prompt.AddComponent<InteractionPrompt>();
-                promptScript.Init(_MainCamera, interactable.transform.position, 60);
+                promptScript.Init(_MainCamera, interactable.transform, 60);
                 promptScript.UpdatePos();
                 interactable.StartHighlight(highlight, prompt);
             }
@@ -73,14 +73,14 @@ namespace Interactions
                 foreach (var interact in interactables)
                 {
                     float curDist = Vector3.Distance(interact.transform.position, this.transform.position);
-                    if (minInteractable == null || curDist < minDistance)
+                    if (!minInteractable || curDist < minDistance)
                     {
                         minDistance = curDist;
                         minInteractable = interact;
                     }
                 }
 
-                if (minInteractable != null)
+                if (minInteractable)
                 {
                     minInteractable.Interact(_parentPlayer.gameObject);
                 }
