@@ -1,0 +1,56 @@
+﻿{
+  "Stärke": [
+    "Kräftig",
+    "Bärenstark",
+    "Athletisch",
+    "Selbstbewusst",
+    "Robust",
+    "WillensSTARK",
+    "Heldenhaft"
+  ],
+  "Geschick": [
+    "Geschickt",
+    "Athletisch",
+    "Fingerfertig",
+    "Scharfsinnig",
+    "Flink",
+    "Listig",
+    "Wagemutig"
+  ],
+  "Intelligenz": [
+    "Klug",
+    "Selbstbewusst",
+    "Scharfsinnig",
+    "Geistreich",
+    "Taktisch",
+    "Redegewandt",
+    "Charismatisch"
+  ],
+  "Vitalität": [
+    "Zäh",
+    "Robust",
+    "Flink",
+    "Taktisch",
+    "Unverwüstlich",
+    "Aufgeweckt",
+    "Gelassen"
+  ],
+  "Wille": [
+    "Entschlossen",
+    "WillensSTARK",
+    "Listig",
+    "Redegewandt",
+    "Aufgeweckt",
+    "Beharrlich",
+    "Unnachgiebig"
+  ],
+  "Mut": [
+    "Tapfer",
+    "Heldenhaft",
+    "Wagemutig",
+    "Charismatisch",
+    "Gelassen",
+    "Unnachgiebig",
+    "Furchtlos"
+  ]
+}

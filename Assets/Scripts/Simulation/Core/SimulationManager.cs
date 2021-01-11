@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using Simulation.Modules.CustomerSimulation;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,10 +11,17 @@ namespace Simulation.Core
     public class SimulationManager : MonoBehaviour
     {
         // Public
+        public static Dictionary<string, string[]> Names { get; set; }
+        public static Dictionary<string, string[]> Orders { get; set; }
+        public static List<string> Attributes { get; set; }
+        public static Dictionary<string, string[]> AttributeCombinations { get; set; }
 
         // Private
         private static SimulationManager _instance;
         [SerializeField] private CustomerSimulation customerSimulation;
+        private static readonly string PathToNameJson = Application.streamingAssetsPath + "/JSON/names.json";
+        private static readonly string PathToOrdersJson = Application.streamingAssetsPath + "/JSON/orders.json";
+        private static readonly string PathToAttributesJson = Application.streamingAssetsPath + "/JSON/attributes.json";
 
         // Events
         public static UnityEvent onSimulationStart;
@@ -32,6 +42,17 @@ namespace Simulation.Core
             onSimulationPause = new UnityEvent();
             onSimulationUnpause = new UnityEvent();
             onSimulationTick  = new UnityEvent();
+            
+            // JSON files
+            Names = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToNameJson));
+            Orders = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToOrdersJson));
+            AttributeCombinations = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToAttributesJson));
+            Attributes = new List<string>();
+
+            foreach (var key in AttributeCombinations.Keys)
+            {
+                Attributes.Add(key);
+            }
         }
     
         private void Start()

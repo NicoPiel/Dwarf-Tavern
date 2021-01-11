@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class GameGUI : MonoBehaviour
 {
-    
     public Rect windowRect = new Rect(20, 20, 450, 400);
     public bool doWindow0 = false;
 
@@ -13,7 +10,7 @@ public class GameGUI : MonoBehaviour
     {
         doWindow0 = !doWindow0;
     }
-    
+
     void OnGUI()
     {
         // Register the window. Notice the 3rd parameter
@@ -30,6 +27,7 @@ public class GameGUI : MonoBehaviour
         {
             print("Got a click");
         }
+
         GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
 }

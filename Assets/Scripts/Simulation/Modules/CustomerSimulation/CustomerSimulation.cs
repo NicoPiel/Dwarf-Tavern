@@ -1,33 +1,25 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
 using Simulation.Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
     public class CustomerSimulation : SimulationModule
     {
-        public static Dictionary<string, string[]> Names { get; set; }
-        public static Dictionary<string, string[]> Orders { get; set; }
-        public int CustomerLimit = 20;
-
-        private static readonly string PathToNameJson = Application.streamingAssetsPath + "/JSON/names.json";
-        private static readonly string PathToOrdersJson = Application.streamingAssetsPath + "/JSON/orders.json";
+        public int CustomerLimit;
+        public static List<Order> OpenOrders; 
+        public OrderMenu orderMenu;
 
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private List<Customer> customers;
         [SerializeField] private List<CustomerPlace> customerPlaces;
         [SerializeField] private List<CustomerPlace> unassignedCustomerPlaces;
         [SerializeField] private List<CustomerPlace> assignedCustomerPlaces;
+        
 
         private int time;
-
-        private void Awake()
-        {
-            Names = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToNameJson));
-            Orders = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToOrdersJson));
-        }
 
         // Start is called before the first frame update
         private void Start()
@@ -41,8 +33,10 @@ namespace Simulation.Modules.CustomerSimulation
                 customerPlaces.Add(obj.GetComponent<CustomerPlace>());
             }
 
+            CustomerLimit = customerPlaces.Count;
             unassignedCustomerPlaces = customerPlaces;
             assignedCustomerPlaces = new List<CustomerPlace>();
+            OpenOrders = new List<Order>();
         }
 
         protected override void OnSimulationStart()
@@ -53,13 +47,13 @@ namespace Simulation.Modules.CustomerSimulation
         protected override void OnSimulationPause()
         {
             // TODO
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         protected override void OnSimulationUnpause()
         {
             // TODO
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         protected override void OnSimulationTick()
@@ -117,8 +111,8 @@ namespace Simulation.Modules.CustomerSimulation
 
         public static string GetRandomName()
         {
-            var firstNameList = Names["dwarf_firstname"];
-            var lastNameList = Names["dwarf_lastname"];
+            var firstNameList = SimulationManager.Names["dwarf_firstname"];
+            var lastNameList = SimulationManager.Names["dwarf_lastname"];
 
             var firstname = firstNameList[Random.Range(0, firstNameList.Length)];
             var lastname = lastNameList[Random.Range(0, lastNameList.Length)];
@@ -141,6 +135,16 @@ namespace Simulation.Modules.CustomerSimulation
             customer.Assign(customerPlace);
 
             return customerPlace;
+        }
+
+        public void SetOrderOnMenu(string orderName, string orderDescription)
+        {
+            orderMenu.SetOrder(orderName, orderDescription);
+        }
+
+        public void ShowOrderMenu()
+        {
+            orderMenu.SetActive();
         }
     }
 }

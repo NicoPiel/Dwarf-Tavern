@@ -190,8 +190,8 @@ MonoBehaviour:
   tooltip: {fileID: 7574769151522380174}
   _blocked: 0
   _currentState: 0
+  _canBeInteractedWith: 0
   _isInteractedWith: 0
-  _currentOrder: 
 --- !u!114 &-7413459058823863964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +276,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4066025471779474379}
     m_Modifications:
+    - target: {fileID: 8236009176332786167, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009176332786167, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7809734a81b95ac4fb5a511769fdb4ff, type: 3}
+    - target: {fileID: 8236009176332786167, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009176332786167, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009176332786167, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009176332786168, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009176332786169, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8236009177111066153, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_Name
       value: Tooltip
@@ -362,38 +390,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8258497589747571116, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_text
-      value: "S\xFC\xDFer Wein"
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_enableKerning
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_verticalMapping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_characterSpacing
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
-      propertyPath: m_horizontalMapping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

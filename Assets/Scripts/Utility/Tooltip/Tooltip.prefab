@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 899783249666742585}
   - component: {fileID: 8258497589747571116}
   - component: {fileID: 9045730348767790535}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "S\xFC\xDFer Wein"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+  m_sharedMaterial: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 8236009176332786168}
   - component: {fileID: 8236009176332786166}
   - component: {fileID: 8236009176332786167}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8244699963504691374}
   - component: {fileID: 1241573648946589645}
-  m_Layer: 5
+  - component: {fileID: 3239434147801298641}
+  m_Layer: 0
   m_Name: Tooltip
   m_TagString: Tooltip
   m_Icon: {fileID: 0}
@@ -297,3 +298,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipText: {fileID: 9045730348767790535}
   backgroundRectTransform: {fileID: 8236009176332786168}
+--- !u!61 &3239434147801298641
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236009177111066153}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 1}
+  m_EdgeRadius: 0

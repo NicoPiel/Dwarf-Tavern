@@ -12,6 +12,7 @@ TagManager:
   - IconCanvas
   - Tooltip
   - FundsDisplay
+  - OrderMenu
   layers:
   - Default
   - TransparentFX

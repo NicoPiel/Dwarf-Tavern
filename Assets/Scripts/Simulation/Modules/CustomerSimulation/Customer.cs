@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.ComponentModel;
 using Interactions;
+using Pathfinding;
+using Simulation.Core;
 using Simulation.Exceptions;
 using UnityEngine;
-using Pathfinding;
 using Utility.Tooltip;
 using Random = UnityEngine.Random;
 
@@ -23,8 +23,9 @@ namespace Simulation.Modules.CustomerSimulation
         private AIPath pathfinder;
         [SerializeField] private bool _blocked;
         [SerializeField] private State _currentState;
-        [SerializeField] private bool _isInteractedWith;
-        [SerializeField] private string _currentOrder;
+        [SerializeField] private bool _canBeInteractedWith = false;
+        [SerializeField] private bool _isInteractedWith = false;
+        [SerializeField] private Order _currentOrder;
 
         /**
          * State enum
@@ -159,9 +160,10 @@ namespace Simulation.Modules.CustomerSimulation
         private IEnumerator Order()
         {
             _currentState = State.Waiting;
-            
-            _currentOrder = RandomOrder();
-            Tooltip.ShowTooltip_Static(tooltip, _currentOrder);
+
+            _currentOrder = new Order();
+            Tooltip.ShowTooltip_Static(tooltip, _currentOrder.Name);
+            _canBeInteractedWith = true;
             yield return null;
         }
 
@@ -206,39 +208,15 @@ namespace Simulation.Modules.CustomerSimulation
             assignedPlace = null;
         }
 
-        // TODO: Create actual orders
-        private string RandomOrder()
-        {
-            var beverages = CustomerSimulation.Orders["beverages"];
-            var tastes = CustomerSimulation.Orders["tastes"];
-
-            var beverageString = beverages[Random.Range(0, beverages.Length)].Split(' ');
-            var article = beverageString[0];
-            var beverage = beverageString[1];
-            
-            var taste = tastes[Random.Range(0, tastes.Length)];
-
-            switch (article)
-            {
-                case "das":
-                    taste += "es";
-                    break;
-                case "der":
-                    taste += "er";
-                    break;
-                case "die":
-                    taste += "e";
-                    break;
-                default:
-                    throw new UnityException($"Wrong format in orders.json with {beverage}");
-            }
-
-            return $"{taste} {beverage}";
-        }
-
         protected override void OnInteract(GameObject source)
         {
+            if (!_canBeInteractedWith || _isInteractedWith) return;
+
+            CustomerSimulation customerSimulation = SimulationManager.CustomerSimulation();
+            
             _isInteractedWith = true;
+            customerSimulation.SetOrderOnMenu(_currentOrder.Name, _currentOrder.Description);
+            customerSimulation.ShowOrderMenu();
         }
     }
 }

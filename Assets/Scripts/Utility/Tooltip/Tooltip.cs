@@ -67,5 +67,14 @@ namespace Utility.Tooltip
             if (tooltip != null) tooltip.HideTooltip(tooltip);
             else throw new NullReferenceException("Tooltip instance was null.");
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Tooltip"))
+            {
+                Vector3 position = _instance.gameObject.GetComponent<RectTransform>().position;
+                _instance.gameObject.GetComponent<RectTransform>().position = new Vector3(position.x, -position.y, position.z);
+            }
+        }
     }
 }

@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CustomerLimit: 20
+  orderMenu: {fileID: 0}
   customerPrefab: {fileID: 2845600354703967472, guid: 272191a7f1c419346bd4990dd545aa6d, type: 3}
   customers: []
   customerPlaces: []
