@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -92,6 +93,14 @@ namespace Inventory
             
             //Return the amount of items that could be removed
             return amount;
+        }
+        
+        /**
+         * <summary>Returns a copy of the content dictionary of this Inventory</summary>
+         */
+        public Dictionary<Item, int> GetContents()
+        {
+            return _contents.ToDictionary(entry => entry.Key, entry => entry.Value);
         }
 
         public int GetAmountOf(Item type)
