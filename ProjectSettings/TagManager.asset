@@ -10,6 +10,8 @@ TagManager:
   - Spawner
   - Customer
   - IconCanvas
+  - Tooltip
+  - FundsDisplay
   layers:
   - Default
   - TransparentFX
