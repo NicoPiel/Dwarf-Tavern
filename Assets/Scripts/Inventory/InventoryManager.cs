@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -15,7 +16,10 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
+
+        public InventoryEntry[] initialContent;
         private static InventoryManager _instance;
+        
         
         private readonly ConcurrentDictionary<string, StaticItem> _registeredItems =
             new ConcurrentDictionary<string, StaticItem>();
@@ -151,7 +155,12 @@ namespace Inventory
         public Inventory GetPlayerInventory()
         {
             //TODO: Load Inventory from save file
-            return PlayerInventory ?? (PlayerInventory = new Inventory(50, 1000)); //Slot size of 50 hardcoded until save/load system is done
+            return PlayerInventory ?? new Inventory(50, 1000, LoadContentsFromPreset());
+        }
+        
+        private ConcurrentDictionary<Item, int> LoadContentsFromPreset()
+        {
+            return initialContent != null ? new ConcurrentDictionary<Item, int>(initialContent.ToDictionary(entry => (Item) GetRegisteredItem(entry.itemID), entry => entry.amount)) : new ConcurrentDictionary<Item, int>();
         }
 
         /**
@@ -170,6 +179,13 @@ namespace Inventory
 
             //Initialization failed due to an error or timeout while loading the assets
             Error
+        }
+
+        [Serializable]
+        public struct InventoryEntry
+        {
+            public string itemID;
+            public int amount;
         }
     }
 }
