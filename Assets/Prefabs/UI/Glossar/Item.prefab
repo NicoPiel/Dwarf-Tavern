@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 293.15, y: -28.059}
-  m_SizeDelta: {x: 348.96, y: 43.882}
+  m_AnchoredPosition: {x: 273.33, y: -28.059}
+  m_SizeDelta: {x: 309.32, y: 43.882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6527668393552614246
 CanvasRenderer:
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_text: A Short Description of the Items Displayed here, maybe a bit more lol,
     ore maybe not
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+  m_sharedMaterial: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 12.45
   m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -443,8 +443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 99.334, y: -32.059}
-  m_SizeDelta: {x: -38.67108, y: 64.1186}
+  m_AnchoredPosition: {x: 59.319977, y: -32.059}
+  m_SizeDelta: {x: -118.63995, y: 64.1186}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2495207660484740969
 CanvasRenderer:
@@ -476,8 +476,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Item Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+  m_sharedMaterial: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_fontSize: 50
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512

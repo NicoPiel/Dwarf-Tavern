@@ -364,6 +364,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8258497589747571116, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_text
+      value: "S\xFC\xDFer Wein"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_enableKerning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_characterSpacing
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045730348767790535, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
 --- !u!224 &742819206566379245 stripped

@@ -617,7 +617,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 1
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -641,7 +641,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8622,9 +8622,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: aa7452733abdc6f44aed10266e21b1c8, type: 2}
     - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[1].m_Data
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_Data
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c7b886b90093ab4cb5b6ec0330197d4, type: 3}
     - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_Data
       value: 
@@ -9038,8 +9042,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
@@ -11476,6 +11484,10 @@ PrefabInstance:
     - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
       propertyPath: m_Tiles.Array.data[353].second.m_TileSpriteIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295616487315344238, guid: b9cad513b3be57349a55f030565be295, type: 3}
+      propertyPath: m_Tiles.Array.data[354].second.m_TileSpriteIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5295616487413230779, guid: b9cad513b3be57349a55f030565be295, type: 3}
       propertyPath: m_Size.x
