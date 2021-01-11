@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: cheese
   displayName: "K\xE4se"
-  lore: 
+  lore: "M\xE4use m\xF6gen gerne K\xE4se, ich frag mich warum?"
   stackable: 1
   rarity: 1
   baseTexture: {fileID: 21300000, guid: 6bee24a0925b3914db0358f8a8553924, type: 3}

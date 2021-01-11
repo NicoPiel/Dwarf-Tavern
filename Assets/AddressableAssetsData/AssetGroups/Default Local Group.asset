@@ -73,6 +73,13 @@ MonoBehaviour:
     - items
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 354dce21a91e07a48926c08c282c4b1d
+    m_Address: Assets/Items/TestItem1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a45056f9cfbdd054dac9bb9f53e9c709, type: 2}
   m_SchemaSet:
