@@ -132,7 +132,7 @@ namespace Inventory
         public Inventory GetPlayerInventory()
         {
             //TODO: Load Inventory from save file
-            return PlayerInventory ?? (PlayerInventory = new Inventory(50)); //Slot size of 50 hardcoded until save/load system is done
+            return PlayerInventory ?? (PlayerInventory = new Inventory(50, 1000)); //Slot size of 50 hardcoded until save/load system is done
         }
 
         /**

@@ -8,15 +8,18 @@ namespace Inventory
     {
         private ConcurrentDictionary<Item, int> _contents;
         private int _capacityPerSlot;
+        private int _funds;
 
-        public Inventory(int capacityPerSlot)
+        public Inventory(int capacityPerSlot, int initialFunds)
         {
             _capacityPerSlot = capacityPerSlot;
+            _funds = initialFunds;
         }
         
-        public Inventory(int capacityPerSlot, Dictionary<Item, int> contents)
+        public Inventory(int capacityPerSlot, int initialFunds, Dictionary<Item, int> contents)
         {
             _capacityPerSlot = capacityPerSlot;
+            _funds = initialFunds;
             _contents = new ConcurrentDictionary<Item, int>();
         }
         
@@ -77,6 +80,38 @@ namespace Inventory
         {
             _contents.TryGetValue(type, out var amount);
             return amount;
+        }
+
+        public int GetFunds()
+        {
+            return _funds;
+        }
+
+        public bool HasSufficientFunds(int needed)
+        {
+            return _funds >= needed;
+        }
+        
+        /**
+         * <summary>Tries to remove <c>amount</c> from the inventory's funds and returns true if enough funds were available. If <c>force</c> is true and <c>amount</c> is
+         * greater than the available funds, the method will remove as much as possible and always return true.</summary>
+         */
+        public bool TryCharge(int amount, bool force)
+        {
+            if (HasSufficientFunds(amount) || force)
+            {
+                _funds -= amount;
+                if (_funds < 0)
+                    _funds = 0;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void SetFunds(int funds)
+        {
+            _funds = funds;
         }
         
     }
