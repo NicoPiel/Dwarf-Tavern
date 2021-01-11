@@ -135,6 +135,11 @@ namespace Inventory
                 _fundsDisplay.text = _funds.ToString();
             }
         }
+
+        public void AddFunds(int amount)
+        {
+            SetFunds(_funds + amount);
+        }
         
     }
 }
