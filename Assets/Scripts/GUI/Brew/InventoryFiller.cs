@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Inventory;
@@ -6,15 +5,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectableItemManager : MonoBehaviour
+public class InventoryFiller : MonoBehaviour
 {
     public GameObject prefabItemFrame;
-
-    private Inventory.Inventory _inventory;
     // Start is called before the first frame update
     private void OnEnable()
     {
-        _inventory = InventoryManager.GetInstance().GetPlayerInventory();
+        Inventory.Inventory _inventory = InventoryManager.GetInstance().GetPlayerInventory();
         Debug.Log("Button Pressed" + _inventory.GetContents().Count);
 
         foreach (Transform child in transform)
@@ -23,7 +20,6 @@ public class SelectableItemManager : MonoBehaviour
         }
         foreach(var t in _inventory.GetContents())
         {
-            
             Item item = t.Key;
             var gameObjectItem = Instantiate(prefabItemFrame, transform);
             gameObjectItem.name = item.GetId();
@@ -32,9 +28,4 @@ public class SelectableItemManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
