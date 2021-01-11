@@ -36,6 +36,24 @@ namespace Inventory
         {
             return _instance;
         }
+    
+        /**
+         * <summary>Runs the given Action either immediately or after finished initialization of the InventoryManager, depending on its current state</summary>
+         */
+        public static void RunOnInit(Action<InventoryManager> action)
+        {
+            if (GetInstance().AssetState == State.Initialized)
+            {
+                action.Invoke(GetInstance());
+            }
+            else
+            {
+                GameManager.GetEventHandler().onInventoryManagerInitialized.AddListener(state =>
+                {
+                    action.Invoke(GetInstance());
+                });
+            }
+        }
         
 
         /**
@@ -79,6 +97,7 @@ namespace Inventory
 
             //Set the state accordingly and invoke the InventoryManagerInitialized event
             AssetState = success ? State.Initialized : State.Error;
+            GetPlayerInventory();
             GameManager.GetEventHandler().onInventoryManagerInitialized.Invoke(AssetState);
         }
 
@@ -124,7 +143,7 @@ namespace Inventory
             protected set;
         } = State.Uninitialized;
 
-        public Inventory PlayerInventory { get; private set; }
+        private Inventory PlayerInventory { get; set; }
 
         /**
          * <summary>Returns PlayerInventory. Creates a new Inventory and assigns it to PlayerInventory if PlayerInventory is null.</summary>

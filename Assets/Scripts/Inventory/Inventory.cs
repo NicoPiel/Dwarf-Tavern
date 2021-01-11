@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Inventory
 {
@@ -9,18 +12,33 @@ namespace Inventory
         private ConcurrentDictionary<Item, int> _contents;
         private int _capacityPerSlot;
         private int _funds;
+        private TextMeshProUGUI _fundsDisplay;
+        private bool _displayAvailable;
 
         public Inventory(int capacityPerSlot, int initialFunds)
         {
+            initDisplay();
             _capacityPerSlot = capacityPerSlot;
-            _funds = initialFunds;
+            SetFunds(initialFunds);
+            _contents = new ConcurrentDictionary<Item, int>();
         }
         
-        public Inventory(int capacityPerSlot, int initialFunds, Dictionary<Item, int> contents)
+        public Inventory(int capacityPerSlot, int initialFunds, ConcurrentDictionary<Item, int> contents)
         {
+            initDisplay();
             _capacityPerSlot = capacityPerSlot;
-            _funds = initialFunds;
-            _contents = new ConcurrentDictionary<Item, int>();
+            SetFunds(initialFunds);
+            _contents = contents;
+        }
+
+        private void initDisplay()
+        {
+            GameObject textObject = GameObject.FindGameObjectWithTag("FundsDisplay");
+            if (textObject == null) return;
+            TextMeshProUGUI textComponent = textObject.GetComponent<TextMeshProUGUI>();
+            if (textComponent == null) return;
+            _fundsDisplay = textComponent;
+            _displayAvailable = true;
         }
         
         /**
@@ -100,9 +118,9 @@ namespace Inventory
         {
             if (HasSufficientFunds(amount) || force)
             {
-                _funds -= amount;
+                SetFunds(_funds - amount);
                 if (_funds < 0)
-                    _funds = 0;
+                    SetFunds(0);
                 return true;
             }
 
@@ -112,6 +130,10 @@ namespace Inventory
         public void SetFunds(int funds)
         {
             _funds = funds;
+            if (_displayAvailable)
+            {
+                _fundsDisplay.text = _funds.ToString();
+            }
         }
         
     }
