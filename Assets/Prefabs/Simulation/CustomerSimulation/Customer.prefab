@@ -185,9 +185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6dacbcda59bc743b48bf35087c1ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHighlightStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onHighlightStop:
+    m_PersistentCalls:
+      m_Calls: []
   Name: 
   assignedPlace: {fileID: 0}
   tooltip: {fileID: 7574769151522380174}
+  patience: 15
   _blocked: 0
   _currentState: 0
   _canBeInteractedWith: 0

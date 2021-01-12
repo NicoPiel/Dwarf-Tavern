@@ -62,7 +62,7 @@ namespace Simulation.Modules.CustomerSimulation
             foreach (Customer customer in customers)
             {
                 // Debug.Log($"Updating state for {customer.Name}");
-                customer.UpdateState();
+                if (customer) customer.UpdateState();
             }
             
             if (customers.Count <= CustomerLimit)
@@ -137,9 +137,9 @@ namespace Simulation.Modules.CustomerSimulation
             return customerPlace;
         }
 
-        public void SetOrderOnMenu(string orderName, string orderDescription)
+        public void SetOrderOnMenu(Order order)
         {
-            orderMenu.SetOrder(orderName, orderDescription);
+            orderMenu.SetOrder(order);
         }
 
         public void ShowOrderMenu()

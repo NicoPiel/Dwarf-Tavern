@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Simulation.Modules.CustomerSimulation;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +13,12 @@ namespace Simulation.Core
     public class SimulationManager : MonoBehaviour
     {
         // Public
+        public TMP_Text timeDisplay;
+        public int timeValue;
+        public int startOfDay;
+        public int endOfDay;
+        public int durationOfDayInMinutes;
+
         public static Dictionary<string, string[]> Names { get; set; }
         public static Dictionary<string, string[]> Orders { get; set; }
         public static List<string> Attributes { get; set; }
@@ -30,6 +38,8 @@ namespace Simulation.Core
         public static UnityEvent onSimulationTick;
 
         private bool _paused;
+        private float _tickDuration = 1f;
+        private int _durationOfDay;
 
         // Start is called before the first frame update
         private void Awake()
@@ -62,6 +72,8 @@ namespace Simulation.Core
             onSimulationPause.AddListener(OnSimulationPause);
             onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
+
+            _durationOfDay = endOfDay - startOfDay;
         }
 
         public void StartSimulation()
@@ -93,9 +105,9 @@ namespace Simulation.Core
             for (;;)
             {
                 if (_paused) break;
-                
+
                 onSimulationTick.Invoke();
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(_tickDuration);
             }
         }
 
@@ -108,6 +120,7 @@ namespace Simulation.Core
         private void OnSimulationStart()
         {
             _paused = false;
+            timeValue = startOfDay;
             Debug.Log("Simulation started.");
         }
 
@@ -125,7 +138,21 @@ namespace Simulation.Core
 
         private void OnSimulationTick()
         {
+            Timelapse();
             Debug.Log("Tick.");
+        }
+
+        private void Timelapse()
+        {
+            timeValue += Mathf.RoundToInt((float) _durationOfDay / durationOfDayInMinutes / _tickDuration / 60);
+
+            var hours = timeValue / 60;
+            var minutes = timeValue % 60;
+
+            var hoursString = hours < 10 ? $"0{hours}" : $"{hours}";
+            var minutesString = minutes < 10 ? $"0{minutes}" : $"{minutes}";
+            
+            timeDisplay.text = $"{hoursString}:{minutesString}";
         }
         
         public static SimulationManager GetInstance()

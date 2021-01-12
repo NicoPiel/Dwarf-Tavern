@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Interactions;
 using Pathfinding;
 using Simulation.Core;
 using Simulation.Exceptions;
 using UnityEngine;
 using Utility.Tooltip;
-using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -18,14 +16,17 @@ namespace Simulation.Modules.CustomerSimulation
         public string Name;
         public CustomerPlace assignedPlace;
         public Tooltip tooltip;
+        public float patience;
         
         private Seeker seeker;
         private AIPath pathfinder;
+        
         [SerializeField] private bool _blocked;
         [SerializeField] private State _currentState;
         [SerializeField] private bool _canBeInteractedWith = false;
         [SerializeField] private bool _isInteractedWith = false;
-        [SerializeField] private Order _currentOrder;
+        
+        private Order _currentOrder;
 
         /**
          * State enum
@@ -74,7 +75,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (_blocked)
             {
-                Debug.LogWarning($"{Name}: Blocked");
+                // Debug.LogWarning($"{Name}: Blocked");
                 yield return new WaitUntil(() => !_blocked);
             }
 
@@ -105,6 +106,7 @@ namespace Simulation.Modules.CustomerSimulation
                 case State.Paying:
                     break;
                 case State.Leaving:
+                    StartCoroutine(Leave());
                     break;
                 case State.Idle:
                     break;
@@ -164,13 +166,37 @@ namespace Simulation.Modules.CustomerSimulation
             _currentOrder = new Order();
             Tooltip.ShowTooltip_Static(tooltip, _currentOrder.Name);
             _canBeInteractedWith = true;
+
+            Unblock();
+
             yield return null;
         }
 
         private IEnumerator Wait()
         {
-            yield return new WaitUntil(() => _isInteractedWith);
+            StartCoroutine(CountdownPatience());
+            yield return new WaitUntil(() => _isInteractedWith || patience == 0);
+
+            if (patience == 0)
+            {
+                _currentState = State.Leaving;
+            }
+            
             Tooltip.HideTooltip_Static(tooltip);
+            Unblock();
+        }
+
+        private IEnumerator Leave()
+        {
+            Vector3 target = GameObject.FindWithTag("Spawner").transform.position;
+
+            pathfinder.destination = target;
+            pathfinder.SearchPath();
+
+            yield return new WaitUntil(() => pathfinder.reachedDestination);
+
+            Unblock();
+            Destroy(gameObject);
         }
 
         /**
@@ -215,8 +241,17 @@ namespace Simulation.Modules.CustomerSimulation
             CustomerSimulation customerSimulation = SimulationManager.CustomerSimulation();
             
             _isInteractedWith = true;
-            customerSimulation.SetOrderOnMenu(_currentOrder.Name, _currentOrder.Description);
+            customerSimulation.SetOrderOnMenu(_currentOrder);
             customerSimulation.ShowOrderMenu();
+        }
+
+        private IEnumerator CountdownPatience()
+        {
+            while (!_isInteractedWith)
+            {
+                yield return new WaitForSeconds(1.0f);
+                patience -= 1;
+            }
         }
     }
 }

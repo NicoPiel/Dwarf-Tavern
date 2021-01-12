@@ -13,6 +13,7 @@ TagManager:
   - Tooltip
   - FundsDisplay
   - OrderMenu
+  - TimeDisplay
   layers:
   - Default
   - TransparentFX

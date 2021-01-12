@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8811296f38909409173719814e2408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeDisplay: {fileID: 0}
+  timeValue: 540
+  startOfDay: 540
+  endOfDay: 1380
+  durationOfDayInMinutes: 14
   customerSimulation: {fileID: 513768606163279196}
 --- !u!1 &8178790827102693588
 GameObject:

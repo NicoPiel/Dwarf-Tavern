@@ -1,16 +1,27 @@
+using Simulation.Modules.CustomerSimulation;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class OrderMenu : MonoBehaviour
 {
+    private Order orderReference;
+    
     [SerializeField] private TMP_Text orderNameText;
     [SerializeField] private TMP_Text orderDescriptionText;
-
-    public void SetOrder(string orderName, string orderDescription)
+    [SerializeField] private Button acceptButton;
+    [SerializeField] private Button closeButton;
+    public void SetOrder(Order order)
     {
-        orderNameText.text = orderName;
-        orderDescriptionText.text = orderDescription;
+        orderReference = order;
+        orderNameText.text = order.Name;
+        orderDescriptionText.text = order.Description;
+    }
+
+    public void AcceptOrder()
+    {
+        orderReference?.Accept();
+        SetInactive();
     }
 
     public void SetActive()
