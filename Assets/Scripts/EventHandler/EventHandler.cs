@@ -15,7 +15,8 @@ public class EventHandler : MonoBehaviour
     public UnityEvent<Interactable.InteractionEventPayload> onInteraction;
     public UnityEvent onAfterHourSceneLoaded;
     public UnityEvent<InventoryManager.State> onInventoryManagerInitialized;
-    public UnityEvent<int> onFundsChanged;
+    public UnityEvent<int> onFundsChangedFrom;
+    public UnityEvent onFundsChanged;
     
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class EventHandler : MonoBehaviour
         onAfterHourSceneLoaded = new UnityEvent();
         onInteraction = new UnityEvent<Interactable.InteractionEventPayload>();
         onInventoryManagerInitialized = new UnityEvent<InventoryManager.State>();
-        onFundsChanged = new UnityEvent<int>();
+        onFundsChangedFrom = new UnityEvent<int>();
+        onFundsChanged = new UnityEvent();
     }
 }

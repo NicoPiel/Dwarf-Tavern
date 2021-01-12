@@ -140,7 +140,8 @@ namespace Inventory
         {
             int oldFunds = _funds;
             _funds = funds;
-            GameManager.GetEventHandler().onFundsChanged.Invoke(oldFunds);
+            GameManager.GetEventHandler().onFundsChangedFrom.Invoke(oldFunds);
+            GameManager.GetEventHandler().onFundsChanged.Invoke();
             if (_displayAvailable)
             {
                 _fundsDisplay.text = _funds.ToString();
