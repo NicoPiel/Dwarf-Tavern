@@ -138,7 +138,9 @@ namespace Inventory
 
         public void SetFunds(int funds)
         {
+            int oldFunds = _funds;
             _funds = funds;
+            GameManager.GetEventHandler().onFundsChanged.Invoke(oldFunds);
             if (_displayAvailable)
             {
                 _fundsDisplay.text = _funds.ToString();
