@@ -32,8 +32,8 @@ MonoBehaviour:
     - AstarPathfindingProject
     - Assembly-CSharp-firstpass
     - Cinemachine
-    - PackageTools
     - Assembly-CSharp
+    - PackageTools
     - Drawing
     - PsdPlugin
     - AstarPathfindingProjectEditor

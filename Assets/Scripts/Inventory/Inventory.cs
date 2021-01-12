@@ -63,9 +63,12 @@ namespace Inventory
             }
             
             //If any items can be added, update the content dictionary
-            if(amount > 0)
+            if (amount > 0)
+            {
                 _contents.AddOrUpdate(type, amount, (oldType, oldAmount) => oldAmount + amount);
-            
+                GameManager.GetEventHandler().onInventoryChanged.Invoke();
+            }
+
             return overflow;
         }
         
@@ -90,7 +93,8 @@ namespace Inventory
             {
                 _contents.TryRemove(type, out _);
             }
-            
+            Debug.Log("Item Removed");
+            GameManager.GetEventHandler().onInventoryChanged.Invoke();
             //Return the amount of items that could be removed
             return amount;
         }

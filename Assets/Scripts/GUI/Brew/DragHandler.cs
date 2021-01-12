@@ -4,33 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragHandler : MonoBehaviour, IPointerDownHandler,IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public static GameObject ItemBeingDragged;
+    [SerializeField]
+    private Canvas canvas;
+    private RectTransform _rectTransform;
+    private CanvasGroup _canvasGroup;
     private Vector3 startPosition;
-    private Transform startParent;
+
+    private GameObject DraggedImage;
+    
+
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        ItemBeingDragged = gameObject;
+        _canvasGroup.alpha = .6f;
+        _canvasGroup.blocksRaycasts = false;
         startPosition = transform.position;
-        startParent = transform.parent;
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
-        
     }
-
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
-
     public void OnEndDrag(PointerEventData eventData)
     {
-        ItemBeingDragged = null;
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if(transform.parent != startParent)
-            transform.position = startPosition;
-        
+        _canvasGroup.alpha = 1f;
+        _canvasGroup.blocksRaycasts = true;
+        transform.position = startPosition;
+
     }
     
 }

@@ -14,27 +14,37 @@ public class SelectableItemManager : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        _inventory = InventoryManager.GetInstance().GetPlayerInventory();
-        Debug.Log("Button Pressed" + _inventory.GetContents().Count);
-
-        foreach (Transform child in transform)
+        UpdateUI();
+        GameManager.GetEventHandler().onInventoryChanged.AddListener(() =>
         {
-            Destroy(child.gameObject);
-        }
+            DeleteEverything();
+            UpdateUI();
+        });
+    }
+
+    private void UpdateUI()
+    {
+        Debug.Log("UI should be updated now");
+        _inventory = InventoryManager.GetInstance().GetPlayerInventory();
+        Debug.Log("Button Pressed" + _inventory.GetContents().Count );
+        
+        DeleteEverything();
         foreach(var t in _inventory.GetContents())
         {
-            
             Item item = t.Key;
             var gameObjectItem = Instantiate(prefabItemFrame, transform);
             gameObjectItem.name = item.GetId();
-            gameObjectItem.transform.Find("Icon").GetComponent<Image>().sprite = item.GetSprite();
+            gameObjectItem.transform.Find("ItemObject").GetComponent<Image>().sprite = item.GetSprite();
+            gameObjectItem.transform.Find("ItemObject").GetComponent<ItemHolder>().SetItem(item); 
             gameObjectItem.transform.Find("Amount").GetComponent<TMP_Text>().text = t.Value+"x";
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DeleteEverything()
     {
-        
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
