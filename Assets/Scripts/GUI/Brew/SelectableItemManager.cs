@@ -15,7 +15,7 @@ public class SelectableItemManager : MonoBehaviour
 
     private Inventory.Inventory _inventory;
     private SortParameter _sortParameter;
-    [SerializeField] private TMP_InputField _input;
+    [SerializeField] private TMP_InputField input;
 
     public enum SortParameter : int
     {
@@ -25,12 +25,10 @@ public class SelectableItemManager : MonoBehaviour
         All,
         Search
     }
-    // Start is called before the first frame update
-    
-    
     
     private void OnEnable()
     {
+        _inventory = InventoryManager.GetInstance().GetPlayerInventory();
         _sortParameter = SortParameter.All;
         UpdateUI();
         GameManager.GetEventHandler().onInventoryChanged.AddListener(() =>
@@ -42,9 +40,6 @@ public class SelectableItemManager : MonoBehaviour
     
     private void UpdateUI()
     {
-        
-        _inventory = InventoryManager.GetInstance().GetPlayerInventory();
-
         DeleteEverything();
         foreach(var t in _inventory.GetContents())
         {
@@ -60,6 +55,9 @@ public class SelectableItemManager : MonoBehaviour
         }
     }
 
+    /**
+     * Checks the Item on the current sorting Parameter
+     */
     private bool Sort(Item item)
     {
         switch (_sortParameter)
@@ -88,7 +86,7 @@ public class SelectableItemManager : MonoBehaviour
                 break;
             case SortParameter.Search:
                 Debug.Log("Search");
-                if (item.GetDisplayName().Contains(_input.text))
+                if (item.GetDisplayName().Contains(input.text))
                 {
                     return true;
                 }
@@ -98,6 +96,9 @@ public class SelectableItemManager : MonoBehaviour
         return false;
     }
 
+    /**
+     * Removes any Child GameObject from this
+     */
     private void DeleteEverything()
     {
         foreach (Transform child in transform)
@@ -106,6 +107,9 @@ public class SelectableItemManager : MonoBehaviour
         }
     }
 
+    /**
+     * Change the SortParameter (Used with button events)
+     */
     public void ChangeSortParameter(int parameter)
     {
         switch(parameter)

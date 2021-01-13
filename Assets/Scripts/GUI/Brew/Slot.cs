@@ -26,7 +26,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         _onSlotChanged.AddListener(UpdateUI);
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
         transform.Find("Image").gameObject.SetActive(false);
         _currentItem = null;
@@ -49,7 +49,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         }
     }
 
-    public void AddItemToSlot(Item item)
+    private void AddItemToSlot(Item item)
     {
         if (item != null)
         {
@@ -92,7 +92,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         }
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         if (_currentItem != null)
         {
