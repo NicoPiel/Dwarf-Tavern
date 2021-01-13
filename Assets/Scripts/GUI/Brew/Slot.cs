@@ -8,24 +8,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
     private Inventory.Inventory _inventory;
     private Item _currentItem;
-
     private UnityEvent _onSlotChanged;
-
     private GameObject _imageObject;
     private Image _image;
-
     private GameObject _textObject;
 
     private void Start()
     {
         _onSlotChanged = new UnityEvent();
         _inventory = InventoryManager.GetInstance().GetPlayerInventory();
-        
+
         _imageObject = transform.Find("Image").gameObject;
         _image = _imageObject.GetComponent<Image>();
 
         _textObject = transform.Find("Text").gameObject;
-        
+
         _onSlotChanged.AddListener(UpdateUI);
     }
 
@@ -37,7 +34,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("TestWorking");
         RemoveItemFromSlot();
     }
 
@@ -59,8 +55,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         {
             RemoveItemFromSlot();
         }
+
         _currentItem = item;
-        Debug.Log("Items removed: "+ _inventory.RemoveItem(item, 1));
+        _inventory.RemoveItem(item, 1);
         _onSlotChanged.Invoke();
     }
 
@@ -68,7 +65,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
     {
         if (_currentItem != null)
         {
-            Debug.Log("Items added: "+_inventory.AddItem(_currentItem, 1));
+            _inventory.AddItem(_currentItem, 1);
             _currentItem = null;
             _onSlotChanged.Invoke();
         }
@@ -84,7 +81,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
             tempColor.a = 255f;
             _image.color = tempColor;
             _image.sprite = _currentItem.GetSprite();
-        }else if (_currentItem == null)
+        }
+        else if (_currentItem == null)
         {
             _image.sprite = null;
             _textObject.SetActive(true);

@@ -18,7 +18,6 @@ public class SelectableItemManager : MonoBehaviour
         GameManager.GetEventHandler().onInventoryChanged.AddListener(() =>
         {
             DeleteEverything();
-            Debug.Log("Everthing should be Deleted");
             UpdateUI();
         });
     }
@@ -27,8 +26,7 @@ public class SelectableItemManager : MonoBehaviour
     {
         
         _inventory = InventoryManager.GetInstance().GetPlayerInventory();
-        Debug.Log("Button Pressed" + _inventory.GetContents().Count );
-        
+
         DeleteEverything();
         foreach(var t in _inventory.GetContents())
         {
@@ -39,7 +37,6 @@ public class SelectableItemManager : MonoBehaviour
             gameObjectItem.transform.Find("ItemObject").GetComponent<ItemHolder>().SetItem(item); 
             gameObjectItem.transform.Find("Amount").GetComponent<TMP_Text>().text = t.Value+"x";
         }
-        Debug.Log("UI should be updated now");
     }
 
     private void DeleteEverything()
