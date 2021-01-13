@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Inventory;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,9 +9,24 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
     private Inventory.Inventory _inventory;
     private Item _currentItem;
 
+    private UnityEvent _onSlotChanged;
+
+    private GameObject _imageObject;
+    private Image _image;
+
+    private GameObject _textObject;
+
     private void Start()
     {
+        _onSlotChanged = new UnityEvent();
         _inventory = InventoryManager.GetInstance().GetPlayerInventory();
+        
+        _imageObject = transform.Find("Image").gameObject;
+        _image = _imageObject.GetComponent<Image>();
+
+        _textObject = transform.Find("Text").gameObject;
+        
+        _onSlotChanged.AddListener(UpdateUI);
     }
 
     public void OnEnable()
@@ -24,44 +37,60 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.dragging == false)
-        {
-            transform.Find("Image").gameObject.GetComponent<Image>().sprite = null;
-            var tempColor = transform.Find("Image").gameObject.GetComponent<Image>().color;
-            tempColor.a = 0f;
-            transform.Find("Image").gameObject.GetComponent<Image>().color = tempColor;
-            
-            if (_currentItem != null)
-            {
-                Debug.Log("Nothing here 2");
-                _inventory.AddItem(_currentItem, 1);
-                _currentItem = null;
-            }
-        }
+        Debug.Log("TestWorking");
+        RemoveItemFromSlot();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Dropped");
         if (eventData.pointerDrag != null)
         {
             Item item = eventData.pointerDrag.GetComponent<ItemHolder>()?.GetItem();
             if (item != null)
             {
-                Debug.Log("Dropped item");
-                _currentItem = item;
-                GameObject image = transform.Find("Image").gameObject;
-
-                image.SetActive(true);
-                
-                var tempColor = image.GetComponent<Image>().color;
-                tempColor.a = 255f;
-                image.GetComponent<Image>().color = tempColor;
-                image.GetComponent<Image>().sprite = item.GetSprite();
-
-                
-                _inventory.RemoveItem(item, 1);
+                AddItemToSlot(item);
             }
+        }
+    }
+
+    public void AddItemToSlot(Item item)
+    {
+        if (item != null)
+        {
+            RemoveItemFromSlot();
+        }
+        _currentItem = item;
+        Debug.Log("Items removed: "+ _inventory.RemoveItem(item, 1));
+        _onSlotChanged.Invoke();
+    }
+
+    private void RemoveItemFromSlot()
+    {
+        if (_currentItem != null)
+        {
+            Debug.Log("Items added: "+_inventory.AddItem(_currentItem, 1));
+            _currentItem = null;
+            _onSlotChanged.Invoke();
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if (_currentItem != null)
+        {
+            _imageObject.SetActive(true);
+            _textObject.SetActive(false);
+            var tempColor = _image.color;
+            tempColor.a = 255f;
+            _image.color = tempColor;
+            _image.sprite = _currentItem.GetSprite();
+        }else if (_currentItem == null)
+        {
+            _image.sprite = null;
+            _textObject.SetActive(true);
+            var tempColor = _image.color;
+            tempColor.a = 0f;
+            _image.color = tempColor;
         }
     }
 

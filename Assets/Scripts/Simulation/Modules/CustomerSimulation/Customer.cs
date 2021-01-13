@@ -58,7 +58,7 @@ namespace Simulation.Modules.CustomerSimulation
             _currentState = State.InQueue;
             Name = CustomerSimulation.GetRandomName();
 
-            Debug.Log(Name + " klopft an.");
+            //Debug.Log(Name + " klopft an.");
         }
 
         /**
@@ -74,13 +74,13 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (_blocked)
             {
-                Debug.LogWarning($"{Name}: Blocked");
+                //Debug.LogWarning($"{Name}: Blocked");
                 yield return new WaitUntil(() => !_blocked);
             }
 
             Block();
 
-            Debug.Log($"{Name}: {_currentState}");
+            //Debug.Log($"{Name}: {_currentState}");
 
             switch (_currentState)
             {

@@ -99,7 +99,7 @@ namespace Simulation.Modules.CustomerSimulation
                 Destroy(customer.gameObject);
             }
             
-            Debug.Log($"{customer.Name} hat die Taverne verlassen.");
+            //Debug.Log($"{customer.Name} hat die Taverne verlassen.");
         }
 
         private float CustomerProbability(int t)
