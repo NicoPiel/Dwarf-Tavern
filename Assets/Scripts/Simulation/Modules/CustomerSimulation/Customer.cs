@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Interactions;
 using Pathfinding;
 using Simulation.Core;
 using Simulation.Exceptions;
+using TMPro;
 using UnityEngine;
 using Utility.Tooltip;
+using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -14,6 +17,7 @@ namespace Simulation.Modules.CustomerSimulation
     public class Customer : PlayerInteractable
     {
         public string Name;
+        public TMP_Text namePlate;
         public CustomerPlace assignedPlace;
         public Tooltip tooltip;
         public float patience;
@@ -27,11 +31,14 @@ namespace Simulation.Modules.CustomerSimulation
         [SerializeField] private bool _isInteractedWith = false;
         
         private Order _currentOrder;
-
+        private bool _hadOrderTaken;
+        private bool _hasBeenServed;
+        private bool _wantsToLeave;
+        
         /**
          * State enum
          */
-        private enum State : int
+        public enum State : int
         {
             InQueue,
             MovingToTable,
@@ -58,6 +65,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _currentState = State.InQueue;
             Name = CustomerSimulation.GetRandomName();
+            namePlate.text = Name;
 
             Debug.Log(Name + " klopft an.");
         }
@@ -102,6 +110,7 @@ namespace Simulation.Modules.CustomerSimulation
                     StartCoroutine(Wait());
                     break;
                 case State.Consuming:
+                    StartCoroutine(Consume());
                     break;
                 case State.Paying:
                     break;
@@ -172,13 +181,34 @@ namespace Simulation.Modules.CustomerSimulation
             yield return null;
         }
 
+        /**
+         * The customer waits to have his order taken or to get served. Times are hardcoded.
+         */
         private IEnumerator Wait()
         {
             StartCoroutine(CountdownPatience());
-            yield return new WaitUntil(() => _isInteractedWith || patience == 0);
 
+            // Wait for a certain period of time, if customer hasn't had his order taken, otherwise wait to get served.
+            if (!_hadOrderTaken)
+            {
+                patience = 15f;
+                yield return new WaitUntil(() => _isInteractedWith || patience == 0);
+                _isInteractedWith = false;
+                _hadOrderTaken = true;
+            }
+            else
+            {
+                patience = 90f;
+                yield return new WaitUntil(() => _isInteractedWith || patience == 0);
+                _isInteractedWith = false;
+                _hasBeenServed = true;
+                _currentState = State.Consuming;
+            }
+
+            // Leave if patience reaches 0 while waiting.
             if (patience == 0)
             {
+                _wantsToLeave = true;
                 _currentState = State.Leaving;
             }
             
@@ -186,8 +216,21 @@ namespace Simulation.Modules.CustomerSimulation
             Unblock();
         }
 
+        /**
+         * The customers consumes his order.
+         */
+        private IEnumerator Consume()
+        {
+            if (!_hasBeenServed) throw new StateException(State.Consuming, "Customer has not been served yet. _hasBeenServed has to be true.");
+            
+            Tooltip.ShowTooltip_Static(tooltip, "Nom nom nom...");
+            yield return new WaitForSeconds(20f);
+        }
+
         private IEnumerator Leave()
         {
+            if (!_wantsToLeave) throw new StateException(State.Leaving, "Customer does not want to leave. _wantsToLeave has to be true.");
+            
             Vector3 target = GameObject.FindWithTag("Spawner").transform.position;
 
             pathfinder.destination = target;
@@ -204,7 +247,7 @@ namespace Simulation.Modules.CustomerSimulation
          */
         private void Block(bool blocked = true)
         {
-            this._blocked = blocked;
+            _blocked = blocked;
         }
 
         /**
@@ -212,7 +255,7 @@ namespace Simulation.Modules.CustomerSimulation
          */
         private void Unblock()
         {
-            this._blocked = false;
+            _blocked = false;
         }
 
         /**
@@ -252,6 +295,39 @@ namespace Simulation.Modules.CustomerSimulation
                 yield return new WaitForSeconds(1.0f);
                 patience -= 1;
             }
+        }
+    }
+
+    public class StateException : UnityException
+    {
+        public StateException() : base()
+        {
+            Debug.LogException(this);
+        }
+        
+        public StateException(Customer.State state)
+        {
+            Debug.LogError($"Illegal state: {state}.");
+            Debug.LogException(this);
+        }
+        
+        public StateException(string message) : base(message)
+        {
+            Debug.LogError(message);
+            Debug.LogException(this);
+        }
+
+        public StateException(Customer.State state, string message) : base(message)
+        {
+            Debug.LogError(message);
+            Debug.LogException(this);
+        }
+
+        public StateException(string message, Exception inner) : base(message, inner)
+        {
+            Debug.LogError(message);
+            Debug.LogException(this);
+            Debug.LogException(inner);
         }
     }
 }
