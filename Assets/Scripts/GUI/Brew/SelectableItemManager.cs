@@ -7,6 +7,7 @@ using Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 public class SelectableItemManager : MonoBehaviour
 {
@@ -14,13 +15,15 @@ public class SelectableItemManager : MonoBehaviour
 
     private Inventory.Inventory _inventory;
     private SortParameter _sortParameter;
+    [SerializeField] private TMP_InputField _input;
 
     public enum SortParameter : int
     {
         Basis,
         Taste,
         Bonus,
-        All
+        All,
+        Search
     }
     // Start is called before the first frame update
     
@@ -82,9 +85,13 @@ public class SelectableItemManager : MonoBehaviour
                 {
                     return true;
                 }
-
                 break;
-            default:
+            case SortParameter.Search:
+                Debug.Log("Search");
+                if (item.GetDisplayName().Contains(_input.text))
+                {
+                    return true;
+                }
                 break;
         }
 
@@ -114,6 +121,9 @@ public class SelectableItemManager : MonoBehaviour
                 break;
             case 3:
                 _sortParameter = SortParameter.All;
+                break;
+            case 4:
+                _sortParameter = SortParameter.Search;
                 break;
         }
         UpdateUI();
