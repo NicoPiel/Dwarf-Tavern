@@ -734,13 +734,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8178790827082372269, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
-      propertyPath: timeValue
-      value: 540
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178790827082372269, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
       propertyPath: timeDisplay
       value: 
       objectReference: {fileID: 871290278}
+    - target: {fileID: 8178790827082372269, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
+      propertyPath: questDisplay
+      value: 
+      objectReference: {fileID: 1019534375440310337}
     - target: {fileID: 8178790827082372271, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
       propertyPath: m_Name
       value: SimulationManager
@@ -1346,12 +1346,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3231247610705168422, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
     - target: {fileID: 7939544136167847200, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+--- !u!114 &1019534375440310337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6927965284838006034, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+  m_PrefabInstance: {fileID: 1019534375440310336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2778953959167570676
 PrefabInstance:
   m_ObjectHideFlags: 0

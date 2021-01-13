@@ -163,7 +163,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _currentState = State.Waiting;
 
-            _currentOrder = new Order();
+            _currentOrder = new Order(this);
             Tooltip.ShowTooltip_Static(tooltip, _currentOrder.Name);
             _canBeInteractedWith = true;
 
@@ -238,7 +238,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (!_canBeInteractedWith || _isInteractedWith) return;
 
-            CustomerSimulation customerSimulation = SimulationManager.CustomerSimulation();
+            CustomerSimulation customerSimulation = SimulationManager.GetCustomerSimulation();
             
             _isInteractedWith = true;
             customerSimulation.SetOrderOnMenu(_currentOrder);

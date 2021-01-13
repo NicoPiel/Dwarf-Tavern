@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json;
 using Simulation.Modules.CustomerSimulation;
 using TMPro;
@@ -13,6 +13,7 @@ namespace Simulation.Core
     public class SimulationManager : MonoBehaviour
     {
         // Public
+        public TMP_Text questDisplay;
         public TMP_Text timeDisplay;
         public int timeValue;
         public int startOfDay;
@@ -160,7 +161,7 @@ namespace Simulation.Core
             return _instance;
         }
 
-        public static CustomerSimulation CustomerSimulation()
+        public static CustomerSimulation GetCustomerSimulation()
         {
             return _instance.customerSimulation;
         }

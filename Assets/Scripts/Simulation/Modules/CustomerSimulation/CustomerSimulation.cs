@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Simulation.Core;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Simulation.Modules.CustomerSimulation
@@ -9,7 +11,7 @@ namespace Simulation.Modules.CustomerSimulation
     public class CustomerSimulation : SimulationModule
     {
         public int CustomerLimit;
-        public static List<Order> OpenOrders; 
+        public static List<Order> OpenOrders;
         public OrderMenu orderMenu;
 
         [SerializeField] private GameObject customerPrefab;
@@ -17,16 +19,27 @@ namespace Simulation.Modules.CustomerSimulation
         [SerializeField] private List<CustomerPlace> customerPlaces;
         [SerializeField] private List<CustomerPlace> unassignedCustomerPlaces;
         [SerializeField] private List<CustomerPlace> assignedCustomerPlaces;
-        
 
+        // Events
+        public static UnityEvent onOrderAccept;
+        public static UnityEvent onOrderProcess;
+        public static UnityEvent onOrderListChange;
+        
         private int time;
+
+        private void Awake()
+        {
+            onOrderAccept = new UnityEvent();
+            onOrderProcess = new UnityEvent();
+            onOrderListChange = new UnityEvent();
+        }
 
         // Start is called before the first frame update
         private void Start()
         {
             InitModule();
             customers = new List<Customer>();
-            
+
             customerPlaces = new List<CustomerPlace>();
             foreach (var obj in GameObject.FindGameObjectsWithTag("CustomerPlace"))
             {
@@ -37,6 +50,10 @@ namespace Simulation.Modules.CustomerSimulation
             unassignedCustomerPlaces = customerPlaces;
             assignedCustomerPlaces = new List<CustomerPlace>();
             OpenOrders = new List<Order>();
+            
+            onOrderAccept.AddListener(OnOrderEvent);
+            onOrderProcess.AddListener(OnOrderEvent);
+            onOrderListChange.AddListener(OnOrderListChange);
         }
 
         protected override void OnSimulationStart()
@@ -64,7 +81,7 @@ namespace Simulation.Modules.CustomerSimulation
                 // Debug.Log($"Updating state for {customer.Name}");
                 if (customer) customer.UpdateState();
             }
-            
+
             if (customers.Count <= CustomerLimit)
             {
                 // Add a new customer based on time passed since the last time one was added.
@@ -98,7 +115,7 @@ namespace Simulation.Modules.CustomerSimulation
             {
                 Destroy(customer.gameObject);
             }
-            
+
             Debug.Log($"{customer.Name} hat die Taverne verlassen.");
         }
 
@@ -145,6 +162,23 @@ namespace Simulation.Modules.CustomerSimulation
         public void ShowOrderMenu()
         {
             orderMenu.SetActive();
+        }
+
+        private void OnOrderEvent()
+        {
+            onOrderListChange.Invoke();
+        }
+        
+        private void OnOrderListChange()
+        {
+            var sb = new StringBuilder();
+
+            foreach (Order order in OpenOrders)
+            {
+                sb.Append($"- {order.Name} für {order.customerReference.Name}\n");
+            }
+            
+            SimulationManager.GetInstance().questDisplay.text = sb.ToString();
         }
     }
 }

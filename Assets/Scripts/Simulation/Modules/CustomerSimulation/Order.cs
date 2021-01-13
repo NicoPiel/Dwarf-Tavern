@@ -8,13 +8,15 @@ namespace Simulation.Modules.CustomerSimulation
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public Customer customerReference;
 
         private string article;
         private string beverage;
         private string taste;
         
-        public Order()
+        public Order(Customer customerReference)
         {
+            this.customerReference = customerReference;
             Name = RandomOrderName();
             Description = RandomOrderDescription();
         }
@@ -22,12 +24,14 @@ namespace Simulation.Modules.CustomerSimulation
         public Order Accept()
         {
             CustomerSimulation.OpenOrders?.Add(this);
+            CustomerSimulation.onOrderAccept.Invoke();
             return this;
         }
 
         public void Process()
         {
             CustomerSimulation.OpenOrders?.Remove(this);
+            CustomerSimulation.onOrderProcess.Invoke();
         }
         
         private string RandomOrderName()
@@ -71,7 +75,7 @@ namespace Simulation.Modules.CustomerSimulation
             
             
             // Generic output
-            return $"Ich hätte gerne ein{GetArticleAccusativePostfix()} {taste.Substring(0, taste.Length - 2).ToLower()}{GetArticleAccusativePostfix()} {beverage}, {article} mich {attribute.ToLower()}er macht.";
+            return $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetArticleAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
         }
 
         private string GetArticleNominativePostfix()

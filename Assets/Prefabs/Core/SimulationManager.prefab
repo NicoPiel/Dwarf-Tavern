@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8811296f38909409173719814e2408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questDisplay: {fileID: 0}
   timeDisplay: {fileID: 0}
   timeValue: 540
   startOfDay: 540

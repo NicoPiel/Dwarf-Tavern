@@ -11,6 +11,7 @@ public class OrderMenu : MonoBehaviour
     [SerializeField] private TMP_Text orderDescriptionText;
     [SerializeField] private Button acceptButton;
     [SerializeField] private Button closeButton;
+    
     public void SetOrder(Order order)
     {
         orderReference = order;
