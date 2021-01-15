@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6761624524236537115}
   - component: {fileID: -2058553918575008480}
   - component: {fileID: 5327157255478097694}
+  - component: {fileID: 5057280237239813299}
   m_Layer: 0
   m_Name: Chair
   m_TagString: CustomerPlace
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   occupiedBy: {fileID: 0}
+--- !u!114 &5057280237239813299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579352446892644081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff3470281973214db60f21ac4675279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: chair
+  lvl1: {fileID: 21300000, guid: 69f614ff5301fd241a811ed6d3461b0b, type: 3}
+  lvl2: {fileID: 21300000, guid: 07ea3eed14901a84e854277b03e6d822, type: 3}
+  lvl3: {fileID: 21300000, guid: 9cd79b35c7801fa45b3a5a8463f70d73, type: 3}

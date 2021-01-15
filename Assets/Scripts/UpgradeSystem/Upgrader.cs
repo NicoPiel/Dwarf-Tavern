@@ -8,50 +8,51 @@ using UnityEngine.UI;
 public class Upgrader : MonoBehaviour
 {
     private UpgradeStateHolder _upgradeStateHolder;
-    public GameObject Table_LvL1;
-    public GameObject Table_LvL2;
-    public GameObject Table_LvL3;
-    public GameObject Chair_LvL1;
-    public GameObject Chair_LvL2;
-    public GameObject Chair_LvL3;
+    public string id;
+    public GameObject LvL1;
+    public GameObject LvL2;
+    public GameObject LvL3;
+
+    public int price_lvl2;
+    public int price_lvl3;
    
     private void OnEnable()
     {
         _upgradeStateHolder = UpgradeStateHolder.GetInstance();
-        SetupTables();
+        Setup();
     }
-    private void SetupTables()
+    private void Setup()
     {
         Debug.Log("Setting Up tables:");
-        int state = _upgradeStateHolder.GetUpgradeState("table");
+        int state = _upgradeStateHolder.GetUpgradeState(id);
         switch (state)
         {
             case 1:
-                Table_LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "5000";
-                Table_LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "10000";
+                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl2;
+                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl3;
                 break;
             case 2:
-                Table_LvL3.transform.Find("Button").GetComponent<Button>().enabled = true;
-                Table_LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
-                Table_LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "10000";
+                LvL3.transform.Find("Button").GetComponent<Button>().enabled = true;
+                LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl3;
                 
                 break;
             case 3:
-                Table_LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                Table_LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
-                Table_LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 break;
         }
         
     }
 
-    public void UpgradeTable(int button)
+    public void Upgrade(int button)
     {
         Debug.Log($"{button} pressed");
         if (button == 1)
@@ -60,10 +61,10 @@ public class Upgrader : MonoBehaviour
         }
         
         
-        if (_upgradeStateHolder.GetUpgradeState("table") < 3)
+        if (_upgradeStateHolder.GetUpgradeState(id) < 3)
         {
-            _upgradeStateHolder.Upgrade("table");
-            SetupTables();
+            _upgradeStateHolder.Upgrade(id);
+            Setup();
         }
 
     }
