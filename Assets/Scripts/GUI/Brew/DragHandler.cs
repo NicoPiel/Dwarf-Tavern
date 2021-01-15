@@ -34,7 +34,7 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,
     }
     public void OnDrag(PointerEventData eventData)
     {
-        _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        transform.position = Input.mousePosition;
     }
     public void OnEndDrag(PointerEventData eventData)
     {
