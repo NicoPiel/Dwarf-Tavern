@@ -67,7 +67,7 @@ namespace Simulation.Modules.CustomerSimulation
             Name = CustomerSimulation.GetRandomName();
             namePlate.text = Name;
 
-            Debug.Log(Name + " klopft an.");
+            //Debug.Log(Name + " klopft an.");
         }
 
         /**
@@ -89,7 +89,7 @@ namespace Simulation.Modules.CustomerSimulation
 
             Block();
 
-            Debug.Log($"{Name}: {_currentState}");
+            //Debug.Log($"{Name}: {_currentState}");
 
             switch (_currentState)
             {

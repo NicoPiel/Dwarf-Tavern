@@ -155,7 +155,7 @@ namespace Inventory
         public Inventory GetPlayerInventory()
         {
             //TODO: Load Inventory from save file
-            return PlayerInventory ?? new Inventory(50, 1000, LoadContentsFromPreset());
+            return PlayerInventory ??= new Inventory(50, 1000, LoadContentsFromPreset());
         }
         
         private ConcurrentDictionary<Item, int> LoadContentsFromPreset()
