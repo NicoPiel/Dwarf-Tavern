@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4925254656613392593}
   - component: {fileID: 4925254656613392606}
   - component: {fileID: -6182059972536218279}
-  - component: {fileID: 1044049526567260557}
+  - component: {fileID: 794778049761533774}
   m_Layer: 0
   m_Name: table
   m_TagString: Furniture
@@ -111,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0315368, y: 0.95}
   m_EdgeRadius: 0
---- !u!114 &1044049526567260557
+--- !u!114 &794778049761533774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4925254656613392607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc607cbcfd01254d93cd17a4fde1dc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ff3470281973214db60f21ac4675279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: table

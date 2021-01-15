@@ -14,24 +14,22 @@ public class UpgradeStateHolder : MonoBehaviour
         return _instance;
     }
 
-    public UnityEvent onUpgradeChanged;
+    private UnityEvent onUpgradeChanged = new UnityEvent();
     
     // Start is called before the first frame update
     private void Awake()
     {
         DontDestroyOnLoad(this);
         _instance = this;
-        onUpgradeChanged = new UnityEvent();
-        _upgrades = new Dictionary<string, int>();
-    }
-
-    private void Start()
-    {
-        onUpgradeChanged.AddListener(Save);
+        
+        ;
         if (ES3.KeyExists("Upgrade"))
         {
-            _upgrades = (Dictionary<string, int>)ES3.Load("Upgrade");
+            _upgrades = ES3.Load<Dictionary<string, int>>("Upgrade");
         }
+        else
+            _upgrades = new Dictionary<string, int>();
+        onUpgradeChanged.AddListener(Save);
     }
 
     public bool IsRegistered(string id)
@@ -51,9 +49,9 @@ public class UpgradeStateHolder : MonoBehaviour
 
     public int GetUpgradeState(string id)
     {
-        if (_upgrades.ContainsKey(id))
+        if (!_upgrades.ContainsKey(id))
         {
-            return 0;
+            return -1;
         }
         return _upgrades[id];
     }
@@ -70,7 +68,7 @@ public class UpgradeStateHolder : MonoBehaviour
 
     public void Upgrade(string id)
     {
-        if (_upgrades.ContainsKey(id))
+        if (!_upgrades.ContainsKey(id))
         {
             return;
         }
@@ -79,9 +77,10 @@ public class UpgradeStateHolder : MonoBehaviour
         onUpgradeChanged.Invoke();
     }
 
-    public void Save()
-    {   
+    private void Save()
+    {
         ES3.Save("Upgrade", _upgrades);
+        Debug.Log("Saved!");
     }
     
 
