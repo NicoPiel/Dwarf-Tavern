@@ -22,8 +22,8 @@ namespace Simulation.Modules.CustomerSimulation
         public Tooltip tooltip;
         public float patience;
         
-        private Seeker seeker;
-        private AIPath pathfinder;
+        private Seeker _seeker;
+        private AIPath _pathfinder;
         
         [SerializeField] private bool _blocked;
         [SerializeField] private State _currentState;
@@ -53,8 +53,8 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void Awake()
         {
-            seeker = GetComponent<Seeker>();
-            pathfinder = GetComponent<AIPath>();
+            _seeker = GetComponent<Seeker>();
+            _pathfinder = GetComponent<AIPath>();
             Init();
         }
 
@@ -140,10 +140,10 @@ namespace Simulation.Modules.CustomerSimulation
 
             Vector3 target = assignedPlace.transform.position;
 
-            pathfinder.destination = target;
-            pathfinder.SearchPath();
+            _pathfinder.destination = target;
+            _pathfinder.SearchPath();
 
-            yield return new WaitUntil(() => pathfinder.reachedDestination);
+            yield return new WaitUntil(() => _pathfinder.reachedDestination);
             
             ArriveAtTable();
         }
@@ -233,10 +233,10 @@ namespace Simulation.Modules.CustomerSimulation
             
             Vector3 target = GameObject.FindWithTag("Spawner").transform.position;
 
-            pathfinder.destination = target;
-            pathfinder.SearchPath();
+            _pathfinder.destination = target;
+            _pathfinder.SearchPath();
 
-            yield return new WaitUntil(() => pathfinder.reachedDestination);
+            yield return new WaitUntil(() => _pathfinder.reachedDestination);
 
             Unblock();
             Destroy(gameObject);

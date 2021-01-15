@@ -1,4 +1,3 @@
-using Inventory;
 using Simulation.Core;
 using UnityEngine;
 
