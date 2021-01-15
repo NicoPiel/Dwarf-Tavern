@@ -31,7 +31,7 @@ public class Upgrader : MonoBehaviour
                 LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
                 LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
                 LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl2;
-                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl3;
+                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gesperrt";
                 break;
             case 2:
                 LvL3.transform.Find("Button").GetComponent<Button>().enabled = true;
