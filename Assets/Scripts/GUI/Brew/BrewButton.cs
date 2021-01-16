@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Brewing;
+using Inventory;
 using UnityEngine;
 
 public class BrewButton : MonoBehaviour
@@ -14,14 +16,14 @@ public class BrewButton : MonoBehaviour
 
     public void OnBrewButtonClicked()
     {
-        if (!slotBase.IsItemSet() || !slotTaste1.IsItemSet() || !slotTaste2.IsItemSet())
+        if (!slotBase.IsItemSet() || !slotTaste1.IsItemSet())
         {
             Debug.Log("Slots not filled!");
             return;
         }
 
-        Debug.Log(!slotBonus.IsItemSet()
-            ? "BrewButton(slotBase.GetItem(),slotTaste1.GetItem(), slotTaste2.GetItem())"
-            : "BrewButton(slotBase.GetItem(),slotTaste1.GetItem(), slotTaste2.GetItem()), slotBonus.GetItem()");
+        Debug.Log(GetComponent<BrewingManager>().Brew((IngredientItem) slotBase.GetItem(), (IngredientItem) slotTaste1.GetItem(), (IngredientItem) slotTaste2.GetItem(),
+            (IngredientItem) slotBonus.GetItem()));
+
     }
 }
