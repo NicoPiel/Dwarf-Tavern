@@ -6,18 +6,12 @@ using UnityEngine.EventSystems;
 
 public class DragHandler : MonoBehaviour, IPointerDownHandler,IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField]
-    private Canvas canvas;
-    private RectTransform _rectTransform;
-    private CanvasGroup _canvasGroup;
-    private Vector3 startPosition;
-
-    private GameObject DraggedImage;
     
-
+    private CanvasGroup _canvasGroup;
+    private Vector3 _startPosition;
+    
     private void Awake()
     {
-        _rectTransform = GetComponent<RectTransform>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -30,7 +24,7 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,
     {
         _canvasGroup.alpha = .6f;
         _canvasGroup.blocksRaycasts = false;
-        startPosition = transform.position;
+        _startPosition = transform.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -40,7 +34,7 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,
     {
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
-        transform.position = startPosition;
+        transform.position = _startPosition;
 
     }
     

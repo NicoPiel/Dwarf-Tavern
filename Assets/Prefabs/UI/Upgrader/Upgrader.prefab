@@ -704,11 +704,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: table
-  LvL1: {fileID: 7705454769400497540}
-  LvL2: {fileID: 4467470299187629506}
-  LvL3: {fileID: 6579401002245982784}
-  price_lvl2: 5000
-  price_lvl3: 10000
+  level1: {fileID: 7705454769400497540}
+  level2: {fileID: 4467470299187629506}
+  level3: {fileID: 6579401002245982784}
+  priceLevel2: 5000
+  priceLevel3: 10000
 --- !u!1 &2998547515366993068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,11 +2845,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: chair
-  LvL1: {fileID: 3281078783006656132}
-  LvL2: {fileID: 8116955656880751776}
-  LvL3: {fileID: 1808764548505047413}
-  price_lvl2: 5000
-  price_lvl3: 10000
+  level1: {fileID: 3281078783006656132}
+  level2: {fileID: 8116955656880751776}
+  level3: {fileID: 1808764548505047413}
+  priceLevel2: 5000
+  priceLevel3: 10000
 --- !u!1001 &2752400968984960859
 PrefabInstance:
   m_ObjectHideFlags: 0

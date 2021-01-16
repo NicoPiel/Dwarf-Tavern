@@ -9,12 +9,12 @@ public class Upgrader : MonoBehaviour
 {
     private UpgradeStateHolder _upgradeStateHolder;
     public string id;
-    public GameObject LvL1;
-    public GameObject LvL2;
-    public GameObject LvL3;
+    public GameObject level1;
+    public GameObject level2;
+    public GameObject level3;
 
-    public int price_lvl2;
-    public int price_lvl3;
+    public int priceLevel2;
+    public int priceLevel3;
    
     private void OnEnable()
     {
@@ -28,25 +28,25 @@ public class Upgrader : MonoBehaviour
         switch (state)
         {
             case 1:
-                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl2;
-                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gesperrt";
+                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level3.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level2.transform.Find("Price").GetComponent<TMP_Text>().text = ""+priceLevel2;
+                level3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gesperrt";
                 break;
             case 2:
-                LvL3.transform.Find("Button").GetComponent<Button>().enabled = true;
-                LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
-                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+price_lvl3;
+                level3.transform.Find("Button").GetComponent<Button>().enabled = true;
+                level2.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                level3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+priceLevel3;
                 
                 break;
             case 3:
-                LvL3.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                LvL2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
-                LvL3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                level3.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level2.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                level3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 break;
         }
         

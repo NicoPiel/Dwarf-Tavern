@@ -9,11 +9,11 @@ public class Upgradable : MonoBehaviour
     [SerializeField] private Sprite lvl2;
     [SerializeField] private Sprite lvl3;
 
-    protected UpgradeStateHolder _upgradeStateHolder;
+    private UpgradeStateHolder _upgradeStateHolder;
     private SpriteRenderer _spriteRenderer;
     // Start is called before the first frame update
     
-    void Setup()
+    private void Setup()
     {
         Debug.Log("Starting Setup with id"+ id + _upgradeStateHolder.GetUpgradeState(id));
         switch (_upgradeStateHolder.GetUpgradeState(id))
@@ -33,7 +33,7 @@ public class Upgradable : MonoBehaviour
         }
     }
     
-    void Start()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _upgradeStateHolder = UpgradeStateHolder.GetInstance();

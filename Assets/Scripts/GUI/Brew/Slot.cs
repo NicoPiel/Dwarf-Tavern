@@ -61,6 +61,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         _onSlotChanged.Invoke();
     }
 
+    public Item GetItem()
+    {
+        return _currentItem;
+    }
+
+    public bool IsItemSet()
+    {
+        return _currentItem != null;
+    }
+
     private void RemoveItemFromSlot()
     {
         if (_currentItem != null)
