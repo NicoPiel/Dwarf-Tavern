@@ -3360,6 +3360,7 @@ GameObject:
   - component: {fileID: 5285648441896114337}
   - component: {fileID: 1401476021890570276}
   - component: {fileID: 2623851190246591357}
+  - component: {fileID: 8775695058452499014}
   m_Layer: 5
   m_Name: Brew
   m_TagString: Untagged
@@ -3468,7 +3469,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1401476021890570276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8775695058452499014}
+        m_TargetAssemblyTypeName: BrewButton, Assembly-CSharp
+        m_MethodName: OnBrewButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8775695058452499014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505527433758033335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5a804112aaaa64ab4c75c2e3c87001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotTaste1: {fileID: 7554833921665384017}
+  slotTaste2: {fileID: 7782242591710998543}
+  slotBase: {fileID: 2722429913032738186}
+  slotBonus: {fileID: 7638782386749637217}
 --- !u!1 &7632790568793237445
 GameObject:
   m_ObjectHideFlags: 0
