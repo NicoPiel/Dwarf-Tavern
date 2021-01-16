@@ -5,56 +5,66 @@ namespace Inventory
 {
     public abstract class ComplexItem : Item
     {
-        private StaticItem reference;
+        private readonly StaticItem reference;
 
         protected ComplexItem(StaticItem reference)
         {
             this.reference = reference;
         }
 
-        public string GetId()
+        public virtual string GetId()
         {
             return reference.GetId();
         }
 
-        public string GetDisplayName()
+        public virtual string GetDisplayName()
         {
             return reference.GetDisplayName();
         }
 
-        public string GetLore()
+        public virtual string GetLore()
         {
             return reference.GetLore();
         }
 
-        public bool CanStackWith(Item other)
+        public virtual bool CanStackWith(Item other)
         {
             return reference.CanStackWith(other);
         }
 
-        public bool IsComplex()
+        public virtual bool IsComplex()
         {
             return true;
         }
 
-        public Sprite GetSprite()
+        public virtual Sprite GetSprite()
         {
             return reference.GetSprite();
         }
 
-        public bool IsIngredient()
+        public virtual bool IsIngredient()
         {
             return reference.IsIngredient();
         }
 
-        public Dictionary<Item.Slot, Dictionary<string, int>> GetModifiers()
+        public virtual Dictionary<Item.Slot, Dictionary<string, int>> GetModifiers()
         {
             return reference.GetModifiers();
         }
 
-        public Item.Rarity GetRarity()
+        public virtual Item.Rarity GetRarity()
         {
             return reference.GetRarity();
+        }
+
+        public override bool Equals(object other)
+        {
+            return other is ComplexItem && reference.Equals(((ComplexItem) other).reference);
+        }
+
+        public override int GetHashCode()
+        {
+            return reference.GetHashCode();
         }
     }
 }

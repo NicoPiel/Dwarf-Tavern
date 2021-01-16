@@ -35,6 +35,27 @@ namespace Inventory
             return dict;
         }
 
+        protected bool Equals(IngredientItem other)
+        {
+            return base.Equals(other) && Equals(modifiers, other.modifiers);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((IngredientItem) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (base.GetHashCode() * 397) ^ (modifiers != null ? modifiers.GetHashCode() : 0);
+            }
+        }
+
         [Serializable]
         public struct ItemModifier
         {
