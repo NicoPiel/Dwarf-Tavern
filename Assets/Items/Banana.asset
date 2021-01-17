@@ -20,6 +20,6 @@ MonoBehaviour:
   baseTexture: {fileID: 21300000, guid: d24d0647bb86c8e4f8d75507d1ff262a, type: 3}
   modifiers:
   - slot: 1
-    entries: []
-  - slot: 2
-    entries: []
+    entries:
+    - key: dexterity
+      value: 1

@@ -15,6 +15,7 @@ TagManager:
   - OrderMenu
   - TimeDisplay
   - QuestDisplay
+  - ItemBeerHolder
   layers:
   - Default
   - TransparentFX

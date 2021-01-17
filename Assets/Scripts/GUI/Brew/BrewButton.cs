@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Brewing;
@@ -12,7 +13,7 @@ public class BrewButton : MonoBehaviour
     public Slot slotBonus;
     
     // Start is called before the first frame update
-
+    
 
     public void OnBrewButtonClicked()
     {
@@ -21,9 +22,20 @@ public class BrewButton : MonoBehaviour
             Debug.Log("Slots not filled!");
             return;
         }
+        
 
-        Debug.Log(GetComponent<BrewingManager>().Brew((IngredientItem) slotBase.GetItem(), (IngredientItem) slotTaste1.GetItem(), (IngredientItem) slotTaste2.GetItem(),
-            (IngredientItem) slotBonus.GetItem()));
+        ItemBeer itemBeer = GetComponent<BrewingManager>().Brew((IngredientItem) slotBase.GetItem(),
+            (IngredientItem) slotTaste1.GetItem(), (IngredientItem) slotTaste2.GetItem(),
+            (IngredientItem) slotBonus.GetItem());
+        
+        slotTaste1.TakeItem();
+        slotTaste2.TakeItem();
+        slotBase.TakeItem();
+        slotBonus.TakeItem();
+        
+        Debug.Log(itemBeer);
+        
+        GameManager.GetEventHandler().onBrewed.Invoke(itemBeer);
 
     }
 }

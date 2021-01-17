@@ -12,7 +12,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
     private GameObject _imageObject;
     private Image _image;
     private GameObject _textObject;
+    public ItemSlot slot;
 
+    
+    public enum ItemSlot
+    {
+        Base,
+        Taste,
+        Bonus
+    }
     private void Start()
     {
         _onSlotChanged = new UnityEvent();
@@ -44,7 +52,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
             Item item = eventData.pointerDrag.GetComponent<ItemHolder>()?.GetItem();
             if (item != null)
             {
-                AddItemToSlot(item);
+                if(IsCompatible(item)) 
+                    AddItemToSlot(item);
+                else
+                    Debug.Log("item not compatible" + item.GetModifiers());
             }
         }
     }
@@ -81,6 +92,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         }
     }
 
+    public void TakeItem()
+    {
+        if (_currentItem != null)
+        {
+            _currentItem = null;
+            _onSlotChanged.Invoke();
+        }
+    }
+
     private void UpdateUI()
     {
         if (_currentItem != null)
@@ -108,5 +128,36 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
         {
             _inventory.AddItem(_currentItem, 1);
         }
+    }
+
+    private bool IsCompatible(Item item)
+    {
+        switch (slot)
+        {
+            case ItemSlot.Base:
+                if (item.GetModifiers().ContainsKey(Item.Slot.Basic))
+                {
+                    return true;
+                }
+
+                break;
+            case ItemSlot.Taste:
+                if (item.GetModifiers().ContainsKey(Item.Slot.Taste))
+                {
+                    return true;
+                }
+
+                break;
+            case ItemSlot.Bonus:
+                if (item.GetModifiers().ContainsKey(Item.Slot.Bonus))
+                {
+                    return true;
+                }
+
+                break;
+            default:
+                return false;
+        }
+        return false;
     }
 }

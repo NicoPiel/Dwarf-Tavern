@@ -19,7 +19,15 @@ MonoBehaviour:
   rarity: 2
   baseTexture: {fileID: 21300000, guid: ba986bbc05f92e14f83b77fc5c952685, type: 3}
   modifiers:
+  - slot: 0
+    entries:
+    - key: whiskey
+      value: 2
   - slot: 1
-    entries: []
+    entries:
+    - key: strength
+      value: 1
   - slot: 2
-    entries: []
+    entries:
+    - key: gold
+      value: 1

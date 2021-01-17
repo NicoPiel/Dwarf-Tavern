@@ -22,13 +22,7 @@ public class UpgradeStateHolder : MonoBehaviour
         DontDestroyOnLoad(this);
         _instance = this;
         
-        ;
-        if (ES3.KeyExists("Upgrade"))
-        {
-            _upgrades = ES3.Load<Dictionary<string, int>>("Upgrade");
-        }
-        else
-            _upgrades = new Dictionary<string, int>();
+        _upgrades = ES3.KeyExists("Upgrade") ? ES3.Load<Dictionary<string, int>>("Upgrade") : new Dictionary<string, int>();
         onUpgradeChanged.AddListener(Save);
     }
 
