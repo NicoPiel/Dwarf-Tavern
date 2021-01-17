@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private bool _gamePaused;
     private static GameManager _instance;
 
     [SerializeField] private EventHandler eventHandler;
@@ -26,6 +27,32 @@ public class GameManager : MonoBehaviour
        
         if (SceneManager.GetActiveScene().name == "Tavern")
             SimulationManager.GetInstance().StartSimulation();
+    }
+
+    /**
+     * Will stop time and set a boolean to avoid 
+     */
+    public static void PauseGame()
+    {
+        if (GameIsPaused()) return;
+        
+        _instance._gamePaused = true;
+
+        Time.timeScale = 0f;
+    }
+
+    public static void UnpauseGame()
+    {
+        if (!GameIsPaused()) return;
+        
+        Time.timeScale = 1f;
+        
+        _instance._gamePaused = false;
+    }
+
+    public static bool GameIsPaused()
+    {
+        return _instance._gamePaused;
     }
 
     public static GameManager GetGameManager()
