@@ -32,6 +32,27 @@ namespace Inventory
             _contents = contents;
         }
 
+        public void Load()
+        {
+            if (ES3.KeyExists("inv_contents"))
+            {
+                Dictionary<string, int> savedItems = ES3.Load<Dictionary<string, int>>("inv_contents");
+                _contents = new ConcurrentDictionary<Item, int>(savedItems.ToDictionary(
+                    entry => (Item) InventoryManager.GetInstance().GetRegisteredItem(entry.Key), entry => entry.Value));
+            }
+
+            if (ES3.KeyExists("inv_funds"))
+            {
+                _funds = ES3.Load<int>("inv_funds");
+            }
+        }
+
+        public void Save()
+        {
+            ES3.Save("inv_contents", _contents.ToDictionary(entry => entry.Key.GetId(), entry => entry.Value));
+            ES3.Save("inv_funds", _funds);
+        }
+
         private void initDisplay()
         {
             GameObject textObject = GameObject.FindGameObjectWithTag("FundsDisplay");

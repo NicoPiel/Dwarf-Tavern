@@ -43,3 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed7f48f81415a0449c9a4ad189d24d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadInvFromSave: 0
+  initialContent:
+  - itemID: cheese
+    amount: 2
+  - itemID: hops
+    amount: 10
+  - itemID: honey
+    amount: 1
+  - itemID: banana
+    amount: 3
+  - itemID: peanut
+    amount: 5
+  - itemID: lemon
+    amount: 3

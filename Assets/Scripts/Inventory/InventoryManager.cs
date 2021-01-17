@@ -16,7 +16,7 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-
+        public bool loadInvFromSave = true;
         public InventoryEntry[] initialContent;
         private static InventoryManager _instance;
         
@@ -154,8 +154,26 @@ namespace Inventory
          */
         public Inventory GetPlayerInventory()
         {
-            //TODO: Load Inventory from save file
-            return PlayerInventory ??= new Inventory(50, 1000, LoadContentsFromPreset());
+            return PlayerInventory ??= LoadInv();
+        }
+
+        private Inventory LoadInv()
+        {
+            Inventory inv;
+            if (loadInvFromSave)
+            {
+                inv = new Inventory(50, 0);
+                inv.Load();
+            }
+            else
+            {
+                inv = new Inventory(50, 1000, LoadContentsFromPreset());
+            }
+            GameManager.GetEventHandler().onAfterHourSceneLoaded.AddListener(() =>
+            {
+                inv.Save();
+            });
+            return inv;
         }
         
         private ConcurrentDictionary<Item, int> LoadContentsFromPreset()
