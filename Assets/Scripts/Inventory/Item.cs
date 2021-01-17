@@ -40,8 +40,7 @@ namespace Inventory
         public enum Slot
         {
             Basic,
-            Taste1,
-            Taste2,
+            Taste,
             Bonus
         }
 

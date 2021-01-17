@@ -26,8 +26,8 @@ namespace Brewing
             IngredientItem bonus = null)
         {
             List<ItemBeer.Type> typeModifiers = GetTypeModifiers(Item.Slot.Basic, baseItem);
-            List<ItemBeer.Attribute> attributeModifiers1 = GetAttributeModifiers(Item.Slot.Taste1, taste1);
-            List<ItemBeer.Attribute> attributeModifiers2 = GetAttributeModifiers(Item.Slot.Taste2, taste2);
+            List<ItemBeer.Attribute> attributeModifiers1 = GetAttributeModifiers(Item.Slot.Taste, taste1);
+            List<ItemBeer.Attribute> attributeModifiers2 = GetAttributeModifiers(Item.Slot.Taste, taste2);
             if (typeModifiers.Count < 1) return null;
             ItemBeer.Type drinkType = typeModifiers[0];
             ItemBeer.Attribute attr1 = attributeModifiers1.Count >= 1
@@ -37,10 +37,10 @@ namespace Brewing
                 ? attributeModifiers2[0]
                 : ItemBeer.Attribute.Unused;
             _typeColorMap.TryGetValue(drinkType, out var cBase);
-            _attributeColorMap.TryGetValue(attr1, out var cAttr1);
-            _attributeColorMap.TryGetValue(attr2, out var cAttr2);
-            Color finalColor = cAttr1 != null
-                ? cAttr2 != null ? Color.Lerp(Color.Lerp(cBase, cAttr1, 0.5f), cAttr2, 0.5f) :
+            var b1 = _attributeColorMap.TryGetValue(attr1, out var cAttr1);
+            var b2 = _attributeColorMap.TryGetValue(attr2, out var cAttr2);
+            Color finalColor = b1
+                ? b2 ? Color.Lerp(Color.Lerp(cBase, cAttr1, 0.5f), cAttr2, 0.3333f) :
                 Color.Lerp(cBase, cAttr1, 0.5f)
                 : cBase;
             return new ItemBeer(InventoryManager.GetInstance().GetRegisteredItem("beer"), attr1, attr2, drinkType, finalColor);

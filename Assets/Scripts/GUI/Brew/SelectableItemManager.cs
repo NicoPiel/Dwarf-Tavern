@@ -72,8 +72,7 @@ public class SelectableItemManager : MonoBehaviour
 
                 break;
             case SortParameter.Taste:
-                if (item.GetModifiers().ContainsKey(Item.Slot.Taste1) ||
-                    item.GetModifiers().ContainsKey(Item.Slot.Taste2))
+                if (item.GetModifiers().ContainsKey(Item.Slot.Taste))
                 {
                     return true;
                 }
