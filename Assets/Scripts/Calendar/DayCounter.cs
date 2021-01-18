@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class DayCounter : MonoBehaviour
 {
     private static DayCounter _instance;
-    private int _dayCount;
+    [SerializeField]
+    private int dayCount;
     
     private void Start()
     {
@@ -16,20 +17,40 @@ public class DayCounter : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+        
+        if (ES3.KeyExists("DayCount"))
+        {
+            dayCount = ES3.Load<int>("DayCount");
+        }
+        else
+        {
+            SetDayCount(1);
+        }
         _instance = this;
         Debug.Log("DayCounterAwake");
-        GameManager.GetEventHandler().onAfterHourSceneLoaded.AddListener(CountDay);
+        GameManager.GetEventHandler().onDayChanged.AddListener(CountDay);
     }
 
     private void CountDay()
     {
-        _dayCount++;
+        dayCount++;
+        Save();
+    }
+
+    public void SetDayCount(int i)
+    {
+        dayCount = i;
+        Save();
     }
 
     public int GetDayCount()
     {
-        return _dayCount;
+        return dayCount;
     }
 
+    public void Save()
+    {
+        ES3.Save("DayCount", dayCount);
+    }
   
 }

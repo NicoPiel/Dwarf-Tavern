@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class ItemBeerHolder : MonoBehaviour
     private ItemBeer _itemBeer2;
     private ItemBeer _itemBeer3;
     private ItemBeer _itemBeer4;
-
+    
 
     public bool Add(ItemBeer itemBeer)
     {

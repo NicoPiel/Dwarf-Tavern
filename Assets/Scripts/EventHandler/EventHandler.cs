@@ -14,11 +14,13 @@ public class EventHandler : MonoBehaviour
     public UnityEvent onGameLoaded;
     public UnityEvent<Interactable.InteractionEventPayload> onInteraction;
     public UnityEvent onAfterHourSceneLoaded;
+    public UnityEvent onDayChanged;
     public UnityEvent<InventoryManager.State> onInventoryManagerInitialized;
 
     public UnityEvent onInventoryChanged;
     public UnityEvent<int> onFundsChangedFrom;
     public UnityEvent onFundsChanged;
+    
 
     public UnityEvent<ItemBeer> onBrewed;
     
@@ -33,5 +35,6 @@ public class EventHandler : MonoBehaviour
         onInventoryManagerInitialized = new UnityEvent<InventoryManager.State>();
         onFundsChangedFrom = new UnityEvent<int>();
         onFundsChanged = new UnityEvent();
+        onDayChanged = new UnityEvent();
     }
 }

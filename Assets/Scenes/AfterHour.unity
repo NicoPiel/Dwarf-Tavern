@@ -371,8 +371,9 @@ GameObject:
   m_Component:
   - component: {fileID: 310433280}
   - component: {fileID: 310433281}
-  - component: {fileID: 310433282}
   - component: {fileID: 310433283}
+  - component: {fileID: 310433284}
+  - component: {fileID: 310433282}
   m_Layer: 0
   m_Name: bed
   m_TagString: Untagged
@@ -454,10 +455,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 310433279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67348846c2dd142429c063d6f2df6c13, type: 3}
+  m_Script: {fileID: 11500000, guid: e058be4c730f6b646a80b6b341658b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  onHighlightStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onHighlightStop:
+    m_PersistentCalls:
+      m_Calls: []
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 310433284}
+        m_TargetAssemblyTypeName: Bed, Assembly-CSharp
+        m_MethodName: OnAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &310433283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -484,6 +505,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &310433284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310433279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a711e2111b3e5db4aac316f44a05333e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &342111390
 PrefabInstance:
   m_ObjectHideFlags: 0
