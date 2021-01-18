@@ -77,7 +77,6 @@ namespace Simulation.Core
             onSimulationPause.AddListener(OnSimulationPause);
             onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
-            onEndOfDay.AddListener(EndDay);
 
             _durationOfDay = endOfDay - startOfDay;
         }
