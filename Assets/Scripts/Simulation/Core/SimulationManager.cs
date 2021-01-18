@@ -37,6 +37,7 @@ namespace Simulation.Core
         public static UnityEvent onSimulationPause;
         public static UnityEvent onSimulationUnpause;
         public static UnityEvent onSimulationTick;
+        public static UnityEvent onEndOfDay;
 
         private bool _paused;
         private float _tickDuration = 1f;
@@ -54,6 +55,7 @@ namespace Simulation.Core
             onSimulationPause = new UnityEvent();
             onSimulationUnpause = new UnityEvent();
             onSimulationTick  = new UnityEvent();
+            onEndOfDay  = new UnityEvent();
             
             // JSON files
             Names = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToNameJson));
@@ -75,6 +77,7 @@ namespace Simulation.Core
             onSimulationPause.AddListener(OnSimulationPause);
             onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
+            onEndOfDay.AddListener(EndDay);
 
             _durationOfDay = endOfDay - startOfDay;
         }
@@ -169,6 +172,16 @@ namespace Simulation.Core
             var minutesString = minutes < 10 ? $"0{minutes}" : $"{minutes}";
             
             timeDisplay.text = $"{hoursString}:{minutesString}";
+
+            if (timeValue >= endOfDay)
+            {
+                EndDay();
+            }
+        }
+
+        private void EndDay()
+        {
+            onEndOfDay.Invoke();
         }
         
         public static SimulationManager GetInstance()

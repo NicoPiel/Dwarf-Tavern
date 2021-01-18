@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Simulation.Core;
+﻿using Simulation.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,13 +22,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       
-        if (SceneManager.GetActiveScene().name == "Tavern")
-            SimulationManager.GetInstance().StartSimulation();
+        if (SceneManager.GetActiveScene().name == "Tavern") SimulationManager.GetInstance().StartSimulation();
     }
 
     /**
-     * Will stop time and set a boolean to avoid 
+     * Will stop time and set a boolean to let other scripts know.
      */
     public static void PauseGame()
     {
@@ -41,6 +37,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    /**
+     * Will resume time and set a boolean to let other scripts know.
+     */
     public static void UnpauseGame()
     {
         if (!GameIsPaused()) return;
@@ -50,6 +49,9 @@ public class GameManager : MonoBehaviour
         _instance._gamePaused = false;
     }
 
+    /**
+     * Returns if the game is paused right now.
+     */
     public static bool GameIsPaused()
     {
         return _instance._gamePaused;
