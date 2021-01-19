@@ -36,6 +36,7 @@ public class BrewButton : MonoBehaviour
         Debug.Log(itemBeer);
         
         GameManager.GetEventHandler().onBrewed.Invoke(itemBeer);
+        itemBeer = null;
 
     }
 }
