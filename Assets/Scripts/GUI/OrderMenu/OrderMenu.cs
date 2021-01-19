@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OrderMenu : MonoBehaviour
+public class OrderMenu : BaseMenu
 {
     private Order orderReference;
     
@@ -22,16 +22,21 @@ public class OrderMenu : MonoBehaviour
     public void AcceptOrder()
     {
         orderReference?.Accept();
-        SetInactive();
+        HideMenu();
     }
 
-    public void SetActive()
+    public override void ShowMenu()
     {
         gameObject.SetActive(true);
+        
+        LeanTween.move(GetComponent<RectTransform>(), new Vector3(220, 295, 0), 0.4f);
     }
 
-    public void SetInactive()
+    public override void HideMenu()
     {
-        gameObject.SetActive(false);
+        LeanTween.move(GetComponent<RectTransform>(), new Vector3(-250, 295, 0), 0.4f).setOnComplete(() =>
+        {
+            gameObject.SetActive(false);
+        });
     }
 }

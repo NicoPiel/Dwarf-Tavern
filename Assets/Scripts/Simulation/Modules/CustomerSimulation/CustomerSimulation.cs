@@ -161,7 +161,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         public void ShowOrderMenu()
         {
-            orderMenu.SetActive();
+            orderMenu.ShowMenu();
         }
 
         private void OnOrderEvent()

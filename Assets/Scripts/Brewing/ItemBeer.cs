@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Inventory;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemBeer : ComplexItem
 {
@@ -9,7 +10,7 @@ public class ItemBeer : ComplexItem
     private readonly Attribute _taste2;
     private readonly Type _type;
     private Color _beerColor;
-    
+
     public ItemBeer(StaticItem reference, Attribute taste1, Attribute taste2, Type type, Color beerColor) : base(reference)
     {
         _taste1 = taste1;

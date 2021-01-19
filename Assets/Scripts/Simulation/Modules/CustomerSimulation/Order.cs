@@ -9,15 +9,20 @@ namespace Simulation.Modules.CustomerSimulation
         public string Description { get; set; }
         public Customer customerReference;
 
+        public ItemBeer.Attribute[] requiredAttributes;
+        
         private string article;
         private string beverage;
         private string taste;
+        private string attributeA;
+        private string attributeB;
         
         public Order(Customer customerReference)
         {
             this.customerReference = customerReference;
             Name = RandomOrderName();
-            Description = RandomOrderDescription();
+            Description = RandomOrderAttributesAndDescription();
+            requiredAttributes = MapAttributes(attributeA, attributeB);
         }
 
         public Order Accept()
@@ -49,7 +54,7 @@ namespace Simulation.Modules.CustomerSimulation
             return $"{taste} {beverage}";
         }
 
-        private string RandomOrderDescription()
+        private string RandomOrderAttributesAndDescription()
         {
             string attribute;   
             var attributes = SimulationManager.AttributeCombinations;
@@ -59,17 +64,21 @@ namespace Simulation.Modules.CustomerSimulation
             // Copy key collection to new array 
             attributes.Keys.CopyTo(keys, 0);
             // Get random attribute
-            var attributeString = keys[Random.Range(0, keys.Length)];
-            // Get combinations in with that attribute
-            var attributeCombinations = attributes[attributeString];
+            attributeA = keys[Random.Range(0, keys.Length)];
+            // Get combinations with that attribute
+            var attributeCombinations = attributes[attributeA];
             // Get random combination
             if (Random.value < 0.5)
             {
                 attribute = attributeCombinations[0];
+                attributeB = attributeA;
             }
             else
             {
-                attribute = attributeCombinations[Random.Range(1, attributeCombinations.Length)];
+                var randomInt = Random.Range(1, attributeCombinations.Length);
+                attribute = attributeCombinations[randomInt];
+
+                attributeB = keys[randomInt - 1];
             }
             
             
@@ -96,6 +105,29 @@ namespace Simulation.Modules.CustomerSimulation
                 "der" => "en",
                 "die" => "e",
                 _ => throw new UnityException($"Wrong format in orders.json with {beverage}")
+            };
+        }
+
+        private ItemBeer.Attribute[] MapAttributes(string inputAttributeA, string inputAttributeB)
+        {
+            if (string.IsNullOrWhiteSpace(inputAttributeA) || string.IsNullOrWhiteSpace(inputAttributeB)) throw new UnityException("One or both of the attribute strings was empty or null.");
+            
+            return new[] {MapAttribute(inputAttributeA), MapAttribute(inputAttributeB)};
+        }
+
+        private ItemBeer.Attribute MapAttribute(string attribute)
+        {
+            if (string.IsNullOrWhiteSpace(attribute)) throw new UnityException("Attribute string was empty or null.");
+            
+            return attribute switch
+            {
+                "Stärke" => ItemBeer.Attribute.Strength,
+                "Geschick" => ItemBeer.Attribute.Dexterity,
+                "Intelligenz" => ItemBeer.Attribute.Intelligence,
+                "Vitalität" => ItemBeer.Attribute.Vitality,
+                "Wille" => ItemBeer.Attribute.Will,
+                "Mut" => ItemBeer.Attribute.Courage,
+                _ => throw new UnityException("Something went wrong.")
             };
         }
     }

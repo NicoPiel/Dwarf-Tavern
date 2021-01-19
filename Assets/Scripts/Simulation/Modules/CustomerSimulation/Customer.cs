@@ -16,6 +16,8 @@ namespace Simulation.Modules.CustomerSimulation
      */
     public class Customer : PlayerInteractable
     {
+        public OrderProcessMenu orderProcessMenu;
+        
         public string Name;
         public TMP_Text namePlate;
         public CustomerPlace assignedPlace;
@@ -68,6 +70,26 @@ namespace Simulation.Modules.CustomerSimulation
             namePlate.text = Name;
 
             //Debug.Log(Name + " klopft an.");
+        }
+        
+        
+        protected override void OnInteract(GameObject source)
+        {
+            if (!_canBeInteractedWith || _isInteractedWith) return;
+
+            CustomerSimulation customerSimulation = SimulationManager.GetCustomerSimulation();
+
+            if (!_hadOrderTaken)
+            {
+                _isInteractedWith = true;
+                customerSimulation.SetOrderOnMenu(_currentOrder);
+                customerSimulation.ShowOrderMenu();
+            }
+            else
+            {
+                _isInteractedWith = true;
+                orderProcessMenu.ShowMenu();
+            }
         }
 
         /**
@@ -275,17 +297,6 @@ namespace Simulation.Modules.CustomerSimulation
         public void Unassign()
         {
             assignedPlace = null;
-        }
-
-        protected override void OnInteract(GameObject source)
-        {
-            if (!_canBeInteractedWith || _isInteractedWith) return;
-
-            CustomerSimulation customerSimulation = SimulationManager.GetCustomerSimulation();
-            
-            _isInteractedWith = true;
-            customerSimulation.SetOrderOnMenu(_currentOrder);
-            customerSimulation.ShowOrderMenu();
         }
 
         private IEnumerator CountdownPatience()
