@@ -26,12 +26,12 @@ namespace Simulation.Modules.CustomerSimulation
         
         private Seeker _seeker;
         private AIPath _pathfinder;
+        private CustomerSimulation _customerSimulation;
         
         [SerializeField] private bool _blocked;
         [SerializeField] private State _currentState;
         [SerializeField] private bool _canBeInteractedWith = false;
-        [SerializeField] private bool _isInteractedWith = false;
-        
+
         private Order _currentOrder;
         private bool _hadOrderTaken;
         private bool _hasBeenServed;
@@ -52,6 +52,8 @@ namespace Simulation.Modules.CustomerSimulation
             Leaving,
             Idle
         }
+        
+        #region Unity Event Functions
 
         private void Awake()
         {
@@ -59,6 +61,7 @@ namespace Simulation.Modules.CustomerSimulation
             _pathfinder = GetComponent<AIPath>();
 
             orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
+            _customerSimulation = SimulationManager.GetCustomerSimulation();
 
             Init();
         }
@@ -67,6 +70,8 @@ namespace Simulation.Modules.CustomerSimulation
         {
             OrderProcessMenu.onOrderProcess.AddListener(OnOrderProcessFromMenu);
         }
+        
+        #endregion
 
         /**
          * Initialise customer as InQueue
@@ -83,26 +88,26 @@ namespace Simulation.Modules.CustomerSimulation
         
         protected override void OnInteract(GameObject source)
         {
-            if (!_canBeInteractedWith || _isInteractedWith)
+            if (InteractionIsBlocked())
             {
-                Debug.LogWarning($"Customer cannot be interacted with. \n_canBeInteractedWith = {_canBeInteractedWith}, _isInteractedWith = {_isInteractedWith}");
+                Debug.LogWarning($"Customer cannot be interacted with. \n_canBeInteractedWith = {_canBeInteractedWith}");
                 return;
             }
 
-            _canBeInteractedWith = false;
-            _isInteractedWith = true;
-            CustomerSimulation customerSimulation = SimulationManager.GetCustomerSimulation();
+            BlockInteraction();
 
             if (!_hadOrderTaken)
             {
-                customerSimulation.SetOrderOnMenu(_currentOrder);
-                customerSimulation.ShowOrderMenu();
+                _customerSimulation.SetOrderOnMenu(_currentOrder);
+                _customerSimulation.ShowOrderMenu();
             }
             else
             {
                 orderProcessMenu.ShowMenu();
             }
         }
+
+        #region State Machine
 
         /**
          * Manually update a customer's state machine; you do not need to call this method often, as the state machine is designed to update itself.
@@ -229,15 +234,15 @@ namespace Simulation.Modules.CustomerSimulation
             if (!_hadOrderTaken)
             {
                 patience = 15f;
-                yield return new WaitUntil(() => _isInteractedWith || patience == 0);
-                _isInteractedWith = false;
+                yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
+                UnblockInteraction();
                 _hadOrderTaken = true;
             }
             else
             {
                 patience = 90f;
-                yield return new WaitUntil(() => _isInteractedWith || patience == 0);
-                _isInteractedWith = false;
+                yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
+                UnblockInteraction();
             }
 
             // Leave if patience reaches 0 while waiting.
@@ -266,6 +271,8 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (!_wantsToLeave) throw new StateException(State.Leaving, "Customer does not want to leave. _wantsToLeave has to be true.");
             
+            UnassignPlace();
+            
             Vector3 target = GameObject.FindWithTag("Spawner").transform.position;
 
             _pathfinder.destination = target;
@@ -275,6 +282,34 @@ namespace Simulation.Modules.CustomerSimulation
 
             Unblock();
             Destroy(gameObject);
+        }
+        
+        private IEnumerator CountdownPatience()
+        {
+            while (!InteractionIsBlocked())
+            {
+                yield return new WaitForSeconds(1.0f);
+                patience -= 1;
+            }
+        }
+        
+        #endregion
+        
+        #region Blocking Methods
+
+        private void BlockInteraction()
+        {
+            _canBeInteractedWith = false;
+        }
+
+        private void UnblockInteraction()
+        {
+            _canBeInteractedWith = true;
+        }
+
+        private bool InteractionIsBlocked()
+        {
+            return !_canBeInteractedWith;
         }
 
         /**
@@ -301,56 +336,51 @@ namespace Simulation.Modules.CustomerSimulation
             this._blocked = false;
             Debug.Log($"{Name} has arrived at their table.");
         }
+        
+        #endregion
 
-        public void Assign(CustomerPlace place)
+        public void AssignPlace(CustomerPlace place)
         {
             assignedPlace = place;
         }
 
-        public void Unassign()
+        public void UnassignPlace()
         {
             assignedPlace = null;
         }
 
-        private IEnumerator CountdownPatience()
-        {
-            while (!_isInteractedWith)
-            {
-                yield return new WaitForSeconds(1.0f);
-                patience -= 1;
-            }
-        }
+        #region Event Subscriptions
 
         private void OnOrderAccept(Order order)
         {
-            _canBeInteractedWith = true;
-            _isInteractedWith = false;
+            UnblockInteraction();
         }
 
         private void OnOrderProcess(Order order)
         {
             _currentOrder = null;
             
-            _canBeInteractedWith = true;
-            _isInteractedWith = false;
+            UnblockInteraction();
         }
 
         private void OnOrderAcceptCancel(Order order)
         {
-            _canBeInteractedWith = true;
-            _isInteractedWith = false;
+            UnblockInteraction();
         }
 
         private void OnOrderProcessFromMenu(ItemBeer itemBeer)
         {
-            if (!_isInteractedWith) return;
+            if (!InteractionIsBlocked()) return;
 
             var score = _currentOrder.Process(itemBeer);
 
             Debug.Log($"Order processed: {score}");
         }
+        
+        #endregion
     }
 
+    #region Custom Exceptions
     public class StateException : UnityException
     {
         public StateException() : base()
@@ -383,4 +413,10 @@ namespace Simulation.Modules.CustomerSimulation
             Debug.LogException(inner);
         }
     }
+    
+    #endregion
+    
+    #region Custom Events
+    
+    #endregion
 }

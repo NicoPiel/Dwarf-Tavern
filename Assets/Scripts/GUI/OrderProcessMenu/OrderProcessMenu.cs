@@ -26,6 +26,8 @@ public class OrderProcessMenu : BaseMenu
 
     public void OrderProcess()
     {
+        if (itemHeld == null) return;
+        
         onOrderProcess.Invoke(itemHeld);
         HideMenu();
     }

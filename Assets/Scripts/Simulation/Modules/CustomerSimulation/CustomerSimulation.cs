@@ -149,7 +149,7 @@ namespace Simulation.Modules.CustomerSimulation
             // Add it to a different list
             assignedCustomerPlaces.Add(customerPlace);
             // Assign it to the customer
-            customer.Assign(customerPlace);
+            customer.AssignPlace(customerPlace);
 
             return customerPlace;
         }
