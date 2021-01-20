@@ -32,11 +32,11 @@ public class BrewButton : MonoBehaviour
         slotTaste2.TakeItem();
         slotBase.TakeItem();
         slotBonus.TakeItem();
-        
-        Debug.Log(itemBeer);
+
+        ItemBeerHolder.GetInstance().Add(itemBeer);
         
         GameManager.GetEventHandler().onBrewed.Invoke(itemBeer);
-        itemBeer = null;
+ 
 
     }
 }

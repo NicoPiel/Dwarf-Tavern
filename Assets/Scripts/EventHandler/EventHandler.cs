@@ -20,12 +20,14 @@ public class EventHandler : MonoBehaviour
     public UnityEvent onInventoryChanged;
     public UnityEvent<int> onFundsChangedFrom;
     public UnityEvent onFundsChanged;
-    
 
+
+    public UnityEvent onItemBeerHolderChanged;
     public UnityEvent<ItemBeer> onBrewed;
     
     private void Awake()
     {
+        onItemBeerHolderChanged = new UnityEvent();
         onInventoryChanged = new UnityEvent();
         onGameStarted = new UnityEvent();
         onGameLoaded = new UnityEvent();

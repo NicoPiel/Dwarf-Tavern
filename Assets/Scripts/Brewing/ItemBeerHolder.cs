@@ -5,35 +5,45 @@ using UnityEngine;
 
 public class ItemBeerHolder : MonoBehaviour
 {
-    private ItemBeer _itemBeer1;
-    private ItemBeer _itemBeer2;
-    private ItemBeer _itemBeer3;
-    private ItemBeer _itemBeer4;
+    private static ItemBeerHolder instance;
     
+    public ItemBeer _itemBeer1;
+    public ItemBeer _itemBeer2;
+    public ItemBeer _itemBeer3;
+    public ItemBeer _itemBeer4;
 
+    public void Start()
+    {
+        instance = this;
+    }
+
+    public static ItemBeerHolder GetInstance()
+    {
+        return instance;
+    }
     public bool Add(ItemBeer itemBeer)
     {
         if (_itemBeer1 == null)
         {
             _itemBeer1 = itemBeer;
-            return true;
-        }
-        if (_itemBeer2 == null)
+        }else if (_itemBeer2 == null)
         {
             _itemBeer2 = itemBeer;
-            return true;
-        }
-        if (_itemBeer3 == null)
+        }else if (_itemBeer3 == null)
         {
             _itemBeer3 = itemBeer;
-            return true;
-        }
-        if (_itemBeer4 == null)
+            
+        }else if (_itemBeer4 == null)
         {
             _itemBeer4 = itemBeer;
-            return true;
         }
-        return false;
+        else
+        {
+            return false;   
+        }
+        GameManager.GetEventHandler().onItemBeerHolderChanged.Invoke();
+        return true;
+
     }
 
     public void Remove(int slot)
@@ -53,6 +63,7 @@ public class ItemBeerHolder : MonoBehaviour
                 _itemBeer4 = null;
                 break;
         }
+        GameManager.GetEventHandler().onItemBeerHolderChanged.Invoke();
     }
 
     public bool IsFull()
