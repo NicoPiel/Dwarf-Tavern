@@ -25,6 +25,12 @@ public class OrderMenu : BaseMenu
         HideMenu();
     }
 
+    public void CancelAcceptingOrder()
+    {
+        orderReference?.onAcceptCancel.Invoke(orderReference);
+        HideMenu();
+    }
+
     public override void ShowMenu()
     {
         gameObject.SetActive(true);

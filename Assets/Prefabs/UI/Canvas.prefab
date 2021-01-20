@@ -124,42 +124,6 @@ MonoBehaviour:
     width: 1920
     height: 1080
   doWindow0: 0
---- !u!114 &533286342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3846570370103079721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6ea8847ef946b8bf9ae1d4dff30216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attributeColors:
-  - id: strength
-    color: {r: 1, g: 0, b: 0, a: 1}
-  - id: dexterity
-    color: {r: 0, g: 1, b: 0.35958624, a: 1}
-  - id: intelligence
-    color: {r: 0.007145405, g: 0, b: 1, a: 1}
-  - id: vitality
-    color: {r: 0, g: 1, b: 0, a: 1}
-  - id: will
-    color: {r: 1, g: 0.7401557, b: 0, a: 1}
-  - id: courage
-    color: {r: 1, g: 0.09067254, b: 0, a: 1}
-  typeColors:
-  - id: beer
-    color: {r: 0.122641504, g: 0.020755583, b: 0, a: 1}
-  - id: schnapps
-    color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  - id: brandy
-    color: {r: 0.24528301, g: 0.0068533337, b: 0, a: 1}
-  - id: whiskey
-    color: {r: 0.6981132, g: 0.07769312, b: 0, a: 1}
-  - id: wine
-    color: {r: 0.03529412, g: 0, b: 0, a: 1}
 --- !u!1001 &847433578896944705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,9 +223,29 @@ PrefabInstance:
       propertyPath: enableable
       value: 
       objectReference: {fileID: 1019534374670883122}
-    - target: {fileID: 6336338090922160800, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1290689217065382442, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: slot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380590299102070598, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: slot
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423077928216895399, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: slotManager
+      value: 
+      objectReference: {fileID: 5953460660717458680}
+    - target: {fileID: 5423077928216895399, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: orderProcessMenu
+      value: 
+      objectReference: {fileID: 6782706710376687115}
+    - target: {fileID: 6911499844617564668, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: slot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014253517514922866, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: slot
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
@@ -291,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 138808324131572109, guid: 568504707b70f604bb09e0114dfbdd7b, type: 3}
       propertyPath: m_Name
       value: Order
+      objectReference: {fileID: 0}
+    - target: {fileID: 140407385403873537, guid: 568504707b70f604bb09e0114dfbdd7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelAcceptingOrder
       objectReference: {fileID: 0}
     - target: {fileID: 1466748006502022172, guid: 568504707b70f604bb09e0114dfbdd7b, type: 3}
       propertyPath: m_Pivot.x
@@ -394,10 +382,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brewstand
       objectReference: {fileID: 0}
-    - target: {fileID: 5544239527508360398, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5544239527508360399, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -489,11 +473,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5544239527508360399, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
   m_PrefabInstance: {fileID: 1218523285924128629}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3846570370103079721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2704643744342594652, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
+--- !u!114 &5953460660717458680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4789543660936967053, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
   m_PrefabInstance: {fileID: 1218523285924128629}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e687a79b9f796343b8041750adb8c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4140968056186944149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,30 +491,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1019534375654314660}
     m_Modifications:
-    - target: {fileID: 3986162433212035136, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_ScrollSensitivity
-      value: 10.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986162433212035137, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 920
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986162433212035137, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -460
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986162433212035149, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_ShowMaskGraphic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986162433866743525, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200.7366
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986162433866743525, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100.368286
-      objectReference: {fileID: 0}
     - target: {fileID: 3986162434976900006, guid: f6a81da38b7425d4195646aad2245043, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -613,10 +579,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glossar
       objectReference: {fileID: 0}
-    - target: {fileID: 3986162434976900007, guid: f6a81da38b7425d4195646aad2245043, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a81da38b7425d4195646aad2245043, type: 3}
 --- !u!1 &1019534374670883122 stripped
@@ -636,14 +598,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1019534375654314660}
     m_Modifications:
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6782706710376687115}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OrderProcess
+      objectReference: {fileID: 0}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OrderProcessMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 87467693807369441, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6698981023843460155, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
       propertyPath: m_Name
       value: OrderProcess
       objectReference: {fileID: 0}
     - target: {fileID: 6698981023843460155, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6698981023843460155, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: m_TagString
+      value: OrderProcessMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337254696009666212, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+      propertyPath: itemSlot
+      value: 
+      objectReference: {fileID: 3579218353248164620}
     - target: {fileID: 7337254696009666212, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
       propertyPath: beerDisplay
       value: 
@@ -737,6 +735,22 @@ PrefabInstance:
 --- !u!224 &5517096800035122304 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8602583217471063087, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+  m_PrefabInstance: {fileID: 4319560710675769519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6782706710376687115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7337254696009666212, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
+  m_PrefabInstance: {fileID: 4319560710675769519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55555fde2e83d1a40b30340b93fe2530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3579218353248164620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 745866582159946659, guid: 0ad9956008e31f24f81ebe3853affa9a, type: 3}
   m_PrefabInstance: {fileID: 4319560710675769519}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1019534374110283884

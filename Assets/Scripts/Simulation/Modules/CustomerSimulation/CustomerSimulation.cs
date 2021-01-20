@@ -21,16 +21,16 @@ namespace Simulation.Modules.CustomerSimulation
         [SerializeField] private List<CustomerPlace> assignedCustomerPlaces;
 
         // Events
-        public static UnityEvent onOrderAccept;
-        public static UnityEvent onOrderProcess;
+        public static OrderEvent onAnyOrderAccept;
+        public static OrderEvent onAnyOrderProcess;
         public static UnityEvent onOrderListChange;
         
         private int time;
 
         private void Awake()
         {
-            onOrderAccept = new UnityEvent();
-            onOrderProcess = new UnityEvent();
+            onAnyOrderAccept = new OrderEvent();
+            onAnyOrderProcess = new OrderEvent();
             onOrderListChange = new UnityEvent();
         }
 
@@ -51,8 +51,8 @@ namespace Simulation.Modules.CustomerSimulation
             assignedCustomerPlaces = new List<CustomerPlace>();
             OpenOrders = new List<Order>();
             
-            onOrderAccept.AddListener(OnOrderEvent);
-            onOrderProcess.AddListener(OnOrderEvent);
+            onAnyOrderAccept.AddListener(OnOrderEvent);
+            onAnyOrderProcess.AddListener(OnOrderEvent);
             onOrderListChange.AddListener(OnOrderListChange);
         }
 
@@ -164,7 +164,7 @@ namespace Simulation.Modules.CustomerSimulation
             orderMenu.ShowMenu();
         }
 
-        private void OnOrderEvent()
+        private void OnOrderEvent(Order order)
         {
             onOrderListChange.Invoke();
         }

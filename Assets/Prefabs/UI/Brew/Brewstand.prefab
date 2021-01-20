@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &533286342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704643744342594652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6ea8847ef946b8bf9ae1d4dff30216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributeColors:
+  - id: strength
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - id: dexterity
+    color: {r: 0, g: 1, b: 0.35958624, a: 1}
+  - id: intelligence
+    color: {r: 0.007145405, g: 0, b: 1, a: 1}
+  - id: vitality
+    color: {r: 0, g: 1, b: 0, a: 1}
+  - id: will
+    color: {r: 1, g: 0.7401557, b: 0, a: 1}
+  - id: courage
+    color: {r: 1, g: 0.09067254, b: 0, a: 1}
+  typeColors:
+  - id: beer
+    color: {r: 0.122641504, g: 0.020755583, b: 0, a: 1}
+  - id: schnapps
+    color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  - id: brandy
+    color: {r: 0.24528301, g: 0.0068533337, b: 0, a: 1}
+  - id: whiskey
+    color: {r: 0.6981132, g: 0.07769312, b: 0, a: 1}
+  - id: wine
+    color: {r: 0.03529412, g: 0, b: 0, a: 1}
 --- !u!1 &5544239527508360398
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5544239527508360399
 RectTransform:
   m_ObjectHideFlags: 0
@@ -291,5 +327,10 @@ PrefabInstance:
 --- !u!224 &6770732994119080086 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2465417697648511357, guid: ae8ecbfe8458f99468bd4112a8d2f46f, type: 3}
+  m_PrefabInstance: {fileID: 9205522137407885803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2704643744342594652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6505527433758033335, guid: ae8ecbfe8458f99468bd4112a8d2f46f, type: 3}
   m_PrefabInstance: {fileID: 9205522137407885803}
   m_PrefabAsset: {fileID: 0}

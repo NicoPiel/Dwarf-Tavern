@@ -1,5 +1,7 @@
 using Simulation.Core;
+using Simulation.Modules.CustomerSimulation;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Simulation.Modules.CustomerSimulation
 {
@@ -10,34 +12,45 @@ namespace Simulation.Modules.CustomerSimulation
         public Customer customerReference;
 
         public ItemBeer.Attribute[] requiredAttributes;
-        
+
         private string article;
         private string beverage;
         private string taste;
         private string attributeA;
         private string attributeB;
-        
+
+        public OrderEvent onAccept;
+        public OrderEvent onProcess;
+        public OrderEvent onAcceptCancel;
+
         public Order(Customer customerReference)
         {
             this.customerReference = customerReference;
             Name = RandomOrderName();
             Description = RandomOrderAttributesAndDescription();
             requiredAttributes = MapAttributes(attributeA, attributeB);
+
+            onAccept = new OrderEvent();
+            onProcess = new OrderEvent();
+            onAcceptCancel = new OrderEvent();
         }
 
         public Order Accept()
         {
             CustomerSimulation.OpenOrders?.Add(this);
-            CustomerSimulation.onOrderAccept.Invoke();
+            CustomerSimulation.onAnyOrderAccept.Invoke(this);
+            onAccept.Invoke(this);
             return this;
         }
 
-        public void Process()
+        public int Process(ItemBeer itemBeer)
         {
             CustomerSimulation.OpenOrders?.Remove(this);
-            CustomerSimulation.onOrderProcess.Invoke();
+            CustomerSimulation.onAnyOrderProcess.Invoke(this);
+            onProcess.Invoke(this);
+            return CompareBeverageToOrder(itemBeer);
         }
-        
+
         private string RandomOrderName()
         {
             var beverages = SimulationManager.Orders["beverages"];
@@ -46,7 +59,7 @@ namespace Simulation.Modules.CustomerSimulation
             var beverageString = beverages[Random.Range(0, beverages.Length)].Split(' ');
             article = beverageString[0];
             beverage = beverageString[1];
-            
+
             taste = tastes[Random.Range(0, tastes.Length)];
 
             taste += GetArticleNominativePostfix();
@@ -56,7 +69,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private string RandomOrderAttributesAndDescription()
         {
-            string attribute;   
+            string attribute;
             var attributes = SimulationManager.AttributeCombinations;
 
             // Get collection of keys
@@ -80,10 +93,11 @@ namespace Simulation.Modules.CustomerSimulation
 
                 attributeB = keys[randomInt - 1];
             }
-            
-            
+
+
             // Generic output
-            return $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetArticleAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
+            return
+                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetArticleAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
         }
 
         private string GetArticleNominativePostfix()
@@ -96,7 +110,7 @@ namespace Simulation.Modules.CustomerSimulation
                 _ => throw new UnityException($"Wrong format in orders.json with {beverage}")
             };
         }
-        
+
         private string GetArticleAccusativePostfix()
         {
             return article switch
@@ -110,15 +124,16 @@ namespace Simulation.Modules.CustomerSimulation
 
         private ItemBeer.Attribute[] MapAttributes(string inputAttributeA, string inputAttributeB)
         {
-            if (string.IsNullOrWhiteSpace(inputAttributeA) || string.IsNullOrWhiteSpace(inputAttributeB)) throw new UnityException("One or both of the attribute strings was empty or null.");
-            
+            if (string.IsNullOrWhiteSpace(inputAttributeA) || string.IsNullOrWhiteSpace(inputAttributeB))
+                throw new UnityException("One or both of the attribute strings was empty or null.");
+
             return new[] {MapAttribute(inputAttributeA), MapAttribute(inputAttributeB)};
         }
 
         private ItemBeer.Attribute MapAttribute(string attribute)
         {
             if (string.IsNullOrWhiteSpace(attribute)) throw new UnityException("Attribute string was empty or null.");
-            
+
             return attribute switch
             {
                 "Stärke" => ItemBeer.Attribute.Strength,
@@ -130,5 +145,40 @@ namespace Simulation.Modules.CustomerSimulation
                 _ => throw new UnityException("Something went wrong.")
             };
         }
+
+        private int CompareBeverageToOrder(ItemBeer itemBeer)
+        {
+            int score;
+
+            var beverageAttributes = itemBeer.GetAttributes();
+
+            // If both requirements are met
+            if ((requiredAttributes[0] == beverageAttributes[0] && requiredAttributes[1] == beverageAttributes[1]) ||
+                (requiredAttributes[0] == beverageAttributes[1] && requiredAttributes[1] == beverageAttributes[0]))
+            {
+                score = 2;
+            }
+            else if ((requiredAttributes[0] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[1]) ||
+                     (requiredAttributes[1] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[0]))
+            {
+                score = 1;
+            }
+            else
+                score = 0;
+
+            return score;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Order order) return order.customerReference == customerReference;
+
+
+            return false;
+        }
     }
+}
+
+public class OrderEvent : UnityEvent<Order>
+{
 }

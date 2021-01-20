@@ -57,7 +57,15 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _seeker = GetComponent<Seeker>();
             _pathfinder = GetComponent<AIPath>();
+
+            orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
+
             Init();
+        }
+
+        private void Start()
+        {
+            OrderProcessMenu.onOrderProcess.AddListener(OnOrderProcessFromMenu);
         }
 
         /**
@@ -75,19 +83,23 @@ namespace Simulation.Modules.CustomerSimulation
         
         protected override void OnInteract(GameObject source)
         {
-            if (!_canBeInteractedWith || _isInteractedWith) return;
+            if (!_canBeInteractedWith || _isInteractedWith)
+            {
+                Debug.LogWarning($"Customer cannot be interacted with. \n_canBeInteractedWith = {_canBeInteractedWith}, _isInteractedWith = {_isInteractedWith}");
+                return;
+            }
 
+            _canBeInteractedWith = false;
+            _isInteractedWith = true;
             CustomerSimulation customerSimulation = SimulationManager.GetCustomerSimulation();
 
             if (!_hadOrderTaken)
             {
-                _isInteractedWith = true;
                 customerSimulation.SetOrderOnMenu(_currentOrder);
                 customerSimulation.ShowOrderMenu();
             }
             else
             {
-                _isInteractedWith = true;
                 orderProcessMenu.ShowMenu();
             }
         }
@@ -195,6 +207,9 @@ namespace Simulation.Modules.CustomerSimulation
             _currentState = State.Waiting;
 
             _currentOrder = new Order(this);
+            _currentOrder.onAccept.AddListener(OnOrderAccept);
+            _currentOrder.onProcess.AddListener(OnOrderProcess);
+            _currentOrder.onAcceptCancel.AddListener(OnOrderAcceptCancel);
             Tooltip.ShowTooltip_Static(tooltip, _currentOrder.Name);
             _canBeInteractedWith = true;
 
@@ -223,8 +238,6 @@ namespace Simulation.Modules.CustomerSimulation
                 patience = 90f;
                 yield return new WaitUntil(() => _isInteractedWith || patience == 0);
                 _isInteractedWith = false;
-                _hasBeenServed = true;
-                _currentState = State.Consuming;
             }
 
             // Leave if patience reaches 0 while waiting.
@@ -306,6 +319,35 @@ namespace Simulation.Modules.CustomerSimulation
                 yield return new WaitForSeconds(1.0f);
                 patience -= 1;
             }
+        }
+
+        private void OnOrderAccept(Order order)
+        {
+            _canBeInteractedWith = true;
+            _isInteractedWith = false;
+        }
+
+        private void OnOrderProcess(Order order)
+        {
+            _currentOrder = null;
+            
+            _canBeInteractedWith = true;
+            _isInteractedWith = false;
+        }
+
+        private void OnOrderAcceptCancel(Order order)
+        {
+            _canBeInteractedWith = true;
+            _isInteractedWith = false;
+        }
+
+        private void OnOrderProcessFromMenu(ItemBeer itemBeer)
+        {
+            if (!_isInteractedWith) return;
+
+            var score = _currentOrder.Process(itemBeer);
+
+            Debug.Log($"Order processed: {score}");
         }
     }
 

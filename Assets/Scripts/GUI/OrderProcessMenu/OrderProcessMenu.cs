@@ -1,23 +1,49 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class OrderProcessMenu : BaseMenu
 {
     public Button processButton;
     public Button closeButton;
-    public Image itemSlot;
+    public GameObject itemSlot;
     public BeerDisplay beerDisplay;
+
+    private ItemBeer itemHeld;
+
+    public static OrderProcessEvent onOrderProcess;
+
+    private void Awake()
+    {
+        onOrderProcess = new OrderProcessEvent();
+    }
+
+    private void Start()
+    {
+        // gameObject.SetActive(false);
+    }
+
+    public void OrderProcess()
+    {
+        onOrderProcess.Invoke(itemHeld);
+        HideMenu();
+    }
 
     public void RemoveItem()
     {
-        itemSlot.color = new Color(0,0,0,0);
+        itemSlot.GetComponent<Image>().color = new Color(0,0,0,0);
         itemSlot = null;
     }
     
-    public void SetItem(Image itemImage)
+    public void SetItem(GameObject item, ItemBeer itemBeer)
     {
-        itemSlot = itemImage;
-        itemSlot.color = new Color(0,0,0,255);
+        itemHeld = itemBeer;
+        itemSlot = item;
+        var itemImage = item.GetComponent<Image>();
+        Color itemColor = itemImage.color;
+        
+        itemSlot.GetComponent<Image>().color = new Color(itemColor.r, itemColor.g, itemColor.b,255);
     }
 
     public override void ShowMenu()
@@ -37,4 +63,9 @@ public class OrderProcessMenu : BaseMenu
             gameObject.SetActive(false);
         });
     }
+}
+
+public class OrderProcessEvent : UnityEvent<ItemBeer>
+{
+    
 }
