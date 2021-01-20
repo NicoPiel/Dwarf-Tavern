@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,11 +18,6 @@ public class OrderProcessMenu : BaseMenu
         onOrderProcess = new OrderProcessEvent();
     }
 
-    private void Start()
-    {
-        // gameObject.SetActive(false);
-    }
-
     public void OrderProcess()
     {
         if (itemHeld == null) return;
@@ -42,10 +36,6 @@ public class OrderProcessMenu : BaseMenu
     {
         itemHeld = itemBeer;
         itemSlot = item;
-        var itemImage = item.GetComponent<Image>();
-        Color itemColor = itemImage.color;
-        
-        itemSlot.GetComponent<Image>().color = new Color(itemColor.r, itemColor.g, itemColor.b,255);
     }
 
     public override void ShowMenu()

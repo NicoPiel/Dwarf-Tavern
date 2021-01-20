@@ -6,6 +6,7 @@ using Simulation.Core;
 using Simulation.Exceptions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using Utility.Tooltip;
 using Random = UnityEngine.Random;
 
@@ -59,8 +60,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _seeker = GetComponent<Seeker>();
             _pathfinder = GetComponent<AIPath>();
-
-            orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
+            
             _customerSimulation = SimulationManager.GetCustomerSimulation();
 
             Init();
@@ -68,6 +68,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void Start()
         {
+            orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
             OrderProcessMenu.onOrderProcess.AddListener(OnOrderProcessFromMenu);
         }
         
@@ -281,7 +282,7 @@ namespace Simulation.Modules.CustomerSimulation
             yield return new WaitUntil(() => _pathfinder.reachedDestination);
 
             Unblock();
-            Destroy(gameObject);
+            CustomerSimulation.onCustomerLeave.Invoke(this);
         }
         
         private IEnumerator CountdownPatience()
@@ -417,6 +418,10 @@ namespace Simulation.Modules.CustomerSimulation
     #endregion
     
     #region Custom Events
-    
+
+    public class CustomerLeaveEvent : UnityEvent<Customer>
+    {
+        
+    }
     #endregion
 }

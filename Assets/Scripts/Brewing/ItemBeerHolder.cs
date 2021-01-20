@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class ItemBeerHolder : MonoBehaviour
 {
-    private static ItemBeerHolder instance;
+    private static ItemBeerHolder _instance;
     
     public ItemBeer _itemBeer1;
     public ItemBeer _itemBeer2;
     public ItemBeer _itemBeer3;
     public ItemBeer _itemBeer4;
 
-    public void Start()
+    private void Awake()
     {
-        instance = this;
+        _instance = this;
     }
 
     public static ItemBeerHolder GetInstance()
     {
-        return instance;
+        return _instance;
     }
     public bool Add(ItemBeer itemBeer)
     {

@@ -24,6 +24,7 @@ namespace Simulation.Modules.CustomerSimulation
         public static OrderEvent onAnyOrderAccept;
         public static OrderEvent onAnyOrderProcess;
         public static UnityEvent onOrderListChange;
+        public static CustomerLeaveEvent onCustomerLeave;
         
         private int time;
 
@@ -32,6 +33,7 @@ namespace Simulation.Modules.CustomerSimulation
             onAnyOrderAccept = new OrderEvent();
             onAnyOrderProcess = new OrderEvent();
             onOrderListChange = new UnityEvent();
+            onCustomerLeave = new CustomerLeaveEvent();
         }
 
         // Start is called before the first frame update
@@ -54,6 +56,7 @@ namespace Simulation.Modules.CustomerSimulation
             onAnyOrderAccept.AddListener(OnOrderEvent);
             onAnyOrderProcess.AddListener(OnOrderEvent);
             onOrderListChange.AddListener(OnOrderListChange);
+            onCustomerLeave.AddListener(RemoveCustomer);
         }
 
         protected override void OnSimulationStart()

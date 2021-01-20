@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0ba4ff49a5bf84c90f856824fa3d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotNumber: 0
-  GlassFull: {fileID: 21300000, guid: 21c9c8f6a893d824e85ca84d2c086bf9, type: 3}
-  GlassEmpty: {fileID: 21300000, guid: 379a4835daacbc24fbedc543fbb62fe2, type: 3}
-  Fill: {fileID: 21300000, guid: fab2840bcc344fe41ab7df99314752e7, type: 3}
+  slotNumber: 1
+  glassFull: {fileID: 21300000, guid: 21c9c8f6a893d824e85ca84d2c086bf9, type: 3}
+  glassEmpty: {fileID: 21300000, guid: 379a4835daacbc24fbedc543fbb62fe2, type: 3}
+  fill: {fileID: 21300000, guid: fab2840bcc344fe41ab7df99314752e7, type: 3}
 --- !u!1 &7859587605691596450
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0002389, y: 0.00069809}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7441201849827758070
