@@ -14,18 +14,10 @@ public class BeerSlot : MonoBehaviour
     
     private ItemBeerHolder itemBeerHolder;
 
-    private void Start()
-    {
-        itemBeerHolder = ItemBeerHolder.GetInstance();
-        UpdateSlot();
-    }
-
     // Start is called before the first frame update
     void OnEnable()
     {
-        itemBeerHolder = ItemBeerHolder.GetInstance();
-        UpdateSlot();
-        GameManager.GetEventHandler().onItemBeerHolderChanged.AddListener(UpdateSlot);
+        StartCoroutine(WaitUntilBeerHolderInitialized());
     }
     
     public void UpdateSlot()
@@ -49,5 +41,19 @@ public class BeerSlot : MonoBehaviour
     public void EmptySlot()
     {
         itemBeerHolder.Remove(slotNumber);
+    }
+
+    private IEnumerator WaitUntilBeerHolderInitialized()
+    {
+        yield return new WaitUntil(() => ItemBeerHolder.GetInstance());
+        yield return new WaitUntil(ItemBeerHolder.IsInitialized);
+        
+        if (!itemBeerHolder)
+        {
+            itemBeerHolder = ItemBeerHolder.GetInstance();
+            UpdateSlot();
+        }
+
+        GameManager.GetEventHandler().onItemBeerHolderChanged.AddListener(UpdateSlot);
     }
 }

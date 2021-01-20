@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemBeerHolder : MonoBehaviour
 {
+    public bool initialized = false;
+    
     private static ItemBeerHolder _instance;
     
     public ItemBeer _itemBeer1;
@@ -15,12 +14,14 @@ public class ItemBeerHolder : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        initialized = true;
     }
 
     public static ItemBeerHolder GetInstance()
     {
         return _instance;
     }
+    
     public bool Add(ItemBeer itemBeer)
     {
         if (_itemBeer1 == null)
@@ -85,5 +86,10 @@ public class ItemBeerHolder : MonoBehaviour
                 return _itemBeer4;
         }
         return null;
+    }
+
+    public static bool IsInitialized()
+    {
+        return _instance.initialized;
     }
 }
