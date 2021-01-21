@@ -14,6 +14,7 @@ namespace Player
         public bool smoothMovement;
         public int smoothness = 5;
         public GameObject selectionTrigger;
+        public BeerDisplay beerDisplay;
 
         // Start is called before the first frame update
         private void Start()
@@ -26,6 +27,8 @@ namespace Player
         // Update is called once per frame
         private void Update()
         {
+            ProcessInput();
+            
             _move.x = Input.GetAxisRaw("Horizontal");
             _move.y = Input.GetAxisRaw("Vertical");
             _move.Normalize();
@@ -49,6 +52,15 @@ namespace Player
         public Vector2 GetMoveVector2()
         {
             return _move;
+        }
+
+        private void ProcessInput()
+        {
+            if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (!BeerDisplay.IsShown()) beerDisplay.ShowMenu();
+                else beerDisplay.HideMenu();
+            }
         }
     }
 }

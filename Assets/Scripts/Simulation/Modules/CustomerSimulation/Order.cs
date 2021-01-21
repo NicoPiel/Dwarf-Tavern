@@ -7,21 +7,24 @@ namespace Simulation.Modules.CustomerSimulation
 {
     public class Order
     {
+        //Public
         public string Name { get; set; }
         public string Description { get; set; }
-        public Customer customerReference;
+        public readonly Customer customerReference;
 
-        public ItemBeer.Attribute[] requiredAttributes;
+        public readonly ItemBeer.Attribute[] requiredAttributes;
 
+        // private
         private string article;
         private string beverage;
         private string taste;
         private string attributeA;
         private string attributeB;
 
-        public OrderEvent onAccept;
-        public OrderEvent onProcess;
-        public OrderEvent onAcceptCancel;
+        // Events
+        public readonly OrderEvent onAccept;
+        public readonly OrderEvent onProcess;
+        public readonly OrderEvent onAcceptCancel;
 
         public Order(Customer customerReference)
         {

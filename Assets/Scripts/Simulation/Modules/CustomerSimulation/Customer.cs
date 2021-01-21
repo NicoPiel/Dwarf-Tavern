@@ -70,6 +70,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
             OrderProcessMenu.onOrderProcess.AddListener(OnOrderProcessFromMenu);
+            OrderProcessMenu.onOrderProcessCancel.AddListener(OnOrderProcessFromMenuCancel);
         }
         
         #endregion
@@ -208,6 +209,9 @@ namespace Simulation.Modules.CustomerSimulation
             Unblock();
         }
 
+        /**
+         * The customer generates an order.
+         */
         private IEnumerator Order()
         {
             _currentState = State.Waiting;
@@ -216,6 +220,7 @@ namespace Simulation.Modules.CustomerSimulation
             _currentOrder.onAccept.AddListener(OnOrderAccept);
             _currentOrder.onProcess.AddListener(OnOrderProcess);
             _currentOrder.onAcceptCancel.AddListener(OnOrderAcceptCancel);
+            
             Tooltip.ShowTooltip_Static(tooltip, _currentOrder.Name);
             _canBeInteractedWith = true;
 
@@ -231,19 +236,18 @@ namespace Simulation.Modules.CustomerSimulation
         {
             StartCoroutine(CountdownPatience());
 
-            // Wait for a certain period of time, if customer hasn't had his order taken, otherwise wait to get served.
+            // Wait for a certain period of time, if customer hasn't had his order taken...
             if (!_hadOrderTaken)
             {
                 patience = 15f;
                 yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
-                UnblockInteraction();
                 _hadOrderTaken = true;
             }
+            // ...otherwise wait to get served.
             else
             {
                 patience = 90f;
                 yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
-                UnblockInteraction();
             }
 
             // Leave if patience reaches 0 while waiting.
@@ -262,15 +266,19 @@ namespace Simulation.Modules.CustomerSimulation
          */
         private IEnumerator Consume()
         {
-            if (!_hasBeenServed) throw new StateException(State.Consuming, "Customer has not been served yet. _hasBeenServed has to be true.");
+            if (!_hasBeenServed) throw new StateException(State.Consuming, $"Customer has not been served yet. _hasBeenServed has to be true, but is: {_hasBeenServed}");
             
             Tooltip.ShowTooltip_Static(tooltip, "Nom nom nom...");
             yield return new WaitForSeconds(20f);
+            _wantsToLeave = true;
+            _currentState = State.Leaving;
+
+            Unblock();
         }
 
         private IEnumerator Leave()
         {
-            if (!_wantsToLeave) throw new StateException(State.Leaving, "Customer does not want to leave. _wantsToLeave has to be true.");
+            if (!_wantsToLeave) throw new StateException(State.Leaving, $"Customer does not want to leave. _wantsToLeave has to be true, but is: {_wantsToLeave}");
             
             UnassignPlace();
             
@@ -357,27 +365,48 @@ namespace Simulation.Modules.CustomerSimulation
             UnblockInteraction();
         }
 
+        /**
+         * Fires when an order is processed via the Order#Process method.
+         */
         private void OnOrderProcess(Order order)
         {
             _currentOrder = null;
+            _hasBeenServed = true;
             
+            _currentState = State.Consuming;
+            
+            Unblock();
             UnblockInteraction();
         }
 
+        /**
+         * Fires when the player cancels accepting an order from the menu.
+         */
         private void OnOrderAcceptCancel(Order order)
         {
             UnblockInteraction();
         }
 
+        /**
+         * Fires when the player cancels processing an order from the menu.
+         */
+        private void OnOrderProcessFromMenuCancel()
+        {
+            UnblockInteraction();
+        }
+
+        /**
+         * Fires when the player tries processing an order in the menu.
+         */
         private void OnOrderProcessFromMenu(ItemBeer itemBeer)
         {
-            if (!InteractionIsBlocked()) return;
+            if (!InteractionIsBlocked() || itemBeer == null || _currentOrder == null) return;
 
             var score = _currentOrder.Process(itemBeer);
 
             Debug.Log($"Order processed: {score}");
         }
-        
+
         #endregion
     }
 

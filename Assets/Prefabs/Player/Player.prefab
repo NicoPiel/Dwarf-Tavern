@@ -163,6 +163,7 @@ MonoBehaviour:
   smoothMovement: 1
   smoothness: 5
   selectionTrigger: {fileID: 0}
+  beerDisplay: {fileID: 0}
 --- !u!212 &307892756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -276,3 +277,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fde84f0676536468552a644030bfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0

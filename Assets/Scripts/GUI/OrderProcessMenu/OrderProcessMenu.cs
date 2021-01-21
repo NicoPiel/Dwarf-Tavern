@@ -6,16 +6,17 @@ public class OrderProcessMenu : BaseMenu
 {
     public Button processButton;
     public Button closeButton;
-    public GameObject itemSlot;
     public BeerDisplay beerDisplay;
 
     private ItemBeer itemHeld;
 
     public static OrderProcessEvent onOrderProcess;
+    public static UnityEvent onOrderProcessCancel;
 
     private void Awake()
     {
         onOrderProcess = new OrderProcessEvent();
+        onOrderProcessCancel = new UnityEvent();
     }
 
     public void OrderProcess()
@@ -26,23 +27,32 @@ public class OrderProcessMenu : BaseMenu
         HideMenu();
     }
 
-    public void RemoveItem()
+    public void OrderProcessCancel()
     {
-        itemSlot.GetComponent<Image>().color = new Color(0,0,0,0);
-        itemSlot = null;
+        onOrderProcessCancel.Invoke();
+        
+        RemoveItem();
+        HideMenu();
     }
     
-    public void SetItem(GameObject item, ItemBeer itemBeer)
+    public void SetItem(BeerSlot item, ItemBeer itemBeer)
     {
         itemHeld = itemBeer;
-        itemSlot = item;
+        ItemBeerHolder.GetInstance().Set(itemBeer, 5);
+        ItemBeerHolder.GetInstance().Remove(item.slotNumber);
+    }
+
+    public void RemoveItem()
+    {
+        ItemBeerHolder.GetInstance().Add(itemHeld);
+        ItemBeerHolder.GetInstance().Remove(5);
+        itemHeld = null;
     }
 
     public override void ShowMenu()
     {
-        gameObject.SetActive(true);
-        
         LeanTween.move(GetComponent<RectTransform>(), new Vector3(220, 295, 0), 0.4f);
+        
         beerDisplay.ShowMenu();
     }
 
@@ -50,10 +60,7 @@ public class OrderProcessMenu : BaseMenu
     {
         beerDisplay.HideMenu();
         
-        LeanTween.move(GetComponent<RectTransform>(), new Vector3(-250, 295, 0), 0.4f).setOnComplete(() =>
-        {
-            gameObject.SetActive(false);
-        });
+        LeanTween.move(GetComponent<RectTransform>(), new Vector3(-250, 295, 0), 0.4f);
     }
 }
 

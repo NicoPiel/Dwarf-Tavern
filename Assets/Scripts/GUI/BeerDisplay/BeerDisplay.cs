@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BeerDisplay : BaseMenu
@@ -20,6 +21,6 @@ public class BeerDisplay : BaseMenu
 
     public void SetSlotOnOrderProcessMenu(BeerSlot slot)
     {
-        orderProcessMenu.SetItem(slot.gameObject, ItemBeerHolder.GetInstance().GetItemBeerFromSlot(slot.slotNumber));
+        orderProcessMenu.SetItem(slot, ItemBeerHolder.GetInstance().GetItemBeerFromSlot(slot.slotNumber));
     }
 }
