@@ -20,6 +20,11 @@ public class Mercenary
         Mage
     }
 
+    public void TakeDamage(int damage)
+    {
+        _healthPoints -= damage;
+    }
+    
     #region Simple Getter and Setter
     
     public MercenaryRole GetRole()

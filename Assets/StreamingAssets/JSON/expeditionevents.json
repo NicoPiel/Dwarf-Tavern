@@ -1,0 +1,168 @@
+{
+  "events": [
+    {
+      "name": "rat_attack",
+      "description": "Die Gruppe wird von einer Ratte angegriffen",
+      "difficulty": 1,
+      "karmaLevel": 1,
+      "choices": [
+        {
+          "choiceID": 1,
+          "text": "Lass es den Tank regeln!",
+          "required": "Swordsman",
+          "requirement": "hard",
+          "reqBonus": 0,
+          "karma": 1,
+          "chance": 1,
+          "reward": "lootDrop",
+          "loss": ""
+        },
+        {
+          "choiceID": 2,
+          "text": "Lasst uns lieber weglaufen",
+          "required": "Hunter",
+          "requirement": "soft",
+          "reqBonus": 0.2,
+          "karma": 0,
+          "chance": 0.5,
+          "reward": "lootDrop",
+          "loss": "damage"
+        },
+        {
+          "choiceID": 3,
+          "text": "Lasst Sie uns bekämpfen",
+          "required": "Priest",
+          "requirement": "soft",
+          "reqBonus": 0.4,
+          "karma": 1,
+          "chance": 0.3,
+          "reward": "lootDrop",
+          "loss": "damage"
+        }
+      ]
+    },
+    {
+      "name": "abyss",
+      "description": "Ein tiefer Abgrund liegt vor uns, was sollen wir tun?",
+      "difficulty": 1,
+      "karmaLevel": 1,
+      "choices": [
+        {
+          "choiceID": 1,
+          "text": "Versucht zu springen",
+          "required": "",
+          "requirement": "",
+          "reqBonus": 0,
+          "karma": 1,
+          "chance": 0.5,
+          "reward": "",
+          "loss": "damage"
+        },
+        {
+          "choiceID": 2,
+          "text": "Nehmt einen anderen weg",
+          "required": "",
+          "requirement": "",
+          "reqBonus": 0,
+          "karma": -1,
+          "chance": 1,
+          "reward": "",
+          "loss": ""
+        },
+        {
+          "choiceID": 3,
+          "text": "Errichtet eine magische Brücke",
+          "required": "Magier",
+          "requirement": "hard",
+          "reqBonus": 0,
+          "karma": 1,
+          "chance": 1,
+          "reward": "",
+          "loss": ""
+        }
+      ]
+    },
+    {
+      "name": "glowing_mushroom",
+      "description": "Ein glühender Pilz ist in der Ferne zu sehen",
+      "difficulty": 1,
+      "karmaLevel": 2,
+      "choices": [
+        {
+          "choiceID": 1,
+          "text": "Ignorieren wir ihn",
+          "required": "",
+          "requirement": "",
+          "reqBonus": 0,
+          "karma": 0,
+          "chance": 1,
+          "reward": "",
+          "loss": ""
+        },
+        {
+          "choiceID": 2,
+          "text": "Sammelt ihn aufjedenfall ein!",
+          "required": "",
+          "requirement": "",
+          "reqBonus": 0,
+          "karma": 1,
+          "chance": 0.5,
+          "reward": "lootDrop",
+          "loss": "damage"
+        },
+        {
+          "choiceID": 3,
+          "text": "Ein perfekter Job für den Hunter",
+          "required": "Hunter",
+          "requirement": "hard",
+          "reqBonus": 0,
+          "karma": 1,
+          "chance": 1,
+          "reward": "lootDrop",
+          "loss": ""
+        }
+      ]
+    },
+    {
+      "name": "missing",
+      "description": "Wir vermissen jemanden aus unserer Gruppe",
+      "difficulty": 1,
+      "karmaLevel": -1,
+      "choices": [
+        {
+          "choiceID": 1,
+          "text": "Suchen wir ihn!",
+          "required": "Hunter",
+          "requirement": "soft",
+          "reqBonus": 0.2,
+          "karma": 2,
+          "chance": 0.5,
+          "reward": "lootDrop",
+          "loss": "death"
+        },
+        {
+          "choiceID": 2,
+          "text": "Wir sollten hier warten",
+          "required": "Priest",
+          "requirement": "soft",
+          "reqBonus": 0.4,
+          "karma": 1,
+          "chance": 0.3,
+          "reward": "lootDrop",
+          "loss": "death"
+        },
+        {
+          "choiceID": 3,
+          "text": "Tja Schade, weiter!",
+          "required": "",
+          "requirement": "",
+          "reqBonus": 0,
+          "karma": -1,
+          "chance": 0,
+          "reward": "",
+          "loss": "death"
+        }
+      ]
+    }
+  ]
+}
