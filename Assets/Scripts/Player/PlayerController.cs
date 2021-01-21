@@ -58,7 +58,7 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
             {
-                if (!BeerDisplay.IsShown()) beerDisplay.ShowMenu();
+                if (!beerDisplay.IsShown()) beerDisplay.ShowMenu();
                 else beerDisplay.HideMenu();
             }
         }
