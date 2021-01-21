@@ -51,6 +51,8 @@ public class OrderProcessMenu : BaseMenu
 
     public override void ShowMenu()
     {
+        isShown = true;
+        
         LeanTween.move(GetComponent<RectTransform>(), new Vector3(220, 295, 0), 0.4f);
         
         beerDisplay.ShowMenu();
@@ -58,6 +60,8 @@ public class OrderProcessMenu : BaseMenu
 
     public override void HideMenu()
     {
+        isShown = false;
+        
         beerDisplay.HideMenu();
         
         LeanTween.move(GetComponent<RectTransform>(), new Vector3(-250, 295, 0), 0.4f);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class BaseMenu : MonoBehaviour
 {
-    protected static bool isShown = false;
+    protected bool isShown = false;
 
     public virtual void ShowMenu()
     {

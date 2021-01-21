@@ -33,6 +33,7 @@ public class OrderMenu : BaseMenu
 
     public override void ShowMenu()
     {
+        isShown = true;
         gameObject.SetActive(true);
         
         LeanTween.move(GetComponent<RectTransform>(), new Vector3(220, 295, 0), 0.4f);
@@ -40,6 +41,8 @@ public class OrderMenu : BaseMenu
 
     public override void HideMenu()
     {
+        isShown = false;
+        
         LeanTween.move(GetComponent<RectTransform>(), new Vector3(-250, 295, 0), 0.4f).setOnComplete(() =>
         {
             gameObject.SetActive(false);
