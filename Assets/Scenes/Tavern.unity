@@ -235,6 +235,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307892756, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1705520269155941585, guid: 39f88deeb1fce034c832f1b07a9693b8, type: 3}
     - target: {fileID: 1153180335, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: _UICanvas
       value: 
@@ -248,12 +252,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 767715048581585643, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767715048581585643, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767715048581585643, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 767715048581585643, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 767715048581585643, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: m_LocalPosition.z
