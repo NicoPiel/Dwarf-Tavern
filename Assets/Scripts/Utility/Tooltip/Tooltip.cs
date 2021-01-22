@@ -20,15 +20,15 @@ namespace Utility.Tooltip
         private void ShowTooltip(string tooltipString)
         {
             tooltipText.text = tooltipString;
-            var backgroundSize = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight);
-            backgroundRectTransform.sizeDelta = backgroundSize;
+            //var backgroundSize = new Vector2(tooltipText.preferredWidth, tooltipText.preferredHeight);
+            //backgroundRectTransform.sizeDelta = backgroundSize;
         }
         
         private void ShowTooltip(Tooltip tooltip, string tooltipString)
         {
             tooltip.tooltipText.text = tooltipString;
-            var backgroundSize = new Vector2(tooltip.tooltipText.preferredWidth, tooltip.tooltipText.preferredHeight);
-            tooltip.backgroundRectTransform.sizeDelta = backgroundSize;
+            //var backgroundSize = new Vector2(tooltip.tooltipText.preferredWidth, tooltip.tooltipText.preferredHeight);
+            //tooltip.backgroundRectTransform.sizeDelta = backgroundSize;
             
             tooltip.gameObject.SetActive(true);
         }

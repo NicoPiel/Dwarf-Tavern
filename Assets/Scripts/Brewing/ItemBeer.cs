@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Inventory;
+using Simulation.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,7 +67,7 @@ public class ItemBeer : ComplexItem
 
     public enum Type
     {
-        Unused,
+        Unused = 0,
         Beer,
         Schnapps,
         Brandy,
@@ -76,12 +77,32 @@ public class ItemBeer : ComplexItem
 
     public enum Attribute
     {
-        Unused,
+        Unused = 0,
         Strength,
         Dexterity,
         Intelligence,
         Vitality,
         Will,
         Courage
+    }
+
+    public string GetAttributeCombinationDenominator()
+    {
+        return SimulationManager.AttributeCombinations[AttributeToString(_taste1)][(int) _taste2];
+    }
+
+    public static string AttributeToString(Attribute attribute)
+    {
+        return attribute switch
+        {
+            Attribute.Strength => "Stärke",
+            Attribute.Dexterity => "Geschick",
+            Attribute.Intelligence => "Intelligenz",
+            Attribute.Vitality => "Vitalität",
+            Attribute.Will => "Wille",
+            Attribute.Courage => "Mut",
+            Attribute.Unused => "",
+            _ => throw new UnityException("This attribute does not exist.")
+        };
     }
 }
