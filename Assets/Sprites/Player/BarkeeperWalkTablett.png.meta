@@ -1,0 +1,984 @@
+fileFormatVersion: 2
+guid: ca25b35c7e46c6148803377e7b0ddb4b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 452221656594343193
+    second: BarkeeperWalkTablett_0
+  - first:
+      213: -7929894082378898066
+    second: BarkeeperWalkTablett_1
+  - first:
+      213: -6855068357267192325
+    second: BarkeeperWalkTablett_2
+  - first:
+      213: -6941880916801388288
+    second: BarkeeperWalkTablett_3
+  - first:
+      213: -1459852132646749795
+    second: BarkeeperWalkTablett_4
+  - first:
+      213: 7918053033661891314
+    second: BarkeeperWalkTablett_5
+  - first:
+      213: -213285650668729570
+    second: BarkeeperWalkTablett_6
+  - first:
+      213: -291736928332980126
+    second: BarkeeperWalkTablett_7
+  - first:
+      213: -8583812022743466027
+    second: BarkeeperWalkTablett_8
+  - first:
+      213: -1215820852179461611
+    second: BarkeeperWalkTablett_9
+  - first:
+      213: 2474279580980029934
+    second: BarkeeperWalkTablett_10
+  - first:
+      213: 2505030011407801508
+    second: BarkeeperWalkTablett_11
+  - first:
+      213: -452509739002138627
+    second: BarkeeperWalkTablett_12
+  - first:
+      213: -1476485041692396199
+    second: BarkeeperWalkTablett_13
+  - first:
+      213: -3197364125016007721
+    second: BarkeeperWalkTablett_14
+  - first:
+      213: 190146125326455317
+    second: BarkeeperWalkTablett_15
+  - first:
+      213: 2674767895436034362
+    second: BarkeeperWalkTablett_16
+  - first:
+      213: 2442148294818637964
+    second: BarkeeperWalkTablett_17
+  - first:
+      213: 8838371447348473329
+    second: BarkeeperWalkTablett_18
+  - first:
+      213: -1017486629670535865
+    second: BarkeeperWalkTablett_19
+  - first:
+      213: 5248117154081778898
+    second: BarkeeperWalkTablett_20
+  - first:
+      213: 2376467577336171715
+    second: BarkeeperWalkTablett_21
+  - first:
+      213: -2419554725863942823
+    second: BarkeeperWalkTablett_22
+  - first:
+      213: 501175173866512626
+    second: BarkeeperWalkTablett_23
+  - first:
+      213: -3539989289043514770
+    second: BarkeeperWalkTablett_24
+  - first:
+      213: -3482240481282139435
+    second: BarkeeperWalkTablett_25
+  - first:
+      213: -8874219844179871787
+    second: BarkeeperWalkTablett_26
+  - first:
+      213: 3072485531471206076
+    second: BarkeeperWalkTablett_27
+  - first:
+      213: -7892164728983900461
+    second: BarkeeperWalkTablett_28
+  - first:
+      213: -5504186385849858145
+    second: BarkeeperWalkTablett_29
+  - first:
+      213: 6352429898087848578
+    second: BarkeeperWalkTablett_30
+  - first:
+      213: -7417065688035652362
+    second: BarkeeperWalkTablett_31
+  - first:
+      213: -5285625790347445630
+    second: BarkeeperWalkTablett_32
+  - first:
+      213: 3059611139762894932
+    second: BarkeeperWalkTablett_33
+  - first:
+      213: 634945243164843017
+    second: BarkeeperWalkTablett_34
+  - first:
+      213: 672012550906159577
+    second: BarkeeperWalkTablett_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 195
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9156b01633d964600800000000000000
+      internalID: 452221656594343193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 195
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e656551b85b53f190800000000000000
+      internalID: -7929894082378898066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 194
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5811616a7edd0a0800000000000000
+      internalID: -6855068357267192325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 193
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0018df8f51c79af90800000000000000
+      internalID: -6941880916801388288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_4
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 194
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d997ef058309dbbe0800000000000000
+      internalID: -1459852132646749795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 195
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f20f10584392ed60800000000000000
+      internalID: 7918053033661891314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 194
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bc33ca4d14a0df0800000000000000
+      internalID: -213285650668729570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 193
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26069d23fca83fbf0800000000000000
+      internalID: -291736928332980126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_8
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 194
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dff5adb17c20e880800000000000000
+      internalID: -8583812022743466027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_9
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 130
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a945b6069802fe0800000000000000
+      internalID: -1215820852179461611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 131
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9215b6b28665220800000000000000
+      internalID: 2474279580980029934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_11
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 131
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac97ade587a3c220800000000000000
+      internalID: 2505030011407801508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_12
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 130
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff6f553acc58b9f0800000000000000
+      internalID: -452509739002138627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_13
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 130
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9553fb56da8728be0800000000000000
+      internalID: -1476485041692396199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_14
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 131
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbd7d6c44ea0a3d0800000000000000
+      internalID: -3197364125016007721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_15
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 130
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512108fb4e883a200800000000000000
+      internalID: 190146125326455317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_16
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 129
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a318518ba3fae1520800000000000000
+      internalID: 2674767895436034362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_17
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 130
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88ad716fe044e120800000000000000
+      internalID: 2442148294818637964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_18
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 66
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd2920f00438aa70800000000000000
+      internalID: 8838371447348473329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 66
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d37ca1d4921e1f0800000000000000
+      internalID: -1017486629670535865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_20
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 65
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dcada4febe05d840800000000000000
+      internalID: 5248117154081778898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_21
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 65
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc0b57aba8eaf020800000000000000
+      internalID: 2376467577336171715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_22
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 65
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9551342dbc30c6ed0800000000000000
+      internalID: -2419554725863942823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_23
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 66
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0ee805a2884f600800000000000000
+      internalID: 501175173866512626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_24
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 65
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6aafdd4f7e6fdec0800000000000000
+      internalID: -3539989289043514770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_25
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 65
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da51b26bb89cafc0800000000000000
+      internalID: -3482240481282139435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_26
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 65
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7bfe0c11078d480800000000000000
+      internalID: -8874219844179871787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_27
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb65ed8ef49a3aa20800000000000000
+      internalID: 3072485531471206076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_28
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de2c045ef5697290800000000000000
+      internalID: -7892164728983900461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_29
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 3
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97c0edf4a33d93b0800000000000000
+      internalID: -5504186385849858145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_30
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ad810f55d582850800000000000000
+      internalID: 6352429898087848578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_31
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc85e4dd0a411990800000000000000
+      internalID: -7417065688035652362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_32
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 2
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a72be195fa5a6b0800000000000000
+      internalID: -5285625790347445630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_33
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 2
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45835600f1ce57a20800000000000000
+      internalID: 3059611139762894932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_34
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 2
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c1aa6a557cfc800800000000000000
+      internalID: 634945243164843017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BarkeeperWalkTablett_35
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 2
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1ad55cad7735900800000000000000
+      internalID: 672012550906159577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

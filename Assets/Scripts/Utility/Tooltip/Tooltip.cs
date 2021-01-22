@@ -9,7 +9,7 @@ namespace Utility.Tooltip
         private static Tooltip _instance;
         
         [SerializeField] private TMP_Text tooltipText;
-        [SerializeField] private RectTransform backgroundRectTransform;
+        // [SerializeField] private RectTransform backgroundRectTransform;
 
         private void Awake()
         {
