@@ -52,5 +52,9 @@ public class DayCounter : MonoBehaviour
     {
         ES3.Save("DayCount", dayCount);
     }
-  
+
+    public static DayCounter GetInstance()
+    {
+        return _instance;
+    }
 }
