@@ -22,8 +22,9 @@ public class OrderProcessMenu : BaseMenu
     public void OrderProcess()
     {
         if (itemHeld == null) return;
-        
+
         onOrderProcess.Invoke(itemHeld);
+        DeleteItem();
         HideMenu();
     }
 
@@ -31,7 +32,7 @@ public class OrderProcessMenu : BaseMenu
     {
         onOrderProcessCancel.Invoke();
         
-        RemoveItem();
+        RemoveItemAndPutBack();
         HideMenu();
     }
     
@@ -42,9 +43,15 @@ public class OrderProcessMenu : BaseMenu
         ItemBeerHolder.GetInstance().Remove(item.slotNumber);
     }
 
-    public void RemoveItem()
+    public void RemoveItemAndPutBack()
     {
         ItemBeerHolder.GetInstance().Add(itemHeld);
+        ItemBeerHolder.GetInstance().Remove(5);
+        itemHeld = null;
+    }
+
+    public void DeleteItem()
+    {
         ItemBeerHolder.GetInstance().Remove(5);
         itemHeld = null;
     }

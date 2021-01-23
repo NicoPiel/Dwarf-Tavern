@@ -66,13 +66,11 @@ namespace Simulation.Modules.CustomerSimulation
 
         protected override void OnSimulationPause()
         {
-            // TODO
             throw new NotImplementedException();
         }
 
         protected override void OnSimulationUnpause()
         {
-            // TODO
             throw new NotImplementedException();
         }
 

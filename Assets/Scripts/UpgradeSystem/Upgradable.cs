@@ -15,19 +15,19 @@ public class Upgradable : MonoBehaviour
     
     private void Setup()
     {
-        Debug.Log("Starting Setup with id"+ id + _upgradeStateHolder.GetUpgradeState(id));
+        // Debug.Log("Starting Setup with id"+ id + _upgradeStateHolder.GetUpgradeState(id));
         switch (_upgradeStateHolder.GetUpgradeState(id))
         {
             case 1:
-                Debug.Log("Should be lvl 1 now");
+                // Debug.Log("Should be lvl 1 now");
                 _spriteRenderer.sprite = lvl1;
                 break;
             case 2:
-                Debug.Log("Should be lvl 2 now");
+                // Debug.Log("Should be lvl 2 now");
                 _spriteRenderer.sprite = lvl2;
                 break;
             case 3:
-                Debug.Log("Should be lvl 3 now");
+                // Debug.Log("Should be lvl 3 now");
                 _spriteRenderer.sprite = lvl3;
                 break;
         }
