@@ -8,6 +8,8 @@ public class DayCounter : MonoBehaviour
     private static DayCounter _instance;
     [SerializeField]
     private int dayCount;
+
+    private static bool _initialized;
     
     private void Start()
     {
@@ -29,6 +31,8 @@ public class DayCounter : MonoBehaviour
         _instance = this;
         Debug.Log("DayCounterAwake");
         GameManager.GetEventHandler().onDayChanged.AddListener(CountDay);
+
+        _initialized = true;
     }
 
     private void CountDay()
@@ -56,5 +60,10 @@ public class DayCounter : MonoBehaviour
     public static DayCounter GetInstance()
     {
         return _instance;
+    }
+
+    public static bool IsInitialized()
+    {
+        return _initialized;
     }
 }

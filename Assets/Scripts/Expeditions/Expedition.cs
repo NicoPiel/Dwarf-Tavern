@@ -17,6 +17,7 @@ public class Expedition
         _karma = 1;
         _length = Random.Range(1, _difficulty * 2);
         _team = new List<Mercenary>();
+        _name = "Random Expedition";
     }
 
     #region Simple Getter/Setter
@@ -32,6 +33,12 @@ public class Expedition
     {
         _karma += karma;
     }
+
+    public int GetLength()
+    {
+        return _length;
+    }
+    
     public string GetName()
     {
         return _name;
