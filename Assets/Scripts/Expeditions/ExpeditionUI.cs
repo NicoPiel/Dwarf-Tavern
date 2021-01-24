@@ -24,6 +24,10 @@ public class ExpeditionUI : MonoBehaviour
             name.text = expo.GetName();
             length.text = expo.GetLength().ToString();
         }
+        else
+        {
+            
+        }
     }
 
     public void ButtonClick()
