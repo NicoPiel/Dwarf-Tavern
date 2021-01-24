@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c634311e7da450a9b0e19b49d91ef19, type: 3}
+  m_Name: RandomDayTask
+  m_EditorClassIdentifier: 
+  id: random1-10task
+  message: {fileID: 11400000, guid: 76ac86cb6e45058408126fc03c5f9178, type: 2}
+  cancelled: 0
+  fromDayInclusive: 1
+  toDayInclusive: 10
+  chance: 0

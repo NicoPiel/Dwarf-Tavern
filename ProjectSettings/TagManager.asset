@@ -16,6 +16,7 @@ TagManager:
   - TimeDisplay
   - QuestDisplay
   - ItemBeerHolder
+  - DebugUI
   - OrderProcessMenu
   layers:
   - Default
