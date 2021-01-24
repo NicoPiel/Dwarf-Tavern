@@ -21,6 +21,7 @@ public class EventHandler : MonoBehaviour
     public UnityEvent<int> onFundsChangedFrom;
     public UnityEvent onFundsChanged;
 
+    public UnityEvent onExpeditionHolderChanged;
 
     public UnityEvent onItemBeerHolderChanged;
     public UnityEvent<ItemBeer> onBrewed;
@@ -38,5 +39,6 @@ public class EventHandler : MonoBehaviour
         onFundsChangedFrom = new UnityEvent<int>();
         onFundsChanged = new UnityEvent();
         onDayChanged = new UnityEvent();
+        onExpeditionHolderChanged = new UnityEvent();
     }
 }

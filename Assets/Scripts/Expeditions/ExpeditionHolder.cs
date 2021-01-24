@@ -7,7 +7,7 @@ public class ExpeditionHolder : MonoBehaviour
 {
     private List<Expedition> _todaysExpeditions;
 
-    private Expedition selectedExpedition;
+    private Expedition _selectedExpedition;
 
     private static ExpeditionHolder _instance;
 
@@ -17,7 +17,7 @@ public class ExpeditionHolder : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         StartCoroutine(WaitUntilDayCounterIsInitialized());
     }
@@ -35,8 +35,9 @@ public class ExpeditionHolder : MonoBehaviour
     {
         if (id > 0 && id < 4 && _todaysExpeditions[id - 1] != null)
         {
-            selectedExpedition = _todaysExpeditions[id - 1];
+            _selectedExpedition = _todaysExpeditions[id - 1];
             _todaysExpeditions[id - 1] = null;
+            GameManager.GetEventHandler().onExpeditionHolderChanged.Invoke();
         }
         else
             throw new ArgumentException("ID not in Range");
@@ -68,5 +69,10 @@ public class ExpeditionHolder : MonoBehaviour
         _todaysExpeditions.Add(new Expedition(difficulty));
         _todaysExpeditions.Add(new Expedition(difficulty));
         _todaysExpeditions.Add(new Expedition(difficulty));
+    }
+
+    public bool IsSomethingSelected()
+    {
+        return _selectedExpedition != null;
     }
 }
