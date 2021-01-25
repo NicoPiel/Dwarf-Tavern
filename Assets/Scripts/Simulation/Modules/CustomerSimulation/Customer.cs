@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using Interactions;
+using Inventory;
 using Pathfinding;
 using Simulation.Core;
 using Simulation.Exceptions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using Utility.Tooltip;
 using Random = UnityEngine.Random;
 
@@ -28,6 +30,8 @@ namespace Simulation.Modules.CustomerSimulation
         private Seeker _seeker;
         private AIPath _pathfinder;
         private CustomerSimulation _customerSimulation;
+        private Inventory.Inventory playerInventory;
+        [SerializeField] private Slider patienceSlider;
         
         [SerializeField] private bool _blocked;
         [SerializeField] private State _currentState;
@@ -37,7 +41,8 @@ namespace Simulation.Modules.CustomerSimulation
         private bool _hadOrderTaken;
         private bool _hasBeenServed;
         private bool _wantsToLeave;
-        
+        private int _maxPatience;
+
         /**
          * State enum
          */
@@ -71,6 +76,10 @@ namespace Simulation.Modules.CustomerSimulation
             orderProcessMenu = GameObject.FindWithTag("OrderProcessMenu").GetComponent<OrderProcessMenu>();
             OrderProcessMenu.onOrderProcess.AddListener(OnOrderProcessFromMenu);
             OrderProcessMenu.onOrderProcessCancel.AddListener(OnOrderProcessFromMenuCancel);
+
+            playerInventory = InventoryManager.GetInstance().GetPlayerInventory();
+
+            patienceSlider.gameObject.SetActive(false);
         }
         
         #endregion
@@ -235,19 +244,22 @@ namespace Simulation.Modules.CustomerSimulation
         private IEnumerator Wait()
         {
             StartCoroutine(CountdownPatience());
+            StartCoroutine(UpdatePatienceSlider());
 
             // Wait for a certain period of time, if customer hasn't had his order taken...
             if (!_hadOrderTaken)
             {
-                patience = 15f;
-                yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
+                _maxPatience = 30;
+                patience = 30f;
+                yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
                 _hadOrderTaken = true;
             }
             // ...otherwise wait to get served.
             else
             {
+                _maxPatience = 90;
                 patience = 90f;
-                yield return new WaitUntil(() => InteractionIsBlocked() || patience == 0);
+                yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
             }
 
             // Leave if patience reaches 0 while waiting.
@@ -297,11 +309,24 @@ namespace Simulation.Modules.CustomerSimulation
         {
             while (!InteractionIsBlocked())
             {
-                yield return new WaitForSeconds(1.0f);
-                patience -= 1;
+                yield return new WaitForSeconds(0.1f);
+                patience -= 0.1f;
             }
         }
-        
+
+        private IEnumerator UpdatePatienceSlider()
+        {
+            patienceSlider.gameObject.SetActive(true);
+            
+            while (_currentState == State.Waiting)
+            {
+                patienceSlider.value = patience / _maxPatience;
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            patienceSlider.gameObject.SetActive(false);
+        }
+
         #endregion
         
         #region Blocking Methods
@@ -374,7 +399,28 @@ namespace Simulation.Modules.CustomerSimulation
             _hasBeenServed = true;
             
             _currentState = State.Consuming;
+
+            var customerSatisfaction = order.GetCustomerSatisfaction();
             
+            playerInventory.AddFunds(order.GetValue() * customerSatisfaction);
+
+            switch (customerSatisfaction)
+            {
+                case 2:
+                    Tooltip.ShowTooltip_Static(tooltip, "Vielen Dank! Hier das Geld und noch was oben drauf.");
+                    break;
+                case 1:
+                    Tooltip.ShowTooltip_Static(tooltip, "Danke. Auf Wiedersehen.");
+                    break;
+                case 0:
+                    Tooltip.ShowTooltip_Static(tooltip, "Das ist nicht, was ich bestellt hatte. Ich gehe!");
+                    _currentState = State.Leaving;
+                    _wantsToLeave = true;
+                    break;
+                default:
+                    throw new UnityException($"Customer satisfaction was not in range [0, 2], but was: {customerSatisfaction}");
+            }
+
             Unblock();
             UnblockInteraction();
         }

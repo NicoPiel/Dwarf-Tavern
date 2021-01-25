@@ -66,6 +66,9 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         ItemBeer itemBeer = GetItemBeerOnThisSlot();
+
+        if (itemBeer == null) return;
+
         var stringBuilder = new StringBuilder();
 
         var attributeA = ItemBeer.AttributeToString(itemBeer.GetAttributes()[0]);

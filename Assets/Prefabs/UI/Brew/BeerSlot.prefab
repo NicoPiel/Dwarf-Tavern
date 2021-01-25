@@ -234,21 +234,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6068001876260918233}
     m_Modifications:
-    - target: {fileID: 4044312246355094122, guid: 25f1582e2e0deda4580d40836313ffa5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 5048757436227618170, guid: 25f1582e2e0deda4580d40836313ffa5, type: 3}
       propertyPath: m_Name
       value: Tooltip
-      objectReference: {fileID: 0}
-    - target: {fileID: 5048757436227618170, guid: 25f1582e2e0deda4580d40836313ffa5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5048757438079445675, guid: 25f1582e2e0deda4580d40836313ffa5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5059770513457806333, guid: 25f1582e2e0deda4580d40836313ffa5, type: 3}
       propertyPath: m_Pivot.x

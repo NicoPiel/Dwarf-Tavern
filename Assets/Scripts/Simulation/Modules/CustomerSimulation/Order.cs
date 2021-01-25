@@ -20,6 +20,8 @@ namespace Simulation.Modules.CustomerSimulation
         private string taste;
         private string attributeA;
         private string attributeB;
+        private int value;
+        private int customerSatisfaction;
 
         // Events
         public readonly OrderEvent onAccept;
@@ -48,6 +50,8 @@ namespace Simulation.Modules.CustomerSimulation
 
         public int Process(ItemBeer itemBeer)
         {
+            value = itemBeer.GetPrice();
+            
             CustomerSimulation.OpenOrders?.Remove(this);
             CustomerSimulation.onAnyOrderProcess.Invoke(this);
             onProcess.Invoke(this);
@@ -151,25 +155,33 @@ namespace Simulation.Modules.CustomerSimulation
 
         private int CompareBeverageToOrder(ItemBeer itemBeer)
         {
-            int score;
-
             var beverageAttributes = itemBeer.GetAttributes();
 
             // If both requirements are met
             if ((requiredAttributes[0] == beverageAttributes[0] && requiredAttributes[1] == beverageAttributes[1]) ||
                 (requiredAttributes[0] == beverageAttributes[1] && requiredAttributes[1] == beverageAttributes[0]))
             {
-                score = 2;
+                customerSatisfaction = 2;
             }
             else if ((requiredAttributes[0] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[1]) ||
                      (requiredAttributes[1] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[0]))
             {
-                score = 1;
+                customerSatisfaction = 1;
             }
             else
-                score = 0;
+                customerSatisfaction = 0;
 
-            return score;
+            return customerSatisfaction;
+        }
+
+        public int GetValue()
+        {
+            return value;
+        }
+
+        public int GetCustomerSatisfaction()
+        {
+            return customerSatisfaction;
         }
 
         public override bool Equals(object obj)

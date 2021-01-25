@@ -7,9 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 899783249666742585, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241573648946589645, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: tooltipText
+      value: 
+      objectReference: {fileID: 8283862485747579902}
+    - target: {fileID: 8236009176332786168, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 8236009177111066153, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_Name
-      value: BeerTooltip
+      value: Tooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236009177111066153, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_Pivot.x
@@ -45,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 300
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 8244699963504691374, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -97,3 +113,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+--- !u!114 &8283862485747579902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5092117195237968045, guid: 6273a470ce8ac7742a7ec5887521ee44, type: 3}
+  m_PrefabInstance: {fileID: 3773141922336109395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

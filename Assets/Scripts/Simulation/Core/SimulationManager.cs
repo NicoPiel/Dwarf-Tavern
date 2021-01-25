@@ -105,7 +105,7 @@ namespace Simulation.Core
             StartCoroutine(SimulationTick());
         }
 
-        // TODO
+        // TODO: Add PreTick
         private IEnumerator SimulationPreTick()
         {
             yield return null;
@@ -122,7 +122,7 @@ namespace Simulation.Core
             }
         }
 
-        // TODO
+        // TODO: Add PostTick
         private IEnumerator SimulationPostTick()
         {
             yield return null;

@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Inventory
 {
     [CreateAssetMenu(fileName = "NewIngredientItem", menuName = "ScriptableObjects/IngredientItem", order = 2)]
-    public class IngredientItem : StaticItem
+    public class IngredientItem : StaticItem, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private int price;
+        
         public ModifierMapEntry[] modifiers;
         private Dictionary<Item.Slot, Dictionary<string, int>> _modifierDict = null;
+
         public override bool IsIngredient()
         {
             return true;
@@ -35,6 +39,11 @@ namespace Inventory
             return dict;
         }
 
+        public int GetPrice()
+        {
+            return price;
+        }
+
         protected bool Equals(IngredientItem other)
         {
             return base.Equals(other) && Equals(modifiers, other.modifiers);
@@ -54,6 +63,17 @@ namespace Inventory
             {
                 return (base.GetHashCode() * 397) ^ (modifiers != null ? modifiers.GetHashCode() : 0);
             }
+        }
+        
+        // TODO: Add tooltip to Item
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            throw new NotImplementedException();
         }
 
         [Serializable]

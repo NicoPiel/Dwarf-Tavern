@@ -43,7 +43,11 @@ namespace Brewing
                 ? b2 ? Color.Lerp(Color.Lerp(cBase, cAttr1, 0.5f), cAttr2, 0.3333f) :
                 Color.Lerp(cBase, cAttr1, 0.5f)
                 : cBase;
-            return new ItemBeer(InventoryManager.GetInstance().GetRegisteredItem("beer"), attr1, attr2, drinkType, finalColor);
+
+            var sumPrice = baseItem.GetPrice() + taste1.GetPrice() + taste2.GetPrice();
+            sumPrice += bonus != null ? bonus.GetPrice() : 0;
+            
+            return new ItemBeer(InventoryManager.GetInstance().GetRegisteredItem("beer"), attr1, attr2, drinkType, finalColor, sumPrice);
         }
 
         private List<ItemBeer.Type> GetTypeModifiers(Item.Slot slot, IngredientItem item)

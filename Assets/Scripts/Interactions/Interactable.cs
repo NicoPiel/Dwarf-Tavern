@@ -10,7 +10,7 @@ namespace Interactions
         {
             InteractionEventPayload payload = new InteractionEventPayload(source, this);
             EventHandler.onInteraction.Invoke(payload);
-            Debug.Log(payload.ToString());
+            //Debug.Log(payload.ToString());
             if(!payload.Cancelled)
                 OnInteract(source);
         }

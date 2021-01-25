@@ -9,7 +9,7 @@ namespace Inventory
         string GetId();
         string GetDisplayName();
         string GetLore();
-        
+
         /**
          * <summary>Checks if the Item would stack with another item</summary>
          */

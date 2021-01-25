@@ -11,13 +11,16 @@ public class ItemBeer : ComplexItem
     private readonly Attribute _taste2;
     private readonly Type _type;
     private Color _beerColor;
+    
+    [SerializeField] private readonly int price;
 
-    public ItemBeer(StaticItem reference, Attribute taste1, Attribute taste2, Type type, Color beerColor) : base(reference)
+    public ItemBeer(StaticItem reference, Attribute taste1, Attribute taste2, Type type, Color beerColor, int beerPrice) : base(reference)
     {
         _taste1 = taste1;
         _taste2 = taste2;
         _type = type;
         _beerColor = beerColor;
+        price = beerPrice;
     }
 
     public bool hasAttribute(Attribute attr)
@@ -104,5 +107,10 @@ public class ItemBeer : ComplexItem
             Attribute.Unused => "",
             _ => throw new UnityException("This attribute does not exist.")
         };
+    }
+
+    public int GetPrice()
+    {
+        return price;
     }
 }
