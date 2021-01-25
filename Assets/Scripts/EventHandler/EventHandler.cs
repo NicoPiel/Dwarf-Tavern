@@ -10,27 +10,32 @@ using UnityEngine.Serialization;
 public class EventHandler : MonoBehaviour
 {
 
-    public UnityEvent onGameStarted;
-    public UnityEvent onGameLoaded;
-    public UnityEvent<Interactable.InteractionEventPayload> onInteraction;
-    public UnityEvent onAfterHourSceneLoaded;
-    public UnityEvent onDayChanged;
-    public UnityEvent<InventoryManager.State> onInventoryManagerInitialized;
-
-    public UnityEvent onInventoryChanged;
-    public UnityEvent<int> onFundsChangedFrom;
-    public UnityEvent onFundsChanged;
-
-
-    public UnityEvent onItemBeerHolderChanged;
-    public UnityEvent<ItemBeer> onBrewed;
+    public static UnityEvent onGameStarted;
+    public static UnityEvent onGameLoaded;
+    public static UnityEvent onGamePaused;
+    public static UnityEvent onGameUnpaused;
     
+    public static UnityEvent<Interactable.InteractionEventPayload> onInteraction;
+    public static UnityEvent onAfterHourSceneLoaded;
+    public static UnityEvent onDayChanged;
+    public static UnityEvent<InventoryManager.State> onInventoryManagerInitialized;
+
+    public static UnityEvent onInventoryChanged;
+    public static UnityEvent<int> onFundsChangedFrom;
+    public static UnityEvent onFundsChanged;
+
+
+    public static UnityEvent onItemBeerHolderChanged;
+    public static UnityEvent<ItemBeer> onBrewed;
+
     private void Awake()
     {
         onItemBeerHolderChanged = new UnityEvent();
         onInventoryChanged = new UnityEvent();
         onGameStarted = new UnityEvent();
         onGameLoaded = new UnityEvent();
+        onGamePaused = new UnityEvent();
+        onGameUnpaused = new UnityEvent();
         onAfterHourSceneLoaded = new UnityEvent();
         onBrewed = new UnityEvent<ItemBeer>();
         onInteraction = new UnityEvent<Interactable.InteractionEventPayload>();

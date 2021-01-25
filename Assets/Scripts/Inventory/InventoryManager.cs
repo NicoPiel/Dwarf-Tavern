@@ -52,7 +52,7 @@ namespace Inventory
             }
             else
             {
-                GameManager.GetEventHandler().onInventoryManagerInitialized.AddListener(state =>
+                EventHandler.onInventoryManagerInitialized.AddListener(state =>
                 {
                     action.Invoke(GetInstance());
                 });
@@ -81,7 +81,7 @@ namespace Inventory
             {
                 //Set state to Error and invoke an event with that state
                 AssetState = State.Error;
-                GameManager.GetEventHandler().onInventoryManagerInitialized.Invoke(AssetState);
+                EventHandler.onInventoryManagerInitialized.Invoke(AssetState);
                 return;
             }
 
@@ -102,7 +102,7 @@ namespace Inventory
             //Set the state accordingly and invoke the InventoryManagerInitialized event
             AssetState = success ? State.Initialized : State.Error;
             GetPlayerInventory();
-            GameManager.GetEventHandler().onInventoryManagerInitialized.Invoke(AssetState);
+            EventHandler.onInventoryManagerInitialized.Invoke(AssetState);
         }
 
         /**
@@ -169,7 +169,7 @@ namespace Inventory
             {
                 inv = new Inventory(50, 1000, LoadContentsFromPreset());
             }
-            GameManager.GetEventHandler().onAfterHourSceneLoaded.AddListener(() =>
+            EventHandler.onAfterHourSceneLoaded.AddListener(() =>
             {
                 inv.Save();
             });

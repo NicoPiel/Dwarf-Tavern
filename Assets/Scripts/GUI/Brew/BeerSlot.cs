@@ -60,7 +60,7 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             UpdateSlot();
         }
 
-        GameManager.GetEventHandler().onItemBeerHolderChanged.AddListener(UpdateSlot);
+        EventHandler.onItemBeerHolderChanged.AddListener(UpdateSlot);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

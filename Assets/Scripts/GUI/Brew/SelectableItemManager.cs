@@ -31,7 +31,7 @@ public class SelectableItemManager : MonoBehaviour
         _inventory = InventoryManager.GetInstance().GetPlayerInventory();
         _sortParameter = SortParameter.All;
         UpdateUI();
-        GameManager.GetEventHandler().onInventoryChanged.AddListener(() =>
+        EventHandler.onInventoryChanged.AddListener(() =>
         {
             DeleteEverything();
             UpdateUI();

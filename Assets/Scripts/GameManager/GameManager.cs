@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private EventHandler eventHandler;
 
+    // Audio
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip mouseClick;
+    [SerializeField] private AudioClip mouseDrop;
+    
     private void Awake()
     {
         if (_instance != null)
@@ -23,6 +28,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "Tavern") SimulationManager.GetInstance().StartSimulation();
+        
+        
+    }
+
+    private void Update()
+    {
+        ProcessInput();
+    }
+
+    private void ProcessInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            audioSource.clip = mouseClick;
+            audioSource.Play();
+        }
     }
 
     /**
@@ -32,8 +53,11 @@ public class GameManager : MonoBehaviour
     {
         if (GameIsPaused()) return;
         
+        // Do stuff
+        EventHandler.onGamePaused.Invoke();
         _instance._gamePaused = true;
 
+        // This needs to come last
         Time.timeScale = 0f;
     }
 
@@ -44,8 +68,11 @@ public class GameManager : MonoBehaviour
     {
         if (!GameIsPaused()) return;
         
+        // This needs to come first
         Time.timeScale = 1f;
         
+        // Do stuff
+        EventHandler.onGameUnpaused.Invoke();
         _instance._gamePaused = false;
     }
 
@@ -61,11 +88,4 @@ public class GameManager : MonoBehaviour
     {
         return _instance;
     }
-
-    public static EventHandler GetEventHandler()
-    {
-        return _instance.eventHandler;
-    }
-
-   
 }

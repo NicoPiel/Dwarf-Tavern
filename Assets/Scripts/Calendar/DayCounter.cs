@@ -28,7 +28,7 @@ public class DayCounter : MonoBehaviour
         }
         _instance = this;
         Debug.Log("DayCounterAwake");
-        GameManager.GetEventHandler().onDayChanged.AddListener(CountDay);
+        EventHandler.onDayChanged.AddListener(CountDay);
     }
 
     private void CountDay()

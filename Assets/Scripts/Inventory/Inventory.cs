@@ -87,7 +87,7 @@ namespace Inventory
             if (amount > 0)
             {
                 _contents.AddOrUpdate(type, amount, (oldType, oldAmount) => oldAmount + amount);
-                GameManager.GetEventHandler().onInventoryChanged.Invoke();
+                EventHandler.onInventoryChanged.Invoke();
             }
 
             return overflow;
@@ -115,7 +115,7 @@ namespace Inventory
                 _contents.TryRemove(type, out _);
             }
             Debug.Log("Item Removed");
-            GameManager.GetEventHandler().onInventoryChanged.Invoke();
+            EventHandler.onInventoryChanged.Invoke();
             //Return the amount of items that could be removed
             return amount;
         }
@@ -165,8 +165,8 @@ namespace Inventory
         {
             int oldFunds = _funds;
             _funds = funds;
-            GameManager.GetEventHandler().onFundsChangedFrom.Invoke(oldFunds);
-            GameManager.GetEventHandler().onFundsChanged.Invoke();
+            EventHandler.onFundsChangedFrom.Invoke(oldFunds);
+            EventHandler.onFundsChanged.Invoke();
             if (_displayAvailable)
             {
                 _fundsDisplay.text = _funds.ToString();

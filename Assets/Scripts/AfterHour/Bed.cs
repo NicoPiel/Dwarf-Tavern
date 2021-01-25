@@ -8,7 +8,7 @@ public class Bed : MonoBehaviour
     // Start is called before the first frame update
     public void OnAction()
     {
-        GameManager.GetEventHandler().onDayChanged.Invoke();
+        EventHandler.onDayChanged.Invoke();
         SceneManager.LoadScene("Scenes/Tavern");
     }
 }

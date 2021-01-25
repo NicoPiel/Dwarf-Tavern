@@ -46,7 +46,7 @@ public class ItemBeerHolder : MonoBehaviour
                 throw new UnityException($"Slot {slot} does not exist.");
         }
 
-        GameManager.GetEventHandler().onItemBeerHolderChanged.Invoke();
+        EventHandler.onItemBeerHolderChanged.Invoke();
         
         return true;
     }
@@ -74,7 +74,7 @@ public class ItemBeerHolder : MonoBehaviour
             return false;
         }
 
-        GameManager.GetEventHandler().onItemBeerHolderChanged.Invoke();
+        EventHandler.onItemBeerHolderChanged.Invoke();
         return true;
     }
 
@@ -99,7 +99,7 @@ public class ItemBeerHolder : MonoBehaviour
                 break;
         }
 
-        GameManager.GetEventHandler().onItemBeerHolderChanged.Invoke();
+        EventHandler.onItemBeerHolderChanged.Invoke();
     }
 
     public bool IsFull()

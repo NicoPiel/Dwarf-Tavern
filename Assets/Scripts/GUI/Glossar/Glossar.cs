@@ -15,7 +15,7 @@ public class Glossar : MonoBehaviour
         if(InventoryManager.GetInstance().AssetState == InventoryManager.State.Initialized)
             CreateGlossar(InventoryManager.State.Initialized);
         else
-            GameManager.GetEventHandler().onInventoryManagerInitialized.AddListener(CreateGlossar);
+            EventHandler.onInventoryManagerInitialized.AddListener(CreateGlossar);
     }
 
     void CreateGlossar(InventoryManager.State state)

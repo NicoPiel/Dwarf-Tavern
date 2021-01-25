@@ -8,6 +8,6 @@ public class AfterHourScene : MonoBehaviour
     void Start()
     {
         Debug.Log("AfterHour Scene Loaded");
-        GameManager.GetEventHandler().onAfterHourSceneLoaded.Invoke();
+        EventHandler.onAfterHourSceneLoaded.Invoke();
     }
 }

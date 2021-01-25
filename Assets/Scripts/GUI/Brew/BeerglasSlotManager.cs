@@ -24,7 +24,7 @@ public class BeerglasSlotManager : MonoBehaviour
     void OnEnable()
     {
         if (!itemBeerHolder) itemBeerHolder = GameObject.FindWithTag("ItemBeerHolder").GetComponent<ItemBeerHolder>();
-        GameManager.GetEventHandler().onBrewed.AddListener(AddBeer);
+        EventHandler.onBrewed.AddListener(AddBeer);
         beerChanged.AddListener(UpdateUI);
         UpdateUI();
     }

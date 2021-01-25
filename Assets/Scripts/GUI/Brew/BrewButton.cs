@@ -35,7 +35,7 @@ public class BrewButton : MonoBehaviour
 
         ItemBeerHolder.GetInstance().Add(itemBeer);
         
-        GameManager.GetEventHandler().onBrewed.Invoke(itemBeer);
+        EventHandler.onBrewed.Invoke(itemBeer);
  
 
     }

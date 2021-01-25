@@ -9,7 +9,7 @@ namespace Interactions
         public void Interact(GameObject source)
         {
             InteractionEventPayload payload = new InteractionEventPayload(source, this);
-            GameManager.GetEventHandler().onInteraction.Invoke(payload);
+            EventHandler.onInteraction.Invoke(payload);
             Debug.Log(payload.ToString());
             if(!payload.Cancelled)
                 OnInteract(source);
