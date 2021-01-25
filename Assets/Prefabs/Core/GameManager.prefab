@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventHandler: {fileID: 6247608178325576990}
+  defaultCursor: {fileID: 2800000, guid: e58e4f2078281bc49a639f8ad09b4e97, type: 3}
   audioSource: {fileID: 3880608506145529705}
   mouseClick: {fileID: 8300000, guid: 73cf31a675513ac459b3e51ddbd14337, type: 3}
   mouseDrop: {fileID: 8300000, guid: b27f295ae668cfa4a99453345dfb2cbb, type: 3}

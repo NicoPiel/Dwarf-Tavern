@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     [SerializeField] private EventHandler eventHandler;
+    
+    //Cursors
+    [SerializeField] private Texture2D defaultCursor;
 
     // Audio
     [SerializeField] private AudioSource audioSource;
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Tavern") SimulationManager.GetInstance().StartSimulation();
         
-        
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void Update()
