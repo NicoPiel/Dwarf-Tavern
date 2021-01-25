@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Expedition
 {
     private string _name;
     private int _difficulty;
+    private Team _team;
     
-    private List<Mercenary> _team;
+
     private int _length;
     private int _karma;
 
@@ -16,8 +20,8 @@ public class Expedition
         _difficulty = difficulty;
         _karma = 1;
         _length = Random.Range(1, _difficulty * 2);
-        _team = new List<Mercenary>();
         _name = "Random Expedition";
+        _team = new Team();
     }
 
     #region Simple Getter/Setter
@@ -55,35 +59,37 @@ public class Expedition
     {
         _difficulty = difficulty;
     }
-    public void AddToTeam(Mercenary mercenary)
-    {
-        if(_team.Count <= 3)
-            _team.Add(mercenary);
-    }
-    public void RemoveFromTeam(Mercenary mercenary)
-    {
-        _team.Remove(mercenary);
-    }
     #endregion
     
     public void DamageRandom()
     {
-        int random = Random.Range(0, _team.Count + 1);
-        _team[random].TakeDamage(Random.Range(1, 100));
-
-        if (_team[random].GetHealthPoints() == 0)
+        var mercenary = _team.GetRandomTeamMember();
+        if(mercenary == null)
+            return;
+        
+        mercenary.TakeDamage(Random.Range(1, 100));
+        
+        if (mercenary.GetHealthPoints() == 0)
         {
-            RemoveFromTeam(_team[random]);
+            _team.RemoveFromTeam(mercenary);
         }
     }
     public void KillRandom()
     {
-        int random = Random.Range(0, _team.Count + 1);
-        _team[random].SetHealthPoints(0);
-        if (_team[random].GetHealthPoints() == 0)
+        var mercenary = _team.GetRandomTeamMember();
+        if (mercenary == null)
+            return;
+        mercenary.SetHealthPoints(0);
+
+        if (mercenary.GetHealthPoints() == 0)
         {
-            RemoveFromTeam(_team[random]);
+            _team.RemoveFromTeam(mercenary);
         }
+    }
+
+    public Team GetTeam()
+    {
+        return _team;
     }
     
     public enum Rewards

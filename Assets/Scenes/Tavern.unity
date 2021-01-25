@@ -1285,6 +1285,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 343720184699717581, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+      propertyPath: teamSlotID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1019534375654314655, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1412,6 +1416,14 @@ PrefabInstance:
     - target: {fileID: 6642107643031903457, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7091738061388487073, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+      propertyPath: teamSlotID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273453429087482258, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+      propertyPath: teamSlotID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
