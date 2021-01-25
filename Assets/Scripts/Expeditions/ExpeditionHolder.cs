@@ -75,4 +75,9 @@ public class ExpeditionHolder : MonoBehaviour
     {
         return _selectedExpedition != null;
     }
+
+    public Expedition GetSelectedExpedition()
+    {
+        return _selectedExpedition;
+    }
 }
