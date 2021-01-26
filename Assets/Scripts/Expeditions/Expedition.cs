@@ -10,6 +10,7 @@ public class Expedition
     private string _name;
     private int _difficulty;
     private Team _team;
+    private bool _started;
     
 
     private int _length;
@@ -58,6 +59,18 @@ public class Expedition
     public void SetDifficulty(int difficulty)
     {
         _difficulty = difficulty;
+    }
+
+    public void StartExpedition()
+    {
+        _started = true;
+        GameManager.GetEventHandler().onExpeditionHolderChanged.Invoke();
+        GameManager.GetEventHandler().onExpeditionStarted.Invoke();
+    }
+
+    public bool IsStarted()
+    {
+        return _started;
     }
     #endregion
     

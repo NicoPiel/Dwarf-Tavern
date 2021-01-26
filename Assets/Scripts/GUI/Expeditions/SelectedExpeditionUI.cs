@@ -17,14 +17,27 @@ public class SelectedExpeditionUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ExpeditionHolder.GetInstance().IsSomethingSelected())
+        if (ExpeditionHolder.GetInstance().IsExpeditionSelected())
         {
-            var expo = ExpeditionHolder.GetInstance().GetSelectedExpedition();
-            gameObject.transform.localScale = Vector3.one;
-            tmpName.text = expo.GetName();
+            if (ExpeditionHolder.GetInstance().GetSelectedExpedition().IsStarted())
+            {
+                gameObject.transform.localScale = Vector3.zero;
+            }
+            else
+            {
+                var expo = ExpeditionHolder.GetInstance().GetSelectedExpedition();
+                gameObject.transform.localScale = Vector3.one;
+                tmpName.text = expo.GetName();
+            }
+            
         }
         else
             gameObject.transform.localScale = Vector3.zero;
             
+    }
+
+    public void StartExpedition()
+    {
+        ExpeditionHolder.GetInstance().GetSelectedExpedition().StartExpedition();
     }
 }

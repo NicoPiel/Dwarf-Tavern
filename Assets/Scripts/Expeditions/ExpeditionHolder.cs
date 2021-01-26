@@ -71,7 +71,7 @@ public class ExpeditionHolder : MonoBehaviour
         _todaysExpeditions.Add(new Expedition(difficulty));
     }
 
-    public bool IsSomethingSelected()
+    public bool IsExpeditionSelected()
     {
         return _selectedExpedition != null;
     }

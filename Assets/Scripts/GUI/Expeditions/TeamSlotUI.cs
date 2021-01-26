@@ -21,7 +21,7 @@ public class TeamSlotUI : MonoBehaviour
     // Update is called once per frame
     private void UpdateUI()
     {
-        if (!ExpeditionHolder.GetInstance().IsSomethingSelected())
+        if (!ExpeditionHolder.GetInstance().IsExpeditionSelected())
         {
             gameObject.transform.localScale = Vector3.zero;
             return;

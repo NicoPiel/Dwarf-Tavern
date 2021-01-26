@@ -21,7 +21,7 @@ public class ExpeditionUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ExpeditionHolder.GetInstance().IsSomethingSelected())
+        if (ExpeditionHolder.GetInstance().IsExpeditionSelected())
         {
             gameObject.SetActive(false);
             return;

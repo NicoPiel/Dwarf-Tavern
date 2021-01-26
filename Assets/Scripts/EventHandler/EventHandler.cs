@@ -23,6 +23,7 @@ public class EventHandler : MonoBehaviour
 
     public UnityEvent onExpeditionHolderChanged;
     public UnityEvent onTeamChanged;
+    public UnityEvent onExpeditionStarted;
 
     public UnityEvent onItemBeerHolderChanged;
     public UnityEvent<ItemBeer> onBrewed;
@@ -41,5 +42,6 @@ public class EventHandler : MonoBehaviour
         onFundsChanged = new UnityEvent();
         onDayChanged = new UnityEvent();
         onExpeditionHolderChanged = new UnityEvent();
+        onExpeditionStarted = new UnityEvent();
     }
 }
