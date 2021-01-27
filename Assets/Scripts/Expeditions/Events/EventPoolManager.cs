@@ -32,9 +32,9 @@ namespace Expeditions.Events
         public Event GetRandomEvent(Expedition expedition)
         {
             List<Event> events = eventPool.events.Where(evt =>
-                evt.difficulty == expedition.GetDifficulty() && (evt.neededKarmaLevel == 0 || (expedition.GetKarma() < 0
-                    ? evt.neededKarmaLevel >= expedition.GetKarma()
-                    : evt.neededKarmaLevel <= expedition.GetKarma()))).ToList();
+                evt.difficulty == expedition.GetDifficulty() && (expedition.GetKarma() < 0
+                    ? evt.neededKarmaLevel >= expedition.GetKarma() && evt.neededKarmaLevel <= 0
+                    : evt.neededKarmaLevel <= expedition.GetKarma() && evt.neededKarmaLevel >= 0)).ToList();
             Random rand = new Random();
             return events.Count > 0 ? events[rand.Next(events.Count)] : null;
         }
