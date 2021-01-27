@@ -52,7 +52,7 @@ namespace Messages
 
         public void Start()
         {
-            GameManager.GetEventHandler().onAfterHourSceneLoaded.AddListener(Save);
+            EventHandler.onAfterHourSceneLoaded.AddListener(Save);
         }
 
         public void Save()
