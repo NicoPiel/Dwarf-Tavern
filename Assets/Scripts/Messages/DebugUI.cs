@@ -23,7 +23,7 @@ namespace Messages
             foreach (var message in messages)
             {
                 GameObject item = Instantiate(prefab, gridView.transform);
-                item.GetComponent<DebugItem>().Fill(message.Value);
+                item.GetComponent<DebugItem>().Fill(message.Value, message.Key);
             }
         }
         

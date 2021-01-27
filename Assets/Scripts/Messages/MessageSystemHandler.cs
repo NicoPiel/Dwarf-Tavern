@@ -27,7 +27,6 @@ namespace Messages
                 if (resetMessageSystem || !ES3.KeyExists("msg_randomSeed"))
                 {
                     _randomGameSeed = new System.Random().Next();
-                    ES3.Save("msg_randomSeed", _randomGameSeed);
                 }
                 else
                 {
@@ -38,7 +37,11 @@ namespace Messages
                 {
                     _cancelledTasks = ES3.Load<List<string>>("msg_cancelledTasks");
                 }
-                
+                else
+                {
+                    _cancelledTasks.AddRange(messageSystem.tasks.Where(task => task.defaultCancelled).Select(task => task.name));
+                }
+
                 DontDestroyOnLoad(this);
             }
             else
@@ -47,9 +50,15 @@ namespace Messages
             }
         }
 
+        public void Start()
+        {
+            GameManager.GetEventHandler().onAfterHourSceneLoaded.AddListener(Save);
+        }
+
         public void Save()
         {
             ES3.Save("msg_cancelledTasks", _cancelledTasks);
+            ES3.Save("msg_randomSeed", _randomGameSeed);
         }
 
         private int CreateSeed(int localSeed)
