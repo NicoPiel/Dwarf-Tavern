@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: rat_attack
+  m_EditorClassIdentifier: 
+  description: Die Gruppe wird von einer Ratte angegriffen
+  difficulty: 1
+  neededKarmaLevel: 0
+  choices:
+  - choiceID: 1
+    text: Lass es den Tank regeln!
+    requiredClass: 0
+    requirementType: 1
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: 
+    negativeOutcome: 
+  - choiceID: 2
+    text: Lasst uns lieber weglaufen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0.2
+    karmaAdjustment: 0
+    chance: 0.5
+    reward: lootDrop
+    loss: 
+    positiveOutcome: 
+    negativeOutcome: 
+  - choiceID: 3
+    text: "Lasst Sie uns bek\xE4mpfen"
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0.4
+    karmaAdjustment: 0
+    chance: 0.3
+    reward: lootDrop
+    loss: damage
+    positiveOutcome: 
+    negativeOutcome: 
