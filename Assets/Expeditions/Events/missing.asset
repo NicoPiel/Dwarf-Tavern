@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: missing
+  m_EditorClassIdentifier: 
+  description: Wir vermissen jemanden aus unserer Gruppe
+  difficulty: 1
+  neededKarmaLevel: -1
+  choices:
+  - choiceID: 1
+    text: Suchen wir ihn!
+    requiredClass: 0
+    requirementType: 1
+    reqBonus: 0.2
+    karmaAdjustment: 2
+    chance: 0.5
+    reward: lootDrop
+    loss: death
+    positiveOutcome: "Gl\xFCcklicherweise konnten wir unser vermisstes Teammitglied
+      wiederfinden und vorallem unter einem wundersch\xF6nen Fruchtbaum!"
+    negativeOutcome: Leider konnten wir unser vermisstes Teammitglied nicht wiederfinden.
+  - choiceID: 2
+    text: Wir sollten hier warten
+    requiredClass: 2
+    requirementType: 1
+    reqBonus: 0.4
+    karmaAdjustment: 1
+    chance: 0.3
+    reward: lootDrop
+    loss: death
+    positiveOutcome: "Das warten hat sich ausbezahlt, unser vermisstes Teammitglied
+      kam mit prall gef\xFCllten H\xE4nden zur\xFCck!"
+    negativeOutcome: "Auch am n\xE4chsten Tag keine Spur von unserm vermisstem Teammitglied.
+      Wir bef\xFCrchten das schlimmste!"
+  - choiceID: 3
+    text: Tja Schade, weiter!
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: -2
+    chance: 0
+    reward: 
+    loss: death
+    positiveOutcome: 
+    negativeOutcome: "Dann \xFCberlassen wir unser vermisstes Teammitglied seinem
+      Schicksal."

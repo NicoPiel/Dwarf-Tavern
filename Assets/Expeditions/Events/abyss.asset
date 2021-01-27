@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: abyss
+  m_EditorClassIdentifier: 
+  description: Ein tiefer Abgrund liegt vor uns, was sollen wir tun?
+  difficulty: 1
+  neededKarmaLevel: 0
+  choices:
+  - choiceID: 1
+    text: Versucht zu springen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 0.5
+    reward: 
+    loss: damage
+    positiveOutcome: "Wir konnten unbeschadet \xFCber den Abgrund springen!"
+    negativeOutcome: "Jemand ist kurz vor dem Sprung gestolpert und hat sich verletzt,
+      zum Gl\xFCck ist er nicht reingefallen."
+  - choiceID: 2
+    text: Nehmt einen anderen weg
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: -1
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: Alles klar, wir nehmen einen anderen weg.
+    negativeOutcome: 
+  - choiceID: 2
+    text: "Errichtet eine magische Br\xFCcke"
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: "Wir konnten alle sicher \xFCber den Abgrund gelangen!"
+    negativeOutcome: 
