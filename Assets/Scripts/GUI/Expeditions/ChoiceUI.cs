@@ -13,7 +13,7 @@ public class ChoiceUI : MonoBehaviour
     private void OnEnable()
     {
         UpdateUI();
-        GameManager.GetEventHandler().onExpeditionStarted.AddListener(UpdateUI);
+        EventHandler.onExpeditionStarted.AddListener(UpdateUI);
     }
 
     // Update is called once per frame

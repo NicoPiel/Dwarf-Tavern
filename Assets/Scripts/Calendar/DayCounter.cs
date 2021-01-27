@@ -19,7 +19,7 @@ public class DayCounter : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
-        
+
         if (ES3.KeyExists("DayCount"))
         {
             dayCount = ES3.Load<int>("DayCount");
@@ -30,7 +30,7 @@ public class DayCounter : MonoBehaviour
         }
         _instance = this;
         Debug.Log("DayCounterAwake");
-        GameManager.GetEventHandler().onDayChanged.AddListener(CountDay);
+        EventHandler.onDayChanged.AddListener(CountDay);
 
         _initialized = true;
     }

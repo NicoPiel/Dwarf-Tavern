@@ -26,7 +26,7 @@ public class Team
         {
             return;
         }
-        GameManager.GetEventHandler().onTeamChanged.Invoke();
+        EventHandler.onTeamChanged.Invoke();
     }
     public void RemoveFromTeam(Mercenary mercenary)
     {
@@ -42,7 +42,7 @@ public class Team
         {
             _teamSlot3 = null;
         }
-        GameManager.GetEventHandler().onTeamChanged.Invoke();
+        EventHandler.onTeamChanged.Invoke();
     }
     private int FindMercenaryIdInTeam(Mercenary mercenary)
     {

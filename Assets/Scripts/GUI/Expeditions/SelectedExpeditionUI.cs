@@ -12,7 +12,7 @@ public class SelectedExpeditionUI : MonoBehaviour
     private void OnEnable()
     {
         UpdateUI();
-        GameManager.GetEventHandler().onExpeditionHolderChanged.AddListener(UpdateUI);
+        EventHandler.onExpeditionHolderChanged.AddListener(UpdateUI);
     }
 
     private void UpdateUI()

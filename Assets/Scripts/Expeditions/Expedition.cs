@@ -64,8 +64,8 @@ public class Expedition
     public void StartExpedition()
     {
         _started = true;
-        GameManager.GetEventHandler().onExpeditionHolderChanged.Invoke();
-        GameManager.GetEventHandler().onExpeditionStarted.Invoke();
+        EventHandler.onExpeditionHolderChanged.Invoke();
+        EventHandler.onExpeditionStarted.Invoke();
     }
 
     public bool IsStarted()

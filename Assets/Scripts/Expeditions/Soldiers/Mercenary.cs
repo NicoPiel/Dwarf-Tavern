@@ -23,7 +23,7 @@ public class Mercenary
     public void TakeDamage(int damage)
     {
         _healthPoints -= damage;
-        GameManager.GetEventHandler().onTeamChanged.Invoke();
+        EventHandler.onTeamChanged.Invoke();
     }
     
     #region Simple Getter and Setter

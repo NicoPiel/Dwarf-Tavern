@@ -37,7 +37,7 @@ public class ExpeditionHolder : MonoBehaviour
         {
             _selectedExpedition = _todaysExpeditions[id - 1];
             _todaysExpeditions[id - 1] = null;
-            GameManager.GetEventHandler().onExpeditionHolderChanged.Invoke();
+            EventHandler.onExpeditionHolderChanged.Invoke();
         }
         else
             throw new ArgumentException("ID not in Range");

@@ -16,7 +16,7 @@ public class ExpeditionUI : MonoBehaviour
     public void OnEnable()
     {
         UpdateUI();
-        GameManager.GetEventHandler().onExpeditionHolderChanged.AddListener(UpdateUI);
+        EventHandler.onExpeditionHolderChanged.AddListener(UpdateUI);
     }
 
     private void UpdateUI()

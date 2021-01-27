@@ -24,9 +24,9 @@ public class EventHandler : MonoBehaviour
     public static UnityEvent<int> onFundsChangedFrom;
     public static UnityEvent onFundsChanged;
 
-    public UnityEvent onExpeditionHolderChanged;
-    public UnityEvent onTeamChanged;
-    public UnityEvent onExpeditionStarted;
+    public static UnityEvent onExpeditionHolderChanged;
+    public static UnityEvent onTeamChanged;
+    public static UnityEvent onExpeditionStarted;
 
     public static UnityEvent onItemBeerHolderChanged;
     public static UnityEvent<ItemBeer> onBrewed;

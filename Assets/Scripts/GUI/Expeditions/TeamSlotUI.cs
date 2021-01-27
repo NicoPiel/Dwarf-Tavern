@@ -14,8 +14,8 @@ public class TeamSlotUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.GetEventHandler().onTeamChanged.AddListener(UpdateUI);
-        GameManager.GetEventHandler().onExpeditionStarted.AddListener(UpdateUI);
+        EventHandler.onTeamChanged.AddListener(UpdateUI);
+        EventHandler.onExpeditionStarted.AddListener(UpdateUI);
         UpdateUI();
     }
 
