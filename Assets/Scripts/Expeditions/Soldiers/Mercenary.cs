@@ -20,6 +20,12 @@ public class Mercenary
         Mage
     }
 
+    public void TakeDamage(int damage)
+    {
+        _healthPoints -= damage;
+        GameManager.GetEventHandler().onTeamChanged.Invoke();
+    }
+    
     #region Simple Getter and Setter
     
     public MercenaryRole GetRole()

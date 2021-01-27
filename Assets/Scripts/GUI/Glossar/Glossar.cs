@@ -10,7 +10,7 @@ public class Glossar : MonoBehaviour
 {
     public GameObject ItemFramePrefab;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if(InventoryManager.GetInstance().AssetState == InventoryManager.State.Initialized)
             CreateGlossar(InventoryManager.State.Initialized);
@@ -18,7 +18,7 @@ public class Glossar : MonoBehaviour
             EventHandler.onInventoryManagerInitialized.AddListener(CreateGlossar);
     }
 
-    void CreateGlossar(InventoryManager.State state)
+    private void CreateGlossar(InventoryManager.State state)
     {
         InventoryManager inventoryManager = InventoryManager.GetInstance();
         if (state == InventoryManager.State.Initialized)
