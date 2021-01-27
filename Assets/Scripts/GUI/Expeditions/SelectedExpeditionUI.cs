@@ -38,6 +38,7 @@ public class SelectedExpeditionUI : MonoBehaviour
 
     public void StartExpedition()
     {
-        ExpeditionHolder.GetInstance().GetSelectedExpedition().StartExpedition();
+        if(ExpeditionHolder.GetInstance().GetSelectedExpedition().GetTeam().IsSomeoneInTeam())
+            ExpeditionHolder.GetInstance().GetSelectedExpedition().StartExpedition();
     }
 }

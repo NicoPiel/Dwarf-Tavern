@@ -73,7 +73,7 @@ public class Team
             case 3:
                 return _teamSlot3;
         }
-        Debug.LogError("Can't find TeamMember");
+
         return null;
     }
     public bool IsSomeoneInTeam()

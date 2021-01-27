@@ -15,6 +15,7 @@ public class TeamSlotUI : MonoBehaviour
     void Start()
     {
         GameManager.GetEventHandler().onTeamChanged.AddListener(UpdateUI);
+        GameManager.GetEventHandler().onExpeditionStarted.AddListener(UpdateUI);
         UpdateUI();
     }
 
@@ -29,12 +30,12 @@ public class TeamSlotUI : MonoBehaviour
         gameObject.transform.localScale = Vector3.one;
         
         var expo = ExpeditionHolder.GetInstance().GetSelectedExpedition();
-        var mercenary = expo.GetTeam().GetTeamMember(teamSlotID);
+        var mercenary = expo?.GetTeam().GetTeamMember(teamSlotID);
         if (mercenary != null)
         {
             gameObject.transform.localScale = Vector3.one;
             role.text = mercenary.GetRole().ToString();
-            hp.text = mercenary.GetMaxHealthPoints().ToString();
+            hp.text = $"HP: {mercenary.GetHealthPoints()}/{mercenary.GetMaxHealthPoints()}";
         }
         else
         {
