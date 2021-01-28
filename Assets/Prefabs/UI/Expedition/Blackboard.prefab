@@ -550,8 +550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f788c8f4fb290f479baa254e1b8d697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceFramePrefab: {fileID: 5360552941832618577, guid: dd325d9ba096f5e4890838d9c0f29148, type: 3}
-  Questionmark: {fileID: 21300000, guid: 0a88a2da5d49d6740ad470705325dda7, type: 3}
+  choiceFramePrefab: {fileID: 0}
+  questionMark: {fileID: 0}
 --- !u!1 &5374052656928107314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,7 +2309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834692283591762414, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: teamSlotID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5065862285551598054, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: m_Name
@@ -2423,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834692283591762414, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: teamSlotID
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5065862285551598054, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: m_Name
@@ -2765,7 +2765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834692283591762414, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: teamSlotID
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5065862285551598054, guid: 80b026557ce781645b933b2133936e46, type: 3}
       propertyPath: m_Name

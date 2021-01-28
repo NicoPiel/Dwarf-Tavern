@@ -126,7 +126,7 @@ public class Expedition
         Jungle,
         Cave,
         Forrest,
-                
+        
     }
 
     

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Interactions;
 using Inventory;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -48,5 +49,6 @@ public class EventHandler : MonoBehaviour
         onDayChanged = new UnityEvent();
         onExpeditionHolderChanged = new UnityEvent();
         onExpeditionStarted = new UnityEvent();
+        onTeamChanged = new UnityEvent();
     }
 }
