@@ -9,6 +9,7 @@ public class Expedition
 {
     private string _name;
     private int _difficulty;
+    private ThemeType _theme;
     private Team _team;
     private bool _started;
     
@@ -62,6 +63,16 @@ public class Expedition
     public void SetDifficulty(int difficulty)
     {
         _difficulty = difficulty;
+    }
+
+    public ThemeType GetThemeType()
+    {
+        return _theme;
+    }
+
+    public void setThemeType(ThemeType theme)
+    {
+        _theme = theme;
     }
 
     public void StartExpedition()

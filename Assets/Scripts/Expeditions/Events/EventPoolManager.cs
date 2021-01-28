@@ -34,7 +34,8 @@ namespace Expeditions.Events
             List<Event> events = eventPool.events.Where(evt =>
                 evt.difficulty == expedition.GetDifficulty() && (expedition.GetKarma() < 0
                     ? evt.neededKarmaLevel >= expedition.GetKarma() && evt.neededKarmaLevel <= 0
-                    : evt.neededKarmaLevel <= expedition.GetKarma() && evt.neededKarmaLevel >= 0)).ToList();
+                    : evt.neededKarmaLevel <= expedition.GetKarma() && evt.neededKarmaLevel >= 0) &&
+                (evt.themeType == Expedition.ThemeType.Default || evt.themeType == expedition.GetThemeType())).ToList();
             Random rand = new Random();
             return events.Count > 0 ? events[rand.Next(events.Count)] : null;
         }
