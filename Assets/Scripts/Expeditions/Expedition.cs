@@ -16,8 +16,7 @@ public class Expedition
 
     private int _length;
     private int _karma;
-
-    private ThemeType theme;
+    
 
     public Expedition(int difficulty)
     {
@@ -26,7 +25,7 @@ public class Expedition
         _length = Random.Range(1, _difficulty * 2);
         _name = "Random Expedition";
         _team = new Team();
-        theme = (ThemeType) Random.Range(1,4);
+        _theme = (ThemeType) Random.Range(1,4);
     }
 
     #region Simple Getter/Setter
