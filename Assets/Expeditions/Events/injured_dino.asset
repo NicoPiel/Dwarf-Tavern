@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: injured_dino
+  m_EditorClassIdentifier: 
+  description: Ein verletzter Dinosaurier liegt vor uns
+  difficulty: 0
+  neededKarmaLevel: 1
+  themeType: 1
+  choices:
+  - choiceID: 1
+    text: Ihm helfen
+    requiredClass: 2
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: Dem Dinosaurier ging es besser und als er weiterging offenbarte
+      sich ein kleiner Schatz unter ihm
+    negativeOutcome: 
+  - choiceID: 2
+    text: "Erl\xF6st ihn!"
+    requiredClass: 0
+    requirementType: 1
+    reqBonus: 0.2
+    karmaAdjustment: 1
+    chance: 0.5
+    reward: lootDrop
+    loss: 
+    positiveOutcome: "Wir t\xF6teten den Dinosaurier und sammelten seine wertvollen
+      Bestandteile"
+    negativeOutcome: "Wir t\xF6teten den Dinosaurier, aber bevor wir etwas sammeln
+      konnten kam seine Familie und wir mussten laufen"
+  - choiceID: 3
+    text: Weiterreisen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: -2
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: Wir ignorierten ihn und gingen weiter
+    negativeOutcome: 

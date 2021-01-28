@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: instant_darkness
+  m_EditorClassIdentifier: 
+  description: "Die H\xF6hle wird pl\xF6tzlich dunkel, unsere Fackeln sind aus"
+  difficulty: 1
+  neededKarmaLevel: 0
+  themeType: 2
+  choices:
+  - choiceID: 1
+    text: Lichtmagie
+    requiredClass: 2
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: "Der Weg ist erleuchtet, wir k\xF6nnen weiter"
+    negativeOutcome: 
+  - choiceID: 2
+    text: Feuermagie
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.7
+    reward: 
+    loss: damage
+    positiveOutcome: "Das Feuer erleuchtet den Weg, wir k\xF6nnen weiter"
+    negativeOutcome: Das Feuer hat etwas in Brand gesetzt und verletzte jemanden
+  - choiceID: 0
+    text: Langsam durchtappen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.5
+    reward: 
+    loss: damage
+    positiveOutcome: "Wir haben einen besser beleuchteten Teil der H\xF6hle erreicht
+      und neue Fackeln gefunden"
+    negativeOutcome: Irgendetwas hat uns gebissen, aber wir haben neue Fackeln gefunden

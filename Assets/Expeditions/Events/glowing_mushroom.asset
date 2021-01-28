@@ -15,7 +15,7 @@ MonoBehaviour:
   description: "Ein gl\xFChender Pilz ist in der Ferne zu sehen"
   difficulty: 1
   neededKarmaLevel: 2
-  themeType: 0
+  themeType: 2
   choices:
   - choiceID: 1
     text: Ignorieren wir ihn

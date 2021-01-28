@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: river
+  m_EditorClassIdentifier: 
+  description: "Wir m\xFCssen einen str\xF6menden Fluss \xFCberqueren, die Br\xFCcke
+    sieht wacklig aus"
+  difficulty: 1
+  neededKarmaLevel: 0
+  themeType: 3
+  choices:
+  - choiceID: 1
+    text: "Einfrieren und \xFCberqueren"
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: 0
+    loss: 
+    positiveOutcome: "Wir haben den Fluss vereist und konnten her\xFCber laufen"
+    negativeOutcome: 
+  - choiceID: 3
+    text: Schwimmen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.9
+    reward: lootDrop
+    loss: death
+    positiveOutcome: "Wir konnten her\xFCber schwimmen und nebenbei ein paar Wasserplfanzen
+      ergattern"
+    negativeOutcome: "Die Str\xF6mung war zu stark f\xFCr einen von uns..."
+  - choiceID: 3
+    text: "Nach einer Br\xFCcke suchen."
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.5
+    reward: 0
+    loss: damage
+    positiveOutcome: "Wir konnten eine Br\xFCcke finden!"
+    negativeOutcome: "Wir konnten keine Br\xFCcke finden und sind nun ersch\xF6pft"
