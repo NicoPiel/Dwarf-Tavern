@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 namespace Inventory
 {
     [CreateAssetMenu(fileName = "NewIngredientItem", menuName = "ScriptableObjects/IngredientItem", order = 2)]
-    public class IngredientItem : StaticItem, IPointerEnterHandler, IPointerExitHandler
+    public class IngredientItem : StaticItem
     {
         [SerializeField] private int price;
         
@@ -53,8 +53,7 @@ namespace Inventory
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((IngredientItem) obj);
+            return obj.GetType() == this.GetType() && Equals((IngredientItem) obj);
         }
 
         public override int GetHashCode()
@@ -63,17 +62,6 @@ namespace Inventory
             {
                 return (base.GetHashCode() * 397) ^ (modifiers != null ? modifiers.GetHashCode() : 0);
             }
-        }
-        
-        // TODO: Add tooltip to Item
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            throw new NotImplementedException();
         }
 
         [Serializable]

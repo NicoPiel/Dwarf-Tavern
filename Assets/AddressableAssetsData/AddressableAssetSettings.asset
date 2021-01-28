@@ -71,6 +71,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - items
+    - tooltips
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fae8e906579b4c747a08281dc4c99ade, type: 2}

@@ -1,0 +1,16 @@
+﻿{
+  "beer": "Bier",
+  "wine": "Wein",
+  "schnapps": "Schnaps",
+  "whisky": "Whisky",
+  "whiskey": "Whisky",
+  "brandy": "Brandy",
+  "strength": "Stärke",
+  "dexterity": "Geschick",
+  "intelligence": "Intelligenz",
+  "vitality": "Vitalität",
+  "will": "Wille",
+  "courage": "Mut",
+  "gold": "Gold",
+  "unused": ""
+}
