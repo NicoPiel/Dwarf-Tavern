@@ -12,6 +12,12 @@ namespace Interactions
         public UnityEvent onHighlightStop = new UnityEvent();
         private Material _defaultMat;
         private List<GameObject> _prompts = new List<GameObject>();
+
+        private void Start()
+        {
+            EventHandler.onInteraction.AddListener(StopHighLight);
+        }
+
         public void StartHighlight(Material highlightMaterial, GameObject prompt)
         {
             SpriteRenderer sprRenderer = GetComponent<SpriteRenderer>();
@@ -25,20 +31,18 @@ namespace Interactions
             onHighlightStart.Invoke();
         }
 
-        public void StopHighLight()
+        public void StopHighLight(InteractionEventPayload payload = null)
         {
             if (_defaultMat != null)
             {
                 SpriteRenderer sprRenderer = GetComponent<SpriteRenderer>();
                 sprRenderer.material = _defaultMat;
             }
-            _prompts.ForEach(prompt =>
-            {
-                Destroy(prompt);
-            });
+            
+            _prompts.ForEach(Destroy);
+            
             _prompts.Clear();
             onHighlightStop.Invoke();
         }
-        
     }
 }

@@ -17,6 +17,7 @@ namespace Interactions
         public GameObject _UICanvas;
         private Camera _MainCamera;
         public GameObject PromptPrefab;
+        private GameObject prompt;
 
         public void Awake()
         {
@@ -30,7 +31,7 @@ namespace Interactions
             PlayerInteractable interactable = other.GetComponent<PlayerInteractable>();
             if (interactable != null)
             {
-                GameObject prompt = Instantiate(PromptPrefab, _UICanvas.transform, false);
+                prompt = Instantiate(PromptPrefab, _UICanvas.transform, false);
                 InteractionPrompt promptScript = prompt.AddComponent<InteractionPrompt>();
                 promptScript.Init(_MainCamera, interactable.transform, 60);
                 promptScript.UpdatePos();
@@ -64,15 +65,19 @@ namespace Interactions
         {
             if (Input.GetButtonDown("Interact"))
             {
-                List<Collider2D> colliders = new List<Collider2D>();
+                var colliders = new List<Collider2D>();
                 _col.OverlapCollider(new ContactFilter2D().NoFilter(), colliders);
-                List<PlayerInteractable> interactables = colliders.Select(curCol => curCol.GetComponent<PlayerInteractable>())
+                
+                var interactables = colliders.Select(curCol => curCol.GetComponent<PlayerInteractable>())
                     .Where(curCol => curCol != null).ToList();
+                
                 float minDistance = -1;
                 PlayerInteractable minInteractable = null;
-                foreach (var interact in interactables)
+                
+                foreach (PlayerInteractable interact in interactables)
                 {
-                    float curDist = Vector3.Distance(interact.transform.position, this.transform.position);
+                    var curDist = Vector3.Distance(interact.transform.position, transform.position);
+                    
                     if (!minInteractable || curDist < minDistance)
                     {
                         minDistance = curDist;
@@ -86,5 +91,7 @@ namespace Interactions
                 }
             }
         }
+        
+        
     }
 }
