@@ -1,4 +1,7 @@
-﻿using Simulation.Core;
+﻿using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Simulation.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,9 +9,12 @@ public class GameManager : MonoBehaviour
 {
     private bool _gamePaused;
     private static GameManager _instance;
+    private static Dictionary<string, string> translations;
+    
+    private static readonly string PathToTranslationJson = Application.streamingAssetsPath + "/JSON/translations.json";
 
     [SerializeField] private EventHandler eventHandler;
-    
+
     //Cursors
     [SerializeField] private Texture2D defaultCursor;
 
@@ -26,6 +32,8 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         _instance = this;
+        
+        translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(PathToTranslationJson));
     }
 
     private void Start()
@@ -85,6 +93,16 @@ public class GameManager : MonoBehaviour
     public static bool GameIsPaused()
     {
         return _instance._gamePaused;
+    }
+
+    public static string GetTranslation(string word)
+    {
+        if (translations.TryGetValue(word, out var output))
+        {
+            return output;
+        }
+
+        throw new UnityException($"No translation found for: {word}");
     }
 
     public static GameManager GetGameManager()

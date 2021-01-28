@@ -48,9 +48,9 @@ public class SelectableItemManager : MonoBehaviour
             {
                 var gameObjectItem = Instantiate(prefabItemFrame, transform);
                 gameObjectItem.name = item.GetId();
-                // TODO: Add tooltip
-                gameObjectItem.transform.Find("ItemObject").GetComponent<Image>().sprite = item.GetSprite();
-                gameObjectItem.transform.Find("ItemObject").GetComponent<ItemHolder>().SetItem(item);
+                var itemObject = gameObjectItem.transform.Find("ItemObject");
+                itemObject.GetComponent<Image>().sprite = item.GetSprite();
+                itemObject.GetComponent<ItemHolder>().SetItem(item is IngredientItem ingredientItem ? ingredientItem : throw new UnityException("Item in slot wasn't an ingredient."));
                 gameObjectItem.transform.Find("Amount").GetComponent<TMP_Text>().text = t.Value + "x";
             }
         }
