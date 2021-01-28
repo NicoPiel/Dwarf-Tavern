@@ -16,8 +16,9 @@ MonoBehaviour:
   displayName: Banane
   lore: 
   stackable: 1
-  rarity: 2
+  rarity: 1
   baseTexture: {fileID: 21300000, guid: d24d0647bb86c8e4f8d75507d1ff262a, type: 3}
+  price: 20
   modifiers:
   - slot: 1
     entries:

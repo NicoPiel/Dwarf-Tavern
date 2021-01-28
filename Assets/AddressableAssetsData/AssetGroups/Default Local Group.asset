@@ -71,10 +71,10 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - items
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 354dce21a91e07a48926c08c282c4b1d
-    m_Address: Assets/Items/TestItem1.asset
+    m_MainAsset: {fileID: 11400000, guid: f266edf6fbd3efd468eb4b845157b9ff, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: f266edf6fbd3efd468eb4b845157b9ff, type: 2}
+  - m_GUID: 086d21b059a3a5a46973c8a394be4ea9
+    m_Address: Assets/Items/Potato.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - items
@@ -82,6 +82,97 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 0}
   - m_GUID: 56807c38aa6bad348867957145d447e7
     m_Address: Assets/Items/Beer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 604f1a3f18332374cae162c1a80ee328
+    m_Address: Assets/Items/RedMushroom.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 93e021127b3cb854db52bfddc0bb3c1f
+    m_Address: Assets/Items/Ringcherry.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f9ce2c865feb5024a828b0d7e6c33dc1
+    m_Address: Assets/Items/Halfmoonflower.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b23d344a738ac7d448108ffb0b1b18ea
+    m_Address: Assets/Items/Pohne.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a2a35d5c63120784ea7ec5428e011730
+    m_Address: Assets/Items/Barley.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c7ef8172e83cb9f4b891dc54dc35bc13
+    m_Address: Assets/Items/Wheat.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 3c675941e583ad44dabbed36a3888d4e
+    m_Address: Assets/Items/Treacle.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c657338648be3e44c947d4ad5e2eac8f
+    m_Address: Assets/Items/GreenGrape.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4af3e3e1a12f41542b3d9c2c57704075
+    m_Address: Assets/Items/PurpleGrape.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: adaf063cb9aaf054ab29148b097064c8
+    m_Address: Assets/Items/Butter.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c8370ecffcd6b094bb7a40bda48c680a
+    m_Address: Assets/Items/Strawberry.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: f2ffacfa0d5b2b1438b142568e26832f
+    m_Address: Assets/Items/Sausage.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: efca674e4736ce640a6b150030a555b4
+    m_Address: Assets/Items/Yeast.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - items

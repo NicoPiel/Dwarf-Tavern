@@ -10,21 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
-  m_Name: Cheese
+  m_Name: RedMushroom
   m_EditorClassIdentifier: 
-  id: cheese
-  displayName: "K\xE4se"
-  lore: "M\xE4use m\xF6gen gerne K\xE4se, ich frag mich warum?"
+  id: redMushroom
+  displayName: "Rotgr\xFCner Pilz"
+  lore: Ein seltsamer Pilz
   stackable: 1
-  rarity: 2
-  baseTexture: {fileID: 21300000, guid: 6bee24a0925b3914db0358f8a8553924, type: 3}
-  price: 50
+  rarity: 3
+  baseTexture: {fileID: 21300000, guid: 3b5ab47c8f38d6f4c93413f69c35222a, type: 3}
+  price: 150
   modifiers:
   - slot: 1
     entries:
-    - key: intelligence
-      value: 1
-  - slot: 2
-    entries:
-    - key: gold
+    - key: dexterity
       value: 1
