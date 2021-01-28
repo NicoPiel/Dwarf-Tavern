@@ -15,6 +15,7 @@ MonoBehaviour:
   description: "Wir sind auf einen alten Tempel gesto\xDFen"
   difficulty: 1
   neededKarmaLevel: 0
+  themeType: 1
   choices:
   - choiceID: 1
     text: Sammelt alles was es gibt

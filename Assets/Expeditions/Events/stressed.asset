@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: stressed
+  m_EditorClassIdentifier: 
+  description: "Die Gruppe ist unter gro\xDFem Stress und wei\xDF nicht weiter"
+  difficulty: 1
+  neededKarmaLevel: -2
+  themeType: 0
+  choices:
+  - choiceID: 1
+    text: Meditieren!
+    requiredClass: 2
+    requirementType: 1
+    reqBonus: 0.5
+    karmaAdjustment: 0
+    chance: 0.4
+    reward: karmaPlus
+    loss: 
+    positiveOutcome: Durch die Meditation hat sich jeder beruhigt
+    negativeOutcome: Das hat leider nicht gewirkt
+  - choiceID: 2
+    text: "Geschichten erz\xE4hlen"
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0.5
+    karmaAdjustment: 0
+    chance: 0.4
+    reward: karmaPlus
+    loss: 
+    positiveOutcome: "Die Gruppe erz\xE4hlte sich Geschichten von ehemaligen Abenteuern
+      und fand neue Motivation"
+    negativeOutcome: Einem gefielen die Geschichten nicht und er bekam nur noch mehr
+      Panik und rannte weg
+  - choiceID: 3
+    text: Beruhigungstrank mischen
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.7
+    reward: karmaPlus
+    loss: damage
+    positiveOutcome: Der Trank hat funktioniert, jeder hat sich beruhigt
+    negativeOutcome: Der Trank war furchtbar und hat alles schlimmer gemacht

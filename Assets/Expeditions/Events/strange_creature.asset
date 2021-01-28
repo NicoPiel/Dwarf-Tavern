@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: strange_creature
+  m_EditorClassIdentifier: 
+  description: Voraus ist ein seltsames, kleines humanoides Wesen
+  difficulty: 1
+  neededKarmaLevel: 2
+  themeType: 0
+  choices:
+  - choiceID: 1
+    text: Bedrohen
+    requiredClass: 1
+    requirementType: 1
+    reqBonus: 0.2
+    karmaAdjustment: -1
+    chance: 0.4
+    reward: lootDrop
+    loss: 
+    positiveOutcome: Das Wesen gibt und einen Edelstein, damit wir es in Ruhe lassen
+    negativeOutcome: Das Wesen rennt weg
+  - choiceID: 2
+    text: Magisch fesseln
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: -2
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: Das Wesen konnte nicht fliehen und gab uns einen Edelstein,
+      damit wir es nicht verletzen
+    negativeOutcome: 
+  - choiceID: 3
+    text: Magisch fesseln
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: -2
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: Das Wesen konnte nicht fliehen und gab uns einen Edelstein,
+      damit wir es nicht verletzen
+    negativeOutcome: 
+  - choiceID: 3
+    text: Versuchen zu kommunizieren
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 0.9
+    reward: lootDrop
+    loss: 
+    positiveOutcome: Wir konnten mit dem Wesen kommunizieren. Es verstand uns nicht,
+      aber freute sich und gab und einen Edelstein
+    negativeOutcome: Das Wesen schien unzufrieden und lief weg

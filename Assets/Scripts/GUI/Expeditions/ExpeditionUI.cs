@@ -34,8 +34,8 @@ public class ExpeditionUI : MonoBehaviour
         if (expo != null)
         {
             gameObject.transform.localScale = Vector3.one;
-            tmpName.text = expo?.GetName();
-            length.text = expo?.GetLength().ToString();
+            tmpName.text = expo.GetName();
+            length.text = expo.GetLength().ToString();
         }
         else
         {

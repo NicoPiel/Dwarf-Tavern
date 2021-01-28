@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ChoiceUI : MonoBehaviour
 {
 
-    public GameObject ChoiceFramePrefab;
+    public GameObject choiceFramePrefab;
 
-    public Sprite Questionmark;
+    public Sprite questionMark;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -25,9 +25,9 @@ public class ChoiceUI : MonoBehaviour
             gameObject.transform.localScale = Vector3.one;
             for(int i = 0; i <= ExpeditionHolder.GetInstance().GetSelectedExpedition().GetLength(); i+=1)
             {
-                var gameObjectItem = Instantiate(ChoiceFramePrefab, transform);
+                var gameObjectItem = Instantiate(choiceFramePrefab, transform);
                 gameObjectItem.name = "Slot " + i;
-                gameObjectItem.transform.Find("Icon").GetComponent<Image>().sprite = Questionmark;
+                gameObjectItem.transform.Find("Icon").GetComponent<Image>().sprite = questionMark;
             }
         }
         else

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: low_ration
+  m_EditorClassIdentifier: 
+  description: "Die Gruppe hat gro\xDFen Hunger und die Rationen sind leer"
+  difficulty: 1
+  neededKarmaLevel: -2
+  themeType: 0
+  choices:
+  - choiceID: 1
+    text: Jagen
+    requiredClass: 0
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: "Wir konnten genug Fleisch f\xFCr jeden sammeln und haben neue
+      Rationen"
+    negativeOutcome: 
+  - choiceID: 2
+    text: Essbare pflanzen suchen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: Wir fanden genug um satt zu werden
+    negativeOutcome: 
+  - choiceID: 2
+    text: Fasten
+    requiredClass: 2
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 1
+    chance: 0.9
+    reward: 
+    loss: damage
+    positiveOutcome: "Unser Priester \xFCberredet uns, f\xFCr heute als Teil eines
+      Rituals zu fasten"
+    negativeOutcome: Das Fasten hat uns garnicht gut getan!

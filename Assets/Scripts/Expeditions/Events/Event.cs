@@ -16,6 +16,8 @@ namespace Expeditions.Events
         
         public int neededKarmaLevel;
 
+        public Expedition.ThemeType themeType;
+
         [Header("Spielerentscheidungen")]
         public List<EventChoice> choices;
         [Serializable]
@@ -43,6 +45,18 @@ namespace Expeditions.Events
                 Soft,
                 Hard
             }
+            public enum Rewards
+            {
+                LootDrop,
+                MoneyDrop,
+                KarmaPlus
+            }
+            public enum Loss
+            {
+                Damage,
+                Death
+            }
+            
         }
     }
 }

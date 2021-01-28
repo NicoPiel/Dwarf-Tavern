@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: grizzly
+  m_EditorClassIdentifier: 
+  description: "Die Gruppe wird von einem \xFCbergro\xDFen Grizzlyb\xE4ren \xFCberrascht"
+  difficulty: 1
+  neededKarmaLevel: 0
+  themeType: 3
+  choices:
+  - choiceID: 1
+    text: Totstellen!
+    requiredClass: 0
+    requirementType: 1
+    reqBonus: 0.4
+    karmaAdjustment: 1
+    chance: 0.4
+    reward: 
+    loss: damage
+    positiveOutcome: "Der B\xE4r hat sich verzogen"
+    negativeOutcome: "Wir waren zu langsam und der B\xE4r griff einen von uns an!"
+  - choiceID: 2
+    text: "Bek\xE4mpfen!"
+    requiredClass: 1
+    requirementType: 1
+    reqBonus: 0.4
+    karmaAdjustment: -1
+    chance: 0.5
+    reward: lootDrop
+    loss: death
+    positiveOutcome: "Der B\xE4r ist tot und wir haben viel Fell sammeln k\xF6nnen"
+    negativeOutcome: "Der B\xE4r hat uns \xFCberw\xE4ltigt und einen von uns mitgenommen!"
+  - choiceID: 3
+    text: Wegrennen!
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.5
+    reward: 
+    loss: damage
+    positiveOutcome: Wir haben es gerade noch so geschafft zu entkommen.
+    negativeOutcome: "Wir waren nicht alle schnell genug und mussten einen von uns
+      zur\xFCcklassen, er wurde verletzt"

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: traps
+  m_EditorClassIdentifier: 
+  description: Da liegen Fallen im Weg
+  difficulty: 1
+  neededKarmaLevel: -1
+  themeType: 0
+  choices:
+  - choiceID: 1
+    text: "Aufsp\xFCren und entsch\xE4rfen!"
+    requiredClass: 0
+    requirementType: 1
+    reqBonus: 0.2
+    karmaAdjustment: 1
+    chance: 0.4
+    reward: lootDrop
+    loss: damage
+    positiveOutcome: "Die Fallen wurden entsch\xE4rft, und da lagen sogar n\xFCtzliche
+      Sachen versteckt!"
+    negativeOutcome: Das ging absolut schief! Ouch!
+  - choiceID: 2
+    text: Umweg laufen
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: '"Der Umweg ist lang, aber wenigstens ist jeder sicher.'
+    negativeOutcome: 
+  - choiceID: 3
+    text: "Ein Magier k\xF6nnte die Fallen magisch aufsp\xFChren"
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: lootDrop
+    loss: 
+    positiveOutcome: "Unser Magier hat uns sicher durch die Fallen geleitet und nebenbei
+      haben wir einige n\xFCtzliche Dinge gefunden!"
+    negativeOutcome: 

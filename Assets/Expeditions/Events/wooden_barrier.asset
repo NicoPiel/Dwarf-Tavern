@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c97ed957af46b7b74c7e271c80bcf0, type: 3}
+  m_Name: wooden_barrier
+  m_EditorClassIdentifier: 
+  description: Da ist eine Holzbarriere im Weg
+  difficulty: 1
+  neededKarmaLevel: 0
+  themeType: 0
+  choices:
+  - choiceID: 1
+    text: Zerschlagen!
+    requiredClass: 1
+    requirementType: 1
+    reqBonus: 0.2
+    karmaAdjustment: 0
+    chance: 0.4
+    reward: 
+    loss: damage
+    positiveOutcome: Der Weg ist frei
+    negativeOutcome: Der Weg ist frei, aber einer von uns wurde verletzt
+  - choiceID: 2
+    text: "Beschw\xF6rt ein Feuer, Magier!"
+    requiredClass: 3
+    requirementType: 2
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 1
+    reward: 
+    loss: 
+    positiveOutcome: Der Weg ist frei
+    negativeOutcome: 
+  - choiceID: 3
+    text: "Klettert hin\xFCber!"
+    requiredClass: 0
+    requirementType: 0
+    reqBonus: 0
+    karmaAdjustment: 0
+    chance: 0.5
+    reward: 
+    loss: damage
+    positiveOutcome: Wir sind auf der anderen Seite
+    negativeOutcome: Wir sind auf der anderen Seite, aber sind hingefallen und verletzt
