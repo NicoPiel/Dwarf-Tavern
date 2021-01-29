@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using Inventory;
 using UnityEngine;
@@ -14,6 +11,8 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private CanvasGroup _canvasGroup;
     private Vector3 _startPosition;
     private Tooltip _tooltip;
+
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -35,6 +34,9 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         _canvasGroup.alpha = .6f;
         _canvasGroup.blocksRaycasts = false;
         _startPosition = transform.position;
+
+        audioSource.clip = Brewstand.GetInstance().onBrewBeginDragSound;
+        audioSource.Play();
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -47,6 +49,9 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
         transform.position = _startPosition;
+        
+        audioSource.clip = Brewstand.GetInstance().onBrewEndDragSound;
+        audioSource.Play();
     }
     
     public void OnPointerEnter(PointerEventData eventData)
@@ -60,7 +65,7 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         sb.Append($"Name: {item.GetDisplayName()}");
         sb.Append("\n\n");
 
-        foreach (Inventory.Item.Slot slot in item.GetModifiers().Keys)
+        foreach (Item.Slot slot in item.GetModifiers().Keys)
         {
             switch (slot)
             {

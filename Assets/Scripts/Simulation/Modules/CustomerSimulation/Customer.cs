@@ -112,7 +112,7 @@ namespace Simulation.Modules.CustomerSimulation
                 _customerSimulation.SetOrderOnMenu(_currentOrder);
                 _customerSimulation.ShowOrderMenu();
             }
-            else
+            else if (!_hasBeenServed)
             {
                 orderProcessMenu.ShowMenu();
             }
@@ -252,7 +252,11 @@ namespace Simulation.Modules.CustomerSimulation
                 _maxPatience = 30;
                 patience = 30f;
                 yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
-                _hadOrderTaken = true;
+
+                if (!InteractionIsBlocked())
+                {
+                    _hadOrderTaken = true;
+                }
             }
             // ...otherwise wait to get served.
             else

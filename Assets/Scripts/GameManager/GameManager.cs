@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     private bool _gamePaused;
     private static GameManager _instance;
     private static Dictionary<string, string> translations;
+    private static Dictionary<string, string[]> places;
     
     private static readonly string PathToTranslationJson = Application.streamingAssetsPath + "/JSON/translations.json";
+    private static readonly string PathToPlacesJson = Application.streamingAssetsPath + "/JSON/places.json";
 
     [SerializeField] private EventHandler eventHandler;
 
@@ -30,10 +32,12 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
+        
         DontDestroyOnLoad(this);
         _instance = this;
         
         translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(PathToTranslationJson));
+        places = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToTranslationJson));
     }
 
     private void Start()
@@ -103,6 +107,16 @@ public class GameManager : MonoBehaviour
         }
 
         throw new UnityException($"No translation found for: {word}");
+    }
+
+    public static string GetRandomPlace(string category)
+    {
+        if (places.TryGetValue(category, out var place))
+        {
+            return place[Random.Range(0, place.Length)];
+        }
+
+        throw new UnityException($"No category \"{category}\" was found.");
     }
 
     public static GameManager GetGameManager()

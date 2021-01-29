@@ -1,0 +1,56 @@
+﻿{
+  "cave": [
+    "Klingenhöhe",
+    "Königsschlucht",
+    "Blitzschlucht",
+    "Donnerhöhe",
+    "Kaltenhöhe",
+    "Düsterpass",
+    "Eichenberge",
+    "Trutzfels",
+    "Bärenfels",
+    "Brachfels",
+    "Silberhöhe",
+    "Wolkenhügel",
+    "Falkenhügel",
+    "Kleinschlucht",
+    "Schönfels",
+    "Trutzberge"
+  ],
+  "forest": [
+    "Schönhain",
+    "Kaltenhain",
+    "Wolkenfelde",
+    "Donnerhain",
+    "Kaltennest",
+    "Schwalbenwalde",
+    "Untertann",
+    "Bärenhain",
+    "Schwalbenwies",
+    "Wolkentann",
+    "Sturmfelde",
+    "Sternental",
+    "Königsnest",
+    "Blitzwald",
+    "Wolkenwald",
+    "Finsterwalde"
+  ],
+  "jungle": [
+    "Düstersumpf",
+    "Trutzsumpf",
+    "Sternensumpf",
+    "Falkensumpf",
+    "Eichensumpf"
+  ],
+  "city": [
+    "Dunkelburg",
+    "Bärenwacht",
+    "Hochburg",
+    "Klingenburg",
+    "Kaltenfurt",
+    "Schwalbenbruch",
+    "Düstersee",
+    "Wolfsstrom",
+    "Sturmstadt"
+  ]
+}

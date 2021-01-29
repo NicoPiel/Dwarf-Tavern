@@ -22,29 +22,46 @@ namespace Brewing
             if(_attributeMap == null) GenerateLookupMaps();
         }
 
-        public ItemBeer Brew(IngredientItem baseItem, IngredientItem taste1, IngredientItem taste2,
-            IngredientItem bonus = null)
+        public ItemBeer Brew(IngredientItem baseItem, IngredientItem taste1, IngredientItem taste2, IngredientItem bonus = null)
         {
-            List<ItemBeer.Type> typeModifiers = GetTypeModifiers(Item.Slot.Basic, baseItem);
-            List<ItemBeer.Attribute> attributeModifiers1 = GetAttributeModifiers(Item.Slot.Taste, taste1);
-            List<ItemBeer.Attribute> attributeModifiers2 = GetAttributeModifiers(Item.Slot.Taste, taste2);
+            var typeModifiers = GetTypeModifiers(Item.Slot.Basic, baseItem);
+
+            var attr1 = ItemBeer.Attribute.Unused;
+            var attr2 = ItemBeer.Attribute.Unused;
+
+            var b1 = false;
+            var b2 = false;
+
+            var cAttr1 = new Color();
+            var cAttr2 = new Color();
+
+            if (taste1 != null)
+            {
+                List<ItemBeer.Attribute> attributeModifiers1 = GetAttributeModifiers(Item.Slot.Taste, taste1);
+                
+                attr1 = attributeModifiers1.Count >= 1 ? attributeModifiers1[0] : ItemBeer.Attribute.Unused;
+                b1 = _attributeColorMap.TryGetValue(attr1, out cAttr1);
+            }
+
+            if (taste2 != null)
+            {
+                List<ItemBeer.Attribute> attributeModifiers2 = GetAttributeModifiers(Item.Slot.Taste, taste2);
+                
+                attr2 = attributeModifiers2.Count >= 1 ? attributeModifiers2[0] : ItemBeer.Attribute.Unused;
+                b2 = _attributeColorMap.TryGetValue(attr2, out cAttr2);
+            }
+            
             if (typeModifiers.Count < 1) return null;
             ItemBeer.Type drinkType = typeModifiers[0];
-            ItemBeer.Attribute attr1 = attributeModifiers1.Count >= 1
-                ? attributeModifiers1[0]
-                : ItemBeer.Attribute.Unused;
-            ItemBeer.Attribute attr2 = attributeModifiers2.Count >= 1
-                ? attributeModifiers2[0]
-                : ItemBeer.Attribute.Unused;
-            _typeColorMap.TryGetValue(drinkType, out var cBase);
-            var b1 = _attributeColorMap.TryGetValue(attr1, out var cAttr1);
-            var b2 = _attributeColorMap.TryGetValue(attr2, out var cAttr2);
-            Color finalColor = b1
-                ? b2 ? Color.Lerp(Color.Lerp(cBase, cAttr1, 0.5f), cAttr2, 0.3333f) :
-                Color.Lerp(cBase, cAttr1, 0.5f)
-                : cBase;
 
-            var sumPrice = baseItem.GetPrice() + taste1.GetPrice() + taste2.GetPrice();
+            _typeColorMap.TryGetValue(drinkType, out var cBase);
+            
+            
+            Color finalColor = b1 ? b2 ? Color.Lerp(Color.Lerp(cBase, cAttr1, 0.5f), cAttr2, 0.3333f) : Color.Lerp(cBase, cAttr1, 0.5f) : cBase;
+
+            var sumPrice = baseItem.GetPrice();
+            sumPrice += taste1 != null ? taste1.GetPrice() : 0;
+            sumPrice += taste2 != null ? taste2.GetPrice() : 0;
             sumPrice += bonus != null ? bonus.GetPrice() : 0;
             
             return new ItemBeer(InventoryManager.GetInstance().GetRegisteredItem("beer"), attr1, attr2, drinkType, finalColor, sumPrice);

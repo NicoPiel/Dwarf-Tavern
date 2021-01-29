@@ -3,6 +3,9 @@ using UnityEngine;
 public class BeerDisplay : BaseMenu
 {
     public OrderProcessMenu orderProcessMenu;
+    
+    public AudioSource audioSource;
+    public AudioClip onBeerToSlot;
 
     public override void ShowMenu()
     {
@@ -24,6 +27,11 @@ public class BeerDisplay : BaseMenu
 
     public void SetSlotOnOrderProcessMenu(BeerSlot slot)
     {
-        if (orderProcessMenu.IsShown()) orderProcessMenu.SetItem(slot, ItemBeerHolder.GetInstance().GetItemBeerFromSlot(slot.slotNumber));
+        if (orderProcessMenu.IsShown())
+        {
+            orderProcessMenu.SetItem(slot, ItemBeerHolder.GetInstance().GetItemBeerFromSlot(slot.slotNumber));
+            audioSource.clip = onBeerToSlot;
+            audioSource.Play();
+        }
     }
 }

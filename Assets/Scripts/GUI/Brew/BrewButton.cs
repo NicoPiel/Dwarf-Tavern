@@ -11,10 +11,8 @@ public class BrewButton : MonoBehaviour
     public Slot slotTaste2;
     public Slot slotBase;
     public Slot slotBonus;
+    public AudioSource audioSource;
     
-    // Start is called before the first frame update
-    
-
     public void OnBrewButtonClicked()
     {
         if (!slotBase.IsItemSet() || !slotTaste1.IsItemSet())
@@ -34,9 +32,9 @@ public class BrewButton : MonoBehaviour
         slotBonus.TakeItem();
 
         ItemBeerHolder.GetInstance().Add(itemBeer);
-        
         EventHandler.onBrewed.Invoke(itemBeer);
- 
 
+        audioSource.clip = Brewstand.GetInstance().onBrewButtonClicked;
+        audioSource.Play();
     }
 }

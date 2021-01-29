@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1434111709759963661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7337254696009666212}
+        m_TargetAssemblyTypeName: OrderProcessMenu, Assembly-CSharp
+        m_MethodName: OrderProcess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4201725647792570073
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +491,7 @@ GameObject:
   - component: {fileID: 7337254696009666212}
   m_Layer: 5
   m_Name: OrderProcess
-  m_TagString: Untagged
+  m_TagString: OrderProcessMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -557,9 +569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55555fde2e83d1a40b30340b93fe2530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  processButton: {fileID: 87467693807369441}
-  closeButton: {fileID: 6734614073750122762}
-  itemSlot: {fileID: 0}
+  processButton: {fileID: 0}
+  closeButton: {fileID: 0}
   beerDisplay: {fileID: 0}
 --- !u!1 &8331514290855231804
 GameObject:
@@ -683,7 +694,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7337254696009666212}
         m_TargetAssemblyTypeName: OrderProcessMenu, Assembly-CSharp
-        m_MethodName: HideMenu
+        m_MethodName: OrderProcessCancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -700,6 +711,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5773546310404736758}
     m_Modifications:
+    - target: {fileID: 1146281112376361491, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
+      propertyPath: slotNumber
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479960854725613967, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479960854725613967, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5761037511746494423, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_Name
       value: BeerSlot
@@ -722,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_AnchorMin.x
@@ -730,15 +753,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 140
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 140
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6068001876260918233, guid: 278c9b9b0ca87b945b4a6c50fb9e6b10, type: 3}
       propertyPath: m_LocalPosition.x

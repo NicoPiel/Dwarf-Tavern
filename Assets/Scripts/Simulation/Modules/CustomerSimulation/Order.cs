@@ -12,6 +12,7 @@ namespace Simulation.Modules.CustomerSimulation
         public string Description { get; set; }
         public readonly Customer customerReference;
 
+        public readonly ItemBeer.Type requiredType;
         public readonly ItemBeer.Attribute[] requiredAttributes;
 
         // private
