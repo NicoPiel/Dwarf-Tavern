@@ -11,6 +11,7 @@ public class Mercenary
     private int _healthPoints;
     private int _maxHealthPoints;
 
+    private string _name;
     private int _price; 
     public enum MercenaryRole
     {
@@ -18,6 +19,16 @@ public class Mercenary
         Swordsman,
         Priest,
         Mage
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
     }
 
     public void TakeDamage(int damage)
@@ -93,8 +104,15 @@ public class Mercenary
             _maxHealthPoints = Random.Range(((100 * level)/4), (100 * level));
         }
 
+        _name = GetRandomName();
         _healthPoints = _maxHealthPoints;
         _price = level * Random.Range(50, 10) + Random.Range(1, 50);
     }
+
+    private string GetRandomName()
+    {
+        return "Pacolos";
+    }
     
+
 }
