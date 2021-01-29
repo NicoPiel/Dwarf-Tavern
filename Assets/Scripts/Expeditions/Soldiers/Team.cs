@@ -124,4 +124,9 @@ public class Team
         GetRandomTeamMember(randomNumber);
         return null;
     }
+
+    public bool IsFull()
+    {
+        return _teamSlot1 != null && _teamSlot2 != null && _teamSlot3 != null;
+    }
 }

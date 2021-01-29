@@ -41,7 +41,7 @@ public class ExpeditionUI : MonoBehaviour
         {
             gameObject.transform.localScale = Vector3.one;
             tmpName.text = expedition.GetName();
-            length.text = expedition.GetLength().ToString();
+            length.text = $"Eventanzahl: {expedition.GetLength().ToString()}";
             Debug.Log("Type should be: " + expedition.GetThemeType());
             if (expedition.GetThemeType() == Expedition.ThemeType.Cave)
             {

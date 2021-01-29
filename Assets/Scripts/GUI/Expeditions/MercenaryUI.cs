@@ -48,10 +48,14 @@ public class MercenaryUI : MonoBehaviour
 
     public void ButtonClicked()
     {
-        if (InventoryManager.GetInstance().GetPlayerInventory().TryCharge(_mercenary.GetPrice(), false))
+        if (!ExpeditionHolder.GetInstance().GetSelectedExpedition().GetTeam().IsFull())
         {
-            ExpeditionHolder.GetInstance().GetSelectedExpedition().GetTeam().AddToTeam(_mercenary);
-            Destroy(gameObject);
+            if (InventoryManager.GetInstance().GetPlayerInventory().TryCharge(_mercenary.GetPrice(), false))
+            {
+                ExpeditionHolder.GetInstance().GetSelectedExpedition().GetTeam().AddToTeam(_mercenary);
+                Destroy(gameObject);
+            }
         }
     }
 }
+

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Simulation.Modules.CustomerSimulation;
 using Random = UnityEngine.Random;
 
 public class Mercenary
@@ -90,29 +91,22 @@ public class Mercenary
     }
     
     #endregion
-    
+
     public Mercenary(int level = 1)
     {
         _level = level;
-        _role = (MercenaryRole) Random.Range(0,3);
+        _role = (MercenaryRole) Random.Range(0, 4);
         if (_role == MercenaryRole.Swordsman)
         {
-            _maxHealthPoints = Random.Range(((100 * level)/2), (200 * level));
+            _maxHealthPoints = Random.Range(((100 * level) / 2), (200 * level));
         }
         else
         {
-            _maxHealthPoints = Random.Range(((100 * level)/4), (100 * level));
+            _maxHealthPoints = Random.Range(((100 * level) / 4), (100 * level));
         }
 
-        _name = GetRandomName();
+        _name = CustomerSimulation.GetRandomName();
         _healthPoints = _maxHealthPoints;
         _price = level * Random.Range(50, 10) + Random.Range(1, 50);
     }
-
-    private string GetRandomName()
-    {
-        return "Pacolos";
-    }
-    
-
 }
