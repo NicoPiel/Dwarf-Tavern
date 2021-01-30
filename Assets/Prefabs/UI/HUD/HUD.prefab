@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderProcessMenu: {fileID: 0}
   audioSource: {fileID: 8706801}
-  onBeerToSlot: {fileID: 0}
+  onBeerToSlot: {fileID: 8300000, guid: 0531009ab425b67459d38750b573a6ae, type: 3}
 --- !u!82 &8706801
 AudioSource:
   m_ObjectHideFlags: 0

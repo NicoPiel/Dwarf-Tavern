@@ -73,7 +73,7 @@ public class ItemBeer : ComplexItem
         Unused = 0,
         Beer,
         Schnapps,
-        Brandy,
+        Wodka,
         Whiskey,
         Wine
     }
@@ -94,6 +94,20 @@ public class ItemBeer : ComplexItem
         return SimulationManager.AttributeCombinations[AttributeToString(_taste1)][(int) _taste2];
     }
 
+    public static string TypeToString(Type type)
+    {
+        return type switch
+        {
+            Type.Beer => "Bier",
+            Type.Schnapps => "Schnaps",
+            Type.Wodka => "Wodka",
+            Type.Whiskey => "Whiskey",
+            Type.Wine => "Wein",
+            Type.Unused => "Ungenutzt",
+            _ => throw new UnityException("Something went wrong.")
+        };
+    }
+
     public static string AttributeToString(Attribute attribute)
     {
         return attribute switch
@@ -106,6 +120,21 @@ public class ItemBeer : ComplexItem
             Attribute.Courage => "Mut",
             Attribute.Unused => "",
             _ => throw new UnityException("This attribute does not exist.")
+        };
+    }
+
+    public static Type GetRandomType()
+    {
+        var random = Random.Range(0, 6);
+
+        return random switch
+        {
+            0 => Type.Beer,
+            1 => Type.Schnapps,
+            2 => Type.Wodka,
+            3 => Type.Whiskey,
+            4 => Type.Wine,
+            _ => throw new UnityException("Something went wrong")
         };
     }
 

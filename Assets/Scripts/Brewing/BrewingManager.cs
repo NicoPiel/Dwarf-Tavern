@@ -104,7 +104,7 @@ namespace Brewing
             {
                 {"beer", ItemBeer.Type.Beer},
                 {"schnapps", ItemBeer.Type.Schnapps},
-                {"brandy", ItemBeer.Type.Brandy},
+                {"brandy", ItemBeer.Type.Wodka},
                 {"whiskey", ItemBeer.Type.Whiskey},
                 {"wine", ItemBeer.Type.Wine},
             };

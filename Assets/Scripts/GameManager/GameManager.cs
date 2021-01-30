@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         
         translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(PathToTranslationJson));
-        places = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToTranslationJson));
+        places = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(PathToPlacesJson));
     }
 
     private void Start()

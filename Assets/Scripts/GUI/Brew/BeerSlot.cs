@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,6 +16,10 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Tooltip tooltip;
     
     private ItemBeerHolder itemBeerHolder;
+    
+    // Audio
+    public AudioSource audioSource;
+    public AudioClip beerSmash;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -47,6 +48,8 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void EmptySlot()
     {
         itemBeerHolder.Remove(slotNumber);
+        audioSource.clip = beerSmash;
+        audioSource.Play();
     }
 
     private IEnumerator WaitUntilBeerHolderInitialized()

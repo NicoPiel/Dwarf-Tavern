@@ -7,7 +7,7 @@ namespace Simulation.Modules.CustomerSimulation
 {
     public class Order
     {
-        //Public
+        // public
         public string Name { get; set; }
         public string Description { get; set; }
         public readonly Customer customerReference;
@@ -32,6 +32,7 @@ namespace Simulation.Modules.CustomerSimulation
         public Order(Customer customerReference)
         {
             this.customerReference = customerReference;
+            requiredType = ItemBeer.GetRandomType();
             Name = RandomOrderName();
             Description = RandomOrderAttributesAndDescription();
             requiredAttributes = MapAttributes(attributeA, attributeB);
@@ -64,9 +65,16 @@ namespace Simulation.Modules.CustomerSimulation
             var beverages = SimulationManager.Orders["beverages"];
             var tastes = SimulationManager.Orders["tastes"];
 
-            var beverageString = beverages[Random.Range(0, beverages.Length)].Split(' ');
-            article = beverageString[0];
-            beverage = beverageString[1];
+            foreach (var s in beverages)
+            {
+                var beverageString = s.Split(' ');
+                
+                if (beverageString[1] == ItemBeer.TypeToString(requiredType))
+                {
+                    article = beverageString[0];
+                    beverage = beverageString[1];
+                }
+            }
 
             taste = tastes[Random.Range(0, tastes.Length)];
 
@@ -105,7 +113,7 @@ namespace Simulation.Modules.CustomerSimulation
 
             // Generic output
             return
-                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetArticleAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
+                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetSubstantiveAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
         }
 
         private string GetArticleNominativePostfix()
@@ -124,6 +132,17 @@ namespace Simulation.Modules.CustomerSimulation
             return article switch
             {
                 "das" => "",
+                "der" => "en",
+                "die" => "e",
+                _ => throw new UnityException($"Wrong format in orders.json with {beverage}")
+            };
+        }
+        
+        private string GetSubstantiveAccusativePostfix()
+        {
+            return article switch
+            {
+                "das" => "es",
                 "der" => "en",
                 "die" => "e",
                 _ => throw new UnityException($"Wrong format in orders.json with {beverage}")
