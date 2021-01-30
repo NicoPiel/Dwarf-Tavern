@@ -45,15 +45,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadInvFromSave: 0
   initialContent:
-  - itemID: cheese
-    amount: 2
   - itemID: hops
-    amount: 10
-  - itemID: honey
-    amount: 1
+    amount: 25
+  - itemID: herbs
+    amount: 25
+  - itemID: potato
+    amount: 25
+  - itemID: greenGrape
+    amount: 25
+  - itemID: barley
+    amount: 25
   - itemID: banana
-    amount: 3
-  - itemID: peanut
-    amount: 5
+    amount: 25
   - itemID: lemon
-    amount: 3
+    amount: 25
+  - itemID: peanut
+    amount: 25
+  - itemID: strawberry
+    amount: 25
+  - itemID: spinach
+    amount: 25

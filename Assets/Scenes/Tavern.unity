@@ -1580,10 +1580,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5024075040612258604, guid: 1cdd4d89b88ac964baa300480f75db28, type: 3}
-      propertyPath: loadInvFromSave
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8814330418306819471, guid: 1cdd4d89b88ac964baa300480f75db28, type: 3}
       propertyPath: m_RootOrder
       value: 8
