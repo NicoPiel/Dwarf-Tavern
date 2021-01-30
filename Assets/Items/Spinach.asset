@@ -17,7 +17,7 @@ MonoBehaviour:
   lore: 
   stackable: 1
   rarity: 1
-  baseTexture: {fileID: 21300000, guid: 4dba20d7d4c23904db3ddb58ad8dad6a, type: 3}
+  baseTexture: {fileID: 21300000, guid: b8c2949b12c816948a3fc984ed605770, type: 3}
   price: 20
   modifiers:
   - slot: 1

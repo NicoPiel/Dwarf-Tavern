@@ -22,5 +22,5 @@ MonoBehaviour:
   modifiers:
   - slot: 0
     entries:
-    - key: wodka
+    - key: whisky
       value: 1
