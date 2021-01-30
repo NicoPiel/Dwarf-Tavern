@@ -94,8 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderNameText: {fileID: 4088082330850233975}
   orderDescriptionText: {fileID: 8339689891741702326}
-  acceptButton: {fileID: 0}
-  closeButton: {fileID: 0}
+  acceptButton: {fileID: 678393665790447395}
+  closeButton: {fileID: 140407385403873537}
 --- !u!1 &1496367855189192557
 GameObject:
   m_ObjectHideFlags: 0

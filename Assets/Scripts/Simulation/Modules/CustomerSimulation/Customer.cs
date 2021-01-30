@@ -20,7 +20,8 @@ namespace Simulation.Modules.CustomerSimulation
     public class Customer : PlayerInteractable
     {
         public OrderProcessMenu orderProcessMenu;
-        
+        public AudioSource audioSource;
+
         public string Name;
         public TMP_Text namePlate;
         public CustomerPlace assignedPlace;
@@ -42,6 +43,9 @@ namespace Simulation.Modules.CustomerSimulation
         private bool _hasBeenServed;
         private bool _wantsToLeave;
         private int _maxPatience;
+        
+        // Audio
+        public AudioClip acceptOrderClip;
 
         /**
          * State enum
@@ -379,6 +383,9 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _maxPatience = 90;
             patience = 90f;
+
+            audioSource.clip = acceptOrderClip;
+            audioSource.Play();
             
             _hadOrderTaken = true;
             UnblockInteraction();

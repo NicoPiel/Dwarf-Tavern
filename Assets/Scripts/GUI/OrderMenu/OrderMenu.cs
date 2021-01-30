@@ -1,3 +1,4 @@
+using System.Collections;
 using Simulation.Modules.CustomerSimulation;
 using TMPro;
 using UnityEngine;

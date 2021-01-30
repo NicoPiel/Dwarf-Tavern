@@ -231,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 1019534374670883122}
     - target: {fileID: 1585620478863904934, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1692871950785606450, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
       propertyPath: m_margin.x
@@ -316,6 +316,10 @@ PrefabInstance:
     - target: {fileID: 6397947595600728622, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775363472130454355, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
+      propertyPath: m_fontSize
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7775363472130454355, guid: c5ecfeae08775774e9e0ea8d632e621f, type: 3}
       propertyPath: m_fontColor.b
@@ -562,18 +566,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5544239527508360399, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6313195159332447445, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
-      propertyPath: m_Volume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615231672673385196, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
-      propertyPath: m_Volume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615231672673385196, guid: ff41e3a2c0fafe54494daa77b69acc12, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

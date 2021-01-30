@@ -569,8 +569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55555fde2e83d1a40b30340b93fe2530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  processButton: {fileID: 0}
-  closeButton: {fileID: 0}
+  processButton: {fileID: 87467693807369441}
+  closeButton: {fileID: 6734614073750122762}
   beerDisplay: {fileID: 0}
 --- !u!1 &8331514290855231804
 GameObject:
