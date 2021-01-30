@@ -410,6 +410,7 @@ namespace Simulation.Modules.CustomerSimulation
             switch (customerSatisfaction)
             {
                 case 2:
+                    particleSystem.Play();
                     Tooltip.ShowTooltip_Static(tooltip, "Vielen Dank! Hier das Geld und noch was oben drauf.");
                     break;
                 case 1:
@@ -423,8 +424,6 @@ namespace Simulation.Modules.CustomerSimulation
                 default:
                     throw new UnityException($"Customer satisfaction was not in range [0, 2], but was: {customerSatisfaction}");
             }
-            
-            particleSystem.Play();
 
             Unblock();
             UnblockInteraction();
