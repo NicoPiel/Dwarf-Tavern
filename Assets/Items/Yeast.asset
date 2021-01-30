@@ -22,5 +22,5 @@ MonoBehaviour:
   modifiers:
   - slot: 0
     entries:
-    - key: schnaps
+    - key: schnapps
       value: 1
