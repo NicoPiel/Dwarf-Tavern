@@ -122,7 +122,7 @@ namespace Simulation.Modules.CustomerSimulation
 
         private float CustomerProbability(int t)
         {
-            var p = Mathf.Pow(1.6f, t) / 100;
+            var p = Mathf.Pow(1.4f, t) / 100;
 
             return p <= 1f ? p : 1f;
         }
