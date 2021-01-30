@@ -198,7 +198,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3330193872131603221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3558256690496479750}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &523569803153693577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1133,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2811488136440482380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4389706075042360083}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3137775890809809963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 323958773160336377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4389706075042360083}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3563601491245811780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,7 +1990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07ea3eed14901a84e854277b03e6d822, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69f614ff5301fd241a811ed6d3461b0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2162,7 +2198,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2918888044840792295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4389706075042360083}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6153049497753729879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8230540771648925551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3558256690496479750}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6169346357388963615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,7 +2604,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1416648799437759643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3558256690496479750}
+        m_TargetAssemblyTypeName: Upgrader, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6904162180175385340
 GameObject:
   m_ObjectHideFlags: 0

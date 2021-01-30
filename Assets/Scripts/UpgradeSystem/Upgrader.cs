@@ -77,10 +77,12 @@ public class Upgrader : MonoBehaviour
 
     public void Upgrade(int button)
     {
+       
         switch (button)
         {
-            case 1 when !InventoryManager.GetInstance().GetPlayerInventory().TryCharge(priceLevel2, false):
+            case 1: return;
             case 2 when !InventoryManager.GetInstance().GetPlayerInventory().TryCharge(priceLevel3, false):
+            case 3 when !InventoryManager.GetInstance().GetPlayerInventory().TryCharge(priceLevel3, false):
                 return;
         }
 
