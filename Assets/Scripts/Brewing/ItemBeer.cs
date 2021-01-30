@@ -125,7 +125,7 @@ public class ItemBeer : ComplexItem
 
     public static Type GetRandomType()
     {
-        var random = Random.Range(0, 6);
+        var random = Random.Range(0, 5);
 
         return random switch
         {
