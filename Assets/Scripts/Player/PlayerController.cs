@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -15,6 +17,9 @@ namespace Player
         public int smoothness = 5;
         public GameObject selectionTrigger;
         public BeerDisplay beerDisplay;
+
+        public AudioSource footstepAudioSource;
+        public List<AudioClip> footstepSounds;
 
         // Start is called before the first frame update
         private void Start()
@@ -61,6 +66,12 @@ namespace Player
                 if (!beerDisplay.IsShown()) beerDisplay.ShowMenu();
                 else beerDisplay.HideMenu();
             }
+        }
+
+        public void PlayRandomFootstepSound()
+        {
+            footstepAudioSource.clip = footstepSounds[Random.Range(0, footstepSounds.Count)];
+            footstepAudioSource.Play();
         }
     }
 }
