@@ -21,6 +21,7 @@ namespace Simulation.Modules.CustomerSimulation
     {
         public OrderProcessMenu orderProcessMenu;
         public AudioSource audioSource;
+        public ParticleSystem particleSystem;
 
         public string Name;
         public TMP_Text namePlate;
@@ -422,6 +423,8 @@ namespace Simulation.Modules.CustomerSimulation
                 default:
                     throw new UnityException($"Customer satisfaction was not in range [0, 2], but was: {customerSatisfaction}");
             }
+            
+            particleSystem.Play();
 
             Unblock();
             UnblockInteraction();
