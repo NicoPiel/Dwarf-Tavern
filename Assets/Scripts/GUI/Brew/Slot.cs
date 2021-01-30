@@ -54,8 +54,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IDropHandler
             {
                 if(IsCompatible(item)) 
                     AddItemToSlot(item);
-                else
-                    Debug.Log("item not compatible" + item.GetModifiers());
+                //else
+                    //Debug.Log("Item not compatible" + item.GetModifiers());
             }
         }
     }
