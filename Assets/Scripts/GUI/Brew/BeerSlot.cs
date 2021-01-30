@@ -77,6 +77,8 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         var attributeA = ItemBeer.AttributeToString(itemBeer.GetAttributes()[0]);
         var attributeB = ItemBeer.AttributeToString(itemBeer.GetAttributes()[1]);
 
+        stringBuilder.Append($"Typ: {ItemBeer.TypeToString(itemBeer.GetDrinkType())}\n\n\n");
+
         if (!string.IsNullOrWhiteSpace(attributeA))
         {
             stringBuilder.Append($"+ Attribut: {attributeA}\n");
@@ -88,7 +90,9 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         stringBuilder.Append($"+ Kombination: {itemBeer.GetAttributeCombinationDenominator()}\n");
-        
+
+        Vector3 pos = gameObject.transform.position;
+        tooltip.gameObject.transform.position = new Vector3(pos.x, pos.y + 240, pos.z);
         Tooltip.ShowTooltip_Static(tooltip, stringBuilder.ToString());
     }
 

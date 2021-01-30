@@ -18,7 +18,6 @@ namespace Simulation.Core
         public int startOfDay;
         public int endOfDay;
         public int durationOfDayInMinutes;
-        public int timeInterval;
 
         public static Dictionary<string, string[]> Names { get; private set; }
         public static Dictionary<string, string[]> Orders { get; private set; }
@@ -43,15 +42,13 @@ namespace Simulation.Core
         private bool _paused;
         private const float TickDuration = 1f;
         private int _durationOfDay;
+        private int _timeInterval;
 
         // Start is called before the first frame update
         private void Awake()
         {
             // Reference static instance
             _instance = this;
-            
-            // Set values
-            timeInterval = Mathf.RoundToInt((float) _durationOfDay / durationOfDayInMinutes / TickDuration / 60);
 
             // Setup Events
             onSimulationStart = new UnityEvent();
@@ -166,7 +163,7 @@ namespace Simulation.Core
 
         private void Timelapse()
         {
-            timeValue += timeInterval;
+            timeValue += Mathf.RoundToInt((float) _durationOfDay / durationOfDayInMinutes / TickDuration / 60);
 
             var hours = timeValue / 60;
             var minutes = timeValue % 60;

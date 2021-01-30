@@ -190,21 +190,37 @@ namespace Simulation.Modules.CustomerSimulation
 
         private int CompareBeverageToOrder(ItemBeer itemBeer)
         {
+            if (itemBeer.GetDrinkType() != requiredType)
+            {
+                return customerSatisfaction = 0;
+            } 
+            
+            var stringBuilder = new StringBuilder();
             var beverageAttributes = itemBeer.GetAttributes();
 
+            stringBuilder.Append($"Attribute des Items: {ItemBeer.AttributeToString(beverageAttributes[0])} und {ItemBeer.AttributeToString(beverageAttributes[1])}\nErgibt: {attributeCombination}");
+            stringBuilder.Append($"Attribute der Bestellung: {ItemBeer.AttributeToString(requiredAttributes[0])} und {ItemBeer.AttributeToString(requiredAttributes[1])}\n");
+            
             // If both requirements are met
             if ((requiredAttributes[0] == beverageAttributes[0] && requiredAttributes[1] == beverageAttributes[1]) ||
                 (requiredAttributes[0] == beverageAttributes[1] && requiredAttributes[1] == beverageAttributes[0]))
             {
+                stringBuilder.Append("Beide stimmen.");
                 customerSatisfaction = 2;
             }
             else if ((requiredAttributes[0] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[1]) ||
                      (requiredAttributes[1] == beverageAttributes[0] ^ requiredAttributes[1] == beverageAttributes[0]))
             {
+                stringBuilder.Append("Eins stimmt.");
                 customerSatisfaction = 1;
             }
             else
+            {
+                stringBuilder.Append("Keins stimmt.");
                 customerSatisfaction = 0;
+            }
+            
+            Debug.LogWarning(stringBuilder.ToString());
 
             return customerSatisfaction;
         }
