@@ -18,6 +18,7 @@ namespace Simulation.Core
         public int startOfDay;
         public int endOfDay;
         public int durationOfDayInMinutes;
+        public const float TickDuration = 1f;
 
         public static Dictionary<string, string[]> Names { get; private set; }
         public static Dictionary<string, string[]> Orders { get; private set; }
@@ -40,9 +41,7 @@ namespace Simulation.Core
         public static UnityEvent onEndOfDay;
 
         private bool _paused;
-        private const float TickDuration = 1f;
         private int _durationOfDay;
-        private int _timeInterval;
 
         // Start is called before the first frame update
         private void Awake()

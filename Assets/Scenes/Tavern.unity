@@ -369,10 +369,6 @@ PrefabInstance:
       propertyPath: _UICanvas
       value: 
       objectReference: {fileID: 893891295}
-    - target: {fileID: 1841969513, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
-      propertyPath: m_Volume
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 767715048581585640, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: m_Name
       value: Player
