@@ -13,6 +13,9 @@ namespace Furniture
 
         private static readonly int Burning = Animator.StringToHash("burning");
 
+        public AudioSource audioSource;
+        public AudioClip burningSound;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -24,6 +27,13 @@ namespace Furniture
         {
             _state = !_state;
             _animator.SetBool(Burning, _state);
+
+            if (_state)
+            {
+                audioSource.clip = burningSound;
+                audioSource.Play();
+            }
+            else audioSource.Stop();
         }
     }
 

@@ -176,7 +176,7 @@ namespace Simulation.Modules.CustomerSimulation
 
             foreach (Order order in OpenOrders)
             {
-                sb.Append($"- {order.Name} für {order.customerReference.Name}\n");
+                sb.Append($"- {order.GetShortDescription()}\n");
             }
             
             SimulationManager.GetInstance().questDisplay.text = sb.ToString();

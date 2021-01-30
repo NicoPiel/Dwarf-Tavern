@@ -118,7 +118,7 @@ public class ItemBeer : ComplexItem
             Attribute.Vitality => "Vitalität",
             Attribute.Will => "Wille",
             Attribute.Courage => "Mut",
-            Attribute.Unused => "",
+            Attribute.Unused => "Ungenutzt",
             _ => throw new UnityException("This attribute does not exist.")
         };
     }

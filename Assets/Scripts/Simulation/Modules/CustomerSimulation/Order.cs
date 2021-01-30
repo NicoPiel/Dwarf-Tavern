@@ -1,3 +1,4 @@
+using System.Text;
 using Simulation.Core;
 using Simulation.Modules.CustomerSimulation;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Simulation.Modules.CustomerSimulation
         private string article;
         private string beverage;
         private string taste;
+        private string attributeCombination;
         private string attributeA;
         private string attributeB;
         private int value;
@@ -85,7 +87,6 @@ namespace Simulation.Modules.CustomerSimulation
 
         private string RandomOrderAttributesAndDescription()
         {
-            string attribute;
             var attributes = SimulationManager.AttributeCombinations;
 
             // Get collection of keys
@@ -99,13 +100,13 @@ namespace Simulation.Modules.CustomerSimulation
             // Get random combination
             if (Random.value < 0.5)
             {
-                attribute = attributeCombinations[0];
-                attributeB = attributeA;
+                attributeCombination = attributeCombinations[0];
+                attributeB = "Ungenutzt";
             }
             else
             {
                 var randomInt = Random.Range(1, attributeCombinations.Length);
-                attribute = attributeCombinations[randomInt];
+                attributeCombination = attributeCombinations[randomInt];
 
                 attributeB = keys[randomInt - 1];
             }
@@ -113,7 +114,20 @@ namespace Simulation.Modules.CustomerSimulation
 
             // Generic output
             return
-                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetSubstantiveAccusativePostfix()} {beverage}</b>, {article} mich <b>{attribute.ToLower()}er</b> macht.";
+                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetSubstantiveAccusativePostfix()} {beverage}</b>, {article} mich <b>{attributeCombination.ToLower()}er</b> macht.";
+        }
+
+        public string GetShortDescription()
+        {
+            var stringBuilder = new StringBuilder();
+
+            stringBuilder.Append($"Ein{GetArticleAccusativePostfix()} {beverage}");
+            stringBuilder.Append(" ");
+            stringBuilder.Append($"für {customerReference.Name}");
+            stringBuilder.Append($", {article} ihn {attributeCombination}er macht.");
+            
+            
+            return stringBuilder.ToString();
         }
 
         private string GetArticleNominativePostfix()
@@ -169,6 +183,7 @@ namespace Simulation.Modules.CustomerSimulation
                 "Vitalität" => ItemBeer.Attribute.Vitality,
                 "Wille" => ItemBeer.Attribute.Will,
                 "Mut" => ItemBeer.Attribute.Courage,
+                "Ungenutzt" => ItemBeer.Attribute.Unused,
                 _ => throw new UnityException("Something went wrong.")
             };
         }

@@ -223,6 +223,9 @@ namespace Simulation.Modules.CustomerSimulation
          */
         private IEnumerator Order()
         {
+            _maxPatience = 30;
+            patience = 30f;
+            
             _currentState = State.Waiting;
 
             _currentOrder = new Order(this);
@@ -246,25 +249,8 @@ namespace Simulation.Modules.CustomerSimulation
             StartCoroutine(CountdownPatience());
             StartCoroutine(UpdatePatienceSlider());
 
-            // Wait for a certain period of time, if customer hasn't had his order taken...
-            if (!_hadOrderTaken)
-            {
-                _maxPatience = 30;
-                patience = 30f;
-                yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
-
-                if (!InteractionIsBlocked())
-                {
-                    _hadOrderTaken = true;
-                }
-            }
-            // ...otherwise wait to get served.
-            else
-            {
-                _maxPatience = 90;
-                patience = 90f;
-                yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
-            }
+            // Wait for a certain period of time, if customer hasn't had his order taken or hasn't been served
+            yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
 
             // Leave if patience reaches 0 while waiting.
             if (patience == 0)
@@ -311,7 +297,7 @@ namespace Simulation.Modules.CustomerSimulation
         
         private IEnumerator CountdownPatience()
         {
-            while (!InteractionIsBlocked())
+            while (!InteractionIsBlocked() && _currentState == State.Waiting)
             {
                 yield return new WaitForSeconds(0.1f);
                 patience -= 0.1f;
@@ -322,7 +308,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             patienceSlider.gameObject.SetActive(true);
             
-            while (_currentState == State.Waiting)
+            while (!InteractionIsBlocked() && _currentState == State.Waiting)
             {
                 patienceSlider.value = patience / _maxPatience;
                 yield return new WaitForSeconds(0.1f);
@@ -391,6 +377,10 @@ namespace Simulation.Modules.CustomerSimulation
 
         private void OnOrderAccept(Order order)
         {
+            _maxPatience = 90;
+            patience = 90f;
+            
+            _hadOrderTaken = true;
             UnblockInteraction();
         }
 
