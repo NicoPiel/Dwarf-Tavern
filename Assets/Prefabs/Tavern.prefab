@@ -9284,7 +9284,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 1
-    m_Data: {r: 0.91532075, g: 0.45325172, b: 0.5882981, a: 1}
+    m_Data: {r: 0.92765903, g: 0.49015537, b: 0.51986676, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9414,29 +9414,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 5295616486513779977}
     m_ColliderPaths:
-    - - X: 30000000
-        Y: 50000000
-      - X: 20000000
-        Y: 50000000
-      - X: 20000000
-        Y: 60000000
-      - X: 10000000
-        Y: 60000000
-      - X: 10000000
-        Y: 50000000
-      - X: -30000000
-        Y: 50000000
-      - X: -30000000
-        Y: 20000000
-      - X: -50000000
-        Y: 20000000
-      - X: -50000000
-        Y: 60000000
-      - X: -140000000
-        Y: 60000000
-      - X: -140000000
-        Y: -50000000
-      - X: 220000000
+    - - X: 220000000
         Y: -50000000
       - X: 220000000
         Y: 20000000
@@ -9447,9 +9425,39 @@ CompositeCollider2D:
       - X: 170000000
         Y: 30000000
       - X: 170000000
+        Y: 20000000
+      - X: 110000000
+        Y: 20000000
+      - X: 110000000
+        Y: 30000000
+      - X: 100000000
+        Y: 30000000
+      - X: 100000000
         Y: 20000000
       - X: 30000000
         Y: 20000000
+      - X: 30000000
+        Y: 50000000
+      - X: 20000000
+        Y: 50000000
+      - X: 20000000
+        Y: 60000000
+      - X: 10000000
+        Y: 60000000
+      - X: 10000000
+        Y: 50000000
+      - X: -30000000
+        Y: 50000000
+      - X: -30000000
+        Y: 20000000
+      - X: -50000000
+        Y: 20000000
+      - X: -50000000
+        Y: 60000000
+      - X: -140000000
+        Y: 60000000
+      - X: -140000000
+        Y: -50000000
   m_CompositePaths:
     m_Paths:
     - - {x: 21.999971, y: -5}
@@ -9458,6 +9466,10 @@ CompositeCollider2D:
       - {x: 17.999971, y: 3}
       - {x: 17, y: 2.999971}
       - {x: 16.999971, y: 2}
+      - {x: 11, y: 2.0000293}
+      - {x: 10.99997, y: 3}
+      - {x: 10, y: 2.999971}
+      - {x: 9.99997, y: 2}
       - {x: 3, y: 2.0000293}
       - {x: 2.999971, y: 5}
       - {x: 2, y: 5.0000296}
@@ -32835,11 +32847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552447787735997613, guid: baeeafcc596694747ada8d02bdb8e464, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.956
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2552447787735997613, guid: baeeafcc596694747ada8d02bdb8e464, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.487
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2552447787735997613, guid: baeeafcc596694747ada8d02bdb8e464, type: 3}
       propertyPath: m_LocalPosition.z

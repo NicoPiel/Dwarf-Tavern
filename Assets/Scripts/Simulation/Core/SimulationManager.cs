@@ -18,11 +18,12 @@ namespace Simulation.Core
         public int startOfDay;
         public int endOfDay;
         public int durationOfDayInMinutes;
+        public int timeInterval;
 
-        public static Dictionary<string, string[]> Names { get; set; }
-        public static Dictionary<string, string[]> Orders { get; set; }
+        public static Dictionary<string, string[]> Names { get; private set; }
+        public static Dictionary<string, string[]> Orders { get; private set; }
         public static List<string> Attributes { get; set; }
-        public static Dictionary<string, string[]> AttributeCombinations { get; set; }
+        public static Dictionary<string, string[]> AttributeCombinations { get; private set; }
 
         // Private
         private static SimulationManager _instance;
@@ -40,7 +41,7 @@ namespace Simulation.Core
         public static UnityEvent onEndOfDay;
 
         private bool _paused;
-        private float _tickDuration = 1f;
+        private const float TickDuration = 1f;
         private int _durationOfDay;
 
         // Start is called before the first frame update
@@ -48,6 +49,9 @@ namespace Simulation.Core
         {
             // Reference static instance
             _instance = this;
+            
+            // Set values
+            timeInterval = Mathf.RoundToInt((float) _durationOfDay / durationOfDayInMinutes / TickDuration / 60);
 
             // Setup Events
             onSimulationStart = new UnityEvent();
@@ -118,7 +122,7 @@ namespace Simulation.Core
                 if (_paused) break;
 
                 onSimulationTick.Invoke();
-                yield return new WaitForSeconds(_tickDuration);
+                yield return new WaitForSeconds(TickDuration);
             }
         }
 
@@ -162,7 +166,7 @@ namespace Simulation.Core
 
         private void Timelapse()
         {
-            timeValue += Mathf.RoundToInt((float) _durationOfDay / durationOfDayInMinutes / _tickDuration / 60);
+            timeValue += timeInterval;
 
             var hours = timeValue / 60;
             var minutes = timeValue % 60;

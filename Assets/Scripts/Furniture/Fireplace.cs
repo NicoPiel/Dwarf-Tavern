@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
+using Utility;
 
 namespace Furniture
 {
@@ -12,6 +14,8 @@ namespace Furniture
         private bool _state = false;
 
         private static readonly int Burning = Animator.StringToHash("burning");
+
+        public Light2D fireplaceLight;
 
         public AudioSource audioSource;
         public AudioClip burningSound;
@@ -32,8 +36,17 @@ namespace Furniture
             {
                 audioSource.clip = burningSound;
                 audioSource.Play();
+
+                fireplaceLight.intensity = 1;
+                fireplaceLight.GetComponent<FlickerEffect>().effectEnabled = true;
             }
-            else audioSource.Stop();
+            else
+            {
+                audioSource.Stop();
+                
+                fireplaceLight.intensity = 0;
+                fireplaceLight.GetComponent<FlickerEffect>().effectEnabled = false;
+            }
         }
     }
 
