@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,25 +29,47 @@ public class Upgrader : MonoBehaviour
         switch (state)
         {
             case 1:
-                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
-                level3.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level1.GetComponent<Button>().enabled = false;
+                level2.GetComponent<Button>().enabled = true;
+                level3.GetComponent<Button>().enabled = false;
+                
+                level1.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 level2.transform.Find("Price").GetComponent<TMP_Text>().text = ""+priceLevel2;
                 level3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gesperrt";
+                
+                
+                level1.transform.Find("Image").GetComponent<Image>().enabled = false;
+                level2.transform.Find("Image").GetComponent<Image>().enabled = true;
+                level3.transform.Find("Image").GetComponent<Image>().enabled = false;
+                
+                
                 break;
             case 2:
-                level3.transform.Find("Button").GetComponent<Button>().enabled = true;
-                level2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level1.GetComponent<Button>().enabled = false;
+                level2.GetComponent<Button>().enabled = false;
+                level3.GetComponent<Button>().enabled = true;
+                
+                level1.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 level2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 level3.transform.Find("Price").GetComponent<TMP_Text>().text = ""+priceLevel3;
                 
+                level1.transform.Find("Image").GetComponent<Image>().enabled = false;
+                level2.transform.Find("Image").GetComponent<Image>().enabled = false;
+                level3.transform.Find("Image").GetComponent<Image>().enabled = true;
+                
                 break;
             case 3:
-                level3.transform.Find("Button").GetComponent<Button>().enabled = false;
-                level2.transform.Find("Button").GetComponent<Button>().enabled = false;
-                level1.transform.Find("Button").GetComponent<Button>().enabled = false;
+                level1.GetComponent<Button>().enabled = false;
+                level2.GetComponent<Button>().enabled = false;
+                level3.GetComponent<Button>().enabled = false;
+                
+                level1.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 level2.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
                 level3.transform.Find("Price").GetComponent<TMP_Text>().text = "Gekauft";
+                
+                level1.transform.Find("Image").GetComponent<Image>().enabled = false;
+                level2.transform.Find("Image").GetComponent<Image>().enabled = false;
+                level3.transform.Find("Image").GetComponent<Image>().enabled = false;
                 break;
         }
         
@@ -54,19 +77,17 @@ public class Upgrader : MonoBehaviour
 
     public void Upgrade(int button)
     {
-        Debug.Log($"{button} pressed");
-        if (button == 1)
+        switch (button)
         {
-            //TODO Money Check
-        }
-        
-        
-        if (_upgradeStateHolder.GetUpgradeState(id) < 3)
-        {
-            _upgradeStateHolder.Upgrade(id);
-            Setup();
+            case 1 when !InventoryManager.GetInstance().GetPlayerInventory().TryCharge(priceLevel2, false):
+            case 2 when !InventoryManager.GetInstance().GetPlayerInventory().TryCharge(priceLevel3, false):
+                return;
         }
 
+
+        if (_upgradeStateHolder.GetUpgradeState(id) >= 3) return;
+        _upgradeStateHolder.Upgrade(id);
+        Setup();
     }
   
 }
