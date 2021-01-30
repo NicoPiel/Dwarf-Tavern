@@ -55,11 +55,12 @@ namespace Simulation.Modules.CustomerSimulation
         public int Process(ItemBeer itemBeer)
         {
             value = itemBeer.GetPrice();
+            var output = CompareBeverageToOrder(itemBeer);
             
             CustomerSimulation.OpenOrders?.Remove(this);
             CustomerSimulation.onAnyOrderProcess.Invoke(this);
             onProcess.Invoke(this);
-            return CompareBeverageToOrder(itemBeer);
+            return output;
         }
 
         private string RandomOrderName()
@@ -219,8 +220,8 @@ namespace Simulation.Modules.CustomerSimulation
                 stringBuilder.Append("Keins stimmt.");
                 customerSatisfaction = 0;
             }
-            
-            Debug.LogWarning(stringBuilder.ToString());
+
+            Debug.LogWarning($"{stringBuilder}\nKundenzufriedenheit: {customerSatisfaction}");
 
             return customerSatisfaction;
         }

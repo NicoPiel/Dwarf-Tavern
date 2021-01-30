@@ -43,6 +43,7 @@ namespace Simulation.Modules.CustomerSimulation
         private bool _hasBeenServed;
         private bool _wantsToLeave;
         private int _maxPatience;
+        private int _customerSatisfaction;
         
         // Audio
         public AudioClip acceptOrderClip;
@@ -449,9 +450,9 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (!InteractionIsBlocked() || itemBeer == null || _currentOrder == null) return;
 
-            var score = _currentOrder.Process(itemBeer);
+            _customerSatisfaction = _currentOrder.Process(itemBeer);
 
-            Debug.Log($"Order processed: {score}");
+            Debug.Log($"Order processed: {_customerSatisfaction}");
         }
 
         #endregion
