@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7997827746434299165}
-  - component: {fileID: 8373678282891529943}
+  - component: {fileID: 7612877625106019243}
   m_Layer: 11
   m_Name: InteractionCollider
   m_TagString: Untagged
@@ -206,8 +206,8 @@ Transform:
   m_Father: {fileID: 4066025471779474379}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8373678282891529943
-CircleCollider2D:
+--- !u!70 &7612877625106019243
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -219,9 +219,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  serializedVersion: 2
-  m_Radius: 0.4
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.9, y: 1.4}
+  m_Direction: 0
 --- !u!1 &2845600354703967472
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 8574335177340791110, guid: 48f5f86b0bbc8ee4e805db8a57f8db3f, type: 3}
+  m_Sprite: {fileID: -1705520269155941585, guid: 39f88deeb1fce034c832f1b07a9693b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -495,8 +495,8 @@ MonoBehaviour:
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 0
-    exactEndPoint: 0
+    exactStartPoint: 1
+    exactEndPoint: 1
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -5636,7 +5636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.6}
+  m_AnchoredPosition: {x: 0, y: -0.843}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4753988475566253863
@@ -5874,7 +5874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 1.092}
   m_SizeDelta: {x: 2.5, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4014397070144233121
@@ -6020,6 +6020,10 @@ PrefabInstance:
     - target: {fileID: 666962887829269144, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 666962887829269144, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.282
       objectReference: {fileID: 0}
     - target: {fileID: 739685871457978495, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_Name
