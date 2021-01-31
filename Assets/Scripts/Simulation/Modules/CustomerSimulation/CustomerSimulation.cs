@@ -34,13 +34,12 @@ namespace Simulation.Modules.CustomerSimulation
             onAnyOrderProcess = new OrderEvent();
             onOrderListChange = new UnityEvent();
             onCustomerLeave = new CustomerLeaveEvent();
-            
-            InitModule();
         }
 
         // Start is called before the first frame update
         private void Start()
         {
+            InitModule();
             customers = new List<Customer>();
 
             customerPlaces = new List<CustomerPlace>();

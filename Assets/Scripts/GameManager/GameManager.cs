@@ -42,8 +42,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Tavern") SimulationManager.GetInstance().StartSimulation();
-        
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
