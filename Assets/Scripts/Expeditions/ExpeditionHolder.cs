@@ -95,6 +95,11 @@ public class ExpeditionHolder : MonoBehaviour
         _currentEvent = _event;
     }
 
+    public Expeditions.Events.Event GetCurrentEvent()
+    {
+        return _currentEvent;
+    }
+
     public void RemoveCurrentEvent()
     {
         _currentEvent = null;
