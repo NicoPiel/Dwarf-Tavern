@@ -13,12 +13,9 @@ namespace Inventory
         private ConcurrentDictionary<Item, int> _contents;
         private int _capacityPerSlot;
         private int _funds;
-        private TextMeshProUGUI _fundsDisplay;
-        private bool _displayAvailable;
 
         public Inventory(int capacityPerSlot, int initialFunds)
         {
-            initDisplay();
             _capacityPerSlot = capacityPerSlot;
             SetFunds(initialFunds);
             _contents = new ConcurrentDictionary<Item, int>();
@@ -26,7 +23,6 @@ namespace Inventory
         
         public Inventory(int capacityPerSlot, int initialFunds, ConcurrentDictionary<Item, int> contents)
         {
-            initDisplay();
             _capacityPerSlot = capacityPerSlot;
             SetFunds(initialFunds);
             _contents = contents;
@@ -53,16 +49,6 @@ namespace Inventory
             ES3.Save("inv_funds", _funds);
         }
 
-        private void initDisplay()
-        {
-            GameObject textObject = GameObject.FindGameObjectWithTag("FundsDisplay");
-            if (textObject == null) return;
-            TextMeshProUGUI textComponent = textObject.GetComponent<TextMeshProUGUI>();
-            if (textComponent == null) return;
-            _fundsDisplay = textComponent;
-            _displayAvailable = true;
-        }
-        
         /**
          * <summary>Adds a specified amount of an Item to the inventory</summary>
          * <returns>The amount of items that couldn't be added due to capacity restrictions (e.g. 0 if all items were added)</returns>
@@ -167,10 +153,6 @@ namespace Inventory
             _funds = funds;
             EventHandler.onFundsChangedFrom.Invoke(oldFunds);
             EventHandler.onFundsChanged.Invoke();
-            if (_displayAvailable)
-            {
-                _fundsDisplay.text = _funds.ToString();
-            }
         }
 
         public void AddFunds(int amount)

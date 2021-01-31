@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
   m_Name: Star
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: star
+  displayName: Stern
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  price: 0
-  modifiers: []
+  stackable: 1
+  rarity: 5
+  baseTexture: {fileID: 21300000, guid: 9a2d666d75befaa43be2dfec32e5a86f, type: 3}
+  price: 1000
+  modifiers:
+  - slot: 1
+    entries:
+    - key: will
+      value: 1

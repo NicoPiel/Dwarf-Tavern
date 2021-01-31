@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
-  m_Name: Lachs
+  m_Name: Salmon
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: salmon
+  displayName: Lachs
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  price: 0
-  modifiers: []
+  stackable: 1
+  rarity: 5
+  baseTexture: {fileID: 21300000, guid: a46ba8df3ee4bd142a23b55a913e9ac5, type: 3}
+  price: 1000
+  modifiers:
+  - slot: 1
+    entries:
+    - key: strength
+      value: 1

@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
   m_Name: Malt
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
-  lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  price: 0
-  modifiers: []
+  id: malt
+  displayName: Malz
+  lore: Malz importiert aus elfischen Gefilden
+  stackable: 1
+  rarity: 1
+  baseTexture: {fileID: 21300000, guid: b962c2805949aed41840892f04f67a6d, type: 3}
+  price: 50
+  modifiers:
+  - slot: 0
+    entries:
+    - key: beer
+      value: 1

@@ -23,6 +23,15 @@ namespace Inventory
         
         private readonly ConcurrentDictionary<string, StaticItem> _registeredItems =
             new ConcurrentDictionary<string, StaticItem>();
+        
+        
+        public State AssetState
+        {
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            get;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            protected set;
+        } = State.Uninitialized;
 
         private void Awake()
         {
@@ -139,13 +148,7 @@ namespace Inventory
         /**
          * <summary>Gets/Sets the current <c>State</c> of this InventoryManager</summary>
          */
-        public State AssetState
-        {
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            get;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            protected set;
-        } = State.Uninitialized;
+        
 
         private Inventory PlayerInventory { get; set; }
 

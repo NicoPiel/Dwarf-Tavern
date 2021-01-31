@@ -24,3 +24,7 @@ MonoBehaviour:
     entries:
     - key: wine
       value: 1
+  - slot: 1
+    entries:
+    - key: dexterity
+      value: 1

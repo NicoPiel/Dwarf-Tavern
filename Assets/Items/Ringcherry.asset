@@ -16,9 +16,9 @@ MonoBehaviour:
   displayName: 'Ringkirschen '
   lore: Eine seltene neuartige Frucht. Schmeckt seltsam
   stackable: 1
-  rarity: 3
+  rarity: 5
   baseTexture: {fileID: 21300000, guid: 6a7a27ca3c3462846b91afd149eaf10c, type: 3}
-  price: 150
+  price: 1000
   modifiers:
   - slot: 1
     entries:

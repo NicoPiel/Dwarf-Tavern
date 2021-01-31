@@ -185,6 +185,111 @@ MonoBehaviour:
     - items
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: c3d66a192e6f9194fa3ecf53747f5db9
+    m_Address: Assets/Items/Malt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: c6fa79b440f91b84899d2d7625de65f1
+    m_Address: Assets/Items/Salt.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2a3739dc30ddee941b8995b0b4759f6c
+    m_Address: Assets/Items/Pepper.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 9072e8552940c2c47be6cbb1b0a5fb7c
+    m_Address: Assets/Items/Eggs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 09af467e652351045ae77b1550be0051
+    m_Address: Assets/Items/BredRoll.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 16b2780f7274f2745a43b936f9d7aa85
+    m_Address: Assets/Items/Chilly.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 1d4f842fb72792c49ba39298d94f8131
+    m_Address: Assets/Items/Steak.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 7aff8a88b1fb976458c199558e1084ae
+    m_Address: Assets/Items/Mouldcheese.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: b8c22b113ecd475458f85988edc30a86
+    m_Address: Assets/Items/Garlic.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: dfc7f39fcd1300e4299b3a4a16f2ba48
+    m_Address: Assets/Items/Carot.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 00e439a8e95e7f14288be374113a28de
+    m_Address: Assets/Items/Coffee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 92529c5e58e8e8a49bddfdab14632e1f
+    m_Address: Assets/Items/FlyAgaric.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 256ebfda8519643489930d3a885cfc7b
+    m_Address: Assets/Items/Salmon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5bca55cbf3a601440a3f184501ba7c26
+    m_Address: Assets/Items/Star.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4b3460603d91f5947b1a1b99d62092f3
+    m_Address: Assets/Items/Pumpkin.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - items
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a45056f9cfbdd054dac9bb9f53e9c709, type: 2}
   m_SchemaSet:

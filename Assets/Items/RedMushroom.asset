@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: RedMushroom
   m_EditorClassIdentifier: 
   id: redMushroom
-  displayName: "Rotgr\xFCner Pilz"
-  lore: Ein seltsamer Pilz
+  displayName: "Verr\xFCckter Pilz"
+  lore: Ein sehr seltsamer Pilz
   stackable: 1
-  rarity: 3
+  rarity: 5
   baseTexture: {fileID: 21300000, guid: 3b5ab47c8f38d6f4c93413f69c35222a, type: 3}
-  price: 150
+  price: 1000
   modifiers:
   - slot: 1
     entries:

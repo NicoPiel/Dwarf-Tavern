@@ -16,9 +16,9 @@ MonoBehaviour:
   displayName: Hefe
   lore: 
   stackable: 1
-  rarity: 1
+  rarity: 2
   baseTexture: {fileID: 21300000, guid: f35b021720a1d3e428846c64c357c068, type: 3}
-  price: 20
+  price: 50
   modifiers:
   - slot: 0
     entries:

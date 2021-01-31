@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
-  m_Name: Moldcheese
+  m_Name: Mouldcheese
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: mouldcheese
+  displayName: "Schimmelk\xE4se"
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  price: 0
-  modifiers: []
+  stackable: 1
+  rarity: 4
+  baseTexture: {fileID: 21300000, guid: 90e178f57c100a840b8ae0eaf5803ab6, type: 3}
+  price: 500
+  modifiers:
+  - slot: 1
+    entries:
+    - key: intelligence
+      value: 1

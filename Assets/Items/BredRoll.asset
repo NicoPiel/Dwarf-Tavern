@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6a3dfb70a34c899b8a702f8974f224, type: 3}
   m_Name: BredRoll
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: bredroll
+  displayName: "Br\xF6tchen"
   lore: 
-  stackable: 0
-  rarity: 0
-  baseTexture: {fileID: 0}
-  price: 0
-  modifiers: []
+  stackable: 1
+  rarity: 3
+  baseTexture: {fileID: 21300000, guid: 8289296dda897ac4391e921c791c1a46, type: 3}
+  price: 150
+  modifiers:
+  - slot: 1
+    entries:
+    - key: vitality
+      value: 1
