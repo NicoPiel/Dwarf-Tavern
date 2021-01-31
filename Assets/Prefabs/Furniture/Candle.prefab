@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6530493364639459940}
   - component: {fileID: 8582357303856573005}
-  - component: {fileID: -8471221151271213241}
+  - component: {fileID: 613404977}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Furniture
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &-8471221151271213241
+--- !u!95 &613404977
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -150,20 +150,20 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8406196, b: 0.5518868, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightInnerRadius: 0.2
+  m_PointLightOuterRadius: 3
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -188,8 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd90190b4934511439dbd5d839f17218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 0}
-  minIntensity: 0.5
-  maxIntensity: 1.5
+  light: {fileID: 8461223559778744406}
+  minIntensity: 0.8
+  maxIntensity: 1.6
   smoothing: 40
   effectEnabled: 0
