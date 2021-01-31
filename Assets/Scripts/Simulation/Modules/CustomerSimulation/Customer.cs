@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Interactions;
 using Inventory;
 using Pathfinding;
 using Simulation.Core;
 using Simulation.Exceptions;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -22,8 +25,11 @@ namespace Simulation.Modules.CustomerSimulation
         public OrderProcessMenu orderProcessMenu;
         public AudioSource audioSource;
         public ParticleSystem particleSystem;
+        public Animator animator;
+        public List<AnimatorOverrideController> animatorList;
 
         public string Name;
+        public Race race;
         public TMP_Text namePlate;
         public CustomerPlace assignedPlace;
         public Tooltip tooltip;
@@ -48,6 +54,18 @@ namespace Simulation.Modules.CustomerSimulation
         
         // Audio
         public AudioClip acceptOrderClip;
+        public AudioClip doorOpenOnEnterClip;
+        public AudioClip doorOpenOnLeaveClip;
+        public AudioClip onOrderProcessClip;
+        public AudioClip customerBurpClip;
+        public AudioClip customerEatClip;
+        public AudioClip customerDrinkClip;
+        
+        private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+        private static readonly int Vertical = Animator.StringToHash("Vertical");
+        private static readonly int Magnitude = Animator.StringToHash("Magnitude");
+        private static readonly int PrevHorizontal = Animator.StringToHash("PrevHorizontal");
+        private static readonly int PrevVertical = Animator.StringToHash("PrevVertical");
 
         /**
          * State enum
@@ -63,6 +81,13 @@ namespace Simulation.Modules.CustomerSimulation
             Paying,
             Leaving,
             Idle
+        }
+
+        public enum Race : int
+        {
+            Zwerg,
+            Elf,
+            Mensch
         }
         
         #region Unity Event Functions
@@ -86,8 +111,32 @@ namespace Simulation.Modules.CustomerSimulation
             playerInventory = InventoryManager.GetInstance().GetPlayerInventory();
 
             patienceSlider.gameObject.SetActive(false);
+            
+            audioSource.clip = doorOpenOnEnterClip;
+            audioSource.Play();
         }
-        
+
+        private void FixedUpdate()
+        {
+            animator.SetFloat(Horizontal, _pathfinder.velocity.x);
+            animator.SetFloat(Vertical, _pathfinder.velocity.y);
+            animator.SetFloat(Magnitude, _pathfinder.velocity.magnitude);
+
+            if (_pathfinder.velocity.x < 0 || _pathfinder.velocity.x > 0)
+            {
+                if (assignedPlace.transform.rotation.y == 0)
+                {
+                    animator.SetFloat(PrevHorizontal, 1);
+                }
+                else
+                {
+                    animator.SetFloat(PrevHorizontal, -1);
+                }
+
+                animator.SetFloat(PrevVertical, 0);
+            }
+        }
+
         #endregion
 
         /**
@@ -96,8 +145,17 @@ namespace Simulation.Modules.CustomerSimulation
         private void Init()
         {
             _currentState = State.InQueue;
+            race = (Race) Random.Range(0, 3);
             Name = CustomerSimulation.GetRandomName();
             namePlate.text = Name;
+
+            var controller =
+                from animatorController in animatorList
+                where animatorController.name.Contains(race.ToString()[0])
+                select animatorController;
+
+            var animatorOverrideControllers = controller.ToList();
+            animator.runtimeAnimatorController = animatorOverrideControllers[Random.Range(0, animatorOverrideControllers.Count)];
 
             //Debug.Log(Name + " klopft an.");
         }
@@ -259,7 +317,7 @@ namespace Simulation.Modules.CustomerSimulation
             yield return new WaitUntil(() => InteractionIsBlocked() || patience <= 0);
 
             // Leave if patience reaches 0 while waiting.
-            if (patience == 0)
+            if (patience <= 0)
             {
                 _wantsToLeave = true;
                 _currentState = State.Leaving;
@@ -277,7 +335,29 @@ namespace Simulation.Modules.CustomerSimulation
             if (!_hasBeenServed) throw new StateException(State.Consuming, $"Customer has not been served yet. _hasBeenServed has to be true, but is: {_hasBeenServed}");
             
             Tooltip.ShowTooltip_Static(tooltip, "Nom nom nom...");
-            yield return new WaitForSeconds(20f);
+            
+            var randomClipDelay = Random.Range(2, 5);
+
+            audioSource.clip = customerDrinkClip;
+            audioSource.PlayDelayed(randomClipDelay);
+
+            yield return new WaitUntil(() => !audioSource.isPlaying);
+            
+            audioSource.clip = customerBurpClip;
+            audioSource.PlayDelayed(0.5f);
+            
+            var waitForRandomTime = Random.Range(10, 20);
+            var timeBetweenEvents = (float) waitForRandomTime / 4;
+
+            for (var i = 0; i < timeBetweenEvents; i++)
+            {
+                yield return new WaitForSeconds(timeBetweenEvents);
+                audioSource.clip = customerEatClip;
+                audioSource.Play();
+                yield return new WaitUntil(() => !audioSource.isPlaying);
+            }
+            
+            
             _wantsToLeave = true;
             _currentState = State.Leaving;
 
@@ -296,6 +376,11 @@ namespace Simulation.Modules.CustomerSimulation
             _pathfinder.SearchPath();
 
             yield return new WaitUntil(() => _pathfinder.reachedDestination);
+            
+            audioSource.clip = doorOpenOnLeaveClip;
+            audioSource.Play();
+
+            yield return new WaitUntil(() => !audioSource.isPlaying);
 
             Unblock();
             CustomerSimulation.onCustomerLeave.Invoke(this);
@@ -414,6 +499,8 @@ namespace Simulation.Modules.CustomerSimulation
                     Tooltip.ShowTooltip_Static(tooltip, "Vielen Dank! Hier das Geld und noch was oben drauf.");
                     break;
                 case 1:
+                    audioSource.clip = onOrderProcessClip;
+                    audioSource.Play();
                     Tooltip.ShowTooltip_Static(tooltip, "Danke. Auf Wiedersehen.");
                     break;
                 case 0:

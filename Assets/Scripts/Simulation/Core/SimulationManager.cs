@@ -79,6 +79,8 @@ namespace Simulation.Core
             onSimulationTick.AddListener(OnSimulationTick);
 
             _durationOfDay = endOfDay - startOfDay;
+            
+            StartSimulation();
         }
 
         public void StartSimulation()

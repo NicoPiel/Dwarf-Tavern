@@ -167,7 +167,7 @@ namespace Inventory
             }
             else
             {
-                inv = new Inventory(50, 1000, LoadContentsFromPreset());
+                inv = new Inventory(50, 100000, LoadContentsFromPreset());
             }
             EventHandler.onAfterHourSceneLoaded.AddListener(() =>
             {

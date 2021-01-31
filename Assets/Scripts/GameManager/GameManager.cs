@@ -24,16 +24,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip mouseClick;
     [SerializeField] private AudioClip mouseDrop;
-    
+
     private void Awake()
     {
         if (_instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
         
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
         _instance = this;
         
         translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(PathToTranslationJson));
