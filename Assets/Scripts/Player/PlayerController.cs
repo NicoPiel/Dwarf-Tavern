@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.ShaderGraph;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -44,13 +45,25 @@ namespace Player
             _animator.SetFloat("Horizontal", _move.x);
             _animator.SetFloat("Vertical", _move.y);
             _animator.SetFloat("Magnitude", _move.magnitude);
+            
+            if (_move.x < 0 || _move.x > 0)
+            {
+                _animator.SetFloat("PrevHorizontal", _move.x);
+                _animator.SetFloat("PrevVertical", 0);
+            }
+
+            if (_move.y < 0 || _move.y > 0)
+            {
+                _animator.SetFloat("PrevVertical", _move.y);
+                _animator.SetFloat("PrevHorizontal", 0);
+            }
+            
             if (smoothMovement)
             { 
                 _move.x = ((_previous.x * (smoothness - 1)) + _move.x) / smoothness;
                 _move.y = ((_previous.y * (smoothness - 1)) + _move.y) / smoothness;
                 _previous = new Vector2(_move.x, _move.y);
             }
-            
             _rigidbody.MovePosition(_rigidbody.position + _move * (playerSpeed * Time.fixedDeltaTime));
         }
 
