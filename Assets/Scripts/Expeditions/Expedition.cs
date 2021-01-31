@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Simulation.Core;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -23,9 +24,9 @@ public class Expedition
         _difficulty = difficulty;
         _karma = 1;
         _length = Random.Range(1, _difficulty * 2);
-        _name = "Random Expedition";
         _team = new Team();
         _theme = (ThemeType) Random.Range(1,4);
+        _name = GameManager.GetRandomPlace(_theme.ToString().ToLower());
     }
 
     #region Simple Getter/Setter
@@ -124,8 +125,7 @@ public class Expedition
         Default,
         Jungle,
         Cave,
-        Forrest,
-        
+        Forest,
     }
 
     

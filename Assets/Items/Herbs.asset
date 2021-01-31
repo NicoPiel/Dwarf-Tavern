@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: herbs
   displayName: "Kr\xE4uter"
-  lore: 
+  lore: "Es geht nichts \xFCber gesammelte Kr\xE4uter aus den Bergen"
   stackable: 1
   rarity: 1
   baseTexture: {fileID: 21300000, guid: 001de07bccf40a0489b7b8c6a0224020, type: 3}

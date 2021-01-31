@@ -18,6 +18,7 @@ TagManager:
   - ItemBeerHolder
   - DebugUI
   - OrderProcessMenu
+  - Tavern
   layers:
   - Default
   - TransparentFX

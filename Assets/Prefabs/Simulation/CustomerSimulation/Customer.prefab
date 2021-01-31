@@ -219,8 +219,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 1.4}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.5, y: 0.8}
   m_Direction: 0
 --- !u!1 &2845600354703967472
 GameObject:
@@ -5896,7 +5896,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+  - {fileID: 2695011055263936464, guid: f4da88fab26849940a86ce53db50e680, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5940,8 +5940,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "L\xF6nneberger Hundesohn"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
-  m_sharedMaterial: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4da88fab26849940a86ce53db50e680, type: 2}
+  m_sharedMaterial: {fileID: 2695011055263936464, guid: f4da88fab26849940a86ce53db50e680, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6113,6 +6113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1825356362444398226, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2695011055263936464, guid: f4da88fab26849940a86ce53db50e680, type: 2}
     - target: {fileID: 4514048597586507515, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_margin.w
       value: 0
@@ -6129,6 +6133,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4514048597586507515, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f4da88fab26849940a86ce53db50e680, type: 2}
+    - target: {fileID: 4514048597586507515, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2695011055263936464, guid: f4da88fab26849940a86ce53db50e680, type: 2}
     - target: {fileID: 4514048597586507515, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_VerticalAlignment
       value: 256

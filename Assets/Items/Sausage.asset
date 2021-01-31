@@ -16,11 +16,11 @@ MonoBehaviour:
   displayName: Wurst
   lore: 
   stackable: 1
-  rarity: 2
+  rarity: 3
   baseTexture: {fileID: 21300000, guid: 2635dda97e51a0a468e88f2d5d053b38, type: 3}
-  price: 50
+  price: 150
   modifiers:
   - slot: 1
     entries:
-    - key: dexterity
+    - key: strength
       value: 1

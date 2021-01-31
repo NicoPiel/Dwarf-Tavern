@@ -49,7 +49,7 @@ public class ExpeditionUI : MonoBehaviour
             }else if (expedition.GetThemeType() == Expedition.ThemeType.Jungle)
             {
                 icon.sprite = jungle;
-            }else if (expedition.GetThemeType() == Expedition.ThemeType.Forrest)
+            }else if (expedition.GetThemeType() == Expedition.ThemeType.Forest)
             {
                 icon.sprite = forrest;
             }

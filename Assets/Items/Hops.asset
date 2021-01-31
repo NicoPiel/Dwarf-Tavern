@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: hops
   displayName: Hopfen
-  lore: 
+  lore: Hopfen von den zwergischen Plantaschen der Hauptstadt
   stackable: 1
   rarity: 1
-  baseTexture: {fileID: 21300000, guid: 59575a15db767ff488ee94e5e103e77c, type: 3}
+  baseTexture: {fileID: 21300000, guid: 61ef143234c2ecd42b1b862ac8b5f168, type: 3}
   price: 20
   modifiers:
   - slot: 0
