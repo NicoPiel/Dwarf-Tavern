@@ -44,5 +44,11 @@ namespace Expeditions.Events
             Random rand = new Random();
             return events.Count > 0 ? events[rand.Next(events.Count)] : null;
         }
+
+        public void HandleChoice(int choiceId)
+        {
+            
+        }
+        
     }
 }
