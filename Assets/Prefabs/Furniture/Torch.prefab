@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 551279136035658735}
   - component: {fileID: 551279136035658734}
   m_Layer: 0
-  m_Name: Torch L
+  m_Name: Torch
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551279136035658728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.44, y: 1.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 551279137048815105}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &551279137048815106
@@ -93,8 +93,9 @@ GameObject:
   m_Component:
   - component: {fileID: 551279137048815105}
   - component: {fileID: 551279137048815104}
+  - component: {fileID: 605159029340487687}
   m_Layer: 0
-  m_Name: Point Light 2D (2)
+  m_Name: Torchlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.716
+  m_FalloffIntensity: 0.75
   m_Color: {r: 0.9433962, g: 0.8238295, b: 0.4494482, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 8
+  m_PointLightOuterRadius: 10
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -155,3 +156,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &605159029340487687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551279137048815106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd90190b4934511439dbd5d839f17218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 551279137048815104}
+  minIntensity: 0.5
+  maxIntensity: 1.6
+  smoothing: 40
+  effectEnabled: 1
