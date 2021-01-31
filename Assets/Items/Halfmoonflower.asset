@@ -17,7 +17,7 @@ MonoBehaviour:
   lore: Eine sehr seltene Blume
   stackable: 1
   rarity: 4
-  baseTexture: {fileID: 0}
+  baseTexture: {fileID: 21300000, guid: 7e494a42f117d514fb1398c37446d96d, type: 3}
   price: 500
   modifiers:
   - slot: 1

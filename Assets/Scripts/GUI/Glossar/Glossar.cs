@@ -26,6 +26,9 @@ public class Glossar : MonoBehaviour
             foreach (var item in inventoryManager.GetRegisteredIds())
             {
                 StaticItem staticItem = inventoryManager.GetRegisteredItem(item);
+                if (staticItem.GetId() == "beer")
+                    continue;
+                
                 var gameObjectItem = Instantiate(ItemFramePrefab, transform);
                 gameObjectItem.name = staticItem.id;
                 gameObjectItem.transform.Find("ItemName").GetComponent<TMP_Text>().text = staticItem.displayName;
