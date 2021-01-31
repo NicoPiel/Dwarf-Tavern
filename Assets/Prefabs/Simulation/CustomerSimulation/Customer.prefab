@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: -1470717807258987732}
   - component: {fileID: -3892288733405686965}
   - component: {fileID: -16689134859410695}
+  - component: {fileID: -6870340264868836507}
   - component: {fileID: 9150954971451154107}
   - component: {fileID: -7413459058823863964}
   - component: {fileID: -987663552856587322}
@@ -353,6 +354,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!95 &-6870340264868836507
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845600354703967472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &9150954971451154107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +394,11 @@ MonoBehaviour:
   orderProcessMenu: {fileID: 0}
   audioSource: {fileID: 77048725996862139}
   particleSystem: {fileID: -8931115826225438105}
+  animator: {fileID: -6870340264868836507}
+  animatorList:
+  - {fileID: 22100000, guid: 4f0767d4b674e5143807b18e8b373482, type: 2}
+  - {fileID: 22100000, guid: 8e9324ca925a54749aa2f6f08cfdb1d2, type: 2}
+  - {fileID: 22100000, guid: b714363e2b73db045bbb124a1e87fbf3, type: 2}
   Name: 
   namePlate: {fileID: 328915372903788900}
   assignedPlace: {fileID: 0}
@@ -384,6 +409,12 @@ MonoBehaviour:
   _currentState: 0
   _canBeInteractedWith: 0
   acceptOrderClip: {fileID: 8300000, guid: dfedd4b54178722458b0a833e96f0955, type: 3}
+  doorOpenOnEnterClip: {fileID: 8300000, guid: 8923d3adcf54f7a4c830f9f74dc280de, type: 3}
+  doorOpenOnLeaveClip: {fileID: 8300000, guid: 90b6ad1d215a79345814f93b977b43cc, type: 3}
+  onOrderProcessClip: {fileID: 8300000, guid: f68100f739b724f43ac1025dd48e48f6, type: 3}
+  customerBurpClip: {fileID: 8300000, guid: e4cfd5be9460b8143b83f9b599c30b56, type: 3}
+  customerEatClip: {fileID: 8300000, guid: 8c6f9496f0f9a8d498cc83d4e4b1ff32, type: 3}
+  customerDrinkClip: {fileID: 8300000, guid: 17d2cc730de2eea46b686390d6db7436, type: 3}
 --- !u!114 &-7413459058823863964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,8 +503,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -482,9 +513,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -517,7 +548,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
