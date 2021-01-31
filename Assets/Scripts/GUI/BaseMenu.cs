@@ -4,15 +4,9 @@ public abstract class BaseMenu : MonoBehaviour
 {
     protected bool isShown = false;
 
-    public virtual void ShowMenu()
-    {
-        isShown = true;
-    }
+    public abstract void ShowMenu();
 
-    public virtual void HideMenu()
-    {
-        isShown = false;
-    }
+    public abstract void HideMenu();
 
     public bool IsShown()
     {
