@@ -17,6 +17,7 @@ public class Expedition
 
     private int _length;
     private int _karma;
+    private int _completedEvents;
     
 
     public Expedition(int difficulty)
@@ -85,6 +86,21 @@ public class Expedition
     public bool IsStarted()
     {
         return _started;
+    }
+
+    public int GetCompletedEvents()
+    {
+        return _completedEvents;
+    }
+
+    public void SetCompletedEvents(int count)
+    {
+        _completedEvents = count;
+    }
+
+    public void AddCompletedEvents(int count)
+    {
+        _completedEvents += count;
     }
     #endregion
     
