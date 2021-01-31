@@ -105,7 +105,7 @@ public class Mercenary
             _maxHealthPoints = Random.Range(((100 * level) / 4), (100 * level));
         }
 
-        _name = CustomerSimulation.GetRandomName();
+        _name = CustomerSimulation.GetRandomName(Customer.Race.Mensch);
         _healthPoints = _maxHealthPoints;
         _price = level * Random.Range(50, 10) + Random.Range(1, 50);
     }

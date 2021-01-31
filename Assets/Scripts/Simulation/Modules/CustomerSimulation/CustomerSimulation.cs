@@ -127,13 +127,37 @@ namespace Simulation.Modules.CustomerSimulation
             return p <= 1f ? p : 1f;
         }
 
-        public static string GetRandomName()
+        public static string GetRandomName(Customer.Race race)
         {
-            var firstNameList = SimulationManager.Names["dwarf_firstname"];
-            var lastNameList = SimulationManager.Names["dwarf_lastname"];
+            string firstname;
+            string lastname;
+            
+            switch (race)
+            {
+                case Customer.Race.Zwerg:
+                    var dwarfFirstNameList = SimulationManager.Names["dwarf_firstname"];
+                    var dwarfLastNameList = SimulationManager.Names["dwarf_lastname"];
 
-            var firstname = firstNameList[Random.Range(0, firstNameList.Length)];
-            var lastname = lastNameList[Random.Range(0, lastNameList.Length)];
+                    firstname = dwarfFirstNameList[Random.Range(0, dwarfFirstNameList.Length)];
+                    lastname = dwarfLastNameList[Random.Range(0, dwarfLastNameList.Length)];
+                    break;
+                case Customer.Race.Elf:
+                    var elfFirstNameList = SimulationManager.Names["elf_firstname"];
+                    var elfLastNameList = SimulationManager.Names["elf_lastname"];
+
+                    firstname = elfFirstNameList[Random.Range(0, elfFirstNameList.Length)];
+                    lastname = elfLastNameList[Random.Range(0, elfLastNameList.Length)];
+                    break;
+                case Customer.Race.Mensch:
+                    var humanFirstNameList = SimulationManager.Names["human_firstname"];
+                    var humanLastNameList = SimulationManager.Names["human_lastname"];
+
+                    firstname = humanFirstNameList[Random.Range(0, humanFirstNameList.Length)];
+                    lastname = humanLastNameList[Random.Range(0, humanLastNameList.Length)];
+                    break;
+                default:
+                    throw new UnityException("Something went wrong.");
+            };
 
             return $"{firstname} {lastname}";
         }

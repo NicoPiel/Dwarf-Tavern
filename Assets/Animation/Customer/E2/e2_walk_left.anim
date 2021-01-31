@@ -86,4 +86,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.083333336
+    functionName: PlayRandomFootstepSound
+    data: 
+    objectReferenceParameter: {fileID: 2845600354703967472, guid: 272191a7f1c419346bd4990dd545aa6d, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: PlayRandomFootstepSound
+    data: 
+    objectReferenceParameter: {fileID: 2845600354703967472, guid: 272191a7f1c419346bd4990dd545aa6d, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

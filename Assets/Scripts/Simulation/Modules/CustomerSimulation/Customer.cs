@@ -24,6 +24,7 @@ namespace Simulation.Modules.CustomerSimulation
     {
         public OrderProcessMenu orderProcessMenu;
         public AudioSource audioSource;
+        public AudioSource footstepAudioSource;
         public ParticleSystem particleSystem;
         public Animator animator;
         public List<AnimatorOverrideController> animatorList;
@@ -53,6 +54,8 @@ namespace Simulation.Modules.CustomerSimulation
         private int _customerSatisfaction;
         
         // Audio
+        public List<AudioClip> footstepClipList;
+        
         public AudioClip acceptOrderClip;
         public AudioClip doorOpenOnEnterClip;
         public AudioClip doorOpenOnLeaveClip;
@@ -60,7 +63,7 @@ namespace Simulation.Modules.CustomerSimulation
         public AudioClip customerBurpClip;
         public AudioClip customerEatClip;
         public AudioClip customerDrinkClip;
-        
+
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
         private static readonly int Magnitude = Animator.StringToHash("Magnitude");
@@ -146,7 +149,7 @@ namespace Simulation.Modules.CustomerSimulation
         {
             _currentState = State.InQueue;
             race = (Race) Random.Range(0, 3);
-            Name = CustomerSimulation.GetRandomName();
+            Name = CustomerSimulation.GetRandomName(race);
             namePlate.text = Name;
 
             var controller =
@@ -542,6 +545,12 @@ namespace Simulation.Modules.CustomerSimulation
             _customerSatisfaction = _currentOrder.Process(itemBeer);
 
             Debug.Log($"Order processed: {_customerSatisfaction}");
+        }
+        
+        public void PlayRandomFootstepSound()
+        {
+            footstepAudioSource.clip = footstepClipList[Random.Range(0, footstepClipList.Count)];
+            footstepAudioSource.Play();
         }
 
         #endregion
