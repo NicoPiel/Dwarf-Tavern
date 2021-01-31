@@ -22,6 +22,7 @@ public class GameGUI : MonoBehaviour
         {
             windowRect = GUI.Window(0, windowRect, DoMyWindow, "Debug Window");
         }
+        
     }
 
     // Make the contents of the window
@@ -29,4 +30,6 @@ public class GameGUI : MonoBehaviour
     {
         GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
+    
+    
 }
