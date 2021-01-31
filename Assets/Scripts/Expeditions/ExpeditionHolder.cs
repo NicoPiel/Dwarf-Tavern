@@ -11,6 +11,8 @@ public class ExpeditionHolder : MonoBehaviour
 
     private static ExpeditionHolder _instance;
 
+    private Expeditions.Events.Event _currentEvent;
+
     public static ExpeditionHolder GetInstance()
     {
         return _instance;
@@ -47,6 +49,9 @@ public class ExpeditionHolder : MonoBehaviour
     {
         yield return new WaitUntil(() => DayCounter.GetInstance());
         yield return new WaitUntil(DayCounter.IsInitialized);
+        
+        
+        EventHandler.onTriggerExpeditionEvent.AddListener(SetCurrentEvent);
 
         
         _instance = this;
@@ -79,5 +84,20 @@ public class ExpeditionHolder : MonoBehaviour
     public Expedition GetSelectedExpedition()
     {
         return _selectedExpedition;
+    }
+
+    public void SetCurrentEvent(Expeditions.Events.Event _event)
+    {
+        if (_currentEvent != null)
+        {
+            _selectedExpedition.DamageRandom();
+        }
+        _currentEvent = _event;
+    }
+
+    public void RemoveCurrentEvent()
+    {
+        _currentEvent = null;
+        EventHandler.onExpeditionEventFinished.Invoke();
     }
 }
