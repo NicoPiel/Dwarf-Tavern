@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -53,7 +54,14 @@ public class TransitionTrigger : MonoBehaviour
             }
             else
             {
-                LeanTween.alpha(obj, to, time);
+                if (obj.TryGetComponent(out TMP_Text text))
+                {
+                    LeanTween.value(text.color.a, to, time);
+                }
+                else
+                {
+                    LeanTween.alpha(obj, to, time);
+                }
             }
         }
     }

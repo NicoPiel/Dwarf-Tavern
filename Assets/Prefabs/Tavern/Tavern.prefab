@@ -5627,7 +5627,7 @@ GameObject:
   - component: {fileID: 5295616487506454497}
   m_Layer: 0
   m_Name: Tavern
-  m_TagString: Untagged
+  m_TagString: Tavern
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6799,7 +6799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6530493364639459940, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 6530493364639459940, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8795,7 +8795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6530493364639459940, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.28
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 6530493364639459940, guid: 746f37639f5b9ab4f983197494d5e1d4, type: 3}
       propertyPath: m_LocalPosition.z
