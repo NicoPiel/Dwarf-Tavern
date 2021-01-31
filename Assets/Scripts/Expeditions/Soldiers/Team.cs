@@ -125,6 +125,17 @@ public class Team
         return null;
     }
 
+    public bool ContainsRole(Mercenary.MercenaryRole role)
+    {
+        if (_teamSlot1.GetRole() == role)
+            return true;
+        if (_teamSlot2.GetRole() == role)
+            return true;
+        if (_teamSlot3.GetRole() == role)
+            return true;
+        return false;
+    }
+
     public bool IsFull()
     {
         return _teamSlot1 != null && _teamSlot2 != null && _teamSlot3 != null;
