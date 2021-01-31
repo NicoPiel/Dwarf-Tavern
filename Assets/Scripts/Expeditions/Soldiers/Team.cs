@@ -110,7 +110,7 @@ public class Team
                 return _teamSlot2;
             }
 
-            randomNumber = 2;
+            randomNumber = 3;
         }
 
         if (randomNumber == 3)
