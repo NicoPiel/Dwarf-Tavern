@@ -32,6 +32,8 @@ public class EventHandler : MonoBehaviour
     public static UnityEvent onItemBeerHolderChanged;
     public static UnityEvent<ItemBeer> onBrewed;
 
+    public static UnityEvent<Expeditions.Events.Event> onTriggerExpeditionEvent;
+
     private void Awake()
     {
         onItemBeerHolderChanged = new UnityEvent();
@@ -50,5 +52,6 @@ public class EventHandler : MonoBehaviour
         onExpeditionHolderChanged = new UnityEvent();
         onExpeditionStarted = new UnityEvent();
         onTeamChanged = new UnityEvent();
+        onTriggerExpeditionEvent = new UnityEvent<Expeditions.Events.Event>();
     }
 }
