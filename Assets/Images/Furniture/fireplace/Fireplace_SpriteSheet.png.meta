@@ -66,7 +66,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 8
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -111,6 +111,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -118,8 +130,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 4
+        y: 24
         width: 32
         height: 16
       alignment: 0
@@ -139,8 +151,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 40
+        y: 24
         width: 32
         height: 16
       alignment: 0
@@ -160,8 +172,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 76
+        y: 24
         width: 32
         height: 16
       alignment: 0
@@ -181,8 +193,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
+        x: 112
+        y: 24
         width: 32
         height: 16
       alignment: 0
@@ -202,8 +214,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 4
+        y: 4
         width: 32
         height: 16
       alignment: 0
@@ -223,8 +235,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 40
+        y: 4
         width: 32
         height: 16
       alignment: 0
@@ -244,8 +256,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 76
+        y: 4
         width: 32
         height: 16
       alignment: 0
@@ -265,8 +277,8 @@ TextureImporter:
       name: Fireplace_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 112
+        y: 4
         width: 32
         height: 16
       alignment: 0
