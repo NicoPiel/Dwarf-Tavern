@@ -41,18 +41,6 @@ MonoBehaviour:
       damit wir es nicht verletzen
     negativeOutcome: 
   - choiceID: 3
-    text: Magisch fesseln
-    requiredClass: 3
-    requirementType: 2
-    reqBonus: 0
-    karmaAdjustment: -2
-    chance: 1
-    reward: lootDrop
-    loss: 
-    positiveOutcome: Das Wesen konnte nicht fliehen und gab uns einen Edelstein,
-      damit wir es nicht verletzen
-    negativeOutcome: 
-  - choiceID: 3
     text: Versuchen zu kommunizieren
     requiredClass: 0
     requirementType: 0

@@ -7,7 +7,7 @@ public class GlossarStateHolder : MonoBehaviour
 {
     private static bool _initialized;
     private static GlossarStateHolder _instance;
-    private int _state = 0;
+    private int _state = 2;
     public UnityEvent glossarStateHolderChanged;
 
     
