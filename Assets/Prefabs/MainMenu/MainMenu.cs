@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
@@ -19,11 +20,15 @@ public class MainMenu : MonoBehaviour
     
     public GameObject mainScreen;
     public GameObject optionsScreen;
+    public GameObject confirmMenu;
     
     public Button continueButton;
     public Button playButton;
     public Button optionsButton;
     public Button quitButton;
+
+    private bool _confirmButtonsPressed;
+    private bool _confirmDelete;
 
     private void Start()
     {
@@ -42,11 +47,66 @@ public class MainMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.RefreshShownValue();
         LoadSettings(currentResolutionIndex);
+
+        if (ES3.FileExists())
+        {
+            continueButton.interactable = true;
+        }
+        else
+        {
+            continueButton.interactable = false;
+        }
     }
 
-    public void StartGame()
+    public void LoadGame()
     {
         SceneManager.LoadScene("Tavern");
+    }
+
+    public void StartNewGame()
+    {
+        if (ES3.FileExists())
+        {
+            ShowConfirmMenu();
+            StartCoroutine(WaitForConfirmationThenStart());
+        }
+        else
+        {
+            SceneManager.LoadScene("Tavern");
+        }
+    }
+
+    private IEnumerator WaitForConfirmationThenStart()
+    {
+        yield return new WaitUntil(() => _confirmButtonsPressed);
+
+        if (_confirmDelete)
+        {
+            ES3.DeleteFile();
+            SceneManager.LoadScene("Tavern");
+        }
+        else
+        {
+            _confirmButtonsPressed = false;
+            HideConfirmMenu();
+        }
+    }
+
+    public void ConfirmDelete(bool confirm)
+    {
+        _confirmButtonsPressed = true;
+        _confirmDelete = confirm;
+        HideConfirmMenu();
+    }
+
+    public void ShowConfirmMenu()
+    {
+        confirmMenu.SetActive(true);
+    }
+
+    public void HideConfirmMenu()
+    {
+        confirmMenu.SetActive(false);
     }
 
     public void ShowOptions()
