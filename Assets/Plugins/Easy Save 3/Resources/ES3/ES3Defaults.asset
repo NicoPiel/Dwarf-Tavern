@@ -29,17 +29,17 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
+    - Assembly-CSharp
     - AstarPathfindingProject
     - Assembly-CSharp-firstpass
     - Cinemachine
-    - Assembly-CSharp
     - PackageTools
     - Drawing
     - PsdPlugin
     - AstarPathfindingProjectEditor
     - AstarPackageToolsEditor
-    - DrawingPackageToolsEditor
     - DrawingEditor
+    - DrawingPackageToolsEditor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
