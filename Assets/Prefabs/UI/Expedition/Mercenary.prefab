@@ -98,10 +98,10 @@ MonoBehaviour:
   hp: {fileID: 3059022643813816574}
   price: {fileID: 8782001299390230031}
   icon: {fileID: 8054109083201880870}
-  swordsman: {fileID: 21300000, guid: 0e29d7aa98955444eb4d4957df7ddc3f, type: 3}
-  mage: {fileID: 21300000, guid: 37eea004a69597d439154c3944c90b62, type: 3}
-  priest: {fileID: 21300000, guid: 1f186e93e05b11e4eb81e283451e7ffd, type: 3}
-  hunter: {fileID: 21300000, guid: f3684a45acad15d45a44b20370bb73c3, type: 3}
+  swordsman: {fileID: 21300000, guid: b32d452c84c68d841beabf3394721c9b, type: 3}
+  mage: {fileID: 21300000, guid: 884b9dbf7f1dca6459139e77494775b5, type: 3}
+  priest: {fileID: 21300000, guid: 40b64d97a318d80458cbd22bbeacc04b, type: 3}
+  hunter: {fileID: 21300000, guid: e16d755067b1efb4696e37efb2cd311a, type: 3}
 --- !u!1 &1636675242572524818
 GameObject:
   m_ObjectHideFlags: 0

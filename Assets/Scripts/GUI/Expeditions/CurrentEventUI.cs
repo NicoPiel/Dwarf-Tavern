@@ -9,6 +9,9 @@ using Event = Expeditions.Events.Event;
 
 public class CurrentEventUI : MonoBehaviour
 {
+    public GameObject choiceUI;
+    public GameObject OutComeUI;
+    
     public GameObject _choice1;
     public GameObject _choice2;
     public GameObject _choice3;
@@ -17,45 +20,60 @@ public class CurrentEventUI : MonoBehaviour
 
     private Expeditions.Events.Event curretevents;
 
+    private bool _showFinalText;
+    private string _finalText;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
         UpdateUI();
-        EventHandler.onTriggerExpeditionEvent.AddListener((events) => UpdateUI());
+        EventHandler.onTriggerExpeditionEvent.AddListener((events) =>
+        {
+            _showFinalText = false;
+            UpdateUI();
+        });
+
     }
 
     // Update is called once per frame
     private void UpdateUI()
     {
-        if (ExpeditionHolder.GetInstance().GetSelectedExpedition() != null)
+        if (ExpeditionHolder.GetInstance().GetSelectedExpedition() == null)
         {
-            if (ExpeditionHolder.GetInstance().GetSelectedExpedition().IsStarted())
-            {
-                if (ExpeditionHolder.GetInstance().GetCurrentEvent() != null)
-                {
-                    curretevents = ExpeditionHolder.GetInstance().GetCurrentEvent();
-                    gameObject.transform.localScale = Vector3.one;
+            gameObject.transform.localScale = Vector3.zero;
+            return;
+        }
+        if (!ExpeditionHolder.GetInstance().GetSelectedExpedition().IsStarted())
+        {
+            gameObject.transform.localScale = Vector3.zero;
+            return;
+        }
 
-                    description.text = curretevents.description;
-                    
-                    SetupButtons(_choice1, 0);
-                    SetupButtons(_choice2, 1);
-                    SetupButtons(_choice3, 2);
-                }
-                else
-                {
-                    gameObject.transform.localScale = Vector3.zero;
-                }
+        if (ExpeditionHolder.GetInstance().GetCurrentEvent() == null)
+        {
+            if (_showFinalText)
+            {
+                choiceUI.transform.localScale = Vector3.zero;
+                OutComeUI.transform.localScale = Vector3.one;
+                OutComeUI.GetComponentInChildren<TMP_Text>().text = _finalText;
             }
             else
             {
                 gameObject.transform.localScale = Vector3.zero;
             }
+            return;
         }
-        else
-        {
-            gameObject.transform.localScale = Vector3.zero;
-        }
+        
+        choiceUI.transform.localScale = Vector3.one;
+        OutComeUI.transform.localScale = Vector3.zero;
+        curretevents = ExpeditionHolder.GetInstance().GetCurrentEvent();
+        gameObject.transform.localScale = Vector3.one;
+
+        description.text = curretevents.description;
+                    
+        SetupButtons(_choice1, 0);
+        SetupButtons(_choice2, 1);
+        SetupButtons(_choice3, 2);
     }
 
     private void SetupButtons(GameObject button, int choice)
@@ -71,11 +89,11 @@ public class CurrentEventUI : MonoBehaviour
             if (ExpeditionHolder.GetInstance().GetSelectedExpedition().GetTeam()
                 .ContainsRole(curretevents.choices[choice].requiredClass))
             {
-                button.GetComponent<Button>().enabled = false;
+                button.GetComponent<Button>().enabled = true;
             }
             else
             {
-                button.GetComponent<Button>().enabled = true;
+                button.GetComponent<Button>().enabled = false;
             }
         }
         else if (curretevents.choices[choice].requirementType == Event.EventChoice.RequirementType.Soft)
@@ -99,6 +117,18 @@ public class CurrentEventUI : MonoBehaviour
 
     public void OnChoiceButtonPressed(int i)
     {
-        EventPoolManager.Instance.HandleChoice(i);
+        Debug.Log($"Button {i} pressed");
+        if (EventPoolManager.Instance.HandleChoice(i))
+        {
+            
+            _finalText = curretevents.choices[i].positiveOutcome;
+        }
+        else
+        {
+            _finalText = curretevents.choices[i].negativeOutcome;
+        }
+        _showFinalText = true;
+        ExpeditionHolder.GetInstance().RemoveCurrentEvent();
+        UpdateUI();
     }
 }

@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeamSlotUI : MonoBehaviour
 {
+    public Sprite sword;
+    public Sprite mage;
+    public Sprite priest;
+    public Sprite hunter;
+
+
+    public Image slot;
     public int teamSlotID;
     public TMP_Text role;
 
     public TMP_Text hp;
+    public TMP_Text name;
     
     // Start is called before the first frame update
     void Start()
@@ -35,6 +44,16 @@ public class TeamSlotUI : MonoBehaviour
         {
             gameObject.transform.localScale = Vector3.one;
             role.text = mercenary.GetRole().ToString();
+            name.text = mercenary.GetName();
+            if(mercenary.GetRole() == Mercenary.MercenaryRole.Hunter)
+                slot.sprite = hunter;
+            else if (mercenary.GetRole() == Mercenary.MercenaryRole.Mage)
+                slot.sprite = mage;
+            else if (mercenary.GetRole() == Mercenary.MercenaryRole.Priest)
+                slot.sprite = priest;
+            else if (mercenary.GetRole() == Mercenary.MercenaryRole.Swordsman)
+                slot.sprite = sword;
+            
             hp.text = $"HP: {mercenary.GetHealthPoints()}/{mercenary.GetMaxHealthPoints()}";
         }
         else
