@@ -10,10 +10,10 @@ namespace Expeditions.Events
 {
     public class EventPoolManager : MonoBehaviour
     {
-        public const float ChanceCommon = 0.35f;
-        public const float ChanceUncommon = 0.3f;
-        public const float ChanceRare = 0.2f;
-        public const float ChanceEpic = 0.1f;
+        public const float ChanceCommon = 0f;
+        public const float ChanceUncommon = 0.5f;
+        public const float ChanceRare = 0.3f;
+        public const float ChanceEpic = 0.15f;
         public const float ChanceLegendary = 0.05f;
         
         public static EventPoolManager Instance
