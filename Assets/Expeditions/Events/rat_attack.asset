@@ -15,17 +15,18 @@ MonoBehaviour:
   description: Die Gruppe wird von einer Ratte angegriffen
   difficulty: 1
   neededKarmaLevel: 0
+  themeType: 0
   choices:
   - choiceID: 1
     text: Lass es den Tank regeln!
-    requiredClass: 0
-    requirementType: 1
+    requiredClass: 1
+    requirementType: 2
     reqBonus: 0
     karmaAdjustment: 0
     chance: 1
     reward: lootDrop
     loss: 
-    positiveOutcome: 
+    positiveOutcome: 'Die Ratte wurde '
     negativeOutcome: 
   - choiceID: 2
     text: Lasst uns lieber weglaufen
@@ -34,10 +35,10 @@ MonoBehaviour:
     reqBonus: 0.2
     karmaAdjustment: 0
     chance: 0.5
-    reward: lootDrop
-    loss: 
-    positiveOutcome: 
-    negativeOutcome: 
+    reward: 
+    loss: damage
+    positiveOutcome: Wir konnten entfliehen
+    negativeOutcome: Die Ratte hat einen gebissen
   - choiceID: 3
     text: "Lasst Sie uns bek\xE4mpfen"
     requiredClass: 0
