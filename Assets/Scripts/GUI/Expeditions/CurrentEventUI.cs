@@ -117,15 +117,28 @@ public class CurrentEventUI : MonoBehaviour
 
     public void OnChoiceButtonPressed(int i)
     {
-        Debug.Log($"Button {i} pressed");
         if (EventPoolManager.Instance.HandleChoice(i))
         {
-            
             _finalText = curretevents.choices[i].positiveOutcome;
+            _finalText += "\n";
+            if (curretevents.choices[i].reward == "lootDrop")
+            {
+                _finalText += "Items erhalten!";
+            }else if (curretevents.choices[i].reward == "karmaPlus")
+            {
+                _finalText += "Ihr seid ein wenig mehr mit Glück gesegnet";
+            }
         }
         else
         {
             _finalText = curretevents.choices[i].negativeOutcome;
+            if (curretevents.choices[i].reward == "damage")
+            {
+                _finalText += "Jemand aus der Gruppe hat Schaden erlitten.";
+            }else if (curretevents.choices[i].reward == "karmaPlus")
+            {
+                _finalText += "Jemanden aus der Gruppe hat es dahin gerafft.";
+            }
         }
         _showFinalText = true;
         ExpeditionHolder.GetInstance().RemoveCurrentEvent();

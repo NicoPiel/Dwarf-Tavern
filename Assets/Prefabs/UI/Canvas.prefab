@@ -1442,6 +1442,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3757847478447281464, guid: c9ddb69103a159041accbff8ff5db78c, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ddb69103a159041accbff8ff5db78c, type: 3}
 --- !u!224 &6539669464779208219 stripped
@@ -1463,6 +1467,10 @@ PrefabInstance:
     - target: {fileID: 476969339417522702, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 619551503141188193, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2671843857141019889, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
       propertyPath: m_Pivot.x
@@ -1623,6 +1631,10 @@ PrefabInstance:
     - target: {fileID: 8400932577249569924, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
       propertyPath: m_Name
       value: Blackboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400932577249569924, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8458341362179777515, guid: b923c5a2f983b304dab3c147be627d06, type: 3}
       propertyPath: m_fontAsset

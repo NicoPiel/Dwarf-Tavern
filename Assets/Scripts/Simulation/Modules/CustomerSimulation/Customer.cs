@@ -151,7 +151,7 @@ namespace Simulation.Modules.CustomerSimulation
         private void Init()
         {
             _currentState = State.InQueue;
-            race = (Race) Random.Range(1, 3);
+            race = (Race) Random.Range(0, 3);
             Name = CustomerSimulation.GetRandomName(race);
             namePlate.text = Name;
 
@@ -246,9 +246,10 @@ namespace Simulation.Modules.CustomerSimulation
 
         private IEnumerator Arrive()
         {
-            yield return new WaitForSeconds(Random.Range(0.5f, 2f));
+            //yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             _currentState = State.MovingToTable;
             Unblock();
+            yield return null;
         }
 
         /**
