@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: questDisplay
       value: 
       objectReference: {fileID: 1019534375440310337}
+    - target: {fileID: 8178790827082372269, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
+      propertyPath: durationOfDayInMinutes
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8178790827082372271, guid: 70cbe074fa014ab4aa55c52c00fd4980, type: 3}
       propertyPath: m_Name
       value: SimulationManager
