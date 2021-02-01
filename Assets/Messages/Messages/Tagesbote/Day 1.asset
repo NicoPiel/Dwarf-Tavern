@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee740be283b46338d9fcc04df4b2b9e, type: 3}
+  m_Name: Day 1
+  m_EditorClassIdentifier: 
+  sender: Der Tagesbote
+  rewardItems: []
+  rewardMoney: 0
+  articles:
+  - headline: Weg offen!
+    articleText: "Der Weg in das mysteri\xF6se Land ist offen! Abenteuergilden und
+      S\xF6ldner fangen an loszuziehen und st\xE4rken sich in der neu ge\xF6ffneten
+      Taverne an dessen Eingang."

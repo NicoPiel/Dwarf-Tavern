@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee740be283b46338d9fcc04df4b2b9e, type: 3}
+  m_Name: Day 100
+  m_EditorClassIdentifier: 
+  sender: Der Tagesbote
+  rewardItems: []
+  rewardMoney: 0
+  articles:
+  - headline: Kampfhandlungen vorbei!
+    articleText: "Die letzte Schlacht ist geschlagen: trotz einiger Verluste war
+      der Bund siegreich. Das Schattenvolk ist ausgel\xF6scht und der Bund hat sich
+      ihr Recht auf das Paradies erk\xE4mpft! Ein letztes Mal gehen Forscher zu den
+      H\xF6hlen der Schattenvolkes und entdecken dort lang verloren geglaubte Artefakte
+      und Schriftzeichen. \r\nEs wird darin klar, dass das neue Land das Paradies
+      aus den Elfengeschichten ist, aber gleichzeitig auch die Rettung der Zwerge.
+      Somit einigen sie sich: das B\xFCndnis bleibt bestehen und teilt sich die Erl\xF6sung. "

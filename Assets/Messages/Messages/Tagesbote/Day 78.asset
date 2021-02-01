@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee740be283b46338d9fcc04df4b2b9e, type: 3}
+  m_Name: Day 78
+  m_EditorClassIdentifier: 
+  sender: Der Tagesbote
+  rewardItems: []
+  rewardMoney: 0
+  articles:
+  - headline: Bereit zum Kampf!
+    articleText: "Bund verschwunden? Seit einigen Tagen bestehen Zweifel, ob er wiederkehren
+      wird. V\xF6lker machen sich bereit zu k\xE4mpfen, wenn Schattenvolk weiter
+      vordringt.\r"

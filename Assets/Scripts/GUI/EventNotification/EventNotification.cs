@@ -14,14 +14,14 @@ public class EventNotification : BaseMenu
     {
         isShown = true;
         
-        LeanTween.move(GetComponent<RectTransform>(), new Vector3(-200, 45, 0), 0.4f).setEaseInBounce();
+        LeanTween.move(GetComponent<RectTransform>(), new Vector3(-200, 40, 0), 0.4f).setEaseInBounce();
     }
 
     public override void HideMenu()
     {
         isShown = false;
         
-        LeanTween.move(GetComponent<RectTransform>(), new Vector3(230, 45, 0), 0.4f).setEaseOutBounce();
+        LeanTween.move(GetComponent<RectTransform>(), new Vector3(230, 40, 0), 0.4f).setEaseOutBounce();
     }
 
     public void ShowMenuOnEventTrigger(Expeditions.Events.Event triggeredEvent)
