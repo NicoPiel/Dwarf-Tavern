@@ -110,7 +110,7 @@ public class Team
                 return _teamSlot2;
             }
 
-            randomNumber = 2;
+            randomNumber = 3;
         }
 
         if (randomNumber == 3)
@@ -123,6 +123,17 @@ public class Team
         }
         GetRandomTeamMember(randomNumber);
         return null;
+    }
+
+    public bool ContainsRole(Mercenary.MercenaryRole role)
+    {
+        if (_teamSlot1.GetRole() == role)
+            return true;
+        if (_teamSlot2.GetRole() == role)
+            return true;
+        if (_teamSlot3.GetRole() == role)
+            return true;
+        return false;
     }
 
     public bool IsFull()
