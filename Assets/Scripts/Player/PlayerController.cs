@@ -1,8 +1,5 @@
-﻿using System;
-using UnityEditor.ShaderGraph;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Player
 {
