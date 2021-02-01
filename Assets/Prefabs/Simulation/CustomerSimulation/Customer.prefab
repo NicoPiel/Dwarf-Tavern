@@ -306,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 9
   m_Sprite: {fileID: -1705520269155941585, guid: 39f88deeb1fce034c832f1b07a9693b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -401,6 +401,7 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 4f0767d4b674e5143807b18e8b373482, type: 2}
   - {fileID: 22100000, guid: 8e9324ca925a54749aa2f6f08cfdb1d2, type: 2}
   - {fileID: 22100000, guid: b714363e2b73db045bbb124a1e87fbf3, type: 2}
+  - {fileID: 22100000, guid: e1133472c1c0cfa49a4d34e066fe413e, type: 2}
   Name: 
   race: 0
   namePlate: {fileID: 328915372903788900}
@@ -6023,7 +6024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 666962887829269144, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.282
+      value: -1.451
       objectReference: {fileID: 0}
     - target: {fileID: 739685871457978495, guid: d3087d40bb15ca048acc137c9bea01a8, type: 3}
       propertyPath: m_Name
