@@ -9,17 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87371c6c68fc4647a82fdbd0c14bcf01, type: 3}
-  m_Name: Day1Letter
+  m_Script: {fileID: 11500000, guid: 4a677b9bc66049da973dd970b88ec3e0, type: 3}
+  m_Name: NewspaperTestTask
   m_EditorClassIdentifier: 
-  sender: Unbekannt
-  rewardItems: []
-  rewardMoney: 1000
-  text: Erster Tag, lol
-  responseOptions:
-  - id: 1
-    displayText: lol
-  - id: 2
-    displayText: xd
-  - id: 3
-    displayText: rofl
+  message: {fileID: 11400000, guid: 694bc7457eebd034386fedea92f8cd9b, type: 2}
+  defaultCancelled: 0
+  day: 1

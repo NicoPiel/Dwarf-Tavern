@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Interactions;
 using Inventory;
+using Messages;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,6 +36,8 @@ public class EventHandler : MonoBehaviour
     public static UnityEvent<Expeditions.Events.Event> onTriggerExpeditionEvent;
     public static UnityEvent onExpeditionEventFinished;
 
+    public static UnityEvent<KeyValuePair<LetterMessage, LetterMessage.ResponseOption>> onLetterResponse;
+
     private void Awake()
     {
         onItemBeerHolderChanged = new UnityEvent();
@@ -55,5 +58,6 @@ public class EventHandler : MonoBehaviour
         onTeamChanged = new UnityEvent();
         onTriggerExpeditionEvent = new UnityEvent<Expeditions.Events.Event>();
         onExpeditionEventFinished = new UnityEvent();
+        onLetterResponse = new UnityEvent<KeyValuePair<LetterMessage, LetterMessage.ResponseOption>>();
     }
 }

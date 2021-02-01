@@ -11,6 +11,7 @@ namespace Messages
         public GameObject debugUI;
         public bool resetMessageSystem = true;
         private List<string> _cancelledTasks = new List<string>();
+        private List<string> _responded = new List<string>();
 
         private int _randomGameSeed;
         public static MessageSystemHandler Instance
@@ -41,6 +42,11 @@ namespace Messages
                 {
                     _cancelledTasks.AddRange(messageSystem.tasks.Where(task => task.defaultCancelled).Select(task => task.name));
                 }
+                
+                if (!resetMessageSystem && ES3.KeyExists("msg_respondedTasks"))
+                {
+                    _responded = ES3.Load<List<string>>("msg_respondedTasks");
+                }
 
                 DontDestroyOnLoad(this);
             }
@@ -59,6 +65,7 @@ namespace Messages
         {
             ES3.Save("msg_cancelledTasks", _cancelledTasks);
             ES3.Save("msg_randomSeed", _randomGameSeed);
+            ES3.Save("msg_respondedTasks", _responded);
         }
 
         private int CreateSeed(int localSeed)
@@ -133,12 +140,29 @@ namespace Messages
 
         public void Resume(MessageTask task)
         {
-            _cancelledTasks.Remove(task.name);
+            _cancelledTasks.RemoveAll(s=> Equals(s, task.name));
         }
 
         public bool IsCancelled(MessageTask task)
         {
             return _cancelledTasks.Contains(task.name);
+        }
+
+        public void SetResponded(Message msg, bool responded)
+        {
+            if (responded)
+            {
+                _responded.Add(msg.name);
+            }
+            else
+            {
+                _responded.RemoveAll(s => Equals(s, msg.name));
+            }
+        }
+
+        public bool IsRespondedTo(Message msg)
+        {
+            return _responded.Contains(msg.name);
         }
 
         public MessageTask FindByName(string n)
