@@ -24,7 +24,7 @@ public class Expedition
     {
         _difficulty = difficulty;
         _karma = 1;
-        _length = Random.Range(1, _difficulty * 2);
+        _length = GenerateLength();
         _team = new Team();
         _theme = (ThemeType) Random.Range(1,4);
         _name = GameManager.GetRandomPlace(_theme.ToString().ToLower());
@@ -103,7 +103,21 @@ public class Expedition
         _completedEvents += count;
     }
     #endregion
-    
+
+    private int GenerateLength()
+    {
+        switch (_difficulty)
+        {
+            case 1:
+                return Random.Range(3, 6);
+            case 2:
+                return Random.Range(5, 9);
+            case 3:
+                return Random.Range(10, 13);
+        }
+
+        return 0;
+    }
     public void DamageRandom()
     {
         var mercenary = _team.GetRandomTeamMember();

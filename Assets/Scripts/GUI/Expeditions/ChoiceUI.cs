@@ -23,7 +23,7 @@ public class ChoiceUI : MonoBehaviour
         if (ExpeditionHolder.GetInstance().IsExpeditionSelected())
         {
             gameObject.transform.localScale = Vector3.one;
-            for(int i = 0; i <= ExpeditionHolder.GetInstance().GetSelectedExpedition().GetLength(); i+=1)
+            for(int i = 0; i < ExpeditionHolder.GetInstance().GetSelectedExpedition().GetLength(); i+=1)
             {
                 var gameObjectItem = Instantiate(choiceFramePrefab, transform);
                 gameObjectItem.name = "Slot " + i;
