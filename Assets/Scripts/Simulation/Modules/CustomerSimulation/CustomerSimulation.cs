@@ -83,7 +83,7 @@ namespace Simulation.Modules.CustomerSimulation
                 if (customer) customer.UpdateState();
             }
 
-            if (customers.Count <= CustomerLimit)
+            if (customers.Count < CustomerLimit)
             {
                 // Add a new customer based on time passed since the last time one was added.
                 if (Random.value <= CustomerProbability(time))
