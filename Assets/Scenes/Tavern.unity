@@ -1018,10 +1018,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -6831157465825466176, guid: 77b61eda454930442907379cd3ae1e0c, type: 2}
-    - target: {fileID: 6539669464779208219, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 6927965284838006034, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
       propertyPath: m_sharedMaterial
       value: 
