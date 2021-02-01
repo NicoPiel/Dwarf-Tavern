@@ -373,9 +373,7 @@ namespace Simulation.Modules.CustomerSimulation
         private IEnumerator Leave()
         {
             if (!_wantsToLeave) throw new StateException(State.Leaving, $"Customer does not want to leave. _wantsToLeave has to be true, but is: {_wantsToLeave}");
-            
-            UnassignPlace();
-            
+
             Vector3 target = GameObject.FindWithTag("Spawner").transform.position;
 
             _pathfinder.destination = target;
