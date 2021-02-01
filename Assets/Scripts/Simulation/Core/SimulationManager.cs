@@ -6,6 +6,7 @@ using Simulation.Modules.CustomerSimulation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Simulation.Core
 {
@@ -77,6 +78,7 @@ namespace Simulation.Core
             onSimulationPause.AddListener(OnSimulationPause);
             onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
+            onEndOfDay.AddListener(OnEndOfDay);
 
             _durationOfDay = endOfDay - startOfDay;
             
@@ -183,6 +185,12 @@ namespace Simulation.Core
         private void EndDay()
         {
             onEndOfDay.Invoke();
+        }
+
+        private void OnEndOfDay()
+        {
+            StopSimulation();
+            SceneManager.LoadScene("AfterHour");
         }
         
         public static SimulationManager GetInstance()

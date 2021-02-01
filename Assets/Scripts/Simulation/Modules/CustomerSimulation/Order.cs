@@ -114,8 +114,7 @@ namespace Simulation.Modules.CustomerSimulation
 
 
             // Generic output
-            return
-                $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{taste.Substring(0, taste.Length - 2).ToLower()}{GetSubstantiveAccusativePostfix()} {beverage}</b>, {article} mich <b>{attributeCombination.ToLower()}er</b> macht.";
+            return $"Ich hätte gerne ein{GetArticleAccusativePostfix()} <b>{beverage}</b>, {article} mich <b>{attributeCombination.ToLower()}er</b> macht.";
         }
 
         public string GetShortDescription()

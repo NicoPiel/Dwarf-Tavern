@@ -2195,6 +2195,15 @@ TextureImporter:
   - first:
       213: -4689263921583197548
     second: UIpackSheet_transparent_730
+  - first:
+      213: 7366512985688535559
+    second: UIpackSheet_transparent_731
+  - first:
+      213: 4951825769510927517
+    second: UIpackSheet_transparent_732
+  - first:
+      213: 6539517607532242439
+    second: UIpackSheet_transparent_733
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -13115,9 +13124,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 427
-        y: 193
-        width: 55
-        height: 37
+        y: 218
+        width: 26
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -15929,9 +15938,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 126
-        y: 93
+        y: 108
         width: 16
-        height: 31
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -17634,7 +17643,7 @@ TextureImporter:
         width: 16
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -17642,6 +17651,69 @@ TextureImporter:
       bones: []
       spriteID: 4927affde436ceeb0800000000000000
       internalID: -4689263921583197548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIpackSheet_transparent_731
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 93
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7027441f78c1b3660800000000000000
+      internalID: 7366512985688535559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIpackSheet_transparent_732
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 198
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cf25d2d4b68b440800000000000000
+      internalID: 4951825769510927517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIpackSheet_transparent_733
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 193
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7062f5fbd9801ca50800000000000000
+      internalID: 6539517607532242439
       vertices: []
       indices: 
       edges: []
