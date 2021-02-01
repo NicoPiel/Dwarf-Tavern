@@ -114,6 +114,8 @@ namespace Simulation.Modules.CustomerSimulation
         {
             if (customers.Remove(customer))
             {
+                unassignedCustomerPlaces.Add(customer.assignedPlace);
+                assignedCustomerPlaces.Remove(customer.assignedPlace);
                 Destroy(customer.gameObject);
             }
 
@@ -168,7 +170,7 @@ namespace Simulation.Modules.CustomerSimulation
         public CustomerPlace AssignCustomerToRandomPlace(Customer customer)
         {
             // Get random unassigned place.
-            var customerPlace = unassignedCustomerPlaces[Random.Range(0, unassignedCustomerPlaces.Count)];
+            CustomerPlace customerPlace = unassignedCustomerPlaces[Random.Range(0, unassignedCustomerPlaces.Count)];
             // Remove it from the original list
             unassignedCustomerPlaces.Remove(customerPlace);
             // Add it to a different list

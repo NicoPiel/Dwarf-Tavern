@@ -151,7 +151,7 @@ namespace Simulation.Modules.CustomerSimulation
         private void Init()
         {
             _currentState = State.InQueue;
-            race = (Race) Random.Range(0, 3);
+            race = (Race) Random.Range(1, 3);
             Name = CustomerSimulation.GetRandomName(race);
             namePlate.text = Name;
 
