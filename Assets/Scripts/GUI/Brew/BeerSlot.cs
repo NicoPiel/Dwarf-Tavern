@@ -47,6 +47,8 @@ public class BeerSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void EmptySlot()
     {
+        if (itemBeerHolder.GetItemBeerFromSlot(slotNumber) == null) return;
+        
         itemBeerHolder.Remove(slotNumber);
         audioSource.clip = beerSmash;
         audioSource.Play();
