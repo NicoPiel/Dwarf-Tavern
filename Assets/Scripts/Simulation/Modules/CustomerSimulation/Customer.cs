@@ -127,13 +127,16 @@ namespace Simulation.Modules.CustomerSimulation
 
             if (_pathfinder.velocity.x < 0 || _pathfinder.velocity.x > 0)
             {
-                if (assignedPlace.transform.rotation.y == 0)
+                if (assignedPlace != null)
                 {
-                    animator.SetFloat(PrevHorizontal, 1);
-                }
-                else
-                {
-                    animator.SetFloat(PrevHorizontal, -1);
+                    if (assignedPlace.transform.rotation.y == 0)
+                    {
+                        animator.SetFloat(PrevHorizontal, 1);
+                    }
+                    else
+                    {
+                        animator.SetFloat(PrevHorizontal, -1);
+                    }
                 }
 
                 animator.SetFloat(PrevVertical, 0);
