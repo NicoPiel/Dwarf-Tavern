@@ -66,12 +66,12 @@ namespace Simulation.Modules.CustomerSimulation
 
         protected override void OnSimulationPause()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override void OnSimulationUnpause()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         protected override void OnSimulationTick()

@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        _gamePaused = false;
     }
 
     private void Update()

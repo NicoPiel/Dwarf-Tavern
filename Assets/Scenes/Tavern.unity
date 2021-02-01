@@ -344,6 +344,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5295616487661739979, guid: b9cad513b3be57349a55f030565be295, type: 3}
   m_PrefabInstance: {fileID: 5295616487239429540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &821336885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5357806218968535412, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
+  m_PrefabInstance: {fileID: 1019534375440310336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768ab6c22df5cc340b14c9efce065a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &871290278 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5833508667799583128, guid: 5ec68362debc3ee43a02bbd570b43f20, type: 3}
@@ -492,6 +503,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 767715048581585644, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 821336885}
     - target: {fileID: 767715048581585644, guid: ec9a6f8da0873534db5fe28fdc97bdc1, type: 3}
       propertyPath: beerDisplay
       value: 

@@ -15,6 +15,7 @@ namespace Player
         public int smoothness = 5;
         public GameObject selectionTrigger;
         public BeerDisplay beerDisplay;
+        public PauseMenu pauseMenu;
 
         public AudioSource footstepAudioSource;
         public List<AudioClip> footstepSounds;
@@ -75,6 +76,12 @@ namespace Player
             {
                 if (!beerDisplay.IsShown()) beerDisplay.ShowMenu();
                 else beerDisplay.HideMenu();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!pauseMenu.IsShown()) pauseMenu.ShowMenu();
+                else pauseMenu.HideMenu();
             }
         }
 

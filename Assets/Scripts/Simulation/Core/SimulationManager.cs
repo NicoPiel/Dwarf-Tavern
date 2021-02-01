@@ -79,6 +79,9 @@ namespace Simulation.Core
             onSimulationUnpause.AddListener(OnSimulationUnpause);
             onSimulationTick.AddListener(OnSimulationTick);
             onEndOfDay.AddListener(OnEndOfDay);
+            
+            EventHandler.onGamePaused.AddListener(OnGamePaused);
+            EventHandler.onGameUnpaused.AddListener(OnGameUnpaused);
 
             _durationOfDay = endOfDay - startOfDay;
             
@@ -119,7 +122,7 @@ namespace Simulation.Core
         {
             for (;;)
             {
-                if (_paused) break;
+                if (_paused) yield return null;
 
                 onSimulationTick.Invoke();
                 yield return new WaitForSeconds(TickDuration);
@@ -130,6 +133,16 @@ namespace Simulation.Core
         private IEnumerator SimulationPostTick()
         {
             yield return null;
+        }
+
+        private void OnGamePaused()
+        {
+            PauseSimulation();
+        }
+
+        private void OnGameUnpaused()
+        {
+            UnpauseSimulation();
         }
 
         private void OnSimulationStart()
