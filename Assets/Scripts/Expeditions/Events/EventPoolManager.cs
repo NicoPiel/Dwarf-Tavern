@@ -71,7 +71,7 @@ namespace Expeditions.Events
                 switch (choice.reward)
                 {
                     case "lootDrop":
-                        GiveRandomLoot();
+                        GiveRandomLoot(exp);
                         break;
                     case "karmaPlus":
                         exp.AddKarma(1);
@@ -94,7 +94,7 @@ namespace Expeditions.Events
             return success;
         }
 
-        private void GiveRandomLoot()
+        private void GiveRandomLoot(Expedition expedition)
         {
             float rand = (float) new Random().NextDouble();
             int category = 1;
@@ -113,6 +113,7 @@ namespace Expeditions.Events
                 .Where(i => i.GetRarity() == (Item.Rarity) category).ToList();
             IngredientItem item = items[new Random().Next(items.Count)];
             InventoryManager.GetInstance().GetPlayerInventory().AddItem(item, new Random().Next(1, 6));
+            InventoryManager.GetInstance().GetPlayerInventory().AddFunds(new Random().Next(200, 601) *  expedition.GetDifficulty());
         }
         
     }

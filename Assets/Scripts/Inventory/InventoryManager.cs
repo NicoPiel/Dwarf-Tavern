@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Simulation.Core;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -163,18 +164,29 @@ namespace Inventory
         private Inventory LoadInv()
         {
             Inventory inv;
-            if (loadInvFromSave)
+            if (loadInvFromSave && ES3.KeyExists("inv_contents"))
             {
-                inv = new Inventory(50, 0);
+                inv = new Inventory(50000, 0);
                 inv.Load();
             }
             else
             {
-                inv = new Inventory(50, 100000, LoadContentsFromPreset());
+                inv = new Inventory(50000, 2000, LoadContentsFromPreset());
             }
             EventHandler.onAfterHourSceneLoaded.AddListener(() =>
             {
                 inv.Save();
+            });
+            SimulationManager.onSimulationStart.AddListener(() =>
+            {
+                foreach (var entry in LoadContentsFromPreset())
+                {
+                    int amount = GetPlayerInventory().GetAmountOf(entry.Key);
+                    if (amount < entry.Value)
+                    {
+                        GetPlayerInventory().AddItem(entry.Key, entry.Value - amount);
+                    }
+                }
             });
             return inv;
         }

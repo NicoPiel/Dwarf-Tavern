@@ -43,25 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed7f48f81415a0449c9a4ad189d24d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadInvFromSave: 0
+  loadInvFromSave: 1
   initialContent:
   - itemID: hops
-    amount: 25
+    amount: 50
   - itemID: herbs
-    amount: 25
+    amount: 50
   - itemID: potato
-    amount: 25
+    amount: 50
   - itemID: greenGrape
-    amount: 25
+    amount: 50
   - itemID: barley
-    amount: 25
+    amount: 50
   - itemID: banana
-    amount: 25
+    amount: 50
   - itemID: lemon
-    amount: 25
+    amount: 50
   - itemID: peanut
-    amount: 25
+    amount: 50
   - itemID: strawberry
-    amount: 25
+    amount: 50
   - itemID: spinach
-    amount: 25
+    amount: 50

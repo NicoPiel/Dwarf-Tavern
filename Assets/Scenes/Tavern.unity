@@ -1296,6 +1296,10 @@ PrefabInstance:
       propertyPath: debugUI
       value: 
       objectReference: {fileID: 533319121}
+    - target: {fileID: 311213562092461998, guid: 7c884b49d0be0b24b8df093709682d63, type: 3}
+      propertyPath: resetMessageSystem
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2577302703377318635, guid: 7c884b49d0be0b24b8df093709682d63, type: 3}
       propertyPath: m_Name
       value: MessageHandler
